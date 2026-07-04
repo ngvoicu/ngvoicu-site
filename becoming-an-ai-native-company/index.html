@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Becoming an AI Native Company — Gabriel Voicu</title>
+<meta name="description" content="What an AI-native company is and how engineering teams get there: context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ngvoicu.dev/becoming-an-ai-native-company/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/becoming-an-ai-native-company/">
+<meta property="og:title" content="Becoming an AI Native Company">
+<meta property="og:description" content="The practitioner&#39;s path from using AI to being built on it — by Gabriel Voicu, AI-native consultant.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Becoming an AI Native Company">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Becoming an AI Native Company",
+  "description": "What an AI-native company is and how engineering teams get there: context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.",
+  "image": "https://ngvoicu.dev/og.png",
+  "datePublished": "2026-07-04",
+  "dateModified": "2026-07-04",
+  "mainEntityOfPage": "https://ngvoicu.dev/becoming-an-ai-native-company/",
+  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/", "sameAs": ["https://github.com/ngvoicu", "https://www.linkedin.com/in/ngvoicu/"] },
+  "publisher": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/" }
+}
+</script>
+<style>
+  :root {
+    --ink-deep: #0C1E23; --ink-panel: #122A30; --ink-line: #1E3C43;
+    --foam: #E9F1EF; --mist: #9EB5B1; --seafoam: #63C7B2; --buoy: #FF6B5A;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Archivo", system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: var(--buoy); color: var(--ink-deep); }
+  body { background: var(--ink-deep); color: var(--foam); font-family: var(--sans); font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
+  a { color: var(--seafoam); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 48px; }
+  .brand svg { display: block; }
+  .brand-name { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--foam); }
+  .brand-tld { color: var(--seafoam); }
+  .kicker { font-family: var(--mono); font-size: 13px; color: var(--seafoam); margin-bottom: 14px; }
+  h1 { font-variation-settings: "wdth" 116; font-weight: 860; font-size: clamp(34px, 6vw, 52px); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 18px; }
+  .byline { font-family: var(--mono); font-size: 13.5px; color: var(--mist); margin-bottom: 48px; }
+  .byline a { color: var(--foam); }
+  article h2 { font-variation-settings: "wdth" 112; font-weight: 760; font-size: 26px; line-height: 1.25; margin: 52px 0 16px; }
+  article h3 { font-weight: 700; font-size: 20px; margin: 32px 0 12px; }
+  article p { color: var(--mist); margin-bottom: 18px; }
+  article p strong, article li strong { color: var(--foam); font-weight: 600; }
+  article em { color: var(--foam); font-style: italic; }
+  article ul { margin: 0 0 18px 22px; color: var(--mist); }
+  article li { margin-bottom: 8px; }
+  article code { font-family: var(--mono); font-size: 0.88em; background: var(--ink-panel); border: 1px solid var(--ink-line); border-radius: 4px; padding: 1px 6px; color: var(--foam); }
+  .cta-panel { margin-top: 56px; background: var(--ink-panel); border: 1px solid var(--ink-line); border-radius: 8px; padding: 28px; }
+  .cta-panel .contact-line { font-family: var(--mono); font-size: 13.5px; color: var(--mist); margin-top: 14px; }
+  .cta-panel .contact-line a { color: var(--foam); }
+  .cta { display: inline-block; font-family: var(--mono); font-size: 14px; color: var(--ink-deep); background: var(--seafoam); border-radius: 4px; padding: 11px 20px; font-weight: 500; }
+  .cta:hover { background: var(--foam); text-decoration: none; }
+  footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ink-line); font-family: var(--mono); font-size: 13px; color: var(--mist); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+
+  <div class="kicker">guide · from the "Becoming an AI Native Company" workshop</div>
+  <h1>Becoming an AI Native Company</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a> — AI-native consultant &amp; software engineer · 2026</div>
+
+  <article>
+<p>Most companies today use AI as a tool on the side. Someone opens a chatbot, pastes a question, copies the answer back into their real work. That is useful. It is not native.</p>
+<p>An AI-native company is different. AI is not an add-on or a feature. It is a core part of how the company builds, thinks, and operates. The test is simple: if you remove the AI, the workflow stops working.</p>
+<p>I am Gabriel Voicu. I build software with AI agents every day, and I help engineering teams do the same. This is the guide I wish existed when I started — the practitioner's path from <em>using</em> AI to <em>being built on</em> it.</p>
+<h2>What is an AI-native company?</h2>
+<p>An AI-native company redesigns its workflows, its knowledge, and its development process so that humans and agents work together as a system — not as a person using a chatbot.</p>
+<p>Here is the distinction that matters.</p>
+<p><strong>AI-enhanced:</strong> people use AI tools manually. It is helpful and faster, but still mostly person-by-person. Remove the AI and everyone goes back to how they worked before.</p>
+<p><strong>AI-native:</strong> workflows include AI-powered steps by design. The steps are repeatable, observable, and safe to scale. Humans stay in the loop — approving truth, risk, and direction — but the AI is load-bearing.</p>
+<p>That last line is the one to hold onto. Going native does not mean handing the wheel to a machine. It means humans own truth, risk, and direction, and the AI does the generation and the grunt work underneath.</p>
+<p>Everything below is how you get there.</p>
+<h2>The LLM is the engine. The harness is the vehicle.</h2>
+<p>Start with the parts, because the confusion at most companies is a parts confusion.</p>
+<p>A Large Language Model predicts the next token. At scale that becomes useful behavior: explaining, summarizing, planning, coding, reasoning. But an LLM alone cannot read your files, run your tests, or remember what you said ten minutes ago. It is a powerful engine sitting on a table.</p>
+<p>A <strong>harness</strong> wraps the LLM with everything it needs to become a working agent: tools it can call, a file system, permissions, a context window, session memory, and an interface. The model reasons. The harness makes it act.</p>
+<p>A Formula 1 engine on a table is impressive and useless. Put it in a chassis with steering, brakes, and a fuel system, and now it can race. LLM plus harness equals agent.</p>
+<p>This matters for a practical reason. When people say "Claude Code" or "Cursor" or "Codex," they are naming harnesses, not models. Same engine underneath, different vehicles — and the vehicle you pick shapes what the work feels like. CLI harnesses are usually the most capable for serious repo work; desktop apps are the easiest place to start. You will switch between models and harnesses depending on the task, and that is normal. Pick the model for the domain, then dial the effort for the difficulty.</p>
+<h2>Session context is the agent's working memory</h2>
+<p>Every session starts empty. The agent has zero prior knowledge of you or your project until something is loaded into its context.</p>
+<p>Context is measured in tokens — a bit more than one per word, since English runs about 1.3 tokens per word — and it only grows. The harness loads a starting set the moment it launches, and every turn you add more: your prompts, the agent's replies, file contents read in full, tool output, stack traces, dead ends you backtracked out of ten turns ago.</p>
+<p>This is where teams quietly lose quality, and most never notice.</p>
+<p>A bloated context costs you twice. Every turn re-sends the whole session to the model, so a heavy session gets slower and more expensive — and burns through your usage limits faster — <strong>while accuracy quietly drops.</strong> The agent starts remembering old plans that no longer apply. Answers get vague because the important facts are buried under logs and abandoned attempts.</p>
+<p>The fix is context hygiene, and it is a skill worth teaching your whole team:</p>
+<ul>
+<li><strong>Compact</strong> when the goal is the same but the chat has gotten heavy. Compress the history into decisions and open tasks.</li>
+<li><strong>Start new</strong> when the goal changes or the session gets confused. A fresh task deserves fresh working memory and a short handoff.</li>
+<li><strong>Prefer file references</strong> over pasting giant chunks into chat.</li>
+<li><strong>Re-read the source of truth</strong> when accuracy matters. Have the agent inspect the current files again.</li>
+</ul>
+<p>Clean context beats a big context window. A million-token window still needs structure. Signal beats volume.</p>
+<h2>Teach the agent your project, then give it a knowledge base</h2>
+<p>Working memory is fresh every session. So the first real setup step is teaching the agent about your project once, in a way it reads every time.</p>
+<p>That is what <strong>CLAUDE.md</strong> and <strong>AGENTS.md</strong> do. They are plain files in your repo — a README written for the AI. Tech stack, folder structure, conventions, and the rules that must never be broken: "always write tests first," "never modify the schema directly," "SQL uses snake_case." The agent reads them automatically on every session. Commit them to git and the whole team gets the same agent behavior; new contributors onboard faster because the agent already knows the project.</p>
+<p>Above those static files, agents now keep their own auto-memory — notes they write and re-read on their own. It is convenient, but recall is <em>probabilistic</em>: it may resurface the right note, or it may not. So keep anything that <strong>must</strong> be followed in CLAUDE.md and AGENTS.md, and let auto-memory handle the nice-to-remember details.</p>
+<p>None of that is your institutional knowledge. Your architecture decisions, the reasoning behind them, the production gotcha you debugged last quarter — that belongs in a real, shared, git-backed knowledge base. Not a personal scratchpad on one machine.</p>
+<p>This is why I built <strong><a href="https://kluris.ngvoicu.dev">Kluris, a git-backed knowledge base for coding agents</a></strong>. It is an open-source Python CLI that creates knowledge repositories called brains. Knowledge lives as markdown files — neurons — organized into lobes and linked by synapses. Any coding agent can search the brain (BM25 keyword search, no embeddings to maintain), learn from it, and propose additions. And there is a human approval gate on every write: nothing is auto-saved. The brain grows through human judgment, not automated dumps.</p>
+<p>Learn once, remember forever, and every teammate's agent inherits the same institutional context.</p>
+<h2>Vibe coding is for discovery. Specs are for decisions that stick.</h2>
+<p>There are two ways to work with a coding agent, and confusing them is the most expensive mistake I see.</p>
+<p><strong>Vibe coding</strong> is when you describe what you want in natural language and steer by feel while the agent builds. You react to what appears instead of starting from a formal spec. It is fast, and it is genuinely the right tool for prototypes, throwaway demos, and exploring UI ideas when the requirements are still fuzzy.</p>
+<p>Stop vibing the moment decisions need to stick: production code with real users, work several people must understand, anything touching security, payments, or data integrity, anything you cannot afford to start over on.</p>
+<p>Either way, one thing holds: you will not get it in one prompt. Working with an agent is a loop, not a single shot. You prompt, the agent drafts, you review, you refine, and a few turns later it does what you actually meant. Humans are in the loop the whole time — the agent types, a human steers every turn.</p>
+<p>When the work has to stick, the loop should start from a reviewed plan. <strong>Plan mode</strong> is the first step: the agent stops, inspects the repo, explains what it wants to do, surfaces risks, and waits for your approval before it touches a single file.</p>
+<p><strong>Spec-driven development</strong> is plan mode, evolved. A plan-mode plan lives in the chat and vanishes when the session ends. A spec becomes a real, durable file in the repo — one you treat as a work loop: draft, review, update, implement, and remember across sessions.</p>
+<p>This is what <strong><a href="https://specmint.ngvoicu.dev">Specmint, spec-driven development for AI coding agents</a></strong> does. It plugs into your coding agent and runs the whole spec lifecycle: a research-and-interview forge that reads your codebase before writing anything, durable resumable specs in <code>.specs/</code>, and TDD variants so implementation follows the spec red-green. It works with Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI, and it is free and MIT-licensed. The spec becomes the single source of truth that both implementation and review point back to.</p>
+<h2>Cross-LLM adversarial review catches what one model cannot</h2>
+<p>Assemble the pieces so far and you get a repeatable workflow. I call it the Forge Flow, and it is the first real shape of an AI-native team.</p>
+<p>Humans own truth and decisions. AI owns generation. Machines own verification. Durable artifacts like specs and memory are co-owned — forged together, remembered forever. The flow runs: receive requirements, branch, write the spec (AI-assisted human), implement with tests (AI), review and polish (AI-assisted human), run CI, update the knowledge base, archive the spec.</p>
+<p>Then there is the upgrade that changes the quality of everything: no single model is best at everything, and no author can see its own blind spots.</p>
+<p>So write the spec with one strong author model, then hand the same work to one or more <em>different</em> models in fresh sessions and ask them to tear it apart. Feed the best critiques back to the author. Implement only what you and the author agree is right. An independent mind from another family finds the holes the author is structurally blind to — the missing dedupe window, the index that will crawl under load, the edge case nobody spelled out.</p>
+<p>The catch is always friction: switching tools, re-pasting your code, losing context. That friction is why I built <strong><a href="https://consensflow.ngvoicu.dev">ConsensFlow, cross-LLM adversarial review from inside your agent</a></strong>. From inside your main agent, you consult a second opinion from another AI coding agent — Claude Code, Codex, Pi, or OpenCode — one participant at a time. It hands the participant a handoff of your current session, gets the answer, and brings it back. Consulting is free and encouraged. There is a consent gate before any of the participant's changes are kept — the same human-in-the-loop principle, applied to review.</p>
+<p>Author with one model. Review with another. Keep only what survives.</p>
+<h2>Harnesses everywhere: how your company becomes smarter</h2>
+<p>Almost everything above was a coding harness. The bigger idea is that <em>every repeatable workflow can get its own harness</em>.</p>
+<p>A harness gives an LLM context, tools, data, guardrails, memory, and a loop. That is the shift that makes a company AI-native: not better prompting, but small operating systems around the work.</p>
+<p>Picture a payments team. One harness runs continuously, reads production logs and traces, asks an LLM to explain failures, and stores the analysis. A second harness reads that analysis plus the team's Kluris brain — the domain decisions and business rules — patches the code, runs the tests, and opens a merge request. A human reviews the diff, approves the business risk, and decides what ships. Harnesses chained into a flow, with the human gate exactly where the risk is.</p>
+<p><strong>Skills</strong> are how you make those harnesses predictable. AI is probabilistic; ask the same thing twice and you can get different paths. A skill is a markdown instruction pack — steps, constraints, examples, reference files, success criteria — that narrows the path before the agent acts. Wrap a business API in a small CLI and write a skill that says which command to run, in what order, and what to check first, and the agent operates your systems by procedure instead of guesswork.</p>
+<p>Why this scales: skills are plain files. Put them in a shared repo and every team's agent follows the same review rules, the same release checklist, the same incident runbook. When someone finds a better way, you edit the skill once and the whole company works the new way from the next session. New hires inherit the playbook on day one.</p>
+<p>Every spec, decision, review, lesson, skill, and brain neuron compounds into shared intelligence. That is what "your company becomes smarter" actually means — an artifact that outlives the session that created it.</p>
+<h2>AI adoption for engineering teams: how to teach your people to use AI</h2>
+<p>Tools are the easy part. The hard part is adoption: getting a whole engineering team to change how it works without chaos, and without anyone feeling replaced.</p>
+<p>A few things I have learned helping teams make this shift.</p>
+<p><strong>Teach the mental model first, not the tools.</strong> Engineers who understand engine-versus-vehicle, context hygiene, and vibe-versus-spec make good decisions with any tool. People who memorized one tool's buttons are lost the moment it changes.</p>
+<p><strong>Keep humans owning truth, risk, and direction — out loud.</strong> The fastest way to kill adoption is to make people feel the AI is grading them or replacing them. Frame it correctly: the agent generates, the human decides. That framing is not a nicety; it is the load-bearing beam of the whole approach.</p>
+<p><strong>Start with one project, not the whole org.</strong> Pick one project this week. Write its CLAUDE.md. Plan before you build. Forge one spec. Save one neuron of real knowledge. Let the loop run there, then let the people who felt it teach the next team.</p>
+<p><strong>Make the wins durable.</strong> A demo impresses once. A committed CLAUDE.md, a spec in <code>.specs/</code>, a brain neuron, a shared skill — those keep paying out. Optimize for artifacts that survive the session.</p>
+<p>You do not become AI-native by buying licenses. You become AI-native by redesigning one workflow at a time so that humans and agents work as a system — and by capturing what you learn so the whole company gets smarter with every loop.</p>
+<h2>Work with me</h2>
+<p>I run this playbook for a living. If your engineering team is ready to move from AI-enhanced to AI-native, here is how I can help:</p>
+<ul>
+<li><strong>The workshop</strong> — the hands-on session this guide is drawn from, taking your team from first principles to a working Forge Flow.</li>
+<li><strong>Team training</strong> — teaching your engineers the mental models and habits that hold up across tools: context hygiene, spec-driven development, cross-LLM review, and knowledge capture.</li>
+<li><strong>Adoption engagements</strong> — embedding with your team to design the workflows, wire up the tooling, and build the durable knowledge and skills that make the change stick.</li>
+</ul>
+<p>Every engagement leaves durable artifacts behind, not just a good demo: a committed CLAUDE.md your whole team inherits, a first spec in <code>.specs/</code>, and a first brain neuron of real institutional knowledge — the seeds of a Forge Flow that keeps working after I leave.</p>
+<p>The tools I built and reference here — <a href="https://specmint.ngvoicu.dev">Specmint</a>, <a href="https://kluris.ngvoicu.dev">Kluris</a>, and <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a> — are free and open, and a good place to start on your own.</p>
+<p>When you want to move faster, reach me at <strong>office@ngvoicu.dev</strong> or <strong>+40 734 704 910</strong>.</p>
+<p>Pick one project this week. The loop runs from there.</p>
+  </article>
+
+  <div class="cta-panel">
+    <strong>Want this installed in your team?</strong>
+    <p style="color:var(--mist);margin:10px 0 16px">The workshop, hands-on team training, and adoption engagements — <a href="/#consulting">AI-native consulting for engineering teams</a>.</p>
+    <a class="cta" href="mailto:office@ngvoicu.dev?subject=AI-native%20consulting">Book a talk or an engagement →</a>
+    <div class="contact-line"><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a> · <a href="tel:+40734704910">+40 734 704 910</a></div>
+  </div>
+
+  <footer>
+    <span><a href="/">ngvoicu.dev</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

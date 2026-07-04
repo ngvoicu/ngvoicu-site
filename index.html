@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta -->
+<title>Gabriel Voicu — AI-Native Consultant & Software Engineer</title>
+<meta name="description" content="I help companies become AI-native: talks, workshops, and hands-on adoption of AI-native engineering workflows — spec-driven development, knowledge brains, cross-LLM review. Builder of Specmint, Kluris, and ConsensFlow. 20+ years across enterprise security, full-stack platforms, and AI systems.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ngvoicu.dev/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ngvoicu.dev/">
+<meta property="og:title" content="Gabriel Voicu — AI-Native Consultant & Software Engineer">
+<meta property="og:description" content="Talks, workshops, and hands-on AI-native adoption for engineering teams. Builder of Specmint, Kluris, ConsensFlow.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gabriel Voicu — AI-Native Consultant & Software Engineer">
+<meta name="twitter:description" content="Talks, workshops, and hands-on AI-native adoption for engineering teams.">
+
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gabriel Voicu",
+  "url": "https://ngvoicu.dev/",
+  "jobTitle": "AI-Native Consultant & Software Engineer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Constanța", "addressCountry": "RO" },
+  "sameAs": ["https://github.com/ngvoicu"],
+  "knowsAbout": ["AI agents", "developer tools", "application security", "OAuth2", "Keycloak", "RAG", "MCP", "Kotlin", "Spring Boot", "Python", "TypeScript"]
+}
+</script>
+
+<style>
+  :root {
+    --ink-deep: #0C1E23;
+    --ink-panel: #122A30;
+    --ink-line: #1E3C43;
+    --foam: #E9F1EF;
+    --mist: #9EB5B1;
+    --seafoam: #63C7B2;
+    --buoy: #FF6B5A;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Archivo", system-ui, -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  ::selection { background: var(--buoy); color: var(--ink-deep); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink-deep);
+    color: var(--foam);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  a { color: var(--seafoam); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--seafoam);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- Frontmatter hero (the signature) ---------- */
+
+  .frontmatter {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--mist);
+    border-left: 2px solid var(--ink-line);
+    padding-left: 20px;
+    margin-bottom: 52px;
+  }
+  .frontmatter .fence { color: var(--ink-line); }
+  .frontmatter .key { color: var(--seafoam); }
+  .frontmatter .val { color: var(--foam); }
+  .frontmatter .link-val { color: var(--foam); border-bottom: 1px dotted var(--mist); }
+  .frontmatter .link-val:hover { color: var(--seafoam); text-decoration: none; border-bottom-color: var(--seafoam); }
+  .frontmatter div {
+    opacity: 0;
+    animation: line-in 0.3s ease-out forwards;
+  }
+  .frontmatter div:nth-child(1)  { animation-delay: 0.05s; }
+  .frontmatter div:nth-child(2)  { animation-delay: 0.12s; }
+  .frontmatter div:nth-child(3)  { animation-delay: 0.19s; }
+  .frontmatter div:nth-child(4)  { animation-delay: 0.26s; }
+  .frontmatter div:nth-child(5)  { animation-delay: 0.33s; }
+  .frontmatter div:nth-child(6)  { animation-delay: 0.40s; }
+  .frontmatter div:nth-child(7)  { animation-delay: 0.47s; }
+  .frontmatter div:nth-child(8)  { animation-delay: 0.54s; }
+  .frontmatter div:nth-child(9)  { animation-delay: 0.61s; }
+  .frontmatter div:nth-child(10) { animation-delay: 0.68s; }
+  .frontmatter div:nth-child(11) { animation-delay: 0.75s; }
+  @keyframes line-in {
+    from { opacity: 0; transform: translateX(-6px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .frontmatter div { animation: none; opacity: 1; }
+  }
+
+  h1 {
+    font-family: var(--sans);
+    font-variation-settings: "wdth" 118;
+    font-weight: 880;
+    font-size: clamp(42px, 8.5vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .thesis {
+    font-size: 19px;
+    color: var(--foam);
+    max-width: 620px;
+    margin-bottom: 16px;
+  }
+  .thesis-sub {
+    font-size: 16px;
+    color: var(--mist);
+    max-width: 620px;
+  }
+
+  /* ---------- Section scaffolding ---------- */
+
+  section { margin-top: 88px; }
+
+  .lobe {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--seafoam);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .lobe::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--ink-line);
+    transform: translateY(-4px);
+  }
+
+  /* ---------- Product neurons ---------- */
+
+  .neuron {
+    background: var(--ink-panel);
+    border: 1px solid var(--ink-line);
+    border-radius: 6px;
+    padding: 26px 28px 22px;
+  }
+  .neuron + .neuron { margin-top: 20px; }
+
+  .neuron-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .neuron-head h3 {
+    font-variation-settings: "wdth" 116;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.01em;
+  }
+  .neuron-head h3 a { color: var(--foam); }
+  .neuron-head h3 a:hover { color: var(--seafoam); text-decoration: none; }
+  .neuron-domain {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--mist);
+  }
+
+  .neuron p { color: var(--mist); font-size: 15.5px; margin-bottom: 16px; }
+  .neuron p strong { color: var(--foam); font-weight: 500; }
+
+  .install {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--foam);
+    background: var(--ink-deep);
+    border: 1px solid var(--ink-line);
+    border-radius: 4px;
+    padding: 9px 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .install + .install { margin-top: 8px; }
+  .install .prompt { color: var(--seafoam); user-select: none; }
+  .install button {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--mist);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 4px;
+    flex-shrink: 0;
+  }
+  .install button:hover { color: var(--buoy); }
+
+  .synapses {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--mist);
+    margin-top: 14px;
+  }
+  .synapses .key { color: var(--seafoam); }
+
+  /* ---------- Consulting ---------- */
+
+  .framing {
+    font-size: 17px;
+    color: var(--foam);
+    max-width: 640px;
+    margin-bottom: 36px;
+  }
+  .framing em {
+    font-style: normal;
+    color: var(--seafoam);
+  }
+
+  /* Enhanced Forge Flow — ported as-is from the "Becoming an AI Native Company" deck,
+     scoped under .eff (own palette vars shadow nothing outside this subtree). */
+  .eff {
+    --dk-soft: #858b98;
+    --dk-line: rgba(255,255,255,.09);
+    --dk-panel: rgba(255,255,255,.045);
+    --dk-panel-2: rgba(255,255,255,.022);
+    --mint: #34d399;
+    --amber: #f59e0b;
+    --purple: #a78bfa;
+    --blue: #60a5fa;
+    --sky: #7dd3fc;
+    width: min(calc(100vw - 40px), 1220px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 36px 0;
+  }
+  .eff .enhanced-loop-panel {
+    padding: clamp(22px, 3.4vh, 34px);
+    border: 1px solid rgba(167,139,250,.24);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 28% 12%, rgba(167,139,250,.1), transparent 28rem),
+      radial-gradient(circle at 72% 44%, rgba(52,211,153,.08), transparent 26rem),
+      linear-gradient(180deg, var(--dk-panel), var(--dk-panel-2));
+    overflow: hidden;
+  }
+  .eff .eff-scroll { overflow-x: auto; padding-bottom: 248px; }
+  .eff .aflow { display: flex; align-items: stretch; gap: 0.25rem; flex-wrap: nowrap; justify-content: center; min-width: 1150px; }
+  .eff .aflow-step {
+    background: rgba(18,18,26,1);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: .5rem .44rem;
+    font-size: .62rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 0;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 6.25rem;
+    color: #f7f8f8;
+  }
+  .eff .aflow-step .role { display: block; margin-top: 0.3rem; padding-top: 0.3rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: .56rem; font-weight: 500; letter-spacing: 0.04em; }
+  .eff .aflow-step .sub { display: block; margin-top: 0.2rem; font-size: .55rem; line-height: 1.25; color: var(--dk-soft); opacity: 0.75; font-weight: 400; }
+  .eff .aflow-arrow { color: var(--dk-soft); font-size: 0.85rem; opacity: 0.45; display: flex; align-items: center; justify-content: center; flex: 0 0 18px; width: 18px; }
+  .eff .aflow-step.compact { flex: 0 1 80px; min-width: 74px; padding: .5rem .34rem; }
+  .eff .aflow-step.human { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.05); color: var(--amber); }
+  .eff .aflow-step.human .role { color: var(--amber); }
+  .eff .aflow-step.ai { border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.05); color: var(--mint); }
+  .eff .aflow-step.ai .role { color: var(--mint); }
+  .eff .aflow-step.cicd { border-color: rgba(96,165,250,0.35); background: rgba(96,165,250,0.05); color: var(--blue); }
+  .eff .aflow-step.cicd .role { color: var(--blue); }
+  .eff .aflow-step.mixed { border: 1px solid transparent; background: linear-gradient(rgba(18,18,26,1),rgba(18,18,26,1)) padding-box, linear-gradient(135deg,var(--mint),var(--purple)) border-box; }
+  .eff .aflow-step.mixed .label,
+  .eff .aflow-step.mixed .role { background: linear-gradient(135deg,var(--mint),var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  .eff .aflow-step.author-step,
+  .eff .aflow-step.memory-step { position: relative; overflow: visible; }
+  .eff .author-tool-stack { position: absolute; top: calc(100% + 38px); left: 50%; z-index: 4; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .35rem; }
+  .eff .author-tool-stack:before { content: ""; position: absolute; top: -32px; left: 50%; width: 2px; height: 26px; transform: translateX(-50%); background: linear-gradient(180deg,rgba(167,139,250,.85),rgba(167,139,250,.05)); }
+  .eff .author-tool-stack:after { content: ""; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: rgba(167,139,250,.9); }
+  .eff .aflow-tool-arrow { width: 2px; height: 32px; background: linear-gradient(180deg,rgba(255,255,255,0.2),transparent 60%); position: relative; }
+  .eff .aflow-tool-arrow::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: rgba(255,255,255,0.35); }
+  .eff .aflow-tool-arrow.mint { background: linear-gradient(180deg,var(--mint),rgba(52,211,153,0.05) 90%); }
+  .eff .aflow-tool-arrow.mint::after { border-top-color: var(--mint); }
+  .eff .aflow-tool-logo { padding: 0.65rem 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.55rem; border: 1px solid rgba(255,255,255,0.06); background: rgba(18,18,26,1); margin-top: 4px; }
+  .eff .aflow-tool-logo.mint { border-color: rgba(52,211,153,0.28); box-shadow: 0 0 40px rgba(52,211,153,0.12); }
+  .eff .aflow-tool-logo.purple { border-color: rgba(167,139,250,0.28); box-shadow: 0 0 40px rgba(167,139,250,0.12); }
+  .eff .aflow-tool-logo img { height: 28px; width: auto; object-fit: contain; display: block; }
+  .eff .aflow-tool-logo.purple img { height: 32px; }
+  .eff .aflow-tool-logo .wordmark { font-family: "Instrument Serif", Georgia, serif; font-size: 1.2rem; font-style: italic; letter-spacing: -0.01em; line-height: 1; }
+  .eff .aflow-tool-logo.mint .wordmark { color: var(--mint); }
+  .eff .aflow-tool-logo.purple .wordmark { color: var(--purple); }
+  .eff .aflow-tool-logo .tagline { font: 0.6rem/1 var(--mono); letter-spacing: 0.08em; color: var(--dk-soft); text-transform: uppercase; display: block; margin-top: 2px; }
+  .eff .aflow-step.review-gate { position: relative; overflow: visible; border-color: rgba(96,165,250,.4); background: linear-gradient(180deg,rgba(96,165,250,.12),rgba(167,139,250,.07)); }
+  .eff .aflow-step.review-gate .label { color: var(--sky); background: none; -webkit-text-fill-color: currentColor; }
+  .eff .aflow-step.review-gate .role { color: #c4b5fd; background: none; -webkit-text-fill-color: currentColor; }
+  .eff .aflow-step.review-gate .reviewer-stack { position: absolute; top: calc(100% + 38px); left: 50%; z-index: 4; transform: translateX(-50%); max-width: 170px; }
+  .eff .aflow-step.review-gate .reviewer-stack:before { content: ""; position: absolute; top: -32px; left: 50%; width: 2px; height: 26px; transform: translateX(-50%); background: linear-gradient(180deg,rgba(125,211,252,.75),rgba(125,211,252,.05)); }
+  .eff .aflow-step.review-gate .reviewer-stack:after { content: ""; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: rgba(125,211,252,.85); }
+  .eff .reviewer-stack { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; max-width: 150px; }
+  .eff .reviewer-pill { color: #dbeafe; border: 1px solid rgba(96,165,250,.26); border-radius: 999px; background: rgba(96,165,250,.08); padding: 6px 8px; font: 700 9px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+  .eff .aflow-step.review-gate .reviewer-stack.cf-stack { max-width: 184px; flex-direction: column; align-items: center; gap: 9px; padding: 9px 11px 11px; border: 1px solid rgba(34,211,238,.34); border-radius: 13px; background: #0a0e1a; box-shadow: 0 0 42px rgba(34,211,238,.16); }
+  .eff .aflow-step.review-gate .reviewer-stack.cf-stack:before { background: linear-gradient(180deg,rgba(34,211,238,.85),rgba(34,211,238,.05)); }
+  .eff .aflow-step.review-gate .reviewer-stack.cf-stack:after { border-top-color: rgba(34,211,238,.9); }
+  .eff .cf-stack-head { display: flex; align-items: center; gap: 7px; padding-bottom: 2px; }
+  .eff .cf-stack-head img { height: 24px; width: auto; object-fit: contain; border-radius: 5px; }
+  .eff .cf-stack-head .cf-wordmark { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.12rem; letter-spacing: -0.01em; line-height: 1; background: linear-gradient(90deg,#22d3ee,#6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eff .cf-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+  .eff .cf-stack .reviewer-pill { color: #a5f3fc; border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.08); }
+  .eff .enhanced-loop-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 18px; }
+  .eff .loop-note { border: 1px solid rgba(255,255,255,.09); border-radius: 15px; padding: 14px; background: rgba(0,0,0,.18); }
+  .eff .loop-note b { display: block; color: #f7f8f8; margin-bottom: 7px; font-size: .98rem; }
+  .eff .loop-note p { font-size: .88rem; line-height: 1.42; color: #cbd1dc; }
+  .eff .tag { display: inline-flex; align-items: center; color: var(--dk-soft); font: 700 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; border: 1px solid var(--dk-line); border-radius: 7px; padding: 7px 9px; background: rgba(255,255,255,.04); margin-bottom: 12px; }
+  .eff .tag.mint { color: var(--mint); }
+  .eff .tag.blue { color: var(--blue); }
+  .eff .tag.purple { color: var(--purple); }
+  /* Mobile: the pipeline turns vertical — no horizontal scroll */
+  @media (max-width: 700px) {
+    .eff .enhanced-loop-notes { grid-template-columns: 1fr; margin-top: 22px; }
+    .eff .eff-scroll { overflow-x: visible; padding-bottom: 0; }
+    .eff .aflow { flex-direction: column; align-items: stretch; min-width: 0; gap: 0.3rem; }
+    .eff .aflow-arrow { transform: rotate(90deg); flex: 0 0 auto; width: auto; height: 20px; }
+    .eff .aflow-step { min-height: 0; padding: 0.75rem 0.6rem; font-size: 0.74rem; }
+    .eff .aflow-step .role { font-size: 0.62rem; }
+    .eff .aflow-step .sub { font-size: 0.62rem; }
+    .eff .aflow-step.compact { flex: 1 1 auto; min-width: 0; }
+    .eff .author-tool-stack,
+    .eff .aflow-step.review-gate .reviewer-stack {
+      position: static;
+      transform: none;
+      margin: 12px auto 2px;
+    }
+    .eff .author-tool-stack { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .eff .author-tool-stack:before,
+    .eff .author-tool-stack:after,
+    .eff .aflow-step.review-gate .reviewer-stack:before,
+    .eff .aflow-step.review-gate .reviewer-stack:after,
+    .eff .aflow-tool-arrow { display: none; }
+    .eff .aflow-step.review-gate .reviewer-stack.cf-stack { max-width: 260px; }
+  }
+
+  .cta {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink-deep);
+    background: var(--seafoam);
+    border-radius: 4px;
+    padding: 11px 20px;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+  .cta:hover { background: var(--foam); text-decoration: none; }
+
+  /* ---------- Worked with ---------- */
+
+  .logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ink-line);
+  }
+  .logos img { height: 52px; width: auto; opacity: 0.9; }
+  .logos .wordmark {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mist);
+    white-space: nowrap;
+  }
+
+  /* ---------- Work ---------- */
+
+  .work-block + .work-block { margin-top: 36px; }
+  .work-block h3 {
+    font-variation-settings: "wdth" 112;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .work-block h3 .role-note {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--mist);
+    margin-left: 10px;
+  }
+  .work-block p { color: var(--mist); font-size: 15.5px; max-width: 640px; }
+  .work-block p strong { color: var(--foam); font-weight: 500; }
+
+  /* ---------- git log ---------- */
+
+  .gitlog {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 2.1;
+    color: var(--mist);
+    overflow-x: auto;
+  }
+  .gitlog .hash { color: var(--seafoam); margin-right: 12px; }
+  .gitlog .msg { color: var(--foam); }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    margin-top: 96px;
+    padding-top: 28px;
+    border-top: 1px solid var(--ink-line);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--mist);
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 560px) {
+    .page { padding-top: 48px; }
+    section { margin-top: 64px; }
+    .neuron { padding: 20px 18px 18px; }
+    .gitlog { font-size: 12px; }
+    .eff .enhanced-loop-panel { padding: 16px 12px; border-radius: 16px; }
+    .logos img { height: 42px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="frontmatter" aria-label="Profile metadata, styled as a markdown frontmatter block">
+      <div><span class="fence">---</span></div>
+      <div><span class="key">name:</span> <span class="val">gabriel-voicu</span></div>
+      <div><span class="key">description:</span> <span class="val">AI-native consultant &amp; software engineer — agentic systems, application security, developer tooling</span></div>
+      <div><span class="key">location:</span> <span class="val">Everywhere</span></div>
+      <div><span class="key">metadata:</span></div>
+      <div>&nbsp;&nbsp;<span class="key">years:</span> <span class="val">20+</span></div>
+      <div>&nbsp;&nbsp;<span class="key">github:</span> <a class="link-val" href="https://github.com/ngvoicu">github.com/ngvoicu</a></div>
+      <div>&nbsp;&nbsp;<span class="key">available_for:</span> <span class="val">[<a class="link-val" href="#consulting">talks, workshops, adoption engagements</a>]</span></div>
+      <div><span class="key">related:</span> <span class="val">[<a class="link-val" href="#specmint">specmint</a>, <a class="link-val" href="#kluris">kluris</a>, <a class="link-val" href="#consensflow">consensflow</a>]</span></div>
+      <div><span class="fence">---</span></div>
+    </div>
+
+    <h1>Gabriel Voicu</h1>
+    <p class="thesis">I help companies become AI-native — redesigning engineering workflows so AI is built in by design, with humans owning truth, risk, and direction — and I build the open-source tools that make it work.</p>
+    <p class="thesis-sub">By day I work on AI agentic systems and security infrastructure for enterprise platforms. I also deliver talks, workshops, and hands-on adoption engagements for teams starting the journey — with a security engineer's habits throughout.</p>
+  </header>
+
+  <section id="consulting" aria-label="Consulting and workshops">
+    <div class="lobe">lobe: consulting</div>
+
+    <p class="framing">AI-enhanced is people using AI on the side. <em>AI-native</em> means the workflow itself includes AI steps by design — remove the AI and it stops working — while humans keep ownership of truth, risk, and direction. I help engineering teams make that shift.</p>
+
+    <div class="work-block">
+      <h3>Talks &amp; workshops</h3>
+      <p><strong>"Becoming an AI Native Company"</strong> — a beginner-friendly session that takes a whole team from "what is an LLM?" to a working AI-native operating model: context and memory, spec-driven development, cross-LLM review, harnesses, and skills. Delivered on-site or remote, adapted to your stack.</p>
+    </div>
+
+    <div class="work-block">
+      <h3>Adoption engagements</h3>
+      <p>Hands-on installation of the operating model in a real team: project instruction files, durable specs, a shared human-curated knowledge brain, adversarial review gates, and the security guardrails to run coding agents safely.</p>
+    </div>
+
+    <div class="work-block">
+      <h3>The Enhanced Forge Flow</h3>
+      <p>Write the spec with one strong author model, then review it in fresh sessions with one to four other LLMs — same family or different families. Feed the best critiques back to the author LLM, and implement only what both you and the author model agree is right.</p>
+    </div>
+
+    <div class="eff" aria-label="The Enhanced Forge Flow: a ten-step delivery pipeline with adversarial cross-LLM review gates">
+      <div class="enhanced-loop-panel">
+        <div class="eff-scroll">
+          <div class="aflow enhanced-aflow">
+            <div class="aflow-step human compact"><span>Receive<br>Requirements</span><span class="role">Human</span></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step human compact"><span>Create<br>Branch</span><span class="role">Human</span></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step mixed author-step"><span class="label">Write Spec</span><span class="sub">research · interview</span><span class="sub">one LLM · ex. Claude Opus</span><span class="role">Author LLM + Human</span><div class="author-tool-stack" aria-hidden="true"><div class="aflow-tool-logo purple"><img src="kluris-logo.png" alt="Kluris"><div><span class="wordmark">kluris</span><span class="tagline">memory brain</span></div></div><div class="aflow-tool-arrow mint"></div><div class="aflow-tool-logo mint"><img src="specmint-logo.webp" alt="Specmint"><div><span class="wordmark">specmint</span><span class="tagline">spec engine</span></div></div></div></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step review-gate"><span class="label">Review Spec</span><span class="sub">1-4 fresh LLM sessions</span><span class="role">Adversarial review</span><div class="reviewer-stack cf-stack" aria-hidden="true"><div class="cf-stack-head"><img src="consensflow-logo.png" alt="ConsensFlow"><span class="cf-wordmark">consensflow</span></div><div class="cf-pills"><span class="reviewer-pill">GPT 5.5</span><span class="reviewer-pill">DeepSeek 4.3 Pro</span><span class="reviewer-pill">Claude Fable</span><span class="reviewer-pill">Claude Opus</span></div></div></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step ai"><span>Implement<br>+ Tests</span><span class="sub">accepted feedback</span><span class="role">Author LLM</span></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step mixed"><span class="label">Review<br>&amp; Polish</span><span class="role">AI-assisted Human</span></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step review-gate"><span class="label">Review Implementation</span><span class="sub">1-4 fresh LLM sessions</span><span class="role">Adversarial review</span><div class="reviewer-stack cf-stack" aria-hidden="true"><div class="cf-stack-head"><img src="consensflow-logo.png" alt="ConsensFlow"><span class="cf-wordmark">consensflow</span></div><div class="cf-pills"><span class="reviewer-pill">GPT 5.5</span><span class="reviewer-pill">DeepSeek 4.3 Pro</span><span class="reviewer-pill">Claude Fable</span><span class="reviewer-pill">Claude Opus</span></div></div></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step cicd"><span>Run Tests<br>CI / CD</span><span class="role">CI/CD</span></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step mixed memory-step"><span class="label">Update Memory</span><span class="sub">knowledge base</span><span class="role">AI-assisted Human</span><div class="author-tool-stack" aria-hidden="true"><div class="aflow-tool-logo purple"><img src="kluris-logo.png" alt="Kluris"><div><span class="wordmark">kluris</span><span class="tagline">memory brain</span></div></div></div></div>
+            <div class="aflow-arrow">&rarr;</div>
+            <div class="aflow-step human compact"><span>Archive<br>Spec</span><span class="role">Human</span></div>
+          </div>
+        </div>
+
+        <div class="enhanced-loop-notes">
+          <div class="loop-note"><div class="tag mint">Author</div><b>One LLM drafts the spec</b><p>Use a strong planning model, for example Claude Opus, to research, interview, and produce the working spec.</p></div>
+          <div class="loop-note"><div class="tag blue">Reviewers</div><b>Fresh sessions find blind spots</b><p>Ask one to four other LLM sessions to review the spec independently. They can be from another family or the same family.</p></div>
+          <div class="loop-note"><div class="tag purple">Decision gate</div><b>Return critique to the author</b><p>The author LLM checks the reviews, you approve the useful changes, and only then does implementation begin.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="cta" href="mailto:gabrielvoicujpi@gmail.com?subject=AI-native%20consulting">Book a talk or an engagement →</a>
+  </section>
+
+  <section id="open-source" aria-label="Open-source projects">
+    <div class="lobe">lobe: open-source</div>
+
+    <article class="neuron" id="specmint">
+      <div class="neuron-head">
+        <h3><a href="https://specmint.io">Specmint</a></h3>
+        <span class="neuron-domain">specmint.io</span>
+      </div>
+      <p>AI coding tools lose their plans when the session ends. Specmint turns ephemeral plans into <strong>durable, resumable specs</strong> stored in your codebase — a 6-phase forge workflow with deep research and developer interviews, TDD-first variants that enforce red-green-refactor, and rich HTML spec documents. Works with Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.</p>
+      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-core -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core -g">copy</button></div>
+      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-core-html -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core-html -g">copy</button></div>
+      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-tdd -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd -g">copy</button></div>
+      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-tdd-html -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd-html -g">copy</button></div>
+      <div class="synapses"><span class="key">related:</span> [<a href="#kluris">kluris</a>] — pairs with Kluris brains for research-phase team knowledge</div>
+    </article>
+
+    <article class="neuron" id="kluris">
+      <div class="neuron-head">
+        <h3><a href="https://kluris.ngvoicu.dev">Kluris</a></h3>
+        <span class="neuron-domain">kluris.ngvoicu.dev</span>
+      </div>
+      <p>AI agents start every session cold. Kluris gives them a <strong>brain</strong>: a git-backed repo of human-curated knowledge — lobes, neurons, synapses — shared across every project and agent on the team. Agents propose; nothing is written without explicit human approval. Ranked BM25 search, no embeddings, no external calls. Open source (MIT), on PyPI. This page is laid out like one of its neurons.</p>
+      <div class="install"><span><span class="prompt">$</span> pipx install kluris</span><button type="button" data-copy="pipx install kluris">copy</button></div>
+      <div class="synapses"><span class="key">related:</span> [<a href="#specmint">specmint</a>] — ships Specmint companions per brain</div>
+    </article>
+
+    <article class="neuron" id="consensflow">
+      <div class="neuron-head">
+        <h3><a href="https://github.com/ngvoicu/consensflow-cc">ConsensFlow</a></h3>
+        <span class="neuron-domain">github.com/ngvoicu</span>
+      </div>
+      <p>A <strong>second-opinion layer</strong> for AI coding sessions: keep a roster of named participants and consult another coding agent — Claude Code, Codex, OpenCode, Pi — without leaving your session. Each consult is an isolated one-shot subprocess with a session handoff, workspace-confined tools, and an explicit consent gate before any of its changes are kept.</p>
+      <div class="install"><span><span class="prompt">$</span> claude plugin marketplace add ngvoicu/consensflow-cc</span><button type="button" data-copy="claude plugin marketplace add ngvoicu/consensflow-cc">copy</button></div>
+      <div class="install"><span><span class="prompt">$</span> pi install https://github.com/ngvoicu/consensflow-pi</span><button type="button" data-copy="pi install https://github.com/ngvoicu/consensflow-pi">copy</button></div>
+      <div class="synapses"><span class="key">related:</span> [claude-code, codex, opencode, pi] — one question, many participants, consensus built one answer at a time</div>
+    </article>
+  </section>
+
+  <section id="work" aria-label="Work">
+    <div class="lobe">lobe: work</div>
+
+    <div class="work-block">
+      <h3>Dell Technologies<span class="role-note">AI Native Change Champion</span></h3>
+      <p>AI agentic systems, MCP-based tool interfaces, RAG architectures, and orchestration layers that let LLMs interact safely with enterprise platforms. Reusable security infrastructure across microservice ecosystems: authentication and authorization libraries, identity provider integrations, standardized security patterns for Kubernetes.</p>
+    </div>
+
+    <div class="work-block">
+      <h3>ZeeSpire Software Solutions<span class="role-note">founder / independent</span></h3>
+      <p>Full-stack SaaS products built end-to-end: <strong>Atlas</strong> (enterprise RAG chatbot — multi-stage retrieval, Google ADK orchestration, Qdrant, Keycloak), <strong>Burn The Burnout</strong> (multi-tenant employee wellness platform — Spring Boot, dual-auth RBAC, PostgreSQL tenant isolation), and <strong>Worriless</strong> (cross-platform task management).</p>
+    </div>
+
+    <div class="logos" aria-label="Companies worked with or for">
+      <img src="zeespire-logo.png" alt="ZeeSpire Software Solutions">
+      <span class="wordmark">Dell Technologies</span>
+      <span class="wordmark">MassMutual</span>
+      <span class="wordmark">Luxoft</span>
+      <span class="wordmark">ASML</span>
+      <span class="wordmark">UBS</span>
+    </div>
+  </section>
+
+  <section id="previously" aria-label="Previously">
+    <div class="lobe">lobe: previously</div>
+    <div class="gitlog" role="list">
+      <div role="listitem"><span class="hash">a40s01e</span><span class="msg">perf(dell): reduce data import time from 40 minutes to 40 seconds</span></div>
+      <div role="listitem"><span class="hash">c0d3gen</span><span class="msg">feat(massmutual): rewrite microservices template, build internal code generator</span></div>
+      <div role="listitem"><span class="hash">e17f0ab</span><span class="msg">feat(luxoft): deliver enterprise applications for ASML and UBS</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div><a href="mailto:gabrielvoicujpi@gmail.com">email</a> · <a href="https://github.com/ngvoicu">github</a></div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+        btn.textContent = "copied";
+        setTimeout(function () { btn.textContent = "copy"; }, 1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>

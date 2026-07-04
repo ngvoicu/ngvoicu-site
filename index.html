@@ -112,6 +112,24 @@
     border-radius: 2px;
   }
 
+  /* ---------- Brand lockup ---------- */
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  .brand svg { display: block; }
+  .brand-name {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--foam);
+    letter-spacing: 0.02em;
+  }
+  .brand-tld { color: var(--seafoam); }
+
   /* ---------- Frontmatter hero (the signature) ---------- */
 
   .frontmatter {
@@ -514,6 +532,11 @@
 <div class="page">
 
   <header>
+    <div class="brand" aria-label="ngvoicu.dev">
+      <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+      <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+    </div>
+
     <div class="frontmatter" aria-label="Profile metadata, styled as a markdown frontmatter block">
       <div><span class="fence">---</span></div>
       <div><span class="key">name:</span> <span class="val">gabriel-voicu</span></div>

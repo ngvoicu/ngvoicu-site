@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testing Spring Boot applications — Gabriel Voicu</title>
+<meta name="description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/testing-spring-boot-applications/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/testing-spring-boot-applications/">
+<meta property="og:title" content="Testing Spring Boot applications">
+<meta property="og:description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Testing Spring Boot applications", "description": "Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.", "datePublished": "2019-10-26", "dateModified": "2021-11-16", "mainEntityOfPage": "https://ngvoicu.dev/articles/testing-spring-boot-applications/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2019-10-26 · originally published on the ZeeSpire blog</div>
+  <h1>Testing Spring Boot applications</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p><img src="images/spring-logo.png" alt="Testing Spring Boot applications" loading="lazy"></p>
+<p>In this article, we will create and test using both unit and integration tests a small Spring Boot application with a REST API. If you don’t have any experience with JUnit5 and Mockito, you can start with <a href="/jumpstart-testing-with-mockito-and-junit5/">this</a> article.</p>
+<p>Tools used: Spring Boot 2, Spring Data JPA, H2 as an in-memory database, Spring Test, Mockito and JUnit5.</p>
+<p>Spring Boot’s starter dependency named Test comes with a lot of functionality and libraries such as JUnit5, Mockito, Hamcrest, AssertJ, JSONAssert, JSONPath that help us write great tests.</p>
+<p>This example does not focus on <a href="/what-is-and-how-do-we-measure-code-coverage/">code coverage</a>.</p>
+<p><strong>ProductController.java</strong></p>
+<pre><code>@RestController
+public class ProductController {
+    @Autowired
+    private ProductService productService;
+
+    @GetMapping(value = &quot;/status&quot;)
+    public String checkStatus(){
+        return &quot;Live!&quot;;
+    }
+
+    @GetMapping(&quot;/products&quot;)
+    public Product getProduct(@RequestParam Long id){
+        boolean discount = true;
+        return productService.getProductById(id, discount);
+    }
+}</code></pre>
+<p><strong>ProductService.java</strong></p>
+<pre><code>public interface ProductService {
+    Product getProductById(Long id, boolean hasDiscount);
+}</code></pre>
+<p><strong>ProductServiceImpl.java</strong></p>
+<pre><code>@Service
+public class ProductServiceImpl implements ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
+    public Product getProductById(Long id, boolean hasDiscount) {
+        Product product = productRepository.getProductById(id);
+        if (product != null) {
+            if (hasDiscount) {
+                product.setPrice(product.getPrice() - 10);
+            }
+            return product;
+        } else {
+            throw new ProductNotFoundException();
+        }
+    }
+}</code></pre>
+<p><strong>ProductRepository.java</strong></p>
+<pre><code>@Repository
+public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
+    Product getProductById(Long id);
+}</code></pre>
+<p><strong>Product.java</strong></p>
+<pre><code>@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String name;
+    private Double price;
+    private Long quantity;
+    private String storeName;
+    //constructors, getters and setters
+}</code></pre>
+<h2>Controller Unit tests</h2>
+<p>REST Controllers are a key part of a Spring Boot REST application and Spring Boot comes with utility objects to help us unit test them in isolation from the rest of the application.</p>
+<p>In this test, we will use @ExtendWith(SpringExtension.class) annotation to register the test class as a Spring Unit Test and @WebMvcTest(ProductController.class) annotation that will enable us to write a Spring MVC test that focuses only on Spring MVC components.</p>
+<p>@WebMvcTest(ProductController.class) will also disable full auto-configuration and instead apply only configuration relevant to MVC tests. Without other components like Services or Repositories in ApplicationContext, we will test the controller in isolation.</p>
+<p>MockMvc component is provided by Spring to make calls to the Spring MVC API and assert different properties like status code and received response.</p>
+<pre><code>@ExtendWith(SpringExtension.class)
+@WebMvcTest(ProductController.class)
+class ProductControllerTest {
+
+   @Autowired
+   private MockMvc mockMvc;
+
+   @MockBean
+   private ProductService productServiceImpl; // This will mock a Spring Bean and Inject it where is needed
+
+   // This test uses assertEquals to check the validity of the response
+   @Test
+   void checkStatus_Should_ReturnLive_When_StatusPathIsCalled_AssertUsingAssertEquals() throws Exception {
+       //build request, execute GET to /status
+       MvcResult mvcResult = mockMvc
+               .perform(MockMvcRequestBuilders.get(&quot;/status&quot;).accept(MediaType.APPLICATION_JSON))
+               .andReturn();
+       assertEquals(&quot;Live!&quot;, mvcResult.getResponse().getContentAsString());
+   }
+
+   // This test uses ResultMatchers to check the validity of the response
+   @Test
+   void checkStatus_Should_ReturnLive_When_StatusPathIsCalled_AssertUsingResultMatchers() throws Exception {
+       //build request, execute GET to /status and assert result using Response Matchers
+       mockMvc.perform(MockMvcRequestBuilders.get(&quot;/status&quot;).accept(MediaType.APPLICATION_JSON))
+               .andExpect(status().isOk()) //check is response status is 200
+               .andExpect(content().string(&quot;Live!&quot;))
+               .andReturn();
+   }
+
+   // This test uses ResultMatchers with JSONAssert to check the validity of the response
+   @Test
+   void getProduct_Should_ReturnString_When_ProductsPathIsCalled_AssertUsingResultMatchers() throws Exception {
+       String expectedResult = &quot;{\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;Cheese\&quot;,\&quot;price\&quot;:10.0,\&quot;quantity\&quot;:100}&quot;;
+       String expectedResultWithoutSomePropertiesAndEscapeChars = &quot;{id: 1, name: Cheese, price: 10.0}&quot;;
+
+       when(productServiceImpl.getProductById(1L, true))
+               .thenReturn(new Product(1L, &quot;Cheese&quot;, 10.0, 100L));
+
+       // build request, execute GET to /product and assert result using Response Matchers with JSONAssert
+       mockMvc.perform(MockMvcRequestBuilders.get(&quot;/products?id=1&quot;).accept(MediaType.APPLICATION_JSON))
+               .andExpect(status().isOk()) //check is response status is 200
+               .andExpect(content().json(expectedResult)) //it will succeed even if a property will be missing
+               .andExpect(content().json(expectedResultWithoutSomePropertiesAndEscapeChars))
+               .andReturn();
+       // behind the scene .andExpect(content().json(...)) uses JSONAssert calling assertEquals
+       // with strict mode deactivated
+
+       verify(productServiceImpl, times(1)).getProductById(1L, true);
+   }
+
+   // This test shows some of the capabilities of JSONAssert to check the validity of the response
+   @Test
+   void getProduct_Should_ReturnString_When_ProductsPathIsCalled_AssertUsingJSONAssert() throws Exception {
+       String expectedResult = &quot;{\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;Cheese\&quot;,\&quot;price\&quot;:10.0,\&quot;quantity\&quot;:100,\&quot;storeName\&quot;:null}&quot;;
+       String expectedResultWithoutSomePropertiesAndEscapeChars = &quot;{id:1,name:Cheese,price:10.0}&quot;;
+
+       when(productServiceImpl.getProductById(anyLong(), anyBoolean()))
+               .thenReturn(new Product(1L, &quot;Cheese&quot;, 10.0, 100L));
+
+       // build request, execute GET to /products
+       MvcResult mvcResult = mockMvc
+               .perform(MockMvcRequestBuilders.get(&quot;/products?id=1&quot;).accept(MediaType.APPLICATION_JSON))
+               .andReturn();
+
+       // strict mode, everything should match, the structure should be the same
+       JSONAssert.assertEquals(expectedResult, mvcResult.getResponse().getContentAsString(), true);
+
+       // strict mode off, properties may be missing, escape characters can be missing too
+       JSONAssert.assertEquals(expectedResultWithoutSomePropertiesAndEscapeChars,
+               mvcResult.getResponse().getContentAsString(), false);
+
+       verify(productServiceImpl, times(1)).getProductById(anyLong(), anyBoolean());
+   }
+}</code></pre>
+<h2>Service Unit tests</h2>
+<p>Services are the most important layer of our application because they encapsulate the whole business logic. Tests for services should be concise, should cover all situations, therefore, they should have the coverage as close as possible to 100%.</p>
+<p>We can test services outside Spring Context, mocking every dependency and testing them like regular Java classes rather than Spring Beans.</p>
+<pre><code>@ExtendWith(MockitoExtension.class)
+public class ProductSeviceTest {
+
+   @InjectMocks
+   private ProductService productService = new ProductServiceImpl();
+
+   @Mock
+   private ProductRepository productRepository;
+
+   @Test
+   void getProductById_Should_ReturnProduct_When_ParametersAreValidAndDiscountIsApplied(){
+       when(productRepository.getProductById(any())).thenReturn(new Product(1L, &quot;Beer&quot;, 100.0, 100L));
+
+       Product product = productService.getProductById(1L, true);
+
+       assertEquals(&quot;Beer&quot;, product.getName());
+       assertEquals(90.0, product.getPrice());
+       verify(productRepository, times(1)).getProductById(any());
+   }
+
+   @Test
+   void getProductById_Should_ReturnProduct_When_ParametersAreValidAndDiscountIsNotApplied(){
+       when(productRepository.getProductById(any())).thenReturn(new Product(1L, &quot;Beer&quot;, 100.0, 100L));
+
+       Product product = productService.getProductById(1L, false);
+
+       assertEquals(&quot;Beer&quot;, product.getName());
+       assertEquals(100.0, product.getPrice());
+       verify(productRepository, times(1)).getProductById(any());
+   }
+
+   @Test
+   void getProductById_Should_ThrowException_When_ProductIsNotFound(){
+       assertThrows(ProductNotFoundException.class, () -&gt; {
+           when(productRepository.getProductById(any())).thenReturn(null);
+
+           Product product = productService.getProductById(1L, true);
+       });
+   }
+}</code></pre>
+<h2>Repository Unit tests</h2>
+<p>It’s not always needed to write unit tests for repository methods. There are cases when you only use methods that code from JPA like findAll() and it would be useless to test them.</p>
+<p>We want to write tests only for custom queries.</p>
+<p>Repository tests are a special category, Spring gives us some tools to help us write them. First, we can mark a test as a Spring Unit test with @ExtendWith(SpringExtension.class) and after we can use @DataJpaTest annotation to tell Spring to create an in-memory database for us just for the purpose of testing the repository.</p>
+<pre><code>@ExtendWith(SpringExtension.class)
+@DataJpaTest
+class ProductRepositoryTest {
+
+   @Autowired
+   private ProductRepository productRepository;
+
+   @Test
+   void getProductById_Should_ReturnProduct_When_ProperIdIsProvided() {
+       productRepository.save(new Product(1L, &quot;Beer&quot;, 100.0, 100L));
+       productRepository.save(new Product(2L, &quot;Cheese&quot;, 200.0, 200L));
+
+       Product cheese = productRepository.getProductById(2L);
+
+       assertEquals(200L, cheese.getQuantity());
+   }
+
+   @Test
+   void getProductById_Should_ReturnNull_When_ProductIsMissing() {
+       Product cheese = productRepository.getProductById(2L);
+       assertEquals(null, cheese);
+   }
+}</code></pre>
+<h2>Integration tests</h2>
+<p>Unlike unit tests, integration tests check more components of our application working together.</p>
+<p>We tested the Controller, Service and Repository, all in one test, mocking nothing.</p>
+<p>Again Spring comes to our rescue and gives us some tools to use. We will use @ExtendWith(SpringExtension.class) annotation to register the test as a Spring Unit test, @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) annotation to launch the entire Spring Boot application on a random port. All components within the application will be instantiated in ApplicationContext simulating the application running, unlike unit tests which test just individual components.</p>
+<p>@SpringBootTest annotation will also launch the in-memory database and query it just like in a real scenario.</p>
+<p>Another great tool that Spring provides is the TestRestTemplate object that helps us make API calls to our REST endpoints.</p>
+<pre><code>@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ProductIntegrationTest {
+
+   @Autowired
+   private TestRestTemplate testRestTemplate;
+
+   @Autowired
+   private ProductRepository productRepository; // just to add data in db
+
+   @Test
+   void checkStatusApi_Should_ReturnString_When_Called() {
+       String response = testRestTemplate.getForObject(&quot;/status&quot;, String.class);
+       assertEquals(response, &quot;Live!&quot;);
+   }
+
+   @Test
+   @DirtiesContext //@DirtiesContext will rollback database changes after test is done
+   void getProductApi_Should_ReturnProduct_When_Called() {
+       addSomeDataToDb();
+
+       ResponseEntity&lt;Product&gt; response = testRestTemplate
+               .getForEntity(&quot;/products?id=1&quot;, Product.class, new HashMap&lt;String, String&gt;());
+
+       assertEquals(HttpStatus.OK, response.getStatusCode());
+
+       assertEquals(&quot;Beer&quot;, response.getBody().getName());
+       assertEquals(10L, response.getBody().getQuantity());
+       assertEquals(100, response.getBody().getPrice());
+   }
+
+   private void addSomeDataToDb() {
+       Product p1 = new Product(&quot;Beer&quot;, 110.0, 10L);
+       Product p2 = new Product(&quot;Cheese&quot;, 100.0, 9L);
+       Product p3 = new Product(&quot;WIne&quot;, 110.0, 10L);
+       productRepository.save(p1);
+       productRepository.save(p2);
+       productRepository.save(p3);
+   }
+}</code></pre>
+<p>In integration tests, we could mock some components and just inject the mocks in the components we test.</p>
+<pre><code>@MockBean
+private ProductRepository productRepositoryMock;</code></pre>
+<p>Then we can use when() in our tests:</p>
+<pre><code>when(productRepositoryMock.method(..)).thenReturn(...)</code></pre>
+<h2>Conclusion</h2>
+<p>Writing Spring Boot tests is fast and easy and keeps unwanted bugs away. The framework offers great tools to help us, and we don’t need to add any other dependencies to the project for most of the cases.</p>
+<p>The code is available over <a href="https://github.com/WeInspireTech/websitetutorials">GitHub</a>.</p>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

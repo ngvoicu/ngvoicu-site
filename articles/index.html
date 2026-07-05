@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Gabriel Voicu</title>
+<meta name="description" content="Writing on AI-native development, spec-driven workflows, agent knowledge bases, and enterprise Java — by Gabriel Voicu.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+
+  ul.list { list-style:none; margin:0; }
+  ul.list li { display:flex; gap:16px; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--ink-line); margin:0; }
+  ul.list .d { font-family:var(--mono); font-size:12.5px; color:var(--mist); flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">articles</div>
+  <h1>Writing</h1>
+  <div class="byline">AI-native development, spec-driven workflows, and a decade of enterprise engineering notes.</div>
+  <ul class="list">
+    <li><span class="d">2026-06-01</span><a href="/articles/the-sme-your-team-never-had/">The SME your team never had</a></li>
+    <li><span class="d">2026-06-01</span><a href="/articles/specmint-persistent-ai-coding-specs/">Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools</a></li>
+    <li><span class="d">2026-06-01</span><a href="/articles/specmint-html-specs/">AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree</a></li>
+    <li><span class="d">2026-06-01</span><a href="/articles/speckit-practical-guide-multi-repo/">SpecKit — Practical Guide for a Multi-Repo Workspace</a></li>
+    <li><span class="d">2021-12-21</span><a href="/articles/log4j-the-monster-from-your-yard/">Log4J, the monster from your yard</a></li>
+    <li><span class="d">2019-10-26</span><a href="/articles/hexagonal-architecture/">Hexagonal Architecture</a></li>
+    <li><span class="d">2019-10-26</span><a href="/articles/testing-spring-boot-applications/">Testing Spring Boot applications</a></li>
+    <li><span class="d">2019-10-26</span><a href="/articles/what-is-and-how-do-we-measure-code-coverage/">What is and how do we measure code coverage</a></li>
+    <li><span class="d">2019-10-19</span><a href="/articles/jumpstart-testing-with-mockito-and-junit5/">Jumpstart Testing with Mockito and JUnit5</a></li>
+    <li><span class="d">2019-10-09</span><a href="/articles/advanced-mapstruct-for-automated-dto-to-entity-mapping-and-vice-versa/">Advanced MapStruct for automated DTO to Entity mapping and vice versa</a></li>
+    <li><span class="d">2019-10-08</span><a href="/articles/mapstruct-for-automated-dto-to-entity-mapping-and-vice-versa/">MapStruct for automated DTO to Entity mapping and vice-versa</a></li>
+    <li><span class="d">2019-09-07</span><a href="/articles/jumpstart-openlayers/">Jumpstart OpenLayers</a></li>
+    <li><span class="d">2019-08-10</span><a href="/articles/create-osgi-bundle-camel-routes-xml-java-dsl-deploy-in-servicemix/">Create OSGi bundle, Camel Routes (XML/Java DSL), deploy in ServiceMix</a></li>
+    <li><span class="d">2019-08-09</span><a href="/articles/start-web-project-with-springboot-angular-eclipse-or-intellij/">Start web project with Springboot, Angular, Eclipse or Intellij</a></li>
+    <li><span class="d">2019-08-08</span><a href="/articles/create-a-spring-boot-multi-module-project/">Create a Spring Boot Multi-Module Project</a></li>
+    <li><span class="d">2019-08-07</span><a href="/articles/create-a-maven-project-with-jsp-and-servlets-in-intellij-idea/">Create a Maven Project with JSP and Servlets in Intellij Idea</a></li>
+    <li><span class="d">2019-08-07</span><a href="/articles/create-a-spring-boot-project-with-jsp-in-eclipse/">Create a Spring Boot project with JSP in Eclipse</a></li>
+    <li><span class="d">2019-08-07</span><a href="/articles/create-a-web-app-with-intellij-ultimate-edition-15-spring-mvc-and-tomcat/">Create a web app with Intellij Ultimate Edition 15, Spring MVC and Tomcat</a></li>
+  </ul>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

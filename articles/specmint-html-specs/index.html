@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree — Gabriel Voicu</title>
+<meta name="description" content="Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/specmint-html-specs/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/specmint-html-specs/">
+<meta property="og:title" content="AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree">
+<meta property="og:description" content="Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI Coding Specs Should Be HTML \u2014 Karpathy and Anthropic Agree", "description": "Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.", "datePublished": "2026-06-01", "dateModified": "2026-06-01", "mainEntityOfPage": "https://ngvoicu.dev/articles/specmint-html-specs/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2026-06-01 · also published on Medium</div>
+  <h1>AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p><em>Specmint Core HTML and Specmint TDD HTML turn ephemeral plan-mode output into rich, browsable specs — Mermaid architecture diagrams, syntax-highlighted code diffs, real UI mockups, and (for TDD) a full red-green-refactor audit trail.</em></p>
+<p><img src="images/logo-with-text.png" alt="Specmint" loading="lazy"></p>
+<p>Something quietly shifted in May 2026. On May 8, <a href="https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/">Thariq Shihipar — an engineer on Anthropic's Claude Code team — published "The Unreasonable Effectiveness of HTML"</a>. Within 48 hours it had 750,000 views on X, 30,000 bookmarks, and a sustained discussion thread on Hacker News. His core admission cut hard:</p>
+<blockquote><p>"I tend to not actually read more than a 100-line markdown file, and I certainly am not able to get anyone else in my organization to read it."</p></blockquote>
+<p>A few days later, Andrej Karpathy <a href="https://x.com/karpathy/status/2053872850101285137">reached the same conclusion independently</a>:</p>
+<blockquote><p>"This works really well btw, at the end of your query ask your LLM to 'structure your response as HTML', then view the generated file in your browser."</p></blockquote>
+<p>He framed it in cognitive terms: audio is humans' preferred <em>input</em> to AI; <strong>vision is the preferred output from it</strong>. "Around a third of our brains are massively parallel processors dedicated to vision. It's the ten-lane superhighway of information into the brain." Markdown gives you bold, italic, headers, lists. The other nine lanes sit empty.</p>
+<p>The conclusion from both camps was the same: for outputs you're going to read — implementation plans, code reviews, design systems, spec documents — HTML beats markdown by a margin so large it's strange it took this long to notice.</p>
+<p>This article is about applying that conclusion specifically to <strong>coding specs</strong>, through two open-source skills: <strong>Specmint Core HTML</strong> and <strong>Specmint TDD HTML</strong>.</p>
+<h2>Why Specs Are the Hardest Case</h2>
+<p>A one-shot HTML artifact is easy. Karpathy's tip works perfectly for a self-contained explainer, a small tool, a single-page report. You generate, you read, you throw it away.</p>
+<p>A spec is different. A spec has to <strong>survive</strong>. It gets updated across multiple sessions, tracks which tasks are done, accrues a decision log. It needs to be editable by an AI agent six weeks from now without re-rendering the whole document and losing your progress.</p>
+<p>That's the legitimate objection raised in the <a href="https://news.ycombinator.com/item?id=48071940">Hacker News thread on Thariq's post</a>: <em>"by gravitating to HTML you lose the ability for a human (you!) to easily co-author the document with the LLM."</em> Markdown is hand-editable. HTML is not, unless you build it that way.</p>
+<p>This is the gap Specmint fills. It's HTML-first for the reasons Karpathy and Anthropic identify — but designed so AI agents can edit it surgically, without humans ever needing to touch the markup.</p>
+<h2>What a Specmint HTML Spec Looks Like</h2>
+<p>The output of the <strong>forge</strong> workflow — triggered by natural language like "create a spec for X" in any supported tool — is a single <code>SPEC.html</code> file in <code>.specs/&lt;spec-id&gt;/</code>. Open it in a browser:</p>
+<p><img src="images/preview-core-html.png" alt="A rendered Specmint Core HTML spec" loading="lazy"></p>
+<p>That's a real "Team Invites" spec. The header card carries a live scorecard (Tasks 4/12, Phases 1/4, Acceptance 2/6); numbers are derived at render time from <code>data-status</code> attributes, so one swap propagates everywhere. Architecture diagrams render as Mermaid — flowcharts, sequence, ER, state — with no CDN; the runtime ships with the spec. Code previews are PrismJS <code>diff-highlight</code> blocks: red/green line backgrounds <em>with</em> language-aware highlighting underneath, not screenshots. UI mockups land as bespoke wireframe primitives or hi-fi components on a constrained palette so the AI can't bikeshed colors. Phases and tasks collapse cleanly; the decision log and deviations table track the "why" of every choice.</p>
+<p>This is the artifact Thariq describes when he says HTML lets you build "implementation plans with embedded mockups and code snippets." The difference between this and a markdown spec isn't decorative. It's the difference between a document you skim and a document you actually use.</p>
+<h2>How Specmint Stays Editable</h2>
+<p>Specmint's <code>SPEC.html</code> isn't free-form HTML. It's a strict template with three properties that make it AI-editable without humans ever opening the file.</p>
+<p><strong>Region sentinels.</strong> Every top-level section is bracketed by HTML comments: <code>&lt;!-- region:tasks --&gt;</code> … <code>&lt;!-- endregion:tasks --&gt;</code>. The AI uses these as anchors for surgical edits — flipping <code>data-status="pending"</code> to <code>data-status="completed"</code> on a single task, never re-rendering the page. Recent versions even author the spec region by region instead of one shot.</p>
+<p><strong>Edit recipes.</strong> Specmint ships a <code>references/edit-recipes.md</code> with before/after snippets for every common operation: complete a task, transition a phase, append to the decision log. The AI matches a recipe, doesn't improvise.</p>
+<p><strong>A post-edit validator.</strong> A short Python check verifies every region sentinel has a matching close, the <code>spec-meta</code> JSON parses, and <code>data-status</code> values stay within the allowed set. Catches drift before it compounds.</p>
+<p>The result: humans get the rendered artifact; agents get a clean surface to manipulate. The HN objection evaporates because <strong>humans don't co-edit. They read.</strong></p>
+<h2>The TDD Variant</h2>
+<p>Specmint TDD HTML is the same idea with a stricter contract: every feature task is split into a <strong>TEST task</strong> and an <strong>IMPL task</strong>, and the IMPL can't start until its TEST is written <em>and observed to fail</em>.</p>
+<p><img src="images/preview-tdd-html.png" alt="A rendered Specmint TDD HTML spec" loading="lazy"></p>
+<p>Same rendering primitives as Core HTML, plus three TDD-specific things. A <strong>Testing Architecture section</strong> — framework, isolation strategy, coverage targets, test commands, anti-patterns — populated by a dedicated test-infrastructure research pass that reads your existing config rather than inventing a strategy. <strong>Paired TEST-IMPL task cards</strong> with codes like <code>[TEST-AUTH-01]</code> and <code>[IMPL-AUTH-02]</code>, each IMPL ending in <code>→ satisfies [TEST-AUTH-01]</code> so the linkage is visible. And a <strong>TDD Log rendered as RGR swimlanes</strong> — three lanes (RED / GREEN / REFACTOR) with the actual monospace test output captured in each. Skim it next week and you can see exactly when each cycle started red, when it went green, what the refactor changed.</p>
+<p>The blocking rule is per-task and unforgiving: the implement workflow runs your test command via Bash at every transition. No "tests would pass" hand-waving.</p>
+<h2>Spec Tokens Are the Cheapest Tokens You'll Ever Spend</h2>
+<p>The standard objection to HTML specs is that they cost more tokens. They do — roughly 3x in our measurements. The objection is also irrelevant, and not because tokens are cheap (they are, but that's the small reason).</p>
+<p>The real reason: <strong>the most expensive tokens in any AI coding workflow are the ones you spend rebuilding work the agent got wrong</strong> — and a rendered spec is the cheapest place in the pipeline to catch that.</p>
+<p>A human reading a markdown spec sees a wall of bullets. The visual cortex — the ten-lane superhighway — barely engages. You skim. You nod. The agent goes off and builds. Three hours later, you discover its mental model of "Phase 3: data flow" doesn't match yours, because nobody drew the diagram. Now you're paying for wrong code, a re-planning turn, and a refactor back to where you should have started.</p>
+<p>A rendered spec catches the same misunderstanding in seconds. An arrow on the architecture diagram points somewhere obviously wrong. The mockup shows a button you didn't ask for. The ER diagram has a relationship that breaks your data model. You point at the picture, the agent corrects the spec, implementation starts from the right place. <strong>One fixed misunderstanding at the spec stage pays for ten verbose specs.</strong></p>
+<p>Humans visualize. A diagram parses in parallel; a bulleted list parses serially through working memory. The 3x token premium on the spec disappears against a single fix-turn saved downstream.</p>
+<p>Karpathy's own <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> reflects the same split — markdown for <em>storage</em> (greppable, token-cheap), HTML for <em>outputs</em> meant to be read. Specmint sits exactly on this seam: research notes and interview notes stay markdown; the spec itself is rendered.</p>
+<h2>Better Research Pairs with a Brain</h2>
+<p>The forge workflow's research phase reads your codebase and searches the web. That covers what's <em>written down</em>. It doesn't cover what isn't — the architecture decision you made in a Slack thread six months ago, the vendor quirk that bit you last quarter, the test isolation pattern your team agreed to but never documented.</p>
+<p><a href="https://kluris.ngvoicu.dev">Kluris</a> fills that half. It's a git-backed knowledge brain your AI agent can query alongside the codebase. Pair it with Specmint and the research phase consults the brain <em>before</em> asking you. The spec lands grounded in code <em>and</em> in the decisions your team already made — no re-litigating what was settled in October.</p>
+<h2>Installation</h2>
+<p>Specmint is a skill, not a plugin — there are no slash commands to memorize. You drive every workflow with natural language: "create a spec for OAuth", "resume", "pause and save context". It works across six tools: Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.</p>
+<p>Install the Core HTML variant with a single command:</p>
+<pre><code>npx skills add ngvoicu/specmint-core-html -g
+# then: &quot;create a spec for adding OAuth sign-in with GitHub&quot;</code></pre>
+<p>For TDD, swap <code>specmint-core-html</code> for <code>specmint-tdd-html</code>:</p>
+<pre><code>npx skills add ngvoicu/specmint-tdd-html -g</code></pre>
+<p>The TDD variant adds the Testing Architecture section, alternating TEST-IMPL task pairs, and an implement workflow that enforces red-green-refactor per pair.</p>
+<p>Either way, the <code>.specs/</code> directory is the same shape across tools. Start a TDD spec in Claude Code on Friday, finish it in Cursor on Monday.</p>
+<h2>The Bigger Picture</h2>
+<p>Karpathy sketched the progression: <em>"raw text, then markdown, then HTML, and eventually interactive neural video."</em> AI coding tools spent the last two years stuck on markdown because context windows were small and tokens were precious. Both constraints are gone. The Claude Code team noticed. Karpathy noticed. The artifacts your AI produces should be artifacts you want to read — and specs, more than anything else, are the artifacts you come <em>back</em> to.</p>
+<p>Both skills are MIT-licensed:</p>
+<ul>
+<li><strong>Specmint Core HTML</strong> — <a href="https://github.com/ngvoicu/specmint-core-html">github.com/ngvoicu/specmint-core-html</a></li>
+<li><strong>Specmint TDD HTML</strong> — <a href="https://github.com/ngvoicu/specmint-tdd-html">github.com/ngvoicu/specmint-tdd-html</a></li>
+<li><strong>Live gallery</strong> — <a href="https://specmint.ngvoicu.dev/#gallery">specmint.ngvoicu.dev/#gallery</a> renders both exemplar specs in your browser. Those are the exact files the forge workflow produces.</li>
+</ul>
+<hr>
+<p><em>Specmint is created by Gabriel Voicu and is available as an open-source AI coding skill.</em></p>
+<p><strong>Further reading:</strong></p>
+<ul>
+<li><a href="https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/">Thariq Shihipar — "The Unreasonable Effectiveness of HTML"</a> (May 2026)</li>
+<li><a href="https://x.com/karpathy/status/2053872850101285137">Andrej Karpathy on HTML output</a></li>
+<li><a href="https://news.ycombinator.com/item?id=48071940">HN discussion</a></li>
+</ul>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

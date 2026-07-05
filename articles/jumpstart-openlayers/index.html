@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jumpstart OpenLayers — Gabriel Voicu</title>
+<meta name="description" content="A hands-on starter for OpenLayers: build a map with tile, vector, and KML layers, custom features, projections, and click handlers.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/jumpstart-openlayers/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/jumpstart-openlayers/">
+<meta property="og:title" content="Jumpstart OpenLayers">
+<meta property="og:description" content="A hands-on starter for OpenLayers: build a map with tile, vector, and KML layers, custom features, projections, and click handlers.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Jumpstart OpenLayers", "description": "A hands-on starter for OpenLayers: build a map with tile, vector, and KML layers, custom features, projections, and click handlers.", "datePublished": "2019-09-07", "dateModified": "2021-11-16", "mainEntityOfPage": "https://ngvoicu.dev/articles/jumpstart-openlayers/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2019-09-07 · originally published on the ZeeSpire blog</div>
+  <h1>Jumpstart OpenLayers</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p><img src="images/pngegg.png" alt="Jumpstart OpenLayers" loading="lazy"></p>
+<pre><code>&lt;!-- 
+    OpenLayers is a Javascript library that handles the visual part of GIS systems. 
+    It&#x27;s a way to add maps into web applications.
+    OpenLayers consists from more overlaped layers.
+    You can display maps from different sources such as Bing, GoogleMaps or your own Geo server.
+
+    Using projections you can convert locations on earth to locations on maps.
+    ex. EPSG 3857, EPSG 4326
+
+    API DOCS OL 3.x http://geoadmin.github.io/ol3/apidoc/ol.html
+--&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;style&gt;
+            /* 
+            * Select HTML element where the map will be displayed,
+            * if width and height aren&#x27;t specified map will be 0x0 
+            */
+            #myMap{
+                height: 600px;
+                width: 600px;
+                border: 5px solid black;
+            }
+        &lt;/style&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.css&quot; /&gt; 
+    &lt;/head&gt;
+    &lt;body&gt;
+      
+        &lt;div id=&quot;myMap&quot;&gt;
+            &lt;!-- this is where map will be rendered --&gt;
+        &lt;/div&gt;
+
+        &lt;script&gt;
+            /* ********************************* START Layers Description *******************************
+            * There are 3 types of layers ol.layer.Tile, ol.layer.Image, ol.layer.Vector.
+            * The main difference between Tile and Image is the type of server that provides the map, 
+            *     usually Image servers have better quality and require a lot of configuration to make.
+            * Both Image and Tile layers are raster format.
+            *     In its simplest form, a raster consists of a matrix of cells (or pixels) organized into rows and columns 
+            *     (or a grid) where each cell contains a value representing information, such as temperature. 
+            *     Rasters are digital aerial photographs, imagery from satellites, digital pictures, or even scanned maps.
+            * ********************************* END Layers Description *********************************
+            */</code></pre>
+<pre><code>            //define map layer
+            var myLayer = new ol.layer.Tile({  //define layer type
+                source: new ol.source.OSM()    //define layer source, there are many sources to choose from
+                //more properties here: http://geoadmin.github.io/ol3/apidoc/ol.layer.Tile.html
+            });
+
+            /*********************************** START Mall Feature ***********************************/
+            //1. define mall coordinates
+            var mallCoords = [28.646895, 44.178516];
+
+            //2. define mall Point with given coordinates
+            var mallPoint = new ol.geom.Point(ol.proj.transform(mallCoords, &#x27;EPSG:4326&#x27;, &#x27;EPSG:3857&#x27;));
+
+            //4. style the feature (optional)
+            var stroke = new ol.style.Stroke({color:&#x27;black&#x27;, width: 2});
+            var fill = new ol.style.Fill({color: &#x27;gold&#x27;});
+            var square = new ol.style.Style({
+                image: new ol.style.RegularShape({
+                    fill: fill,
+                    stroke: stroke,
+                    points: 4,
+                    radius: 10,
+                    angle: Math.PI / 4 // &lt;----45 degrees, PI = 180 degrees
+                })
+            });
+
+            //3. define mall feature for given point
+            var mallFeature = new ol.Feature({
+                geometry: mallPoint
+            });
+            mallFeature.setId(&#x27;Tomis Mall&#x27;);
+            mallFeature.setStyle(square);
+            /*********************************** END Mall Feature ***********************************/
+
+
+            /*********************************** START Maritimo Feature ***********************************/
+            //1. define mall feature for given point
+            var maritimoFeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([28.609385, 44.199066], &#x27;EPSG:4326&#x27;, &#x27;EPSG:3857&#x27;))
+            });
+
+            //2. define maritimo style
+            var maritimoStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    src: &#x27;https://www.shareicon.net/data/128x128/2017/07/13/888379_business_512x512.png&#x27;,
+                    scale: 0.4
+                })
+            })
+
+            maritimoFeature.setId(&#x27;Maritimo Mall&#x27;);
+            maritimoFeature.setStyle(maritimoStyle); //style from Tomis Mall Feature
+            /*********************************** END Maritimo Feature ***********************************/
+
+
+            /***************************** START Custom Features Layer ******************************/
+            //1. define vector source with given features
+            var mallVectorSource = new ol.source.Vector({
+                features: [mallFeature, maritimoFeature]
+            });
+
+            //2. define mall layer with given source
+            var mallLayer = new ol.layer.Vector({
+                source: mallVectorSource,
+                maxResolution: 6 //6m per pixel, only show layer if zoom is high, resolution is related to zoom
+            });
+            /****************************** END Custom Features Layer *******************************/
+
+          /***************************** START KML Custom Layer ************************************/
+            //1. define vector source with kml information
+            var kSource = new ol.source.Vector({
+                url: &#x27;https://openlayers.org/en/v4.5.0/examples/data/kml/2012-02-10.kml&#x27;,
+                format: new ol.format.KML()
+            });
+
+            //2. define mall layer with given source
+            var kLayer = new ol.layer.Vector({
+                source: kSource
+            });         
+            /****************************** END KML Custom Layer ************************************/
+
+            //define layer array
+            var myLayers = [myLayer, mallLayer, kLayer];
+
+            //coordinates
+            var centerCoords = [28.6516268, 44.1767841];
+
+            //transform coordinates from 4326(took from Google Maps) in 3857(Standard OpenLayers)
+            var transCoords = ol.proj.transform(centerCoords, &#x27;EPSG:4326&#x27;, &#x27;EPSG:3857&#x27;);
+
+            //define view using center coordinates(transformed)
+            var myView = new ol.View({
+                center: transCoords,
+                zoom: 18 //min 0, max 28.
+                //projection: &#x27;EPSG:4326&#x27;, //You can use this to skip transformation
+                //more properties here: http://openlayers.org/en/latest/apidoc/ol.View.html
+            });
+
+            //define map
+            var map = new ol.Map({
+                target: &#x27;myMap&#x27;,    //id to element where to render map
+                layers: myLayers,   //specify layers
+                view: myView        //specify view
+            });
+
+            //add event handler on map for each feature
+            map.on(&#x27;click&#x27;, function(evt){
+                map.forEachFeatureAtPixel(evt.pixel, function(feature, layer){
+                    alert(feature.getId());
+                })
+            })</code></pre>
+<pre><code>        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- ********************************* START Vector Formats Description *******************************
+* The most common Vector formats are GML, KML, GeoJSON and ESRI Shapefile.
+* Some examples with code here: http://openlayers.org/en/latest/examples/geojson.html
+************************************** END Vector Formats Description *********************************--&gt;</code></pre>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

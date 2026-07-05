@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The SME your team never had — Gabriel Voicu</title>
+<meta name="description" content="Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents actually read — one shared brain across eight tools.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/the-sme-your-team-never-had/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/the-sme-your-team-never-had/">
+<meta property="og:title" content="The SME your team never had">
+<meta property="og:description" content="Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents actually read — one shared brain across eight tools.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "The SME your team never had", "description": "Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents actually read \u2014 one shared brain across eight tools.", "datePublished": "2026-06-01", "dateModified": "2026-06-01", "mainEntityOfPage": "https://ngvoicu.dev/articles/the-sme-your-team-never-had/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2026-06-01 · also published on Medium</div>
+  <h1>The SME your team never had</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p>_I gave every AI agent on my team the same shared brain — and it started answering like my senior engineer on her best day._</p>
+<p>Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents actually read. Claude Code, Cursor, Copilot, and five more — all working from the same truth.</p>
+<p><img src="images/mri-overview.png" alt="The kluris MRI overview: colored lobes as clusters, neurons as nodes, dashed synapses as links — a live, interactive map of a brain." loading="lazy"></p>
+<h2>The problem nobody wants to admit</h2>
+<p>Your AI agent is smart. It is also amnesiac.</p>
+<p>Every new chat starts from zero. It doesn't remember that you picked raw SQL over an ORM and why. It doesn't know your service uses Keycloak or that JWTs rotate at 80% TTL. It has never heard of the January outage. It is re-deriving all of that from the code, badly, on every conversation — and then your teammate opens a different agent in a different editor and re-derives it slightly differently.</p>
+<p>Meanwhile, the docs you do have — in Notion, Confluence, a wiki, a battered README — are written for humans. Agents can't search them, can't link between them, can't write back to them. The CLAUDE.md or <code>.cursorrules</code> file you wrote last month is per-project, per-tool. Your senior engineer's knowledge, the thing that actually decides most PRs in your repo, lives in her head and leaves the company when she does.</p>
+<p>I built a tool because this bothered me enough. It's called <strong>Kluris</strong>.</p>
+<p><strong>What it does, in one line:</strong> it gives every AI agent on your team a shared, human-curated, git-backed knowledge base — so they behave like an SME who already knows your codebase, not a stranger starting from scratch every morning.</p>
+<pre><code>pipx install kluris
+kluris create</code></pre>
+<p>Then, inside Claude Code / Cursor / Windsurf / Copilot / Codex / Gemini CLI / Kilo / Junie:</p>
+<pre><code>&gt; /kluris learn everything about this service</code></pre>
+<p>That's the whole loop. The agent analyzes your repo, proposes knowledge to save — one entry at a time — and you approve what's real. Over a few sessions, the brain fills in.</p>
+<h2>Why not just use a wiki or agent memory?</h2>
+<p>There are four usual answers to this problem. None of them work.</p>
+<p><strong>Wikis and Notion</strong> are for humans. Lovely markdown, searchable in a browser, impossible for an agent. Agents can't crawl a Notion workspace. Even if they could, the content is mostly prose — not the structured, linked, per-decision format an agent can actually reason over mid-task.</p>
+<p><strong>CLAUDE.md / <code>.cursorrules</code></strong> is per-project and per-tool. If your team has three services, three CLAUDE.md files drift. If half the team uses Cursor and half uses Claude Code, the knowledge forks. Rules files are a coping mechanism, not an architecture.</p>
+<p><strong>Agent memory</strong> (the built-in feature Claude and others ship) is agent-controlled. The agent decides what to keep. You don't review it. You don't version it. Another teammate's memory is a different memory. There's no shared truth.</p>
+<p><strong>"Just put it in the README."</strong> Then the README grows to 4,000 lines and nobody reads it, including the agent, because it blows the context window.</p>
+<p>A brain is different. It's:</p>
+<ul>
+<li><strong>Markdown in git</strong> — agents read it, humans review it, <code>git blame</code> tells you who decided what.</li>
+<li><strong>Structured</strong> — decision records capture _context → decision → rationale → alternatives → consequences_, so future agents (and future you) can actually reason about superseded choices.</li>
+<li><strong>Cross-project</strong> — one brain sits above your three services, your infra, your frontend. One source of truth.</li>
+<li><strong>Cross-agent</strong> — the same brain installs as a <code>/kluris</code> slash command in every AI tool your team uses. Same answer everywhere.</li>
+<li><strong>Human-curated</strong> — nothing is written without your approval. The agent proposes; you edit or skip.</li>
+</ul>
+<h2>The vocabulary, because it's the whole product</h2>
+<p>Kluris borrows from neuroscience because the metaphor earns its keep. You won't forget it.</p>
+<ul>
+<li><strong>Brain</strong> — the git repo of shared knowledge.</li>
+<li><strong>Lobe</strong> — a folder in the brain. <code>projects/</code>, <code>infrastructure/</code>, <code>knowledge/</code>. Whatever regions fit your team.</li>
+<li><strong>Neuron</strong> — a single markdown file. <code>auth-flow.md</code>, <code>docker-builds.md</code>, <code>use-raw-sql.md</code>.</li>
+<li><strong>Synapse</strong> — a cross-link between neurons. Follow it and you load related context automatically.</li>
+<li><strong>MRI</strong> — <code>kluris mri</code> generates a self-contained interactive HTML file: lobes as colored clusters, neurons as nodes, synapses as lines. Click anything, read the rendered markdown, walk the topic.</li>
+<li><strong>Dream</strong> — <code>kluris dream</code> is the maintenance pass: regenerate indexes, fix broken links, auto-repair what's safe, surface warnings for what isn't.</li>
+</ul>
+<p>The metaphor isn't decoration. It's a mental model: you're not writing documentation, you're growing a brain. You add lobes as the team grows, prune neurons that are superseded, follow synapses when you lose the plot. It tracks how the thing actually feels to use.</p>
+<h2>What a week with Kluris looks like</h2>
+<p>I'll show you a real arc, not a feature tour.</p>
+<h3>Monday — teach it what you already know</h3>
+<p>Open your agent in a project. Run:</p>
+<pre><code>&gt; /kluris learn the API endpoints and data model</code></pre>
+<p>The agent reads the code, then walks you through proposals one at a time. A small preview, a suggested lobe, a suggested filename. You approve, edit, or skip. In twenty minutes you have fifteen or twenty neurons: the auth flow, the data model, the conventions nobody wrote down.</p>
+<h3>Tuesday — capture a decision</h3>
+<p>You just fought with an ORM and picked raw SQL for a complex reporting query. Before the "why" leaves your head:</p>
+<pre><code>&gt; /kluris remember we chose raw SQL over JPA for query complexity</code></pre>
+<p>The agent drafts a <code>decision</code> neuron (context, decision, rationale, alternatives considered, consequences), shows it to you, you tweak a sentence, approve. Now it's in git. Your teammate's Cursor reads it tomorrow morning.</p>
+<h3>Wednesday — new hire joins</h3>
+<p>They <code>pipx install kluris</code>, <code>git clone git@github.com:team/brain.git ~/brains/team</code>, <code>kluris register ~/brains/team</code>, open Claude Code in the project:</p>
+<pre><code>&gt; /kluris what do we know about the auth flow?</code></pre>
+<p>The agent tells them, grounded in the real neurons, with citations. Five minutes, not five days. Then they run <code>kluris mri</code>, open the HTML file in a browser, and literally see the whole brain — clusters of lobes, synapses between related topics. They click through three neurons, get the shape of the codebase, ship a first PR on Thursday.</p>
+<h3>Thursday — implement a feature</h3>
+<pre><code>&gt; /kluris implement the new refund endpoint following our conventions</code></pre>
+<p>The agent reads the brain _first_. It sees the auth-flow neuron, the error-handling decision, the endpoint conventions. It implements to those conventions — and if your code contradicts a documented decision, it tells you, it doesn't silently drift.</p>
+<h3>Friday — the quiet superpower</h3>
+<p>You don't notice anything happened. The agent hasn't re-derived anything. Your token usage is lower, because instead of re-crawling the repo on every chat, the agent loads one compact snapshot — <code>kluris wake-up --json</code> — and jumps to the neuron it needs.</p>
+<p>Illustrative numbers from the README, on a medium repo:</p>
+<pre><code>Without kluris — cold-start orientation:
+  tree + README + CLAUDE.md         ~3,000 tokens
+  grep for related symbols          ~2,000 tokens
+  read 4–8 relevant files           ~15,000 tokens
+  read 2–3 sibling-project files    ~8,000 tokens
+                                    ─────────────
+                                    ~28,000 tokens
+
+With kluris — same task, brain-backed:
+  wake-up snapshot (brain + lobes + recent + glossary) ~1,200 tokens
+  search &quot;&lt;query&gt;&quot; (ranked hits with snippets)           ~400 tokens
+  read 1–2 matching neurons                            ~1,500 tokens
+                                                       ─────────────
+                                                       ~3,100 tokens</code></pre>
+<p>Not a benchmark — a shape. The shape says: a wide crawl becomes a targeted lookup. The savings compound the more projects you touch. And what matters more than the number is that the agent spends its context budget on the _actual work_, not on orientation.</p>
+<h2>The two surfaces</h2>
+<p>This is the part that trips up most first-time users. Kluris lives in two places.</p>
+<div class="tbl"><table>
+<tr><th>Surface</th><th>Prompt</th><th>Where</th><th>Examples</th></tr>
+<tr><td><strong>Terminal</strong></td><td><code>$ kluris …</code></td><td>bash / zsh / PowerShell</td><td><code>kluris create</code>, <code>kluris dream</code>, <code>kluris mri</code>, <code>kluris status</code></td></tr>
+<tr><td><strong>AI agent</strong></td><td><code>&gt; /kluris …</code></td><td>Claude Code, Cursor, Windsurf, Copilot, Codex, Gemini CLI, Kilo, Junie</td><td><code>/kluris learn</code>, <code>/kluris remember</code>, <code>/kluris search</code>, <code>/kluris implement</code></td></tr>
+</table></div>
+<p>Terminal commands handle setup, git, maintenance, and anything the agent calls internally. Slash commands are for the conversation — they're how you teach, query, and grow the brain without leaving your coding flow. Every time you see a code block in the Kluris docs, it's marked as one or the other. Nothing ambiguous.</p>
+<h2>The quiet architectural decisions I'm proud of</h2>
+<p>If you're building in this space and thinking about it seriously, a few choices worth calling out:</p>
+<ol>
+<li><strong>Everything is markdown in git.</strong> No proprietary format. You can open a neuron in VS Code, <code>git blame</code> any line, fork the repo, grep it. If Kluris disappears tomorrow, your brain is a normal git repo and a normal folder of markdown. Escape hatch by construction.</li>
+</ol>
+<ol>
+<li><strong>Human approves every entry.</strong> Agent memory fails because the agent is the judge of what's important. Wikis fail because nobody writes in them. Kluris splits the labor: the agent proposes (because it's the one reading code all day), the human approves (because only a human knows what's actually durable). Both roles play to their strength.</li>
+</ol>
+<ol>
+<li><strong>One brain, many agents.</strong> Kluris installs the <code>/kluris</code> skill for eight agents at once. When you switch editors — or your teammate does — the knowledge moves with you. This is not just "Claude memory" — it's your team's memory, independent of tool.</li>
+</ol>
+<ol>
+<li><strong>The per-brain slash command trick.</strong> With one brain registered, the slash command is <code>/kluris</code>. With multiple (say, you have a work brain and a personal brain), each brain installs as <code>/kluris-acme</code>, <code>/kluris-personal</code>. Each skill is bound to exactly one brain — the agent never has to guess which one you mean. Ambiguity is designed out.</li>
+</ol>
+<ol>
+<li><strong>MRI is just an HTML file.</strong> No server, no account, no external calls. Commit it to the repo, email it, drop it in Slack. It's the best onboarding tool I've ever made, and it's a static file.</li>
+</ol>
+<ol>
+<li><strong>wake-up is a bootstrap protocol, not a vibe.</strong> On the first <code>/kluris</code> of a session, the agent runs <code>kluris wake-up --json</code> — a compact snapshot with brain.md, lobe list + neuron counts, the 5 most recently updated neurons, the glossary, and any deprecation warnings. Cheap, deterministic, and it replaces the "agent walks the whole repo on every turn" failure mode.</li>
+</ol>
+<h2>Who this is for</h2>
+<p>If any of these sound familiar, try Kluris:</p>
+<ul>
+<li>You've written the same explanation three times in three different agent chats.</li>
+<li>Your CLAUDE.md has grown past 500 lines and the agent still gets basic things wrong.</li>
+<li>A senior engineer left and the team feels it every week.</li>
+<li>You use multiple AI coding tools and your knowledge has forked across them.</li>
+<li>You're planning a feature and the agent keeps re-discovering decisions you already made.</li>
+<li>You want AI agents to act like an SME, not a stranger.</li>
+</ul>
+<p>If you're a solo hobbyist on one codebase, honestly — you can probably live with CLAUDE.md. Kluris is for _teams_, or for individuals who juggle enough projects that "teammate-with-myself-next-quarter" is a real persona.</p>
+<h2>Try it in five minutes</h2>
+<pre><code># 1. Install the CLI
+pipx install kluris
+
+# 2. Create your first brain (interactive wizard)
+kluris create
+
+# 3. Open your favorite AI coding agent in a project, then:</code></pre>
+<pre><code>&gt; /kluris learn everything about this service</code></pre>
+<p>Then run <code>kluris mri</code> and open the HTML file. That's the moment most people get it.</p>
+<p>The project is MIT-licensed, Python 3.10+, and works offline — your data is yours, in your git repo. It pairs especially well with <a href="https://specmint.ngvoicu.dev">Specmint</a> if you do spec-driven development — Specmint consults the brain during its research phase so features start grounded in decisions your team already made.</p>
+<ul>
+<li>GitHub: <a href="https://github.com/ngvoicu/kluris">github.com/ngvoicu/kluris</a></li>
+<li>Site: <a href="https://kluris.ngvoicu.dev">kluris.ngvoicu.dev</a></li>
+<li>Guided tour: <a href="https://kluris.ngvoicu.dev/presentation.html">kluris.ngvoicu.dev/presentation.html</a></li>
+</ul>
+<p>If you try it, I want to hear what breaks. Open an issue or reach out. The brain metaphor either clicks for people in thirty seconds or not at all — and I want to know which one you are.</p>
+<hr>
+<p>_Kluris is built by <a href="https://www.linkedin.com/in/ngvoicu/">Gabriel Voicu</a>. It's free, open-source, MIT-licensed, and will stay that way._</p>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

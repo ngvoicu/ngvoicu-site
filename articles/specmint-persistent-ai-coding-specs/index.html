@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools — Gabriel Voicu</title>
+<meta name="description" content="Specmint replaces ephemeral AI coding plans with persistent specs in .specs/, working across Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/specmint-persistent-ai-coding-specs/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/specmint-persistent-ai-coding-specs/">
+<meta property="og:title" content="Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools">
+<meta property="og:description" content="Specmint replaces ephemeral AI coding plans with persistent specs in .specs/, working across Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools", "description": "Specmint replaces ephemeral AI coding plans with persistent specs in .specs/, working across Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.", "datePublished": "2026-06-01", "dateModified": "2026-06-01", "mainEntityOfPage": "https://ngvoicu.dev/articles/specmint-persistent-ai-coding-specs/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2026-06-01 · also published on Medium</div>
+  <h1>Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p>Every AI coding tool ships with some version of "plan mode." You describe a feature, the agent thinks for a moment, and it produces a plan. Sometimes the plan is good. Sometimes it's great. But it always has the same fatal flaw: <strong>close the terminal and the plan is gone.</strong></p>
+<p>That plan you spent twenty minutes refining? The research the agent did into your codebase, the architecture decisions you talked through together, the specific file paths and function names it discovered? All of it evaporates when the session ends. Start a new session tomorrow and you're back to square one, re-explaining context that your AI already understood yesterday.</p>
+<p>This is the problem Specmint solves — and it's why spec-driven development is becoming one of the most important practices in AI-assisted coding.</p>
+<h2>What Is Specmint?</h2>
+<p>Specmint is an open-source tool that replaces ephemeral AI coding plans with persistent, structured specs. These specs live in a <code>.specs/</code> directory at your project root. They survive across sessions, across days, across tools.</p>
+<p>Specmint installs as a skill — no plugin, no slash commands to memorize — and works with <strong>Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI</strong> through a single <code>npx</code> command. Every tool reads and writes to the same <code>.specs/</code> directory, so you can start a spec in Claude Code and pick it up in Cursor without losing a single line of context.</p>
+<p>The key insight is simple: a coding plan shouldn't live in a chat window. It should live in your project, right next to your code, versioned alongside it, readable by any tool — or any human — that opens the file.</p>
+<h2>The Problem With Plan Mode</h2>
+<p>If you've used Claude Code's plan mode, Cursor's Composer agent, or Windsurf's Cascade, you already know the pattern. You ask the AI to plan a feature. It scans some files, produces a list of steps, and starts implementing. It works well enough inside a single session.</p>
+<p>But software development doesn't happen in single sessions.</p>
+<p>You get interrupted. You context-switch to a different feature. You close your laptop and pick up the work on Monday. And every time, you lose the plan. Not just the bullet points — the entire context the agent built up: which files it read, what patterns it noticed in your codebase, the decisions you made together about approach, the exact point where implementation stopped.</p>
+<p>The result is a frustrating cycle. You start explaining the same feature again. The agent asks questions you already answered. It proposes approaches you already rejected. It misses patterns in your codebase that the previous session had already discovered.</p>
+<p>Specmint breaks this cycle by turning plans into files.</p>
+<h2>How Specmint Works</h2>
+<h3>The Forge Workflow</h3>
+<p>The core of Specmint is the forge workflow, triggered with natural language — "forge a spec for X" or "create a spec for user authentication" — in any tool. Instead of jumping straight to a list of bullet points, Specmint runs a six-phase workflow that treats planning as real work.</p>
+<p><strong>Deep research</strong> comes first. The forge workflow reads actual files in your codebase — not just file names, but implementations. It maps your directory structure, reads your <code>package.json</code> or <code>Cargo.toml</code>, follows dependency chains, checks how similar features are currently built, and searches the web for best practices on the specific technologies involved. All of this gets saved to a research file inside <code>.specs/</code>.</p>
+<p><strong>Iterative interviews</strong> come next. Based on what the research found, Specmint asks you targeted questions — not generic ones like "what do you want to build?" but specific ones like "I see you're using Express middleware at <code>src/middleware/</code>. Should the new auth middleware follow the same pattern?" Multiple rounds of questions continue until every task in the upcoming spec can be described concretely. Each round of questions and answers is saved to an interview file.</p>
+<p><strong>Spec writing</strong> synthesizes all the research and interviews into a structured spec with phases, concrete tasks, a decision log, and resume context.</p>
+<p><strong>Implementation</strong> works through the spec task by task, checking off completed items, updating progress, and logging any decisions or deviations along the way.</p>
+<h3>TDD Variants</h3>
+<p>Specmint ships in four variants so you can match it to how you work: <code>core</code> and <code>core-html</code> for straightforward spec-driven development, and <code>tdd</code> and <code>tdd-html</code> for a strict test-driven flow. In the TDD variants, every task starts with a failing test, production code exists only to make tests pass, and refactoring happens under green — the spec tracks the red-green-refactor state of each task as you go. The <code>-html</code> variants render your specs as professional HTML documents, with diagrams and syntax-highlighted diffs, instead of plain markdown.</p>
+<h3>What a Spec Looks Like</h3>
+<p>A spec has phases (like "Foundation," "OAuth Integration," "Testing") each containing concrete, checkable tasks. Every task has a unique code like <code>[AUTH-01]</code>, and the currently active task is marked so any tool can find it instantly.</p>
+<p>The most important part is <strong>resume context</strong> — a detailed description of exactly where implementation stopped, which files were being modified, what the next step is, and any blockers. It reads like a handoff note from one developer to another:</p>
+<blockquote><p>Finished Google OAuth. GitHub OAuth callback handler is in progress at <code>src/auth/oauth/github.ts</code>. The authorization URL redirect works but the callback endpoint needs to exchange the code for tokens. Use the same pattern as Google in <code>src/auth/oauth/google.ts</code> lines 45-82.</p></blockquote>
+<p>When you come back a week later and say "resume," any AI tool that understands Specmint can read that context and pick up from the exact spot — no re-explanation needed.</p>
+<h3>A Decision Log That Actually Persists</h3>
+<p>Every non-obvious technical choice gets recorded in the spec's decision log: library selections, architecture patterns, tradeoffs you evaluated. When a future session (or a different AI tool, or a new team member) reads the spec, they understand not just <em>what</em> was built but <em>why</em> it was built that way.</p>
+<p>Similarly, a deviations table tracks places where implementation diverged from the original plan, so the spec stays useful as documentation even after the code is written.</p>
+<h2>Cross-Tool Compatibility: One Spec Format, Any AI Coding Tool</h2>
+<p>This is where Specmint stands apart from tool-specific solutions. The <code>.specs/</code> directory is just plain files. Any AI tool that can read and write them can work with your specs.</p>
+<p>Install the skill for whichever tools you use with a single command each, using the <code>-g</code> flag to make it globally available:</p>
+<pre><code>npx skills add ngvoicu/specmint-core -g
+npx skills add ngvoicu/specmint-core-html -g
+npx skills add ngvoicu/specmint-tdd -g
+npx skills add ngvoicu/specmint-tdd-html -g</code></pre>
+<p>Pick one variant, or install several and let the natural-language triggers route to the right one. Once installed, the same commands work everywhere — forge, resume, pause, switch, list, and status are all plain-English triggers, not tool-specific syntax.</p>
+<p>The practical impact: you can start a spec in Claude Code using the deep forge workflow, pause it, and then resume it in Cursor or Codex the next day. The spec — with all its research, decisions, and progress — is right there in <code>.specs/</code>, tool-agnostic and human-readable.</p>
+<h2>Why Specs Over Plans?</h2>
+<h3>Persistence</h3>
+<p>Plans live in chat context and disappear. Specs live in your filesystem and persist forever. They diff cleanly in git. They survive session boundaries, tool switches, and team handoffs.</p>
+<h3>Depth of Research</h3>
+<p>Plan mode typically reads a handful of files and produces a plan. Specmint's forge workflow reads through your codebase, searches the web, pulls library documentation, and then interviews you over multiple rounds before writing anything. The resulting spec reflects a level of understanding that a quick plan mode pass simply cannot match.</p>
+<h3>Resumability</h3>
+<p>When you say "resume" in a tool configured with Specmint, it reads the active spec's resume context and picks up from the exact task, in the exact file, at the exact function where work stopped. No re-explaining. No re-scanning the codebase.</p>
+<h3>Multi-Spec Management</h3>
+<p>Real development involves juggling multiple features. Specmint lets you pause one spec, switch to another, and come back later. A registry file tracks all your specs with their status and progress, so you can list everything at a glance.</p>
+<h3>Accountability</h3>
+<p>The decision log and deviation tracking mean the spec doesn't just describe what to build — it documents why decisions were made and where the implementation diverged from the plan. This is useful for code reviews, for onboarding new team members, and for your future self trying to remember why you chose JWT over sessions.</p>
+<h3>A Bonus: OpenAPI Generation</h3>
+<p>Specmint can also generate an OpenAPI specification from your codebase — scanning your routes and schemas to produce a full API document — so the same tool that plans your work can describe its surface.</p>
+<h2>Spec-Driven Development: A Growing Practice</h2>
+<p>Specmint arrives at a moment when the industry is converging on a broader idea: spec-driven development. <a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub released Spec Kit</a>, <a href="https://blog.jetbrains.com/junie/2025/10/how-to-use-a-spec-driven-approach-for-coding-with-ai/">JetBrains documented spec-driven workflows</a> with Junie, and <a href="https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices">Thoughtworks identified it as one of 2025's key new engineering practices</a>.</p>
+<p>The common thread is that <strong>specifications as durable artifacts</strong> outperform ephemeral prompts and chat-based plans for AI-assisted development. When the spec lives in a file, it becomes a shared contract between you and the AI, surviving context resets and tool boundaries.</p>
+<p>Specmint takes this philosophy and makes it practical. You don't need to manually write spec files or learn a new template format. The forge workflow handles the research, the interviews, and the spec writing. You just describe what you want to build and answer questions.</p>
+<h2>Getting Started in Five Minutes</h2>
+<p>Install the variant you want, then start naturally:</p>
+<pre><code>npx skills add ngvoicu/specmint-tdd-html -g
+# Then in any tool: &quot;forge a spec for user authentication with OAuth&quot;</code></pre>
+<p>The agent will research your codebase, ask you targeted questions, and write a spec you can resume from any session, any day, any tool.</p>
+<h2>What Specmint Is Not</h2>
+<p>Specmint is not a project management tool. It doesn't replace Jira or Linear. Specs are focused on implementation — phases, tasks, file paths, function names, technical decisions. They're meant to guide an AI coding session (or a series of sessions), not to track sprints and stakeholder requirements.</p>
+<p>It's also not a documentation generator. While specs are readable and informative, their primary audience is the AI agent that will resume the work. They're optimized for machine-readable context, not for external stakeholders.</p>
+<h2>Conclusion</h2>
+<p>The biggest bottleneck in AI-assisted coding isn't the model's intelligence — it's context loss between sessions. Specmint eliminates that bottleneck by moving your plans out of ephemeral chat windows and into persistent, structured files that any AI tool can read.</p>
+<p>If you've ever closed a terminal and lost twenty minutes of planning, or re-explained the same feature to an AI for the third time, give Specmint a try. It's open source, it's free, and it works with the tools you're already using.</p>
+<p><strong>Site:</strong> <a href="https://specmint.ngvoicu.dev">specmint.ngvoicu.dev</a> <strong>Install:</strong> <code>npx skills add ngvoicu/specmint-&lt;variant&gt; -g</code> (variants: <code>core</code>, <code>core-html</code>, <code>tdd</code>, <code>tdd-html</code>) <strong>License:</strong> MIT</p>
+<hr>
+<p><em>Specmint is created by Gabriel Voicu and is available as an open-source, universal AI coding skill.</em></p>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

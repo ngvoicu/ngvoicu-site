@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpecKit — Practical Guide for a Multi-Repo Workspace — Gabriel Voicu</title>
+<meta name="description" content="A step-by-step how-to for using GitHub SpecKit across a multi-repo workspace, with a single git-tracked products-specs/ as the spec home.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/speckit-practical-guide-multi-repo/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/speckit-practical-guide-multi-repo/">
+<meta property="og:title" content="SpecKit — Practical Guide for a Multi-Repo Workspace">
+<meta property="og:description" content="A step-by-step how-to for using GitHub SpecKit across a multi-repo workspace, with a single git-tracked products-specs/ as the spec home.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "SpecKit \u2014 Practical Guide for a Multi-Repo Workspace", "description": "A step-by-step how-to for using GitHub SpecKit across a multi-repo workspace, with a single git-tracked products-specs/ as the spec home.", "datePublished": "2026-06-01", "dateModified": "2026-06-01", "mainEntityOfPage": "https://ngvoicu.dev/articles/speckit-practical-guide-multi-repo/", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article h4 { font-weight:700; font-size:17px; margin:24px 0 8px; color:var(--foam); }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  .tbl { overflow-x:auto; margin:0 0 18px; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
+  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
+  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
+  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2026-06-01 · also published on Medium</div>
+  <h1>SpecKit — Practical Guide for a Multi-Repo Workspace</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p>A step-by-step how-to for using <a href="https://github.com/github/spec-kit">GitHub Spec Kit</a> across a multi-repo workspace, with a single git-tracked <code>products-specs/</code> as the spec home. The worked example uses a fictional <strong>ACME</strong> workspace — substitute your own repo names.</p>
+<blockquote><p><strong>Folder pill convention.</strong> Every command block is preceded by a location marker telling you where you should be when you run it. Four values:</p></blockquote>
+<p>&gt;</p>
+<blockquote><p>- <strong>📍 anywhere</strong> — system-wide commands (install)</p></blockquote>
+<blockquote><p>- <strong>📍 in parent <code>acme/</code></strong> — at the workspace root, where all repos live as siblings</p></blockquote>
+<blockquote><p>- <strong>📍 in <code>products-specs/</code></strong> — inside the spec-only repo; this is where SpecKit lives</p></blockquote>
+<blockquote><p>- <strong>📍 in <code>&lt;repo-name&gt;/</code></strong> — inside one of your code repos (e.g. <code>acme-backend-core/</code>)</p></blockquote>
+<h2>Contents</h2>
+<ol>
+<li>What this guide is</li>
+<li>Prerequisites</li>
+<li>Part 1 — One-time setup</li>
+<li>Part 2 — Daily use: shipping a multi-repo feature</li>
+<li>The artifact chain</li>
+<li>The 5 disciplines</li>
+<li>Quick reference: where each <code>/speckit.*</code> command writes and reads</li>
+</ol>
+<h2>1. What this guide is</h2>
+<p>SpecKit is a CLI (<code>specify</code>) plus a set of slash commands (<code>/speckit.specify</code>, <code>/speckit.plan</code>, <code>/speckit.tasks</code>, <code>/speckit.implement</code>, <code>/speckit.constitution</code>, <code>/speckit.clarify</code>, <code>/speckit.analyze</code>) that turn a feature description into a structured spec, plan, task list, and implementation. Out of the box it assumes one codebase. This guide adapts it to a workspace where specs live in their own repo and code lives in <em>multiple</em> sibling repos.</p>
+<p>Two mechanisms do the multi-repo work:</p>
+<ul>
+<li><strong>Constitution.md</strong> — a markdown file that lists your repos and their routing rules. Read by <code>/speckit.plan</code> on every call.</li>
+<li><strong>Customized templates</strong> — small edits to <code>plan-template.md</code> and <code>tasks-template.md</code> so plan.md and tasks.md always carry "Affected Repositories" and per-task <code>[REPO]</code> tags.</li>
+</ul>
+<p>Together they make every plan and tasks file know which repos a feature touches.</p>
+<h2>2. Prerequisites</h2>
+<ul>
+<li><strong>OS:</strong> macOS, Linux, or Windows (PowerShell supported).</li>
+<li><strong>Python ≥ 3.11.</strong></li>
+<li><strong><a href="https://docs.astral.sh/uv/">uv</a></strong> (recommended) or <code>pipx</code> for installing the CLI.</li>
+<li><strong>Git.</strong></li>
+<li><strong>An AI coding agent</strong> that supports SpecKit (Claude Code, GitHub Copilot, Cursor, Windsurf, Gemini CLI, Codex, etc.). Pick one to use as <code>&lt;your-agent&gt;</code> below.</li>
+<li><strong>A workspace with multiple sibling repos.</strong> The example uses 6 ACME repos:</li>
+</ul>
+<pre><code>~/Projects/acme/
+├── acme-backend-core/         # Java 21 + Spring Boot 3 (.git)
+├── acme-backend-billing/      # Python 3.12 + FastAPI    (.git)
+├── acme-frontend-web/         # Next.js 15 + React 19    (.git)
+├── acme-infra/                # Docker + Terraform + OIDC (.git)
+├── acme-rest-collections/     # YAML API fixtures        (.git)
+└── acme-docs/                 # Markdown                 (.git)</code></pre>
+<h2>3. Part 1 — One-time setup</h2>
+<p>Do these seven steps once. After the final commit you have a working SpecKit ready for any feature.</p>
+<h3>3.1 Install the <code>specify</code> CLI</h3>
+<p><strong>📍 anywhere</strong></p>
+<pre><code># Pick a real tag from https://github.com/github/spec-kit/releases first
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@vX.Y.Z
+
+# Verify it&#x27;s on your $PATH
+which specify
+specify --version
+specify integration list   # lists every supported AI agent</code></pre>
+<p><code>specify</code> is system-wide. You only re-run it when initializing a project, adding a preset, or upgrading. <strong>Day-to-day work happens through your agent's slash commands, not the CLI.</strong></p>
+<h3>3.2 Create the <code>products-specs</code> repo as a sibling</h3>
+<p><strong>📍 in parent <code>acme/</code></strong></p>
+<pre><code>cd ~/Projects/acme
+
+mkdir products-specs
+cd products-specs
+git init
+
+# Create the three tier folders SpecKit will read but never write to
+mkdir technical-specs functional-specs feature-specs
+touch feature-specs/registry.md</code></pre>
+<h3>3.3 Initialize SpecKit inside <code>products-specs/</code></h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<pre><code># Replace &lt;your-agent&gt; with one of: claude, copilot, windsurf, gemini, codex, ...
+specify init --here --force --integration &lt;your-agent&gt; --no-git --script sh</code></pre>
+<p>What got created:</p>
+<pre><code>products-specs/
+├── .specify/
+│   ├── memory/constitution.md    # placeholder — you&#x27;ll author it next
+│   ├── scripts/                  # bash helpers
+│   ├── templates/                # spec/plan/tasks templates — you&#x27;ll customize
+│   └── specs/                    # numbered features will land here
+├── (your-agent&#x27;s command folder, e.g. .claude/commands/, .windsurf/workflows/, .github/agents/)
+├── feature-specs/                # already exists from Step 3.2
+├── functional-specs/             # already exists from Step 3.2
+└── technical-specs/              # already exists from Step 3.2</code></pre>
+<p><strong>Why <code>--no-git</code>?</strong> It tells SpecKit not to create branches when you run <code>/speckit.specify</code>. You don't want SpecKit touching the git history of your sibling repos.</p>
+<h3>3.4 Author the constitution</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<p>Open <code>.specify/memory/constitution.md</code> in your editor and replace the placeholder with the content below. This file is the single source of truth for cross-repo routing — <code>/speckit.plan</code> reads it on every call.</p>
+<pre><code># ACME Constitution
+
+## Repositories (siblings of products-specs/)
+
+| Repo                  | Stack                                                  | Owns                                          |
+|-----------------------|--------------------------------------------------------|-----------------------------------------------|
+| acme-backend-core     | Java 21, Spring Boot 3, PostgreSQL 16, Flyway          | Core API: customers, orders, products, search |
+| acme-backend-billing  | Python 3.12, FastAPI, PostgreSQL, Alembic              | Billing, invoices, subscriptions, webhooks    |
+| acme-frontend-web     | Next.js 15, React 19, TypeScript, TanStack Query       | Customer + admin web app                      |
+| acme-infra            | Docker Compose, Terraform, AWS, OIDC provider          | Local + deploy environments, identity config  |
+| acme-rest-collections | YAML (OpenCollection)                                  | API request fixtures for both backends        |
+| acme-docs             | Markdown                                               | Platform docs                                 |
+
+## Routing rules
+
+A plan MUST identify which repos a feature touches. Heuristics:
+
+- New/changed REST endpoint        -&gt; acme-backend-core OR acme-backend-billing
+                                      AND acme-rest-collections
+- Billing / invoice / subscription -&gt; acme-backend-billing (and rest-collections
+                                      if API surface changes)
+- New/changed UI route or component -&gt; acme-frontend-web
+- Auth / identity changes          -&gt; acme-infra (OIDC config) AND
+                                      both backends
+- Documentation only               -&gt; acme-docs
+
+## Source documents (per repo)
+
+When planning a feature, the plan MUST cite the relevant tier specs as
+&quot;Source Documents&quot; in plan.md, and tasks MUST link back to them:
+
+| Repo                  | Technical spec                              | Functional spec                              |
+|-----------------------|---------------------------------------------|----------------------------------------------|
+| acme-backend-core     | ../technical-specs/acme-backend-core.md     | ../functional-specs/acme-backend-core.md     |
+| acme-backend-billing  | ../technical-specs/acme-backend-billing.md  | ../functional-specs/acme-backend-billing.md  |
+| acme-frontend-web     | ../technical-specs/acme-frontend-web.md     | ../functional-specs/acme-frontend-web.md     |
+| acme-infra            | ../technical-specs/acme-infra.md            | ../functional-specs/acme-infra.md            |
+| acme-rest-collections | ../technical-specs/acme-rest-collections.md | (none -- pure contract)                      |
+
+## Conventions (cross-repo)
+
+- TIMESTAMPTZ everywhere; snake_case in SQL; explicit constraint names.
+- Java side: Spring Data JPA; Flyway migrations.
+- Python side: SQLAlchemy 2.x async; Alembic migrations.
+- OIDC for auth; never roll your own.
+- Validate at system boundaries; trust internal code.
+- Tests are not optional for new features.
+
+## Git policy for SpecKit
+
+- SpecKit MUST NOT create git branches in any sibling repo.
+- products-specs/ uses its own normal git workflow.
+- Each sibling repo uses its own normal feature-branch workflow,
+  decoupled from spec IDs.
+
+## File-system boundary (read vs. write)
+
+SpecKit slash commands have these write permissions inside products-specs/:
+
+ALLOWED to write:
+  - .specify/                           (templates, scripts, memory)
+  - .specify/memory/constitution.md     (via /speckit.constitution only)
+  - .specify/templates/                 (manual edits for template overrides)
+  - specs/NNN-feature/                  (spec.md, plan.md, tasks.md, contracts/)
+
+READ-ONLY for SpecKit (NEVER write to these):
+  - technical-specs/&lt;repo&gt;.md           (hand-curated long-form architecture)
+  - functional-specs/&lt;repo&gt;.md          (hand-curated long-form behavior)
+  - feature-specs/&lt;slug&gt;/SPEC.md        (curated archive of shipped features)
+  - feature-specs/registry.md           (manual index of shipped features)
+
+If a /speckit.* command appears about to write outside its allowed scope
+(e.g. a task that says &quot;update technical-specs/acme-backend-core.md&quot;),
+STOP and ask the human. Updates to the read-only folders happen OUTSIDE
+the SpecKit pipeline -- by hand or in a normal non-/speckit conversation.
+
+## Code-reading policy
+
+During /speckit.plan and /speckit.tasks generation, the agent MAY read
+source files in sibling repositories under ../&lt;repo-name&gt;/ for context:
+verifying that technical-specs/&lt;repo&gt;.md is current, identifying
+existing patterns to reuse, locating insertion points.
+
+Constraints:
+  - READ-ONLY during planning. No edits to sibling-repo files.
+  - Prefer reading the technical-spec first; reach for actual code only
+    when the spec lacks the level of detail needed.
+  - When code is read, list paths in plan.md under &quot;Source Code Inspected&quot;
+    so a human reviewer can audit which files informed the plan.
+
+WRITES to sibling-repo source files happen only during /speckit.implement,
+on tasks that explicitly carry [REPO] and path: per the customized
+tasks-template.
+
+## Prior art (use the feature-specs archive)
+
+When generating a plan, the agent SHOULD scan feature-specs/registry.md
+for past features whose tags overlap with the current feature, and cite
+relevant matches in plan.md under &quot;Prior Art&quot;, linking to
+feature-specs/&lt;slug&gt;/SPEC.md.
+
+This is read-only access -- the agent MUST NOT modify any file under
+feature-specs/.
+
+## Spec taxonomy
+
+- specs/NNN-name/                    &lt;-- SpecKit OWNS (read+write)
+- .specify/memory/constitution.md    &lt;-- SpecKit reads; /speckit.constitution updates
+- feature-specs/&lt;slug&gt;/SPEC.md       &lt;-- READ-ONLY for SpecKit; manual archive
+- functional-specs/&lt;repo&gt;.md         &lt;-- READ-ONLY for SpecKit; manual maintenance
+- technical-specs/&lt;repo&gt;.md          &lt;-- READ-ONLY for SpecKit; manual maintenance</code></pre>
+<blockquote><p><strong>Pilot the constitution on the first feature.</strong> The pattern of using the constitution for cross-repo routing is not officially documented by GitHub — it works because <code>/speckit.plan</code> reliably reads <code>constitution.md</code>, and the agent follows natural-language rules. If you find the agent dropping the routing on real features, the template overrides in §3.5 are the durable backup.</p></blockquote>
+<h3>3.5 Customize the plan template</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<p>Open <code>.specify/templates/plan-template.md</code>. Insert these three sections after the existing "Summary" block and before "Technical Context":</p>
+<pre><code>## Affected Repositories
+&lt;!-- REQUIRED. The agent MUST fill this from:
+       1) the constitution.md &quot;Routing rules&quot; section
+       2) any explicit affected-repo list in the spec.md $ARGUMENTS body
+     For each repo touched, output a row. If unsure, ask the user before
+     proceeding to Phase 0 research. --&gt;
+
+| Repo | Why this feature touches it | Type of change |
+|------|------------------------------|----------------|
+| [repo-name] | [1-2 sentences] | endpoint / UI / contract / infra / docs |
+
+## Source Documents
+&lt;!-- REQUIRED. For each repo listed in &quot;Affected Repositories&quot; above,
+     cite the relevant tier docs from products-specs/. The agent MUST
+     READ these files (they are read-only inputs -- never edit them) and
+     incorporate their content into the Technical Context section below. --&gt;
+
+- **[repo-name]**
+  - technical: ../technical-specs/[repo-name].md §[anchor]
+  - functional: ../functional-specs/[repo-name].md §[anchor]
+  - prior art (optional): ../feature-specs/[slug]/SPEC.md
+
+## Cross-Repo Coordination
+&lt;!-- OPTIONAL. Fill only if the feature touches 2+ repos. Document
+     the contract surface between them: API shape, event payloads,
+     shared types, deployment ordering. --&gt;
+
+- API contract: [GET /api/...] defined in [repo-A], consumed by [repo-B],
+  YAML pinned in acme-rest-collections.
+- Deployment ordering: [repo-A] -&gt; rest-collections -&gt; [repo-B].
+
+## Source Code Inspected
+&lt;!-- OPTIONAL but recommended for non-trivial features. List the
+     sibling-repo source files the agent read while drafting this plan.
+     Format: relative path from products-specs/, with a one-line note. --&gt;
+
+- ../[repo-name]/path/to/file.ext
+  -- [why this file informed the plan]</code></pre>
+<h3>3.6 Customize the tasks template</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<p>Open <code>.specify/templates/tasks-template.md</code>. Replace the existing "Format Guidelines" block with:</p>
+<pre><code>## Format Guidelines
+
+Every implementation task MUST follow this format:
+
+  [ID] [P?] [Story] [REPO] Description
+       refs: ../technical-specs/&lt;repo&gt;.md §&lt;anchor&gt;
+       path: &lt;path inside the target repo, e.g. src/main/java/com/acme/...&gt;
+
+Where:
+  [ID]    = task identifier (T001, T002, ...)
+  [P]     = parallel-safe marker (omit if sequential)
+  [Story] = user story label (US1, US2, US3) -- from spec.md
+  [REPO]  = MANDATORY. One of the repos in constitution.md routing table.
+            Tasks without [REPO] are rejected.
+  refs:   = MANDATORY for tasks that implement architecture -- cite the
+            technical-spec section the task implements.
+  path:   = MANDATORY for file-edit tasks. Path is RELATIVE to the target
+            repo&#x27;s root, NOT to products-specs/.
+
+Example:
+  T012 [P] [US1] [acme-backend-core] Add OrderExportService.exportToCsv()
+       refs: ../technical-specs/acme-backend-core.md §OrderExportService
+       path: src/main/java/com/acme/order/OrderExportService.java</code></pre>
+<blockquote><p><strong>Watch out:</strong> running <code>specify init --force</code> again later (e.g. to upgrade or add an integration) will <strong>overwrite your customized templates</strong> with fresh upstream copies. Treat the customized templates as code — commit them before ever re-running <code>specify init --force</code>, and re-apply your edits after init.</p></blockquote>
+<h3>3.7 Seed the technical-specs and functional-specs (one file per repo)</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<p>These are <strong>hand-curated long-form documents</strong>. SpecKit reads them but never writes them. One technical-spec and one functional-spec per repo. Skeleton for one repo — repeat for the others.</p>
+<p><code>technical-specs/acme-backend-core.md</code>:</p>
+<pre><code># acme-backend-core -- Technical Specification
+
+## Stack
+Java 21, Spring Boot 3, PostgreSQL 16, Flyway, Maven.
+
+## Architecture anchors
+- Controllers -&gt; Services -&gt; Spring Data JPA repositories
+- DTOs separate from JPA entities
+- OIDC via the identity provider configured in acme-infra
+
+## Key services
+| Service              | Responsibility                                |
+|----------------------|-----------------------------------------------|
+| OrderService         | Order lifecycle: create, ship, cancel         |
+| CustomerService      | Customer CRUD + profile                       |
+| ProductService       | Catalog and inventory                         |
+| OrderExportService   | CSV / Excel export of orders                  |
+| SearchService        | Cross-entity search                           |
+
+## Data-model anchors
+customers, orders, order_items, products, addresses
+
+## API surface
+GET/POST /api/customers, /api/orders/*, /api/products, /api/orders/export</code></pre>
+<p><code>functional-specs/acme-backend-core.md</code>:</p>
+<pre><code># acme-backend-core -- Functional Specification
+
+## Customer-facing behaviors
+- Browse products, place orders, track shipment status
+
+## Admin-facing behaviors
+### Order management
+- Search orders by customer, status, date range
+- Trigger CSV export of filtered orders
+- Cancel, refund, adjust orders</code></pre>
+<p>Repeat for <code>acme-backend-billing</code>, <code>acme-frontend-web</code>, <code>acme-infra</code>, <code>acme-rest-collections</code>, <code>acme-docs</code>.</p>
+<h3>3.8 Commit the baseline</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<pre><code>git add .
+git commit -m &quot;Initial SpecKit + products-specs baseline&quot;</code></pre>
+<blockquote><p><strong>Setup done.</strong> You now have: a constitution that knows your six repos, customized templates that force every plan and tasks file to carry multi-repo info, and tier docs that describe each repo's architecture and behavior. The next section is the loop you'll run for every feature.</p></blockquote>
+<h2>4. Part 2 — Daily use: shipping a multi-repo feature</h2>
+<p>Worked example for the rest of this section: <strong>"Add a customer-order CSV export, triggerable from the admin orders page."</strong> It touches three repos:</p>
+<ul>
+<li><code>acme-backend-core</code> — new <code>GET /api/orders/export</code> endpoint, CSV streaming.</li>
+<li><code>acme-frontend-web</code> — new "Export CSV" button on the admin orders page.</li>
+<li><code>acme-rest-collections</code> — OpenCollection YAML for the new endpoint.</li>
+</ul>
+<blockquote><p><strong>What SpecKit can and can't see.</strong></p></blockquote>
+<p>&gt;</p>
+<blockquote><p>- <strong>Always reads:</strong> <code>.specify/memory/constitution.md</code>, the templates in <code>.specify/templates/</code>, files in <code>specs/NNN-feature/</code>.</p></blockquote>
+<blockquote><p>- <strong>Reads when you cite the path:</strong> <code>technical-specs/&lt;repo&gt;.md</code>, <code>functional-specs/&lt;repo&gt;.md</code>, <code>feature-specs/&lt;slug&gt;/SPEC.md</code>, sibling-repo source files.</p></blockquote>
+<blockquote><p>- <strong>Never auto-discovers anything.</strong> No filesystem walking. The agent only reads what's named in the constitution, the spec, or your prompt.</p></blockquote>
+<h3>Step 1 — Open the parent in your editor</h3>
+<p><strong>📍 in parent <code>acme/</code></strong></p>
+<pre><code>&lt;your-editor&gt; ~/Projects/acme</code></pre>
+<p>That's it. From here on, your editor and your agent both work from the parent <code>acme/</code> as the workspace root. This gives you:</p>
+<ul>
+<li><strong>Slash commands work.</strong> Modern agents (Windsurf Cascade, Claude Code, Cursor, Copilot Chat) scan subfolders for command bindings, so the <code>/speckit.*</code> commands installed at <code>products-specs/&lt;agent-folder&gt;/</code> are discovered automatically.</li>
+<li><strong>All six sibling repos are visible</strong> in the file tree, so you can browse them and the agent can read their source code during planning.</li>
+<li><strong>One workspace, one mental model.</strong> No multi-root setup, no separate CLI launch from a subfolder. Open the parent and start working.</li>
+</ul>
+<blockquote><p><strong>Quick test:</strong> in your agent's chat, type <code>/speckit.</code> and watch for autocomplete. You should see <code>specify, plan, tasks, implement, clarify, analyze, constitution</code>. If nothing appears, your agent doesn't auto-discover commands in subfolders — reload the editor window, or check the agent's docs for how to point it at <code>products-specs/&lt;agent-folder&gt;/</code>.</p></blockquote>
+<p>For the rest of this guide:</p>
+<ul>
+<li><strong>📍 in parent <code>acme/</code></strong> on a slash command = type the command in your agent's chat (your editor is rooted there from Step 1).</li>
+<li><strong>📍 in <code>products-specs/</code></strong> or <strong>📍 in <code>&lt;repo-name&gt;/</code></strong> on a shell command = <code>cd</code> there in your terminal before running it.</li>
+</ul>
+<h3>Step 2 — Run <code>/speckit.specify</code></h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (in your agent's chat)</p>
+<p>In your agent's chat panel, type:</p>
+<pre><code>/speckit.specify Add a customer-order CSV export, triggerable from the admin
+orders page. Filters from the page (status, date range, customer) pass through.
+Affected repos: acme-backend-core, acme-frontend-web, acme-rest-collections.
+Cite as Source Documents:
+  - products-specs/technical-specs/acme-backend-core.md  §OrderExportService
+  - products-specs/functional-specs/acme-backend-core.md §Order management
+  - products-specs/technical-specs/acme-frontend-web.md  §Routing</code></pre>
+<p>Result: <code>specs/002-order-csv-export/spec.md</code> with the citations embedded in its body. The number (002) auto-increments; first feature was 001.</p>
+<h3>Step 3 — Run <code>/speckit.clarify</code> if anything is ambiguous</h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (in your agent's chat)</p>
+<pre><code>/speckit.clarify</code></pre>
+<p>The agent asks up to 3 targeted questions. Your answers get appended to <code>spec.md</code>. Skip if the spec is already crisp.</p>
+<h3>Step 4 — Run <code>/speckit.plan</code></h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (in your agent's chat)</p>
+<pre><code>/speckit.plan</code></pre>
+<p>Reads <code>spec.md</code> + <code>constitution.md</code> + your customized <code>plan-template.md</code>. Because the template (Step 3.5) requires "Affected Repositories", "Source Documents", and "Cross-Repo Coordination" sections, <code>plan.md</code> is structurally guaranteed to contain them. Expected content:</p>
+<ul>
+<li><strong>Affected Repositories</strong> table — 3 rows (backend-core, frontend-web, rest-collections), each with a "Type of change".</li>
+<li><strong>Source Documents</strong> — per-repo bullets pointing at the cited tier docs.</li>
+<li><strong>Cross-Repo Coordination</strong> — the API contract surface (<code>GET /api/orders/export</code>), defined in backend-core, consumed by frontend-web, pinned in rest-collections.</li>
+<li><strong>Source Code Inspected</strong> — if the agent opened any sibling-repo source files for context.</li>
+<li><strong>Technical Context, Constitution Check, Phase 0 research, etc.</strong> — standard SpecKit sections.</li>
+</ul>
+<h3>Step 5 — Run <code>/speckit.tasks</code></h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (in your agent's chat)</p>
+<pre><code>/speckit.tasks</code></pre>
+<p>Generates <code>tasks.md</code>. Because of the customized tasks template, every implementation task carries a <code>[REPO]</code> tag, a <code>refs:</code> citation, and a <code>path:</code> relative to the target repo. Expected output:</p>
+<pre><code>T001 [P] [US1] [acme-backend-core] Add OrderExportRequest DTO
+       refs: ../technical-specs/acme-backend-core.md §OrderExportService
+       path: src/main/java/com/acme/order/export/OrderExportRequest.java
+
+T002 [P] [US1] [acme-backend-core] Add OrderExportService.exportToCsv()
+       refs: ../technical-specs/acme-backend-core.md §OrderExportService
+       path: src/main/java/com/acme/order/export/OrderExportService.java
+
+T003     [US1] [acme-backend-core] Add GET /api/orders/export controller
+       refs: ../technical-specs/acme-backend-core.md §API surface
+       path: src/main/java/com/acme/order/export/OrderExportController.java
+
+T004 [P] [US1] [acme-rest-collections] Add OpenCollection YAML
+       path: orders/export.yml
+
+T005 [P] [US1] [acme-frontend-web] Add useOrderExport hook
+       refs: ../technical-specs/acme-frontend-web.md §Data hooks
+       path: src/hooks/useOrderExport.ts
+
+T006     [US1] [acme-frontend-web] Add &quot;Export CSV&quot; button to /orders page
+       path: src/app/(admin)/orders/OrderListToolbar.tsx
+
+T007     [POL] [acme-backend-core] Integration test for /api/orders/export
+       path: src/test/java/com/acme/order/export/OrderExportControllerIT.java
+
+T008     [POL] [acme-frontend-web] Smoke test the export button
+       path: tests/smoke/order-export.spec.ts</code></pre>
+<h3>Step 6 — Sanity-check <code>tasks.md</code> by hand</h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (open <code>products-specs/specs/002-order-csv-export/tasks.md</code> in your editor)</p>
+<p>The structural checks (every task has <code>[REPO]</code> and <code>path:</code>) are guaranteed by the template. The remaining human checks are semantic:</p>
+<ul>
+<li>Are the right repos covered — nothing missed?</li>
+<li>Are dependencies correctly ordered (backend endpoint before frontend hook)?</li>
+<li>Do <code>refs:</code> citations point at real anchors in the technical specs (no hallucinated section names)?</li>
+<li>Are <code>path:</code> values realistic for each target repo's actual layout?</li>
+</ul>
+<p>If anything is off, edit <code>tasks.md</code> by hand or re-run <code>/speckit.plan</code> with a corrective hint.</p>
+<h3>Step 7 — Create per-repo feature branches manually</h3>
+<p>SpecKit is on <code>--no-git</code>, so it never creates branches. Create them yourself before <code>/speckit.implement</code>:</p>
+<p><strong>📍 in parent <code>acme/</code></strong></p>
+<pre><code>cd ~/Projects/acme/acme-backend-core      &amp;&amp; git checkout -b feature/order-csv-export   # in acme-backend-core/
+cd ~/Projects/acme/acme-frontend-web      &amp;&amp; git checkout -b feature/order-csv-export   # in acme-frontend-web/
+cd ~/Projects/acme/acme-rest-collections  &amp;&amp; git checkout -b feature/order-csv-export   # in acme-rest-collections/
+cd ~/Projects/acme/products-specs         &amp;&amp; git checkout -b feature/order-csv-export   # in products-specs/</code></pre>
+<h3>Step 8 — Run <code>/speckit.implement</code> (with babysitting)</h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (in your agent's chat)</p>
+<pre><code>/speckit.implement</code></pre>
+<p>Because every task carries <code>[REPO]</code> and <code>path:</code>, the agent has unambiguous routing instructions. Still watch:</p>
+<ul>
+<li><strong>Working directory.</strong> The agent should <code>cd</code> into the target repo before editing. If it tries to write a path under <code>products-specs/</code>, interrupt — that violates the constitution's file-system boundary.</li>
+<li><strong>Per-task validation.</strong> After every 1–2 tasks, verify the diff is in the right repo:</li>
+</ul>
+<p><strong>📍 in parent <code>acme/</code></strong></p>
+<pre><code>  cd ~/Projects/acme/acme-backend-core      &amp;&amp; git status   # in acme-backend-core/
+  cd ~/Projects/acme/acme-frontend-web      &amp;&amp; git status   # in acme-frontend-web/
+  cd ~/Projects/acme/acme-rest-collections  &amp;&amp; git status   # in acme-rest-collections/</code></pre>
+<ul>
+<li><strong>Boundary check.</strong> No task should propose editing <code>technical-specs/</code>, <code>functional-specs/</code>, or <code>feature-specs/</code>. Those are read-only.</li>
+</ul>
+<h3>Step 9 — Test per repo</h3>
+<p><strong>📍 in <code>&lt;repo-name&gt;/</code></strong></p>
+<pre><code>cd ~/Projects/acme/acme-backend-core      &amp;&amp; mvn test                              # in acme-backend-core/
+cd ~/Projects/acme/acme-frontend-web      &amp;&amp; npm run test:smoke &amp;&amp; npm run lint    # in acme-frontend-web/
+# acme-rest-collections: visual review of the YAML diff</code></pre>
+<h3>Step 10 — Open per-repo PRs</h3>
+<p><strong>📍 in <code>&lt;repo-name&gt;/</code></strong> (one PR per affected repo)</p>
+<pre><code>cd ~/Projects/acme/acme-backend-core      &amp;&amp; gh pr create --fill   # in acme-backend-core/
+cd ~/Projects/acme/acme-frontend-web      &amp;&amp; gh pr create --fill   # in acme-frontend-web/
+cd ~/Projects/acme/acme-rest-collections  &amp;&amp; gh pr create --fill   # in acme-rest-collections/</code></pre>
+<p>Each sibling repo uses its own normal feature-branch + PR flow. The shared spec ID (<code>002-order-csv-export</code>) is a convention you cite in PR descriptions, not something SpecKit enforces.</p>
+<h3>Step 11 — Archive into <code>feature-specs/</code> — outside the SpecKit pipeline</h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<blockquote><p>**Don't run a <code>/speckit.*</code> command for this.** The <code>feature-specs/</code> folder is read-only for SpecKit. Do this by hand (or in a normal non-<code>/speckit</code> conversation with your agent).</p></blockquote>
+<pre><code>mkdir -p feature-specs/order-csv-export
+cp specs/002-order-csv-export/spec.md \
+   feature-specs/order-csv-export/SPEC.md
+# Edit feature-specs/registry.md by hand to add the new row.</code></pre>
+<h3>Step 12 — Update <code>technical-specs/</code> if architecture shifted — outside the SpecKit pipeline</h3>
+<p><strong>📍 in parent <code>acme/</code></strong> (open the file in your editor)</p>
+<blockquote><p><strong>Same boundary.</strong> If the architecture genuinely shifted (new service, new data-model entity, new endpoint family), update <code>technical-specs/&lt;repo&gt;.md</code> by hand or via a normal conversation — never as a SpecKit task.</p></blockquote>
+<p>Example: add <code>OrderExportService</code> to <code>technical-specs/acme-backend-core.md §Key services</code> and <code>GET /api/orders/export</code> to the API surface. <strong>This is the long-term memory</strong> — if it drifts, future plans cite stale documents.</p>
+<p>Open <code>products-specs/technical-specs/acme-backend-core.md</code> in your editor and add the new bits.</p>
+<h3>Step 13 — Commit <code>products-specs/</code></h3>
+<p><strong>📍 in <code>products-specs/</code></strong></p>
+<pre><code>git add specs/002-order-csv-export \
+        feature-specs/order-csv-export \
+        feature-specs/registry.md \
+        technical-specs/acme-backend-core.md
+git commit -m &quot;feat: order CSV export spec + archive + tech-spec update&quot;</code></pre>
+<blockquote><p><strong>Feature shipped.</strong> Repeat Steps 1–13 for the next one. Setup is done forever.</p></blockquote>
+<h2>5. The artifact chain</h2>
+<p>R = SpecKit reads. W = SpecKit writes. <strong>Manual</strong> = you (or your agent in a normal conversation) author it; SpecKit never writes.</p>
+<pre><code>products-specs/
+│
+├── .specify/memory/constitution.md ──────►  R + W via /speckit.constitution only
+│   (routing rules, repo table)              read by /speckit.plan every call
+│
+├── .specify/templates/plan-template.md ──►  read by /speckit.plan
+│   .specify/templates/tasks-template.md ─►  read by /speckit.tasks
+│   (your customizations live here)
+│
+├── technical-specs/&lt;repo&gt;.md ────────────►  R only (Manual)
+├── functional-specs/&lt;repo&gt;.md ───────────►  R only (Manual)
+├── feature-specs/&lt;slug&gt;/SPEC.md ─────────►  R only (Manual archive)
+├── feature-specs/registry.md ────────────►  R only (Manual)
+│
+│   /speckit.specify                         ▼
+├── specs/NNN-feature/spec.md ◄─────────── W (SpecKit owns)
+│
+│   /speckit.plan                            ▼
+├── specs/NNN-feature/plan.md ◄─────────── W (uses customized template,
+│                                            structurally has Affected-Repos
+│                                            and Source-Documents sections)
+│
+│   /speckit.tasks                           ▼
+├── specs/NNN-feature/tasks.md ◄────────── W (every task: [REPO] + path:)
+│
+│   /speckit.implement                       ▼
+└──── edits source files in (each sibling repo):
+      ├── ../acme-backend-core/...
+      ├── ../acme-frontend-web/...
+      └── ../acme-rest-collections/...
+
+After the feature ships -- OUTSIDE the SpecKit pipeline:
+  - Manual archive into feature-specs/&lt;slug&gt;/SPEC.md
+  - Manual index update in feature-specs/registry.md
+  - Manual update of technical-specs/&lt;repo&gt;.md if architecture shifted</code></pre>
+<h2>6. The 5 disciplines</h2>
+<ol>
+<li>**Open the parent <code>acme/</code> in your editor and invoke <code>/speckit.*</code> from your agent's chat there.** The agent discovers the slash commands inside <code>products-specs/&lt;agent-folder&gt;/</code> automatically. Never <code>cd</code> into a sibling repo to invoke slash commands — the artifact chain only stays coherent if every <code>/speckit.*</code> call shares the same workspace root.</li>
+<li><strong>Always include source citations in your <code>/speckit.specify</code> prompt.</strong> Even with the customized templates, hand-feeding the citations at specify-time guarantees they're in <code>spec.md</code> from the start.</li>
+<li><strong>Verify the Affected Repositories list in <code>plan.md</code> before <code>/speckit.tasks</code>.</strong> Catching a missed repo here is much cheaper than catching it after <code>implement</code>.</li>
+<li><strong>Always verify per-task git state in each sibling repo.</strong> SpecKit doesn't track which sibling repo is on which branch.</li>
+<li><strong>Update <code>technical-specs/&lt;repo&gt;.md</code> manually when architecture shifts.</strong> By hand, never as a SpecKit task. They are the long-term memory; stale tier docs poison future plans.</li>
+</ol>
+<h2>7. Quick reference: where each <code>/speckit.*</code> command writes and reads</h2>
+<div class="tbl"><table>
+<tr><th>Command</th><th>Reads</th><th>Writes</th><th>Run from</th></tr>
+<tr><td><code>/speckit.constitution</code></td><td>existing <code>constitution.md</code></td><td><code>.specify/memory/constitution.md</code></td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+<tr><td><code>/speckit.specify</code></td><td>your prompt; <code>spec-template.md</code></td><td><code>specs/NNN-feature/spec.md</code></td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+<tr><td><code>/speckit.clarify</code></td><td>existing <code>spec.md</code></td><td>appends to <code>spec.md</code></td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+<tr><td><code>/speckit.plan</code></td><td><code>spec.md</code> + <code>constitution.md</code> + <code>plan-template.md</code> (+ files cited inside those)</td><td><code>specs/NNN-feature/plan.md</code> (and optionally <code>research.md</code>, <code>data-model.md</code>, <code>contracts/</code>, <code>quickstart.md</code>)</td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+<tr><td><code>/speckit.tasks</code></td><td><code>plan.md</code> + <code>spec.md</code> + <code>tasks-template.md</code></td><td><code>specs/NNN-feature/tasks.md</code></td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+<tr><td><code>/speckit.implement</code></td><td><code>tasks.md</code> + <code>plan.md</code> + <code>spec.md</code> + (sibling-repo source files cited in <code>refs:</code>)</td><td>edits source files in sibling repos at the <code>path:</code> from each task</td><td>agent chat (workspace = parent <code>acme/</code>)</td></tr>
+</table></div>
+<p>**Read-only for all <code>/speckit.*</code>:** <code>technical-specs/</code>, <code>functional-specs/</code>, <code>feature-specs/</code>. SpecKit may read these when paths are cited (in the constitution, the spec, or the plan); SpecKit never writes them.</p>
+<hr>
+<p>For a cross-tool take on the same idea, <a href="https://specmint.ngvoicu.dev">Specmint</a> implements spec-driven development with durable, resumable specs across six AI coding tools (Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI).</p>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

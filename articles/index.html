@@ -44,9 +44,11 @@
   .tbl { overflow-x:auto; margin:0 0 18px; }
   article .ratio, article iframe { max-width:100%; }
   article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
-  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
-  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
-  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  table { border-collapse:collapse; font-size:14.5px; width:100%; }
+  th, td { border:none; border-bottom:1px solid var(--ink-line); padding:12px 16px 12px 0; text-align:left; color:var(--mist); vertical-align:top; line-height:1.6; }
+  th { color:var(--seafoam); font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; border-bottom:2px solid var(--ink-line); }
+  td:first-child { color:var(--foam); font-weight:600; white-space:nowrap; }
+  td code { white-space:nowrap; }
   footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 
   ul.list { list-style:none; margin:0; }

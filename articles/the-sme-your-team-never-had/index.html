@@ -56,9 +56,11 @@
   .tbl { overflow-x:auto; margin:0 0 18px; }
   article .ratio, article iframe { max-width:100%; }
   article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
-  table { border-collapse:collapse; font-size:14.5px; min-width:480px; }
-  th, td { border:1px solid var(--ink-line); padding:8px 12px; text-align:left; color:var(--mist); }
-  th { color:var(--foam); background:var(--ink-panel); font-weight:600; }
+  table { border-collapse:collapse; font-size:14.5px; width:100%; }
+  th, td { border:none; border-bottom:1px solid var(--ink-line); padding:12px 16px 12px 0; text-align:left; color:var(--mist); vertical-align:top; line-height:1.6; }
+  th { color:var(--seafoam); font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; border-bottom:2px solid var(--ink-line); }
+  td:first-child { color:var(--foam); font-weight:600; white-space:nowrap; }
+  td code { white-space:nowrap; }
   footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 </style>
 </head>
@@ -72,13 +74,13 @@
   <h1>The SME your team never had</h1>
   <div class="byline">by <a href="/">Gabriel Voicu</a></div>
   <article>
-<p>_I gave every AI agent on my team the same shared brain — and it started answering like my senior engineer on her best day._</p>
+<p><em>I gave every AI agent on my team the same shared brain — and it started answering like my senior engineer on her best day.</em></p>
 <p>Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents actually read. Claude Code, Cursor, Copilot, and five more — all working from the same truth.</p>
 <p><img src="images/mri-overview.png" alt="The kluris MRI overview: colored lobes as clusters, neurons as nodes, dashed synapses as links — a live, interactive map of a brain." loading="lazy"></p>
 <h2>The problem nobody wants to admit</h2>
 <p>Your AI agent is smart. It is also amnesiac.</p>
 <p>Every new chat starts from zero. It doesn't remember that you picked raw SQL over an ORM and why. It doesn't know your service uses Keycloak or that JWTs rotate at 80% TTL. It has never heard of the January outage. It is re-deriving all of that from the code, badly, on every conversation — and then your teammate opens a different agent in a different editor and re-derives it slightly differently.</p>
-<p>Meanwhile, the docs you do have — in Notion, Confluence, a wiki, a battered README — are written for humans. Agents can't search them, can't link between them, can't write back to them. The CLAUDE.md or <code>.cursorrules</code> file you wrote last month is per-project, per-tool. Your senior engineer's knowledge, the thing that actually decides most PRs in your repo, lives in her head and leaves the company when she does.</p>
+<p>Meanwhile, the docs you do have — in Notion, Confluence, a wiki, a battered README — are written for humans. Agents can't search them, can't link between them, can't write back to them. The CLAUDE.md or <code>AGENTS.md</code> file you wrote last month is per-project, per-tool. Your senior engineer's knowledge, the thing that actually decides most PRs in your repo, lives in her head and leaves the company when she does.</p>
 <p>I built a tool because this bothered me enough. It's called <strong>Kluris</strong>.</p>
 <p><strong>What it does, in one line:</strong> it gives every AI agent on your team a shared, human-curated, git-backed knowledge base — so they behave like an SME who already knows your codebase, not a stranger starting from scratch every morning.</p>
 <pre><code>pipx install kluris
@@ -89,13 +91,13 @@ kluris create</code></pre>
 <h2>Why not just use a wiki or agent memory?</h2>
 <p>There are four usual answers to this problem. None of them work.</p>
 <p><strong>Wikis and Notion</strong> are for humans. Lovely markdown, searchable in a browser, impossible for an agent. Agents can't crawl a Notion workspace. Even if they could, the content is mostly prose — not the structured, linked, per-decision format an agent can actually reason over mid-task.</p>
-<p><strong>CLAUDE.md / <code>.cursorrules</code></strong> is per-project and per-tool. If your team has three services, three CLAUDE.md files drift. If half the team uses Cursor and half uses Claude Code, the knowledge forks. Rules files are a coping mechanism, not an architecture.</p>
+<p><strong>CLAUDE.md / <code>AGENTS.md</code></strong> is per-project and per-tool. If your team has three services, three CLAUDE.md files drift. If half the team uses Cursor and half uses Claude Code, the knowledge forks. Rules files are a coping mechanism, not an architecture.</p>
 <p><strong>Agent memory</strong> (the built-in feature Claude and others ship) is agent-controlled. The agent decides what to keep. You don't review it. You don't version it. Another teammate's memory is a different memory. There's no shared truth.</p>
 <p><strong>"Just put it in the README."</strong> Then the README grows to 4,000 lines and nobody reads it, including the agent, because it blows the context window.</p>
 <p>A brain is different. It's:</p>
 <ul>
 <li><strong>Markdown in git</strong> — agents read it, humans review it, <code>git blame</code> tells you who decided what.</li>
-<li><strong>Structured</strong> — decision records capture _context → decision → rationale → alternatives → consequences_, so future agents (and future you) can actually reason about superseded choices.</li>
+<li><strong>Structured</strong> — decision records capture <em>context → decision → rationale → alternatives → consequences</em>, so future agents (and future you) can actually reason about superseded choices.</li>
 <li><strong>Cross-project</strong> — one brain sits above your three services, your infra, your frontend. One source of truth.</li>
 <li><strong>Cross-agent</strong> — the same brain installs as a <code>/kluris</code> slash command in every AI tool your team uses. Same answer everywhere.</li>
 <li><strong>Human-curated</strong> — nothing is written without your approval. The agent proposes; you edit or skip.</li>
@@ -127,7 +129,7 @@ kluris create</code></pre>
 <p>The agent tells them, grounded in the real neurons, with citations. Five minutes, not five days. Then they run <code>kluris mri</code>, open the HTML file in a browser, and literally see the whole brain — clusters of lobes, synapses between related topics. They click through three neurons, get the shape of the codebase, ship a first PR on Thursday.</p>
 <h3>Thursday — implement a feature</h3>
 <pre><code>&gt; /kluris implement the new refund endpoint following our conventions</code></pre>
-<p>The agent reads the brain _first_. It sees the auth-flow neuron, the error-handling decision, the endpoint conventions. It implements to those conventions — and if your code contradicts a documented decision, it tells you, it doesn't silently drift.</p>
+<p>The agent reads the brain <em>first</em>. It sees the auth-flow neuron, the error-handling decision, the endpoint conventions. It implements to those conventions — and if your code contradicts a documented decision, it tells you, it doesn't silently drift.</p>
 <h3>Friday — the quiet superpower</h3>
 <p>You don't notice anything happened. The agent hasn't re-derived anything. Your token usage is lower, because instead of re-crawling the repo on every chat, the agent loads one compact snapshot — <code>kluris wake-up --json</code> — and jumps to the neuron it needs.</p>
 <p>Illustrative numbers from the README, on a medium repo:</p>
@@ -145,7 +147,7 @@ With kluris — same task, brain-backed:
   read 1–2 matching neurons                            ~1,500 tokens
                                                        ─────────────
                                                        ~3,100 tokens</code></pre>
-<p>Not a benchmark — a shape. The shape says: a wide crawl becomes a targeted lookup. The savings compound the more projects you touch. And what matters more than the number is that the agent spends its context budget on the _actual work_, not on orientation.</p>
+<p>Not a benchmark — a shape. The shape says: a wide crawl becomes a targeted lookup. The savings compound the more projects you touch. And what matters more than the number is that the agent spends its context budget on the <em>actual work</em>, not on orientation.</p>
 <h2>The two surfaces</h2>
 <p>This is the part that trips up most first-time users. Kluris lives in two places.</p>
 <div class="tbl"><table>
@@ -184,7 +186,7 @@ With kluris — same task, brain-backed:
 <li>You're planning a feature and the agent keeps re-discovering decisions you already made.</li>
 <li>You want AI agents to act like an SME, not a stranger.</li>
 </ul>
-<p>If you're a solo hobbyist on one codebase, honestly — you can probably live with CLAUDE.md. Kluris is for _teams_, or for individuals who juggle enough projects that "teammate-with-myself-next-quarter" is a real persona.</p>
+<p>If you're a solo hobbyist on one codebase, honestly — you can probably live with CLAUDE.md. Kluris is for <em>teams</em>, or for individuals who juggle enough projects that "teammate-with-myself-next-quarter" is a real persona.</p>
 <h2>Try it in five minutes</h2>
 <pre><code># 1. Install the CLI
 pipx install kluris
@@ -203,7 +205,7 @@ kluris create
 </ul>
 <p>If you try it, I want to hear what breaks. Open an issue or reach out. The brain metaphor either clicks for people in thirty seconds or not at all — and I want to know which one you are.</p>
 <hr>
-<p>_Kluris is built by <a href="https://www.linkedin.com/in/ngvoicu/">Gabriel Voicu</a>. It's free, open-source, MIT-licensed, and will stay that way._</p>
+<p><em>Kluris is built by <a href="https://www.linkedin.com/in/ngvoicu/">Gabriel Voicu</a>. It's free, open-source, MIT-licensed, and will stay that way.</em></p>
   </article>
   <footer>
     <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>

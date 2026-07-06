@@ -32,3 +32,14 @@ DNS: apex A records to GitHub Pages IPs (185.199.108–111.153) or ALIAS/ANAME t
 python3 -m http.server 4173
 # open http://localhost:4173
 ```
+
+## Deploying (read this — Pages builds get stuck)
+
+Push `main` to `upstream` (GitHub) and Pages builds automatically — but builds **regularly hang in `"building"`**. After every push:
+
+```bash
+gh api repos/ngvoicu/ngvoicu-site/pages/builds/latest --jq .status   # expect "built" within ~1 min
+gh api -X POST repos/ngvoicu/ngvoicu-site/pages/builds               # re-queue if it sits in "building"
+```
+
+Then confirm the change is actually live: `curl -s https://ngvoicu.dev/ | grep '<something-from-your-change>'`.

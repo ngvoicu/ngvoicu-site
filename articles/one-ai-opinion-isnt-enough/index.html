@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One AI opinion isn't enough — Gabriel Voicu</title>
+<meta name="description" content="ConsensFlow routes one question from your coding session to one named AI participant — Claude, GPT, GLM, DeepSeek, Gemini — and brings the answer back. Free, open source, consent-gated.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/">
+<meta property="og:title" content="One AI opinion isn't enough">
+<meta property="og:description" content="ConsensFlow routes one question from your coding session to one named AI participant — Claude, GPT, GLM, DeepSeek, Gemini — and brings the answer back. Free, open source, consent-gated.">
+<meta property="og:site_name" content="ngvoicu.dev">
+<meta property="og:image" content="https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/images/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/images/hero.jpg">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "One AI opinion isn't enough", "description": "ConsensFlow routes one question from your coding session to one named AI participant — Claude, GPT, GLM, DeepSeek, Gemini — and brings the answer back. Free, open source, consent-gated.", "datePublished": "2026-07-06", "dateModified": "2026-07-06", "mainEntityOfPage": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/", "image": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/images/hero.jpg", "author": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+</script>
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  article h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 14px; }
+  article h3 { font-weight:700; font-size:19px; margin:30px 0 10px; }
+  article p { color:var(--mist); margin-bottom:16px; }
+  article p strong, article li strong { color:var(--foam); font-weight:600; }
+  article em { color:var(--foam); }
+  article ul, article ol { margin:0 0 16px 22px; color:var(--mist); }
+  article li { margin-bottom:7px; }
+  article img { max-width:100%; height:auto; border-radius:8px; border:1px solid var(--ink-line); margin:8px 0 16px; }
+  article code { font-family:var(--mono); font-size:.86em; background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:4px; padding:1px 6px; color:var(--foam); }
+  article pre { background:var(--ink-panel); border:1px solid var(--ink-line); border-radius:8px; padding:16px 18px; overflow-x:auto; margin:0 0 18px; }
+  article pre code { background:none; border:none; padding:0; font-size:13px; line-height:1.6; color:var(--foam); }
+  article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
+  article blockquote p { margin-bottom:8px; }
+  article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">article · 2026-07-06 · also published on Medium</div>
+  <h1>One AI opinion isn't enough</h1>
+  <div class="byline">by <a href="/">Gabriel Voicu</a></div>
+  <article>
+<p><em>I asked two different AI models to review the same spec. They found the same correctness bug — independently — and each caught one thing the other missed. That run convinced me more than any benchmark ever has.</em></p>
+<p><strong>ConsensFlow</strong> is a free, open-source tool that lets the AI you're already coding with ask a <em>different</em> AI for a second opinion — without you ever leaving your session. It runs inside Claude Code (as a plugin) and inside Pi (as an extension), and it can reach GPT, Claude, GLM, DeepSeek, Gemini, Kimi, Qwen, Grok and more, through the subscriptions and API keys you already have.</p>
+<p><img src="images/hero.jpg" alt="Abstract illustration: five luminous colored streams converging into a single bright node, then flowing on as one." loading="lazy"></p>
+<h2>The problem: confidence is not correctness</h2>
+<p>Modern coding agents are excellent — and excellently confident. Ask one whether your job queue should live in Redis or Postgres, and you'll get a firm, well-argued answer in seconds. Ask it to review its own plan, and it will mostly agree with itself. That's not a character flaw; it's what a single model does. Every model has blind spots, and a model can't see its own.</p>
+<p>The obvious fix — ask another AI — comes with a tax. You open a second window, copy your context over, lose the thread, paste the answer back, and try to reconcile two conversations that never met. It's annoying enough that you skip it. And skipping it is how a confident wrong answer ships.</p>
+<p>Code review solved this problem for humans decades ago: nobody merges serious work on the author's word alone. We just never gave our AI tools the same courtesy.</p>
+<h2>One question, one participant, one handoff back</h2>
+<p>ConsensFlow does exactly one thing. You ask a named participant a question, and it routes that question — together with a snapshot of your current session — to that participant's engine, runs it as a one-shot process, and brings the answer back into your session.</p>
+<p><img src="images/ig-router.png" alt="Diagram: a host node ('You — in your session') routes one question along a single highlighted wire to one of five engines — Claude Code, Codex, Pi, OpenCode, image — never a broadcast." loading="lazy"></p>
+<p>Three design choices matter here:</p>
+<ul>
+<li><strong>One participant at a time — never a broadcast.</strong> You're having a conversation, not running a poll. Consensus, when you want it, is something you build by consulting minds sequentially and watching where they agree — which turns out to be far more informative than a vote.</li>
+<li><strong>The handoff is your session.</strong> The participant sees what you've been working on — the question arrives with context, so the answer comes back grounded, not generic.</li>
+<li><strong>The answer returns to you.</strong> No second window, no copy-paste, no reconciling threads. Your session stays the single place where your work happens.</li>
+</ul>
+<h2>A real run: one spec, three reviewers</h2>
+<p>Here's the workflow that sold me on my own tool, with the actual outputs.</p>
+<p>I had Opus write a compact engineering spec — a Postgres-backed job queue using <code>FOR UPDATE SKIP LOCKED</code>: schema, claiming query, retry policy with backoff, a reaper for crashed workers, observability. A solid spec. It read production-ready.</p>
+<p>Then, without leaving the session, I asked for reviews:</p>
+<p><img src="images/ig-repl.png" alt="A Claude Code session: '@calliope review this spec' routes to Fable 5, which answers with a lease bug — handlers running past five minutes get executed concurrently — and calls it a correctness blocker." loading="lazy"></p>
+<p><strong>Fable 5</strong> (running through Claude Code) came back with a finding I had not seen: the spec's reaper re-queues any job whose lock is older than five minutes — but nothing refreshes the lock. So any handler that legitimately runs longer than five minutes gets <em>executed twice, concurrently</em>. It called this a correctness blocker, and it was right. It also flagged missing indexes and autovacuum tuning for a table with this churn profile.</p>
+<p><strong>GLM 5.2</strong> (running through Pi) reviewed the same spec with no knowledge of Fable's answer. It found <em>the same lease bug on its own</em> — and then added one Fable missed: reaped jobs go back in the queue instantly, with the crash counting toward the retry budget, so a crash-looping handler burns all five attempts in seconds instead of backing off.</p>
+<p><img src="images/ig-converge.png" alt="Infographic: one spec written with Opus flows into three reviewers — Fable 5, GPT 5.5, GLM 5.2 — two of them independently converge on the same blocker, and each catches something the other didn't." loading="lazy"></p>
+<p>Two independent minds converging on the same blocker is a signal no single review can give you. Each one also catching something unique is the bonus that makes the habit stick. This is what I mean by consensus: not a majority vote, but <strong>independent agreement you can watch happen</strong> — plus the disagreements, which are often worth even more.</p>
+<h2>Fifty named minds, ready to go</h2>
+<p>Participants are just named configurations: an engine, a model, an effort level. ConsensFlow ships a catalog of <strong>fifty presets</strong>, pre-named and pre-configured — <code>zeus</code> is Claude Opus at max effort, <code>calliope</code> is Fable 5 at max, <code>athena</code> is GPT 5.5 through Codex, <code>prometheus</code> is GLM 5.2 through Pi, and so on. Add the ones you want:</p>
+<pre><code>cf participants add zeus calliope forseti prometheus</code></pre>
+<p>Presets keep their names; you only invent names when you define a custom participant — and you can, since models are free strings passed straight to the engine. The roster lives in one shared file (<code>~/.consensflow/participants.json</code>), so the same participants are available whether you're in Claude Code or Pi.</p>
+<p>The reach is the practical win:</p>
+<ul>
+<li><strong>GPT</strong>, through the ChatGPT/Codex subscription you already pay for — no extra API bill.</li>
+<li><strong>DeepSeek, Gemini, Kimi, Qwen, Grok, Llama, Mistral, MiniMax</strong> — through OpenCode or Pi, with an API key.</li>
+<li><strong>Another Claude</strong> — a second Opus, Fable or Haiku on your existing Claude login, for intra-family second opinions.</li>
+<li><strong>An image participant</strong> — gpt-image-2 for stills and covers, same one-question flow.</li>
+</ul>
+<h2>Install</h2>
+<p>In <strong>Claude Code</strong>, two commands and a restart:</p>
+<pre><code>claude plugin marketplace add ngvoicu/consensflow-cc
+claude plugin install consensflow@consensflow-cc</code></pre>
+<p>In <strong>Pi</strong>, one:</p>
+<pre><code>pi install https://github.com/ngvoicu/consensflow-pi</code></pre>
+<p>Then ask by name, right in your session:</p>
+<pre><code>&gt; @calliope review this spec
+&gt; @prometheus poke holes in that</code></pre>
+<h2>Nothing is kept without your yes</h2>
+<p>Consulting is free-form and encouraged; <em>acting</em> is gated. By default participants run confined to your project workspace, and whatever a participant produces — advice, diffs, files — nothing becomes part of your project without your explicit approval. There's exactly one escalation (<code>full-auto</code>), and you have to ask for it by name. The consent gate is the difference between a second opinion and a second cook in your kitchen.</p>
+<h2>What it's not</h2>
+<p>Honesty section. ConsensFlow won't make decisions for you — it gives you more eyes, and you stay the judge; that's the design, not a limitation to fix. It doesn't blend answers into one synthetic verdict — you see each mind's actual words, disagreements included. And it isn't a swarm framework: one question goes to one participant at a time, because that's how you keep a review independent and an audit trail readable.</p>
+<h2>Get it</h2>
+<p>ConsensFlow is free and open source (MIT):</p>
+<ul>
+<li>Site &amp; docs: <a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a></li>
+<li>Claude Code plugin: <a href="https://github.com/ngvoicu/consensflow-cc">github.com/ngvoicu/consensflow-cc</a></li>
+<li>Pi extension: <a href="https://github.com/ngvoicu/consensflow-pi">github.com/ngvoicu/consensflow-pi</a></li>
+</ul>
+<p>Install it, run your next big decision past a different mind, and see what your second opinion catches. Mine caught a double-execution bug that would have paged me at 3 a.m. — I consider that argument closed.</p>
+<hr>
+<p>ConsensFlow is part of a larger <a href="/#consulting">AI-native toolkit</a> — alongside <a href="https://specmint.ngvoicu.dev">Specmint</a> (durable AI coding specs) and <a href="https://kluris.ngvoicu.dev">Kluris</a> (team knowledge brains). If you're taking your team AI-native, start with <a href="/becoming-an-ai-native-company/">Becoming an AI Native Company</a>.</p>
+  </article>
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

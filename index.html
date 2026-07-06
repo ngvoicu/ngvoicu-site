@@ -397,17 +397,12 @@
   .eff .cf-stack-head .cf-wordmark { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.12rem; letter-spacing: -0.01em; line-height: 1; background: linear-gradient(90deg,#22d3ee,#6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .eff .cf-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
   .eff .cf-stack .reviewer-pill { color: #a5f3fc; border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.08); }
-  .eff .enhanced-loop-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 18px; }
-  .eff .loop-note { border: 1px solid rgba(255,255,255,.09); border-radius: 15px; padding: 14px; background: rgba(0,0,0,.18); }
-  .eff .loop-note b { display: block; color: #f7f8f8; margin-bottom: 7px; font-size: .98rem; }
-  .eff .loop-note p { font-size: .88rem; line-height: 1.42; color: #cbd1dc; }
   .eff .tag { display: inline-flex; align-items: center; color: var(--dk-soft); font: 700 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; border: 1px solid var(--dk-line); border-radius: 7px; padding: 7px 9px; background: rgba(255,255,255,.04); margin-bottom: 12px; }
   .eff .tag.mint { color: var(--mint); }
   .eff .tag.blue { color: var(--blue); }
   .eff .tag.purple { color: var(--purple); }
   /* Mobile: the pipeline turns vertical — no horizontal scroll */
   @media (max-width: 700px) {
-    .eff .enhanced-loop-notes { grid-template-columns: 1fr; margin-top: 22px; }
     .eff .eff-scroll { overflow-x: visible; padding-bottom: 0; }
     .eff .aflow { flex-direction: column; align-items: stretch; min-width: 0; gap: 0.3rem; }
     .eff .aflow-arrow { transform: rotate(90deg); flex: 0 0 auto; width: auto; height: 20px; }
@@ -611,11 +606,6 @@
           </div>
         </div>
 
-        <div class="enhanced-loop-notes">
-          <div class="loop-note"><div class="tag mint">Author</div><b>One LLM drafts the spec</b><p>Use a strong planning model, for example Claude Opus, to research, interview, and produce the working spec.</p></div>
-          <div class="loop-note"><div class="tag blue">Reviewers</div><b>Fresh sessions find blind spots</b><p>Ask one to four other LLM sessions to review the spec independently. They can be from another family or the same family.</p></div>
-          <div class="loop-note"><div class="tag purple">Decision gate</div><b>Return critique to the author</b><p>The author LLM checks the reviews, you approve the useful changes, and only then does implementation begin.</p></div>
-        </div>
       </div>
     </div>
 

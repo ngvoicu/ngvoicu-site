@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos — Gabriel Voicu</title>
+<meta name="description" content="Videos on AI-native development: ConsensFlow, Kluris, and Specmint — real agents, real captures. Plus a decade of Java screencasts.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ngvoicu.dev/videos/">
+<meta name="theme-color" content="#0C1E23">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  ::selection { background:var(--buoy); color:var(--ink-deep); }
+  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
+  a { color:var(--seafoam); text-decoration:none; }
+  a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
+  .brand svg { display:block; }
+  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
+  .brand-tld { color:var(--seafoam); }
+  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
+  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
+  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
+  h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 18px; }
+
+  .vid { display:block; border:1px solid var(--ink-line); border-radius:12px; overflow:hidden;
+    background:var(--ink-panel); margin-bottom:26px; color:inherit; }
+  .vid:hover { text-decoration:none; border-color:var(--seafoam); }
+  .vid .shot { position:relative; }
+  .vid img { display:block; width:100%; height:auto; }
+  .vid .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .vid .play span { width:64px; height:64px; border-radius:50%; background:rgba(12,30,35,0.82);
+    border:1.5px solid var(--seafoam); display:flex; align-items:center; justify-content:center; }
+  .vid .play svg { margin-left:4px; }
+  .vid .meta { padding:16px 20px 18px; }
+  .vid .t { font-weight:700; font-size:19px; line-height:1.35; color:var(--foam); }
+  .vid .s { color:var(--mist); font-size:15px; margin-top:6px; line-height:1.6; }
+  .vid .s b { color:var(--foam); font-weight:600; }
+  .vid .len { font-family:var(--mono); font-size:12.5px; color:var(--seafoam); margin-top:8px; }
+
+  ul.list { list-style:none; margin:0; }
+  ul.list li { display:flex; gap:16px; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--ink-line); margin:0; }
+  ul.list .d { font-family:var(--mono); font-size:12.5px; color:var(--mist); flex-shrink:0; }
+  .note { color:var(--mist); font-size:15px; margin-bottom:8px; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" class="brand" aria-label="ngvoicu.dev home">
+    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
+    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
+  </a>
+  <div class="kicker">videos</div>
+  <h1>Watch it work</h1>
+  <div class="byline">The AI-native toolkit on video — real agents, real captures, no mockups. All on <a href="https://www.youtube.com/@CodeWithZee">YouTube</a>.</div>
+
+  <h2>The AI-Native Toolkit (2026)</h2>
+
+  <a class="vid" href="https://www.youtube.com/@CodeWithZee">
+    <span class="shot"><img src="/videos/thumbs/consensflow.png" alt="ConsensFlow — one AI opinion isn't enough" width="1280" height="720" loading="lazy">
+      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
+    </span>
+    <span class="meta">
+      <span class="t">ConsensFlow — a second AI opinion, without leaving your session</span>
+      <span class="s">The AI you're coding with asks a <b>different</b> AI to review your spec, your diff, or do the easy work — Claude Code &amp; Pi, one shared roster, real captures of Fable 5 and GLM 5.2 finding the same bug independently.</span>
+      <span class="len">coming to the channel soon · consensflow.ngvoicu.dev</span>
+    </span>
+  </a>
+
+  <a class="vid" href="https://www.youtube.com/@CodeWithZee">
+    <span class="shot"><img src="/videos/thumbs/kluris.png" alt="Kluris — one brain for all your AI agents" width="1280" height="720" loading="lazy">
+      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
+    </span>
+    <span class="meta">
+      <span class="t">Kluris — one shared brain for all your AI agents</span>
+      <span class="s">Lobes, neurons, synapses: team knowledge as plain markdown in git, readable by every coding agent you use — with a real brain, real searches, and the MRI map of 51 neurons.</span>
+      <span class="len">coming to the channel soon · kluris.ngvoicu.dev</span>
+    </span>
+  </a>
+
+  <a class="vid" href="https://www.youtube.com/watch?v=QSI-C57bt78">
+    <span class="shot"><img src="/videos/thumbs/specmint.png" alt="Specmint — specs that survive the session" width="1280" height="720" loading="lazy">
+      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
+    </span>
+    <span class="meta">
+      <span class="t">Specmint — AI coding specs that survive the session</span>
+      <span class="s">Deep research, a real interview, then a spec with phases, tasks and a decision log — resumable tomorrow in a completely different tool. All four variants, one workflow.</span>
+      <span class="len">3:02 · specmint.ngvoicu.dev</span>
+    </span>
+  </a>
+
+  <h2>Earlier series (Java, 2016–2022)</h2>
+  <p class="note">The channel's first life: enterprise Java screencasts. Most have matching write-ups in <a href="/articles/">articles</a>.</p>
+  <ul class="list">
+    <li><span class="d">2022</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Efficient unit testing with Java, JUnit, Mockito and Spring</a></li>
+    <li><span class="d">2017</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Spring Boot multi-module project (13-part series)</a></li>
+    <li><span class="d">2017</span><a href="https://www.youtube.com/@CodeWithZee/playlists">OSGi bundles, Camel routes &amp; ServiceMix</a></li>
+    <li><span class="d">2016–17</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Spring MVC, JSP &amp; IntelliJ project setups</a></li>
+  </ul>
+
+  <footer>
+    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a> · <a href="/videos/">videos</a></span>
+    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
+  </footer>
+</div>
+</body>
+</html>

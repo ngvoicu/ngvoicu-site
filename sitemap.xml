@@ -37,12 +37,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ngvoicu.dev/articles/speckit-practical-guide-multi-repo/</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/</loc>
     <lastmod>2021-12-21</lastmod>
     <changefreq>yearly</changefreq>

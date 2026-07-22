@@ -53,8 +53,24 @@
   article blockquote { border-left:3px solid var(--seafoam); padding-left:16px; margin:0 0 16px; }
   article blockquote p { margin-bottom:8px; }
   article hr { border:none; border-top:1px solid var(--ink-line); margin:32px 0; }
+  article .ratio, article iframe { max-width:100%; }
+  article iframe { width:100%; aspect-ratio:16/9; height:auto; border:1px solid var(--ink-line); border-radius:8px; margin:8px 0 18px; background:var(--ink-panel); }
   footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "ConsensFlow: a second AI opinion inside Claude Code & Pi",
+  "description": "ConsensFlow in 3 minutes: the AI you're coding with asks a different AI for a second opinion — spec review, code review, task delegation. Real run, real outputs, no mockups.",
+  "thumbnailUrl": "https://ngvoicu.dev/videos/thumbs/consensflow.jpg",
+  "uploadDate": "2026-07-21",
+  "duration": "PT3M26S",
+  "contentUrl": "https://www.youtube.com/watch?v=iKuBFEDE8Go",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/iKuBFEDE8Go",
+  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev" }
+}
+</script>
 </head>
 <body>
 <div class="page">
@@ -66,6 +82,8 @@
   <h1>One AI opinion isn't enough</h1>
   <div class="byline">by <a href="/">Gabriel Voicu</a></div>
   <article>
+    <iframe src="https://www.youtube-nocookie.com/embed/iKuBFEDE8Go" title="ConsensFlow: a second AI opinion inside Claude Code & Pi" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p><em>Prefer watching? The 3-minute video above shows the whole run — or read on.</em></p>
 <p><em>I asked two different AI models to review the same spec. They found the same correctness bug — independently — and each caught one thing the other missed. That run convinced me more than any benchmark ever has.</em></p>
 <p><strong>ConsensFlow</strong> is a free, open-source tool that lets the AI you're already coding with ask a <em>different</em> AI for a second opinion — or hand it a task outright — without you ever leaving your session. It runs inside Claude Code (as a plugin) and inside Pi (as an extension), and it can reach <strong>Claude Code, Codex, Pi and OpenCode — and every model those engines can run</strong> — through the subscriptions and API keys you already have.</p>
 <p><img src="images/hero.jpg" alt="Abstract illustration: five luminous colored streams converging into a single bright node, then flowing on as one." loading="lazy"></p>

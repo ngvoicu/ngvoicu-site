@@ -270,6 +270,28 @@
     white-space: nowrap;
   }
   .install + .install { margin-top: 8px; }
+  /* The mesh, in one row: five harnesses on one bus, arrows at both ends.
+     Built from text rather than an SVG so it stays legible when the card
+     narrows — a scaled viewBox takes the labels down with it. The paragraph
+     above says the same thing, so this is decoration to a screen reader. */
+  .mesh {
+    font-family: var(--mono);
+    background: var(--ink-deep);
+    border: 1px solid var(--ink-line);
+    border-radius: 4px;
+    padding: 11px 14px 9px;
+    margin-bottom: 10px;
+  }
+  .mesh-row {
+    display: flex; flex-wrap: wrap; gap: 6px 10px; justify-content: space-between;
+    font-size: 11.5px; color: var(--seafoam);
+  }
+  .mesh-bus {
+    display: flex; align-items: center; gap: 8px; margin-top: 7px;
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--mist);
+  }
+  .mesh-bus::before, .mesh-bus::after { content: ""; flex: 1; height: 1px; background: var(--ink-line); }
+  .mesh-end { color: var(--seafoam); font-size: 12px; letter-spacing: 0; }
   .install .prompt { color: var(--seafoam); user-select: none; }
   .install button {
     font-family: var(--mono);
@@ -650,6 +672,10 @@
         <a class="neuron-domain" href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a>
       </div>
       <p>Your coding agent only ever has its own opinion. ConsensFlow gives it a roster of named <strong>agents</strong> — each a real coding-harness CLI — behind <strong>one skill</strong> that every harness on the machine carries: any of the five can ask, any of the five can answer. Claude Code asks Codex; Kimi Code asks pi. Each consult is a named conversation in that agent's own window, and nothing it produces reaches your repo without your yes. No accounts, no API keys, no daemon. Open source (MIT); a desktop app that brings its own runtime.</p>
+      <div class="mesh" aria-hidden="true">
+        <div class="mesh-row"><span>claude-code</span><span>codex</span><span>pi</span><span>opencode</span><span>kimi-code</span></div>
+        <div class="mesh-bus"><span class="mesh-end">◄</span>any asks · any answers<span class="mesh-end">►</span></div>
+      </div>
       <div class="install"><span><span class="prompt">$</span> <a href="https://github.com/ngvoicu/consensflow/releases/latest">download the app</a> — macOS, Apple silicon</span></div>
       <div class="synapses"><span class="key">related:</span> [claude-code, codex, pi, opencode, kimi-code] — one question, one agent at a time, consensus built answer by answer</div>
     </article>

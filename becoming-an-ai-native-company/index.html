@@ -33,7 +33,7 @@
   "description": "What an AI-native company is and how engineering teams get there: context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.",
   "image": "https://ngvoicu.dev/og.png",
   "datePublished": "2026-07-04",
-  "dateModified": "2026-07-04",
+  "dateModified": "2026-10-10",
   "mainEntityOfPage": "https://ngvoicu.dev/becoming-an-ai-native-company/",
   "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/", "sameAs": ["https://github.com/ngvoicu", "https://www.linkedin.com/in/ngvoicu/"] },
   "publisher": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/" }
@@ -52,6 +52,7 @@
   .page { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
   a { color: var(--seafoam); text-decoration: none; }
   a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--seafoam); outline-offset: 3px; border-radius: 2px; }
   .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 48px; }
   .brand svg { display: block; }
   .brand-name { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--foam); }
@@ -137,7 +138,7 @@
 <p>Humans own truth and decisions. AI owns generation. Machines own verification. Durable artifacts like specs and memory are co-owned — forged together, remembered forever. The flow runs: receive requirements, branch, write the spec (AI-assisted human), implement with tests (AI), review and polish (AI-assisted human), run CI, update the knowledge base, archive the spec.</p>
 <p>Then there is the upgrade that changes the quality of everything: no single model is best at everything, and no author can see its own blind spots.</p>
 <p>So write the spec with one strong author model, then hand the same work to one or more <em>different</em> models in fresh sessions and ask them to tear it apart. Feed the best critiques back to the author. Implement only what you and the author agree is right. An independent mind from another family finds the holes the author is structurally blind to — the missing dedupe window, the index that will crawl under load, the edge case nobody spelled out.</p>
-<p>The catch is always friction: switching tools, re-pasting your code, losing context. That friction is why I built <strong><a href="https://consensflow.ngvoicu.dev">ConsensFlow, cross-LLM adversarial review from inside your agent</a></strong>. From inside your main agent, you consult a second opinion from another AI coding agent — Claude Code, Codex, Pi, or OpenCode — one participant at a time. It hands the participant a handoff of your current session, gets the answer, and brings it back. Consulting is free and encouraged. There is a consent gate before any of the participant's changes are kept — the same human-in-the-loop principle, applied to review.</p>
+<p>The catch is always friction: switching tools, re-pasting your code, losing context. That friction is why I built <strong><a href="https://consensflow.ngvoicu.dev">ConsensFlow, a desktop app that runs a team of AI coding agents on your project</a></strong>. You talk to one agent, the Chief of Staff. It plans the work on a board, and its staff — workers, advisors and reviewers — take the tasks, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin, with your own logins. Put the author on one harness and the reviewers on others, and the adversarial review above runs in fresh sessions of different models, with the handoff done for you and every finding back on the board. Advisors and reviewers never change a file, and if you turn it on, every message between agents waits for your approval — the same human-in-the-loop principle, applied to review.</p>
 <p>Author with one model. Review with another. Keep only what survives.</p>
 <h2>Harnesses everywhere: how your company becomes smarter</h2>
 <p>Almost everything above was a coding harness. The bigger idea is that <em>every repeatable workflow can get its own harness</em>.</p>

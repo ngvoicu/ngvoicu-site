@@ -50,7 +50,7 @@
   "email": "mailto:office@ngvoicu.dev",
   "telephone": "+40 734 704 910",
   "address": { "@type": "PostalAddress", "addressLocality": "Constanța", "addressCountry": "RO" },
-  "sameAs": ["https://github.com/ngvoicu", "https://www.linkedin.com/in/ngvoicu/"],
+  "sameAs": ["https://github.com/ngvoicu", "https://www.linkedin.com/in/ngvoicu/", "https://www.youtube.com/@CodeWithZee"],
   "image": "https://ngvoicu.dev/og.png",
   "knowsAbout": ["AI-native consulting", "AI adoption", "AI training for engineering teams", "AI-native engineering workflows", "AI agents", "developer tools", "application security", "OAuth2", "Keycloak", "RAG", "MCP", "Kotlin", "Spring Boot", "Python", "TypeScript"]
 }
@@ -255,10 +255,10 @@
   .neuron p strong { color: var(--foam); font-weight: 500; }
 
   .install {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    column-gap: 14px;
     font-family: var(--mono);
     font-size: 13px;
     color: var(--foam);
@@ -266,22 +266,32 @@
     border: 1px solid var(--ink-line);
     border-radius: 4px;
     padding: 9px 14px;
-    overflow-x: auto;
-    white-space: nowrap;
   }
   .install + .install { margin-top: 8px; }
-  /* The mesh: one line, shaped like the install row under it so the card keeps
-     its rhythm. Text rather than an SVG — a scaled viewBox takes its labels
-     down with it, and these cards narrow. Decoration to a screen reader: the
-     paragraph above says the same thing in words. */
-  .mesh {
+  .install .cmd, .install .text { grid-column: 1; grid-row: 1; min-width: 0; }
+  .install .cmd { overflow-x: auto; white-space: nowrap; }
+  .install button, .install .aside { grid-column: 2; grid-row: 1; }
+  /* A repo name inside a command links to its repository, dressed like the
+     frontmatter's link values so the command still reads as one line. */
+  .install .cmd a { color: inherit; border-bottom: 1px dotted var(--mist); }
+  .install .cmd a:hover { color: var(--seafoam); text-decoration: none; border-bottom-color: var(--seafoam); }
+  /* What a row is for, on a line of its own under it: an edition's purpose,
+     a download's requirements. */
+  .install .for { grid-column: 1 / -1; font-family: var(--sans); font-size: 13.5px; line-height: 1.5; color: var(--mist); margin-top: 3px; }
+  .install .aside { font-size: 12px; color: var(--mist); }
+  .install .aside:hover { color: var(--seafoam); }
+  /* The flow of work: one line, shaped like the install row under it so the
+     card keeps its rhythm. Text rather than an SVG — a scaled viewBox takes
+     its labels down with it, and these cards narrow. Decoration to a screen
+     reader: the paragraph above says the same thing in words. */
+  .flow {
     display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px;
     font-family: var(--mono); font-size: 13px; color: var(--seafoam);
     background: var(--ink-deep); border: 1px solid var(--ink-line);
     border-radius: 4px; padding: 9px 14px; margin-bottom: 8px;
   }
-  .mesh b { font-weight: 400; color: var(--mist); }
-  .mesh i { font-style: normal; color: var(--foam); opacity: .55; padding: 0 1px; }
+  .flow b { font-weight: 400; color: var(--mist); }
+  .flow i { font-style: normal; color: var(--foam); opacity: .55; padding: 0 1px; }
   .install .prompt { color: var(--seafoam); user-select: none; }
   .install button {
     font-family: var(--mono);
@@ -499,18 +509,6 @@
   .work-block p { color: var(--mist); font-size: 15.5px; max-width: 640px; }
   .work-block p strong { color: var(--foam); font-weight: 500; }
 
-  /* ---------- git log ---------- */
-
-  .gitlog {
-    font-family: var(--mono);
-    font-size: 13.5px;
-    line-height: 2.1;
-    color: var(--mist);
-    overflow-x: auto;
-  }
-  .gitlog .hash { color: var(--seafoam); margin-right: 12px; }
-  .gitlog .msg { color: var(--foam); }
-
   /* ---------- Footer ---------- */
 
   footer {
@@ -530,7 +528,6 @@
     .page { padding-top: 48px; }
     section { margin-top: 64px; }
     .neuron { padding: 20px 18px 18px; }
-    .gitlog { font-size: 12px; }
     .eff .enhanced-loop-panel { padding: 16px 12px; border-radius: 16px; }
     .logos img { height: 42px; }
   }
@@ -563,28 +560,28 @@
     </div>
 
     <h1>Gabriel Voicu</h1>
-    <p class="thesis">I help companies become AI-native — redesigning engineering workflows so AI is built in by design, with humans owning truth, risk, and direction — and I build the open-source tools that make it work.</p>
-    <p class="thesis-sub">By day I work on AI agentic systems and security infrastructure for enterprise platforms. I also deliver talks, workshops, and hands-on adoption engagements for teams starting the journey — with a security engineer's habits throughout.</p>
+    <p class="thesis">I help engineering teams become AI-native, and I build the open-source tools that make it work.</p>
+    <p class="thesis-sub">By day I work on AI agentic systems and security infrastructure for enterprise platforms. The rest of the time I give talks, train teams, and run adoption engagements — with a security engineer's habits throughout.</p>
   </header>
 
   <section id="consulting" aria-label="Consulting and workshops">
     <h2 class="lobe">lobe: consulting — AI-native adoption &amp; training for engineering teams</h2>
 
-    <p class="framing">AI-enhanced is people using AI on the side. <em>AI-native</em> means the workflow itself includes AI steps by design — remove the AI and it stops working — while humans keep ownership of truth, risk, and direction. I help engineering teams make that shift.</p>
+    <p class="framing">AI-enhanced is people using AI on the side. <em>AI-native</em> means the workflow itself includes AI steps by design — remove the AI and it stops working — while humans keep ownership of truth, risk, and direction. I help engineering teams make that shift, and leave it running without me.</p>
 
     <div class="work-block">
       <h3>Talks &amp; workshops — &quot;Becoming an AI Native Company&quot;</h3>
-      <p><strong>"Becoming an AI Native Company"</strong> — a beginner-friendly session that takes a whole team from "what is an LLM?" to a working AI-native operating model: context and memory, spec-driven development, cross-LLM review, harnesses, and skills. Delivered on-site or remote, adapted to your stack.</p>
+      <p>A beginner-friendly session that takes a whole team from &#8220;what is an LLM?&#8221; to a working AI-native operating model: context and memory, spec-driven development, cross-LLM review, harnesses, and skills. On-site or remote, adapted to your stack. The same ground, written down: <a href="/becoming-an-ai-native-company/">Becoming an AI Native Company, the practitioner&#8217;s guide</a>.</p>
     </div>
 
     <div class="work-block">
       <h3>AI training for engineering teams</h3>
-      <p>Teaching employees to actually use AI — hands-on sessions that take developers and the people around them from first prompts to daily AI-native habits: project context files, durable specs, agent memory, review discipline. The goal is a team that works AI-natively without me in the room.</p>
+      <p>Hands-on sessions for developers and the people around them, from first prompts to daily habits that hold up across tools. The goal is a team that works AI-natively without me in the room.</p>
     </div>
 
     <div class="work-block">
       <h3>AI adoption engagements</h3>
-      <p>Hands-on installation of the operating model in a real team: project instruction files, durable specs, a shared human-curated knowledge brain, adversarial review gates, and the security guardrails to run coding agents safely.</p>
+      <p>I join a real team and install the operating model where the work happens: instruction files in the repos, a first durable spec, a shared human-curated brain, review gates, and the security guardrails to run coding agents safely. What stays behind is files your team owns, not a slide deck.</p>
     </div>
 
     <div class="work-block">
@@ -621,11 +618,6 @@
       </div>
     </div>
 
-    <div class="work-block">
-      <h3>The playbook, written down</h3>
-      <p><a href="/becoming-an-ai-native-company/">Becoming an AI Native Company — the practitioner&#8217;s guide</a>: from &#8220;what is an LLM&#8221; to context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.</p>
-    </div>
-
     <a class="cta" href="mailto:office@ngvoicu.dev?subject=AI-native%20consulting">Book a talk or an engagement →</a>
     <div class="contact-line"><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a> · <a href="tel:+40734704910">+40 734 704 910</a></div>
   </section>
@@ -638,11 +630,11 @@
         <h3><a href="https://specmint.ngvoicu.dev">Specmint</a></h3>
         <a class="neuron-domain" href="https://specmint.ngvoicu.dev">specmint.ngvoicu.dev</a>
       </div>
-      <p>AI coding tools lose their plans when the session ends. Specmint turns ephemeral plans into <strong>durable, resumable specs</strong> stored in your codebase — a 6-phase forge workflow with deep research and developer interviews, TDD-first variants that enforce red-green-refactor, and rich HTML spec documents. Works with Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.</p>
-      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-core -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core -g">copy</button></div>
-      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-core-html -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core-html -g">copy</button></div>
-      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-tdd -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd -g">copy</button></div>
-      <div class="install"><span><span class="prompt">$</span> npx skills add ngvoicu/specmint-tdd-html -g</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd-html -g">copy</button></div>
+      <p>AI coding tools lose their plans when the session ends. Specmint turns them into <strong>durable, resumable specs</strong> in your codebase: deep research and an interview first, then a spec with phases, tasks, and a decision log that the next session picks up where you stopped, in whichever tool you open. Four repositories, one workflow. Works with Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.</p>
+      <div class="install"><span class="cmd"><span class="prompt">$</span> npx skills add <a href="https://github.com/ngvoicu/specmint-core">ngvoicu/specmint-core</a> -g</span><span class="for">specs as markdown</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core -g">copy</button></div>
+      <div class="install"><span class="cmd"><span class="prompt">$</span> npx skills add <a href="https://github.com/ngvoicu/specmint-tdd">ngvoicu/specmint-tdd</a> -g</span><span class="for">the same, test-first: red, green, refactor</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd -g">copy</button></div>
+      <div class="install"><span class="cmd"><span class="prompt">$</span> npx skills add <a href="https://github.com/ngvoicu/specmint-core-html">ngvoicu/specmint-core-html</a> -g</span><span class="for">specs as HTML: diagrams, diffs, mockups</span><button type="button" data-copy="npx skills add ngvoicu/specmint-core-html -g">copy</button></div>
+      <div class="install"><span class="cmd"><span class="prompt">$</span> npx skills add <a href="https://github.com/ngvoicu/specmint-tdd-html">ngvoicu/specmint-tdd-html</a> -g</span><span class="for">test-first, as HTML, with the TDD log</span><button type="button" data-copy="npx skills add ngvoicu/specmint-tdd-html -g">copy</button></div>
       <div class="synapses"><span class="key">related:</span> [<a href="#kluris">kluris</a>] — pairs with Kluris brains for research-phase team knowledge</div>
     </article>
 
@@ -652,7 +644,7 @@
         <a class="neuron-domain" href="https://kluris.ngvoicu.dev">kluris.ngvoicu.dev</a>
       </div>
       <p>AI agents start every session cold. Kluris gives them a <strong>brain</strong>: a git-backed repo of human-curated knowledge — lobes, neurons, synapses — shared across every project and agent on the team. Agents propose; nothing is written without explicit human approval. Ranked BM25 search, no embeddings, no external calls. Open source (MIT), on PyPI. This page is laid out like one of its neurons.</p>
-      <div class="install"><span><span class="prompt">$</span> pipx install kluris</span><button type="button" data-copy="pipx install kluris">copy</button></div>
+      <div class="install"><span class="cmd"><span class="prompt">$</span> pipx install kluris</span><button type="button" data-copy="pipx install kluris">copy</button></div>
       <div class="synapses"><span class="key">related:</span> [<a href="#specmint">specmint</a>] — ships Specmint companions per brain</div>
     </article>
 
@@ -661,10 +653,10 @@
         <h3><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></h3>
         <a class="neuron-domain" href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a>
       </div>
-      <p>Your coding agent only ever has its own opinion. ConsensFlow gives it a roster of named <strong>agents</strong> — each a real coding-harness CLI — behind <strong>one skill</strong> that every harness on the machine carries: any of the five can ask, any of the five can answer. Claude Code asks Codex; Kimi Code asks pi. Each consult is a named conversation in that agent's own window, and nothing it produces reaches your repo without your yes. No accounts, no API keys, no daemon. Open source (MIT); a desktop app that brings its own runtime.</p>
-      <div class="mesh" aria-hidden="true"><span>claude-code <i>⇄</i> codex <i>⇄</i> pi <i>⇄</i> opencode <i>⇄</i> kimi-code</span><b>any asks, any answers</b></div>
-      <div class="install"><span><span class="prompt">$</span> <a href="https://github.com/ngvoicu/consensflow/releases/latest">download the app</a> — macOS, Apple silicon</span></div>
-      <div class="synapses"><span class="key">related:</span> [claude-code, codex, pi, opencode, kimi-code] — one question, one agent at a time, consensus built answer by answer</div>
+      <p>A coding agent works alone. ConsensFlow is a desktop app that runs a <strong>team of them</strong> on your project. You talk to the Chief of Staff; it plans the work on a board, and its staff take the tasks: workers do them, advisors answer questions, reviewers check finished work, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin, with your own logins and no API keys. Open source (MIT), for Mac and Windows.</p>
+      <div class="flow" aria-hidden="true"><span>you <i>→</i> chief of staff <i>→</i> board <i>→</i> workers · advisors · reviewers</span><b>each in its own terminal</b></div>
+      <div class="install"><span class="text"><a href="https://github.com/ngvoicu/consensflow/releases">Download for Mac or Windows</a></span><a class="aside" href="https://github.com/ngvoicu/consensflow">source on GitHub</a><span class="for">Mac with Apple silicon, macOS 13.5 or later · Windows 10 or 11, 64-bit</span></div>
+      <div class="synapses"><span class="key">related:</span> [claude-code, codex, opencode, pi, devin] — the harnesses the staff run in; one is enough to start</div>
     </article>
   </section>
 

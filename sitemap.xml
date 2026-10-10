@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ngvoicu.dev/</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ngvoicu.dev/becoming-an-ai-native-company/</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://ngvoicu.dev/videos/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ngvoicu.dev/articles/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -120,5 +132,4 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url><loc>https://ngvoicu.dev/videos/</loc></url>
 </urlset>

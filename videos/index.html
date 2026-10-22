@@ -2,174 +2,440 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Videos — Gabriel Voicu</title>
-<meta name="description" content="Videos on AI-native development: Specmint and Kluris, plus the earlier plugin version of ConsensFlow — real agents, real captures. And a decade of Java screencasts.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="Short videos of Specmint and Kluris recorded from real runs, the earlier plugin version of ConsensFlow kept as history, and Java screencasts from 2016 to 2022.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/videos/">
-<meta name="theme-color" content="#0C1E23">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/videos/">
-<meta property="og:title" content="Videos — the AI-native toolkit, shown for real">
-<meta property="og:description" content="Specmint and Kluris on video, plus the earlier plugin version of ConsensFlow — real agents, real captures, no mockups.">
-<meta property="og:site_name" content="ngvoicu.dev">
-<meta property="og:image" content="https://ngvoicu.dev/videos/thumbs/specmint.jpg">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="720">
+<meta property="og:title" content="Videos">
+<meta property="og:description" content="Short videos of Specmint and Kluris recorded from real runs, the earlier plugin version of ConsensFlow kept as history, and Java screencasts from 2016 to 2022.">
+<meta property="og:site_name" content="Gabriel Voicu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ngvoicu.dev/images/brand/og-videos.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Videos by Gabriel Voicu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Videos — the AI-native toolkit, shown for real">
-<meta name="twitter:description" content="Specmint and Kluris on video, plus the earlier plugin version of ConsensFlow — real agents, real captures, no mockups.">
-<meta name="twitter:image" content="https://ngvoicu.dev/videos/thumbs/specmint.jpg">
+<meta name="twitter:title" content="Videos">
+<meta name="twitter:description" content="Short videos of Specmint and Kluris recorded from real runs, the earlier plugin version of ConsensFlow kept as history, and Java screencasts from 2016 to 2022.">
+<meta name="twitter:image" content="https://ngvoicu.dev/images/brand/og-videos.png">
+<meta name="twitter:image:alt" content="Videos by Gabriel Voicu">
+
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Specmint: AI coding specs that survive the session (all 4 variants)",
-  "description": "Your AI plans a feature beautifully — then the session ends and the plan is gone. Specmint turns ephemeral AI plans into persistent, resumable specs that live in your codebase and work across tools.",
-  "thumbnailUrl": "https://ngvoicu.dev/videos/thumbs/specmint.jpg",
-  "uploadDate": "2026-07-14T18:02:30+03:00",
-  "duration": "PT3M3S",
-  "contentUrl": "https://www.youtube.com/watch?v=QSI-C57bt78",
-  "embedUrl": "https://www.youtube-nocookie.com/embed/QSI-C57bt78",
-  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev" }
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://ngvoicu.dev/videos/#page",
+      "url": "https://ngvoicu.dev/videos/",
+      "name": "Videos",
+      "description": "Short videos of Specmint and Kluris recorded from real runs, the earlier plugin version of ConsensFlow kept as history, and Java screencasts from 2016 to 2022.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://ngvoicu.dev/#website",
+        "url": "https://ngvoicu.dev/",
+        "name": "Gabriel Voicu"
+      },
+      "author": {
+        "@id": "https://ngvoicu.dev/#person"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://ngvoicu.dev/videos/kluris-shared-memory/",
+            "name": "Kluris: give your AI agents one shared memory (Claude Code, Codex, Cursor…)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://ngvoicu.dev/videos/specmint-ai-coding-specs/",
+            "name": "Specmint: AI coding specs that survive the session"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://ngvoicu.dev/videos/consensflow-second-opinion/",
+            "name": "ConsensFlow: a second AI opinion inside Claude Code & Pi"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ngvoicu.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Videos",
+          "item": "https://ngvoicu.dev/videos/"
+        }
+      ]
+    }
+  ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "ConsensFlow: a second AI opinion inside Claude Code & Pi",
-  "description": "ConsensFlow as it was in July 2026, before it became a desktop app that runs a team of AI coding agents: a Claude Code plugin and a Pi extension that let the AI you were coding with ask a different AI to review a spec or a diff, or take a task. Real run, real outputs, no mockups.",
-  "thumbnailUrl": "https://ngvoicu.dev/videos/thumbs/consensflow.jpg",
-  "uploadDate": "2026-07-21T16:00:07+03:00",
-  "duration": "PT3M26S",
-  "contentUrl": "https://www.youtube.com/watch?v=iKuBFEDE8Go",
-  "embedUrl": "https://www.youtube-nocookie.com/embed/iKuBFEDE8Go",
-  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Kluris: give your AI agents one shared memory (Claude Code, Cursor…)",
-  "description": "Your AI agents are brilliant — and amnesiac. Kluris gives every AI agent on your team one shared brain: a git-backed knowledge base of markdown neurons that Claude Code, Cursor, Copilot and more read before they act.",
-  "thumbnailUrl": "https://ngvoicu.dev/videos/thumbs/kluris.jpg",
-  "uploadDate": "2026-07-17T09:08:24+03:00",
-  "duration": "PT3M13S",
-  "contentUrl": "https://www.youtube.com/watch?v=ei1F0ZbNX3o",
-  "embedUrl": "https://www.youtube-nocookie.com/embed/ei1F0ZbNX3o",
-  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev" }
-}
-</script>
+
 <style>
-  :root { --ink-deep:#0C1E23; --ink-panel:#122A30; --ink-line:#1E3C43; --foam:#E9F1EF; --mist:#9EB5B1; --seafoam:#63C7B2; --buoy:#FF6B5A; --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; --sans:"Archivo",system-ui,-apple-system,sans-serif; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  ::selection { background:var(--buoy); color:var(--ink-deep); }
-  body { background:var(--ink-deep); color:var(--foam); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; }
-  .page { max-width:720px; margin:0 auto; padding:56px 24px 96px; }
-  a { color:var(--seafoam); text-decoration:none; }
-  a:hover { text-decoration:underline; text-underline-offset:3px; }
-  a:focus-visible { outline:2px solid var(--seafoam); outline-offset:3px; border-radius:2px; }
-  .brand { display:flex; align-items:center; gap:10px; margin-bottom:48px; }
-  .brand svg { display:block; }
-  .brand-name { font-family:var(--mono); font-size:15px; font-weight:500; color:var(--foam); }
-  .brand-tld { color:var(--seafoam); }
-  .kicker { font-family:var(--mono); font-size:13px; color:var(--seafoam); margin-bottom:14px; }
-  h1 { font-variation-settings:"wdth" 114; font-weight:840; font-size:clamp(28px,5vw,42px); line-height:1.1; margin-bottom:14px; }
-  .byline { font-family:var(--mono); font-size:13px; color:var(--mist); margin-bottom:44px; }
-  h2 { font-variation-settings:"wdth" 112; font-weight:760; font-size:24px; line-height:1.25; margin:44px 0 18px; }
+  /* ---------- Fonts: Figtree for all text, JetBrains Mono for code. OFL; files and licences in /fonts/. A face downloads only when a page uses its characters. ---------- */
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-symbols.woff2") format("woff2");
+    unicode-range: U+2022, U+2026, U+2190-2199, U+21D2, U+21D4, U+2500-257F, U+25B6, U+25B8, U+25CF, U+2713, U+2717;
+  }
 
-  .vid { display:block; border:1px solid var(--ink-line); border-radius:12px; overflow:hidden;
-    background:var(--ink-panel); margin-bottom:26px; color:inherit; }
-  .vid:hover { text-decoration:none; border-color:var(--seafoam); }
-  .vid:hover .play span { background:var(--seafoam); }
-  .vid:hover .play svg path { fill:var(--ink-deep); }
-  .vid .shot { position:relative; display:block; aspect-ratio:16/9; background:var(--ink-deep); }
-  .vid img { display:block; width:100%; height:auto; }
-  .vid .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-  .vid .play span { width:64px; height:64px; border-radius:50%; background:rgba(12,30,35,0.82);
-    border:1.5px solid var(--seafoam); display:flex; align-items:center; justify-content:center;
-    transition:background .15s ease; }
-  .vid .play svg { margin-left:4px; }
-  .vid .meta { display:block; padding:16px 20px 18px; }
-  .vid .t { display:block; font-weight:700; font-size:19px; line-height:1.35; color:var(--foam); }
-  .vid .s { display:block; color:var(--mist); font-size:15px; margin-top:6px; line-height:1.6; }
-  .vid .s b { color:var(--foam); font-weight:600; }
-  .vid .len { display:block; font-family:var(--mono); font-size:12.5px; color:var(--seafoam); margin-top:10px; }
+  /* ---------- Tokens: light only, with no dark-mode rule anywhere. White paper, a green-black ink, a bottle-green pen and a sunny yellow. ---------- */
+  :root {
+    color-scheme: light;
+    --page: #FFFFFF;
+    --panel: #F1F7F4;
+    --text: #1D2A28;
+    --quiet: #52615D;
+    --rule: #D5E0DC;
+    --accent: #0B6B5D;
+    --sun: #F2C230;
 
-  ul.list { list-style:none; margin:0; }
-  ul.list li { display:flex; gap:16px; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--ink-line); margin:0; }
-  ul.list .d { font-family:var(--mono); font-size:12.5px; color:var(--mist); flex-shrink:0; }
-  .note { color:var(--mist); font-size:15px; margin-bottom:8px; }
-  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--ink-line); font-family:var(--mono); font-size:13px; color:var(--mist); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    --font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --fs-small: .875rem;
+    --fs-body: clamp(1.0625rem, 1rem + .2vw, 1.125rem);
+    --fs-lead: clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);
+    --fs-h3: 1.25rem;
+    --fs-h2: clamp(1.5rem, 1.35rem + .5vw, 1.75rem);
+    --fs-h1: clamp(2rem, 1.45rem + 2.4vw, 3rem);
+    --fs-display: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+
+    --wrap: 72rem;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --label-col: 12rem;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--text);
+    font: 400 var(--fs-body)/1.6 var(--font);
+    font-kerning: normal; text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+  p, ul, ol, figure, table, blockquote { margin: 0; }
+  img { max-width: 100%; height: auto; }
+  a {
+    color: var(--accent);
+    text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  a:hover { text-decoration-color: currentColor; text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: color-mix(in srgb, var(--sun) 55%, transparent); }
+  code, kbd, pre, samp { font-family: var(--mono); font-size: .875em; font-variant-ligatures: none; }
+
+  /* ---------- Shell: frame, skip link, buttons ---------- */
+  .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .skip {
+    position: absolute; left: var(--gutter); top: -4rem; z-index: 10;
+    padding: .5rem .875rem; background: var(--page); color: var(--accent); border: 2px solid var(--accent); border-radius: 4px;
+  }
+  .skip:focus { top: .75rem; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 1.75rem; font-weight: 600; }
+  .actions > a:not(.btn) { padding-block: .5rem; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem 1.25rem; border-radius: 999px;
+    background: var(--accent); color: var(--page); font-weight: 600; text-decoration: none;
+  }
+  .btn:hover { background: color-mix(in srgb, var(--accent) 80%, var(--text)); color: var(--page); }
+
+  /* ---------- Header: the ink stamp (a black-on-clear alpha mask, painted in the accent green by the background), the name and the motto under it ---------- */
+  .site-head { border-bottom: 1px solid var(--rule); }
+  .head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 2rem; padding-block: .75rem; }
+  .brand-box {
+    --name-size: 1.125rem; --motto-size: .8125rem; --mark-gap: .75rem;
+    --mark-h: calc(var(--name-size) * 1.3 + .125rem + var(--motto-size) * 1.35);
+    position: relative; padding-left: calc(var(--mark-h) + var(--mark-gap));
+  }
+  .brand {
+    display: block; width: fit-content;
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: var(--name-size); line-height: 1.3; letter-spacing: -.005em;
+  }
+  .brand:hover { color: var(--text); }
+  .brand-mark {
+    --mark: url("/images/brand/gv-stamp-mask.png"); --mark-ratio: 1 / 1;
+    position: absolute; left: 0; top: 0; height: var(--mark-h); aspect-ratio: var(--mark-ratio); background: var(--accent);
+    -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat;
+  }
+  .motto { margin: .125rem 0 0; font-size: var(--motto-size); line-height: 1.35; color: var(--quiet); }
+  .motto span { display: inline-block; }
+  @media (width < 22.5em) { .brand-box { --motto-size: .75rem; --mark-gap: .625rem; } }
+  .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.75rem; list-style: none; margin: 0; padding: 0; }
+  .site-nav a { display: inline-block; padding-block: .625rem; color: var(--quiet); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .45em; }
+  .site-nav a[aria-current="page"] {
+    color: var(--text); text-decoration: underline; text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px; text-underline-offset: .45em;
+  }
+  @media (width >= 48em) { .head-row { flex-wrap: nowrap; } .brand-box { min-width: 0; } .site-nav { flex: none; } }
+  @media (width < 48em) {
+    .head-row { flex-direction: column; align-items: stretch; gap: 0; padding-block: .5rem 0; }
+    .site-nav ul { justify-content: space-between; gap: 0 .25rem; }
+    .site-nav a { font-size: .9375rem; }
+  }
+  @media (width < 22.5em) { .site-nav a { padding-block: .6875rem; font-size: .875rem; } }   /* 14px text, 44px tall: five items still fit on one line at 320 */
+
+  /* ---------- Sections: from 64em the section name hangs in a left column; the body fills the column beside it, to the wrap's right edge, with no measure of its own, and its long lines get a little more leading ---------- */
+  .section { padding-top: clamp(3.5rem, 7vw, 6rem); }
+  .sec-grid { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .sec-grid > h2 { font-size: var(--fs-h2); margin-bottom: 1.25rem; }
+  .sec-body { min-width: 0; line-height: 1.7; }
+  .prose > * + * { margin-top: 1em; }
+  @media (width >= 64em) {
+    .sec-grid { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .sec-grid > h2 { margin: 0; }
+  }
+
+  /* ---------- Footer: its first column is the contact block (#contact): his full-name signature, the motto, the email and the phone ---------- */
+  .site-foot { margin-top: clamp(4rem, 8vw, 6.5rem); font-size: var(--fs-small); color: var(--quiet); }
+  /* The footer opens with a thin slice of the home page's seashore (water, foam, sand) in place of a top rule: decorative (alt=""), lazy-loaded */
+  .foot-sea {
+    display: block; width: 100%; height: auto; opacity: .7;
+    /* faded at all four edges: the strip is cut from the middle of the drawing */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    mask-composite: intersect;
+  }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.75rem 2rem; padding-block: 2.25rem 2.75rem; }
+  .foot-about { grid-column: 1 / -1; max-width: 24rem; }
+  /* The signature links home. It is a black-on-clear image used as a mask on the inner span, so it takes the ink colour
+     and the link keeps its focus ring; 1x and 2x files. The name is the link's hidden text. */
+  .site-foot .foot-sign { display: block; width: 13rem; max-width: 100%; padding: 0; margin-bottom: .5rem; }
+  .foot-sign-mark {
+    display: block; aspect-ratio: 288 / 81; background: var(--text);
+    -webkit-mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat; mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat;
+    -webkit-mask-image: -webkit-image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+    mask-image: image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+  }
+  @media (width < 40em) { .site-foot .foot-sign { width: 11rem; } }
+  .foot-mail { margin-top: .75rem; }
+  .site-foot .foot-mail a { color: var(--text); font-size: 1rem; font-weight: 600; overflow-wrap: anywhere; }
+  .site-foot h2 { font-size: var(--fs-small); font-weight: 650; color: var(--text); letter-spacing: 0; margin-bottom: .5rem; }
+  .site-foot ul { list-style: none; margin: 0; padding: 0; }
+  .site-foot a { display: inline-block; padding-block: .1875rem; color: var(--quiet); text-decoration: none; }
+  .site-foot a:hover { color: var(--text); text-decoration: underline; }
+  @media (width >= 64em) {
+    .foot-grid { grid-template-columns: var(--label-col) minmax(0, 1fr) repeat(3, minmax(0, 11rem)); column-gap: 3rem; }
+    .foot-about { grid-column: 1 / span 2; }
+  }
+
+  /* ---------- Motion and print (shared): links and buttons answer the pointer with colour only; reduced motion stops everything ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    a, .btn { transition: color .15s, background-color .15s, border-color .15s, text-decoration-color .15s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .site-nav, .skip { display: none !important; }
+  }
+
+  /* ---------- Inner pages: the title block. Inside a .wrap it starts on the wrap's left edge on every page, articles included, like the home page's name and the section names, and it may use the wrap's full width ---------- */
+  .page-head { padding-top: clamp(1.75rem, 5vw, 3.5rem); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0 .5rem; list-style: none; margin: 0 0 1.25rem; padding: 0; font-size: var(--fs-small); color: var(--quiet); }
+  .crumbs li + li::before { content: "/" / ""; margin-right: .5rem; color: var(--rule); }
+  .crumbs a { color: var(--quiet); }
+  .crumbs a:hover { color: var(--text); }
+  .page-head h1 { font-size: var(--fs-h1); font-weight: 750; line-height: 1.1; letter-spacing: -.025em; }
+  .dateline { margin-top: .875rem; font-size: var(--fs-small); color: var(--quiet); }
+
+  /* ---------- The video index: plain rows, date first, hairlines between, as on the Writing page; every group uses them, the Java playlists too ---------- */
+  .sec-intro { color: var(--quiet); margin-bottom: 1.25rem; }
+  .writing { list-style: none; padding: 0; }
+  .writing li { padding-block: 1rem; border-top: 1px solid var(--rule); }
+  .writing li:first-child { padding-top: 0; border-top: 0; }
+  .writing .date { color: var(--quiet); font-size: var(--fs-small); font-variant-numeric: tabular-nums; }
+  .writing h3 { font-size: var(--fs-h3); line-height: 1.3; }
+  .writing h3 a { font-weight: 650; }
+  .writing h3 + p { margin-top: .25rem; color: var(--quiet); }
+  .writing h3 + p a { color: inherit; }
+  .writing strong { color: var(--text); font-weight: 650; }
+  @media (width >= 48em) {
+    .writing li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 1.5rem; align-items: baseline; }
+  }
+  .go { margin-top: 1.25rem; font-weight: 600; }
+  .go a { display: inline-block; padding-block: .25rem; }
 </style>
 </head>
 <body>
-<div class="page">
-  <a href="/" class="brand" aria-label="ngvoicu.dev home">
-    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
-    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
-  </a>
-  <div class="kicker">videos</div>
-  <h1>Watch it work</h1>
-  <div class="byline">The AI-native toolkit on video — real agents, real captures, no mockups. All on <a href="https://www.youtube.com/@CodeWithZee">YouTube</a>.</div>
+<a class="skip" href="#main">Skip to content</a>
 
-  <h2>The AI-Native Toolkit (2026)</h2>
+<header class="site-head">
+  <div class="wrap head-row">
+    <div class="brand-box">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Gabriel Voicu</span></a>
+      <p class="motto"><span>Software Engineer since before AI.</span> <span>AI-Native Now.</span></p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/videos/" aria-current="page">Videos</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <a class="vid" href="https://www.youtube.com/watch?v=QSI-C57bt78">
-    <span class="shot"><img src="/videos/thumbs/specmint.jpg" alt="Specmint — specs that survive the session" width="1280" height="720" loading="lazy">
-      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
-    </span>
-    <span class="meta">
-      <span class="t">Specmint — AI coding specs that survive the session</span>
-      <span class="s">Deep research, a real interview, then a spec with phases, tasks and a decision log — resumable tomorrow in a completely different tool. All four variants, one workflow.</span>
-      <span class="len">3:02 · specmint.ngvoicu.dev</span>
-    </span>
-  </a>
+<main id="main">
 
-  <a class="vid" href="https://www.youtube.com/watch?v=ei1F0ZbNX3o">
-    <span class="shot"><img src="/videos/thumbs/kluris.jpg" alt="Kluris — one brain for all your AI agents" width="1280" height="720" loading="lazy">
-      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
-    </span>
-    <span class="meta">
-      <span class="t">Kluris — one shared brain for all your AI agents</span>
-      <span class="s">Lobes, neurons, synapses: team knowledge as plain markdown in git, readable by every coding agent you use — with a real brain, real searches, and the MRI map of 51 neurons.</span>
-      <span class="len">3:13 · kluris.ngvoicu.dev</span>
-    </span>
-  </a>
+  <div class="wrap">
+    <header class="page-head">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Videos</span></li>
+        </ol>
+      </nav>
+      <h1>Videos</h1>
+    </header>
+  </div>
 
-  <h2>Earlier: ConsensFlow as a plugin (July 2026)</h2>
-  <p class="note">ConsensFlow has since become a desktop app that runs a team of AI coding agents on your project: a Chief of Staff plans the work on a board, and its staff take the tasks in their own terminals of Claude Code, Codex, OpenCode, Pi or Devin. See <a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a>. This video shows the plugin it grew from.</p>
+  <section class="section" id="current" aria-labelledby="current-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="current-title">My tools</h2>
+      <div class="sec-body">
+        <ol class="writing">
+          <li><p class="date"><time datetime="2026-07-16">16 July 2026</time></p><div><h3><a href="/videos/kluris-shared-memory/">Kluris: give your AI agents one shared memory (Claude Code, Codex, Cursor…)</a></h3><p>Lobes, neurons, synapses: team knowledge as plain Markdown in git, readable by every coding agent you use, with a real brain, real searches, and the MRI map of 51 neurons.</p></div></li>
+          <li><p class="date"><time datetime="2026-07-14">14 July 2026</time></p><div><h3><a href="/videos/specmint-ai-coding-specs/">Specmint: AI coding specs that survive the session</a></h3><p>Deep research, a real interview, then a spec with phases, tasks and a decision log, resumable tomorrow in a completely different tool. All four variants, one workflow.</p></div></li>
+        </ol>
+      </div>
+    </div></div>
+  </section>
 
-  <a class="vid" href="https://www.youtube.com/watch?v=iKuBFEDE8Go">
-    <span class="shot"><img src="/videos/thumbs/consensflow.jpg" alt="ConsensFlow, the earlier plugin version — one AI opinion isn't enough" width="1280" height="720" loading="lazy">
-      <span class="play"><span><svg width="22" height="26" viewBox="0 0 22 26"><path d="M0 0 L22 13 L0 26 Z" fill="#63C7B2"/></svg></span></span>
-    </span>
-    <span class="meta">
-      <span class="t">ConsensFlow, the earlier plugin version — your agent asks another AI to review</span>
-      <span class="s">Before the app: a Claude Code plugin and a Pi extension that let the AI you were coding with ask a <b>different</b> AI to review a spec or a diff, or take the easy work. Real captures of Fable 5 and GLM 5.2 finding the same bug independently.</span>
-      <span class="len">3:26 · July 2026 · earlier plugin version</span>
-    </span>
-  </a>
+  <section class="section" id="consensflow-plugin" aria-labelledby="consensflow-plugin-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="consensflow-plugin-title">ConsensFlow, back when it was a plugin</h2>
+      <div class="sec-body">
+        <p class="sec-intro">This video shows the plugin ConsensFlow grew from, not today&#8217;s desktop app. See <a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a> for the app.</p>
+        <ol class="writing">
+          <li><p class="date"><time datetime="2026-07-21">21 July 2026</time></p><div><h3><a href="/videos/consensflow-second-opinion/">ConsensFlow: a second AI opinion inside Claude Code &amp; Pi</a></h3><p>A Claude Code plugin and a Pi extension that let the AI you were coding with ask a <strong>different</strong> AI to review a spec or a diff, or take the easy work. Real captures of Fable 5 and GLM 5.2 finding the same bug independently.</p></div></li>
+        </ol>
+      </div>
+    </div></div>
+  </section>
 
-  <h2>Earlier series (Java, 2016–2022)</h2>
-  <p class="note">The channel's first life: enterprise Java screencasts. Most have matching write-ups in <a href="/articles/">articles</a>.</p>
-  <ul class="list">
-    <li><span class="d">2022</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Efficient unit testing with Java, JUnit, Mockito and Spring</a></li>
-    <li><span class="d">2017</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Spring Boot multi-module project (13-part series)</a></li>
-    <li><span class="d">2017</span><a href="https://www.youtube.com/@CodeWithZee/playlists">OSGi bundles, Camel routes &amp; ServiceMix</a></li>
-    <li><span class="d">2016–17</span><a href="https://www.youtube.com/@CodeWithZee/playlists">Spring MVC, JSP &amp; IntelliJ project setups</a></li>
-  </ul>
+  <section class="section" id="java" aria-labelledby="java-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="java-title">Java screencasts</h2>
+      <div class="sec-body">
+        <p class="sec-intro">The channel&#8217;s first life: enterprise Java screencasts. Most have matching write-ups in <a href="/articles/">the articles</a>.</p>
+        <ol class="writing">
+          <li><p class="date"><time datetime="2017">2017</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBxzx0QeMaDbzAr-HdTW74Zc">OSGi bundles, Camel routes (XML and Java DSL) and ServiceMix</a></h3><p><a href="/articles/create-osgi-bundle-camel-routes-xml-java-dsl-deploy-in-servicemix/">article<span class="sr">: Create OSGi bundle, Camel Routes (XML/Java DSL), deploy in ServiceMix</span></a></p></div></li>
+          <li><p class="date"><time datetime="2017">2017</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBzfPiLa4k9ACiAoS-HUKnrL">Spring Boot multi-module project, a 13-part series</a></h3><p><a href="/articles/create-a-spring-boot-multi-module-project/">article<span class="sr">: Create a Spring Boot Multi-Module Project</span></a></p></div></li>
+          <li><p class="date"><time datetime="2017">2017</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBxv2_AGAbv57iO7Yis4uB8g">Spring Boot with JSP and Hibernate</a></h3><p><a href="/articles/create-a-spring-boot-project-with-jsp-in-eclipse/">article<span class="sr">: Create a Spring Boot project with JSP in Eclipse</span></a></p></div></li>
+          <li><p class="date"><time datetime="2017">2017</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBzdagwIfqwbyeDuunTLZTad">Spring Boot with Angular 2, in Eclipse or IntelliJ</a></h3><p><a href="/articles/start-web-project-with-springboot-angular-eclipse-or-intellij/">article<span class="sr">: Start web project with Springboot, Angular, Eclipse or Intellij</span></a></p></div></li>
+          <li><p class="date"><time datetime="2016">2016</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBxPsBv-0PDyp_MqMBIWLe6B">A Maven project with JSP and Servlets in IntelliJ</a></h3><p><a href="/articles/create-a-maven-project-with-jsp-and-servlets-in-intellij-idea/">article<span class="sr">: Create a Maven Project with JSP and Servlets in Intellij Idea</span></a></p></div></li>
+          <li><p class="date"><time datetime="2016">2016</time></p><div><h3><a href="https://www.youtube.com/playlist?list=PLvG8cZ6YuFBxofk6GbRpdJErSMifUdbvU">A web app with IntelliJ Ultimate 15, Spring MVC and Tomcat</a></h3><p><a href="/articles/create-a-web-app-with-intellij-ultimate-edition-15-spring-mvc-and-tomcat/">article<span class="sr">: Create a web app with Intellij Ultimate Edition 15, Spring MVC and Tomcat</span></a></p></div></li>
+        </ol>
+        <p class="go"><a href="https://www.youtube.com/@CodeWithZee/playlists">Browse the playlists on YouTube</a></p>
+      </div>
+    </div></div>
+  </section>
 
-  <footer>
-    <span><a href="/">ngvoicu.dev</a> · <a href="/articles/">articles</a> · <a href="/videos/">videos</a></span>
-    <span><a href="https://www.youtube.com/@CodeWithZee">youtube</a> · <a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
-  </footer>
-</div>
+</main>
+
+<footer class="site-foot">
+  <img class="foot-sea" src="/images/sea/pencil-shore-strip-1200.webp" srcset="/images/sea/pencil-shore-strip-1200.webp 1200w, /images/sea/pencil-shore-strip-2400.webp 2400w" sizes="100vw" width="2400" height="140" alt="" loading="lazy" decoding="async">
+  <div class="wrap foot-grid">
+    <div class="foot-about" id="contact">
+      <a class="foot-sign" href="/"><span class="foot-sign-mark" aria-hidden="true"></span><span class="sr">Gabriel Voicu</span></a>
+      <p>Software Engineer since before AI. AI-Native Now.</p>
+      <p class="foot-mail"><!--email_off--><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a><!--/email_off--></p>
+      <p><a href="tel:+40734704910">+40 734 704 910</a></p>
+    </div>
+    <nav aria-labelledby="foot-pages">
+      <h2 id="foot-pages">Pages</h2>
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-oss">
+      <h2 id="foot-oss">Open source</h2>
+      <ul>
+        <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
+        <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
+        <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-else">
+      <h2 id="foot-else">Elsewhere</h2>
+      <ul>
+        <li><a href="https://github.com/ngvoicu">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ngvoicu/">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@CodeWithZee">YouTube</a></li>
+        <li><a href="https://medium.com/@ngvoicu">Medium</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>

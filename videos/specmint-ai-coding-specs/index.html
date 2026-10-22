@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specmint: AI coding specs that survive the session — Gabriel Voicu</title>
+<meta name="description" content="Your AI plans a feature beautifully, then the session ends and the plan is gone. Specmint turns ephemeral AI plans into persistent, resumable specs that live in your codebase and work across tools.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ngvoicu.dev/videos/specmint-ai-coding-specs/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngvoicu.dev/videos/specmint-ai-coding-specs/">
+<meta property="og:title" content="Specmint: AI coding specs that survive the session">
+<meta property="og:description" content="Your AI plans a feature beautifully, then the session ends and the plan is gone. Specmint turns ephemeral AI plans into persistent, resumable specs that live in your codebase and work across tools.">
+<meta property="og:site_name" content="Gabriel Voicu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ngvoicu.dev/videos/thumbs/specmint.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Specmint: AI coding specs that survive the session">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Specmint: AI coding specs that survive the session">
+<meta name="twitter:description" content="Your AI plans a feature beautifully, then the session ends and the plan is gone. Specmint turns ephemeral AI plans into persistent, resumable specs that live in your codebase and work across tools.">
+<meta name="twitter:image" content="https://ngvoicu.dev/videos/thumbs/specmint.jpg">
+<meta name="twitter:image:alt" content="Specmint: AI coding specs that survive the session">
+
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Specmint: AI coding specs that survive the session",
+  "url": "https://ngvoicu.dev/videos/specmint-ai-coding-specs/",
+  "description": "Your AI plans a feature beautifully, then the session ends and the plan is gone. Specmint turns ephemeral AI plans into persistent, resumable specs that live in your codebase and work across tools.",
+  "thumbnailUrl": "https://ngvoicu.dev/videos/thumbs/specmint.jpg",
+  "uploadDate": "2026-07-14T08:02:30-07:00",
+  "duration": "PT3M3S",
+  "contentUrl": "https://www.youtube.com/watch?v=QSI-C57bt78",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/QSI-C57bt78",
+  "author": { "@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ngvoicu.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Videos",
+      "item": "https://ngvoicu.dev/videos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Specmint: AI coding specs that survive the session",
+      "item": "https://ngvoicu.dev/videos/specmint-ai-coding-specs/"
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ---------- Fonts: Figtree for all text, JetBrains Mono for code. OFL; files and licences in /fonts/. A face downloads only when a page uses its characters. ---------- */
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-symbols.woff2") format("woff2");
+    unicode-range: U+2022, U+2026, U+2190-2199, U+21D2, U+21D4, U+2500-257F, U+25B6, U+25B8, U+25CF, U+2713, U+2717;
+  }
+
+  /* ---------- Tokens: light only, with no dark-mode rule anywhere. White paper, a green-black ink, a bottle-green pen and a sunny yellow. ---------- */
+  :root {
+    color-scheme: light;
+    --page: #FFFFFF;
+    --panel: #F1F7F4;
+    --text: #1D2A28;
+    --quiet: #52615D;
+    --rule: #D5E0DC;
+    --accent: #0B6B5D;
+    --sun: #F2C230;
+
+    --font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --fs-small: .875rem;
+    --fs-body: clamp(1.0625rem, 1rem + .2vw, 1.125rem);
+    --fs-lead: clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);
+    --fs-h3: 1.25rem;
+    --fs-h2: clamp(1.5rem, 1.35rem + .5vw, 1.75rem);
+    --fs-h1: clamp(2rem, 1.45rem + 2.4vw, 3rem);
+    --fs-display: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+
+    --wrap: 72rem;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --label-col: 12rem;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--text);
+    font: 400 var(--fs-body)/1.6 var(--font);
+    font-kerning: normal; text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+  p, ul, ol, figure, table, blockquote { margin: 0; }
+  img { max-width: 100%; height: auto; }
+  a {
+    color: var(--accent);
+    text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  a:hover { text-decoration-color: currentColor; text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: color-mix(in srgb, var(--sun) 55%, transparent); }
+  code, kbd, pre, samp { font-family: var(--mono); font-size: .875em; font-variant-ligatures: none; }
+
+  /* ---------- Shell: frame, skip link, buttons ---------- */
+  .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .skip {
+    position: absolute; left: var(--gutter); top: -4rem; z-index: 10;
+    padding: .5rem .875rem; background: var(--page); color: var(--accent); border: 2px solid var(--accent); border-radius: 4px;
+  }
+  .skip:focus { top: .75rem; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 1.75rem; font-weight: 600; }
+  .actions > a:not(.btn) { padding-block: .5rem; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem 1.25rem; border-radius: 999px;
+    background: var(--accent); color: var(--page); font-weight: 600; text-decoration: none;
+  }
+  .btn:hover { background: color-mix(in srgb, var(--accent) 80%, var(--text)); color: var(--page); }
+
+  /* ---------- Header: the ink stamp (a black-on-clear alpha mask, painted in the accent green by the background), the name and the motto under it ---------- */
+  .site-head { border-bottom: 1px solid var(--rule); }
+  .head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 2rem; padding-block: .75rem; }
+  .brand-box {
+    --name-size: 1.125rem; --motto-size: .8125rem; --mark-gap: .75rem;
+    --mark-h: calc(var(--name-size) * 1.3 + .125rem + var(--motto-size) * 1.35);
+    position: relative; padding-left: calc(var(--mark-h) + var(--mark-gap));
+  }
+  .brand {
+    display: block; width: fit-content;
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: var(--name-size); line-height: 1.3; letter-spacing: -.005em;
+  }
+  .brand:hover { color: var(--text); }
+  .brand-mark {
+    --mark: url("/images/brand/gv-stamp-mask.png"); --mark-ratio: 1 / 1;
+    position: absolute; left: 0; top: 0; height: var(--mark-h); aspect-ratio: var(--mark-ratio); background: var(--accent);
+    -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat;
+  }
+  .motto { margin: .125rem 0 0; font-size: var(--motto-size); line-height: 1.35; color: var(--quiet); }
+  .motto span { display: inline-block; }
+  @media (width < 22.5em) { .brand-box { --motto-size: .75rem; --mark-gap: .625rem; } }
+  .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.75rem; list-style: none; margin: 0; padding: 0; }
+  .site-nav a { display: inline-block; padding-block: .625rem; color: var(--quiet); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .45em; }
+  .site-nav a[aria-current="page"] {
+    color: var(--text); text-decoration: underline; text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px; text-underline-offset: .45em;
+  }
+  @media (width >= 48em) { .head-row { flex-wrap: nowrap; } .brand-box { min-width: 0; } .site-nav { flex: none; } }
+  @media (width < 48em) {
+    .head-row { flex-direction: column; align-items: stretch; gap: 0; padding-block: .5rem 0; }
+    .site-nav ul { justify-content: space-between; gap: 0 .25rem; }
+    .site-nav a { font-size: .9375rem; }
+  }
+  @media (width < 22.5em) { .site-nav a { padding-block: .6875rem; font-size: .875rem; } }   /* 14px text, 44px tall: five items still fit on one line at 320 */
+
+  /* ---------- Sections: from 64em the section name hangs in a left column; the body fills the column beside it, to the wrap's right edge, with no measure of its own, and its long lines get a little more leading ---------- */
+  .section { padding-top: clamp(3.5rem, 7vw, 6rem); }
+  .sec-grid { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .sec-grid > h2 { font-size: var(--fs-h2); margin-bottom: 1.25rem; }
+  .sec-body { min-width: 0; line-height: 1.7; }
+  .prose > * + * { margin-top: 1em; }
+  @media (width >= 64em) {
+    .sec-grid { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .sec-grid > h2 { margin: 0; }
+  }
+
+  /* ---------- Footer: its first column is the contact block (#contact): his full-name signature, the motto, the email and the phone ---------- */
+  .site-foot { margin-top: clamp(4rem, 8vw, 6.5rem); font-size: var(--fs-small); color: var(--quiet); }
+  /* The footer opens with a thin slice of the home page's seashore (water, foam, sand) in place of a top rule: decorative (alt=""), lazy-loaded */
+  .foot-sea {
+    display: block; width: 100%; height: auto; opacity: .7;
+    /* faded at all four edges: the strip is cut from the middle of the drawing */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    mask-composite: intersect;
+  }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.75rem 2rem; padding-block: 2.25rem 2.75rem; }
+  .foot-about { grid-column: 1 / -1; max-width: 24rem; }
+  /* The signature links home. It is a black-on-clear image used as a mask on the inner span, so it takes the ink colour
+     and the link keeps its focus ring; 1x and 2x files. The name is the link's hidden text. */
+  .site-foot .foot-sign { display: block; width: 13rem; max-width: 100%; padding: 0; margin-bottom: .5rem; }
+  .foot-sign-mark {
+    display: block; aspect-ratio: 288 / 81; background: var(--text);
+    -webkit-mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat; mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat;
+    -webkit-mask-image: -webkit-image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+    mask-image: image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+  }
+  @media (width < 40em) { .site-foot .foot-sign { width: 11rem; } }
+  .foot-mail { margin-top: .75rem; }
+  .site-foot .foot-mail a { color: var(--text); font-size: 1rem; font-weight: 600; overflow-wrap: anywhere; }
+  .site-foot h2 { font-size: var(--fs-small); font-weight: 650; color: var(--text); letter-spacing: 0; margin-bottom: .5rem; }
+  .site-foot ul { list-style: none; margin: 0; padding: 0; }
+  .site-foot a { display: inline-block; padding-block: .1875rem; color: var(--quiet); text-decoration: none; }
+  .site-foot a:hover { color: var(--text); text-decoration: underline; }
+  @media (width >= 64em) {
+    .foot-grid { grid-template-columns: var(--label-col) minmax(0, 1fr) repeat(3, minmax(0, 11rem)); column-gap: 3rem; }
+    .foot-about { grid-column: 1 / span 2; }
+  }
+
+  /* ---------- Motion and print (shared): links and buttons answer the pointer with colour only; reduced motion stops everything ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    a, .btn { transition: color .15s, background-color .15s, border-color .15s, text-decoration-color .15s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .site-nav, .skip { display: none !important; }
+  }
+
+  /* ---------- Inner pages: the title block. Inside a .wrap it starts on the wrap's left edge on every page, articles included, like the home page's name and the section names, and it may use the wrap's full width ---------- */
+  .page-head { padding-top: clamp(1.75rem, 5vw, 3.5rem); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0 .5rem; list-style: none; margin: 0 0 1.25rem; padding: 0; font-size: var(--fs-small); color: var(--quiet); }
+  .crumbs li + li::before { content: "/" / ""; margin-right: .5rem; color: var(--rule); }
+  .crumbs a { color: var(--quiet); }
+  .crumbs a:hover { color: var(--text); }
+  .page-head h1 { font-size: var(--fs-h1); font-weight: 750; line-height: 1.1; letter-spacing: -.025em; }
+  .dateline { margin-top: .875rem; font-size: var(--fs-small); color: var(--quiet); }
+
+  /* ---------- Articles: <main id="main"><div class="wrap post"><article>…</article><nav class="keep">…</nav></div></main> ----------
+     The title block starts on the wrap's left edge, as on every page, and its rule runs the wrap's width. From 64em .body is the
+     section pages' grid: the left column (--label-col), then the text column, which runs to the wrap's right edge. Every child of
+     .body fills the text column: paragraphs, code blocks, tables, figures (figure.wide too) and quotes. The Contents list (nav.toc),
+     where an article has one, sits in the left column and stays in view while the body scrolls past; its grid area is the whole
+     body, so it stops where the body ends, above the author aside. Without Contents the left column stays empty, as it does under a
+     section name. The author aside and Keep reading start on the text column. Below 64em it is one column, in source order. */
+  .post .page-head { padding-bottom: 1.75rem; border-bottom: 1px solid var(--rule); }
+  @media (width >= 64em) {
+    .body { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .body > * { grid-column: 2; min-width: 0; }
+    /* Contents spans more rows than any body has (75 at most), so it can stick all the way down. It drops its top margin, and so
+       does the block after it when it opens the body. A list taller than the window scrolls on its own; the padding keeps the
+       links' focus rings inside it. */
+    .body > .toc {
+      grid-column: 1; grid-row: 1 / span 999; position: sticky; top: 1.5rem; margin: 0 -.375rem; padding: 0 .375rem .375rem;
+      max-height: calc(100vh - 3rem); overflow-y: auto; overscroll-behavior: contain;
+    }
+    .body > .toc:first-child + * { margin-top: 0; }
+    /* grid items don't collapse their margins: the 2.5rem under a rule (hr) is the whole gap after it, as it was in one column */
+    .body > hr + * { margin-top: 0; }
+    .author, .keep { margin-left: calc(var(--label-col) + 3rem); }
+  }
+
+  /* Running text: the lines are long, so a little more leading than the base 1.6 */
+  .body { margin-top: 2rem; overflow-wrap: break-word; line-height: 1.7; }
+  .body > * + * { margin-top: 1.25rem; }
+  .body h2 { font-size: var(--fs-h2); margin-top: 3rem; }
+  .body h3 { font-size: var(--fs-h3); margin-top: 2.25rem; }
+  .body h4 { font-size: 1em; font-weight: 700; margin-top: 1.75rem; }
+  .body :is(h2, h3, h4) + * { margin-top: .75rem; }
+  .body :is(h2, h3, h4)[id] { scroll-margin-top: 1.5rem; }
+  .body strong { font-weight: 650; }
+  .body ul, .body ol { padding-left: 1.5rem; }
+  .body li + li, .body li > :is(ul, ol, p) { margin-top: .375rem; }
+  .body li::marker { color: var(--quiet); }
+  .body hr { border: 0; border-top: 1px solid var(--rule); margin-block: 2.5rem; }
+
+  /* Quotes: a plain <blockquote>, or <figure class="quote"><blockquote>…</blockquote><figcaption>Who, by job title</figcaption></figure>.
+     The same yellow stroke as the quotes on the home page; no ornamental quote marks. */
+  .body blockquote { padding-left: 1rem; border-left: 3px solid var(--sun); }
+  .body blockquote > * + * { margin-top: .75rem; }
+  .body .quote figcaption { margin-top: .5rem; padding-left: calc(1rem + 3px); }
+
+  /* Figures and images. A caption is small, quiet and left-aligned. */
+  .body img { display: block; height: auto; border-radius: 8px; }
+  .body figcaption, .body caption { margin-top: .625rem; font-size: var(--fs-small); color: var(--quiet); text-align: left; }
+  .body caption { caption-side: bottom; }
+
+  /* Callouts: <p class="note"> or <div class="note">; a warning is .note.warn and starts with <strong>Warning:</strong>,
+     so the meaning never rests on colour alone. */
+  .note { padding: .875rem 1.125rem; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--panel); }
+  .note > * + * { margin-top: .5rem; }
+  .note.warn { border-left-color: #A87400; background: color-mix(in srgb, var(--sun) 16%, var(--page)); }
+
+  /* Local horizontal scroll, for code blocks and tables. Shadows appear at an edge only while there is more to
+     scroll that way, and the scrollbar stays visible (Chromium and Safari draw a styled one even with overlay
+     scrollbars; Firefox gets a thin one). The page itself never scrolls sideways. */
+  pre, .tbl {
+    --bg: var(--page); --shade: rgb(29 42 40 / .18);
+    overflow-x: auto; overscroll-behavior-x: contain;
+    background:
+      linear-gradient(to right, var(--bg) 35%, transparent) left / 2.5rem 100% no-repeat local,
+      linear-gradient(to left, var(--bg) 35%, transparent) right / 2.5rem 100% no-repeat local,
+      linear-gradient(to right, var(--shade), transparent) left / .75rem 100% no-repeat scroll,
+      linear-gradient(to left, var(--shade), transparent) right / .75rem 100% no-repeat scroll,
+      var(--bg);
+  }
+  pre::-webkit-scrollbar, .tbl::-webkit-scrollbar { height: 8px; }
+  pre::-webkit-scrollbar-track, .tbl::-webkit-scrollbar-track { background: transparent; }
+  pre::-webkit-scrollbar-thumb, .tbl::-webkit-scrollbar-thumb { border-radius: 4px; background: #9AA8A3; }
+  @supports not selector(::-webkit-scrollbar) { pre, .tbl { scrollbar-width: thin; scrollbar-color: #9AA8A3 transparent; } }
+
+  /* Code. Blocks are <pre tabindex="0" role="region" aria-label="…"><code>…</code></pre>, so a keyboard user can scroll them;
+     pre.file[data-name] shows its file name in a header row; pre.term is a terminal, light like the rest, with the prompt in .o.
+     Inline code sits on the panel colour. Syntax colours, inside pre or code only: .k keyword, .s string, .c comment,
+     .p type or property, .o operator or prompt (each 4.9 : 1 or more on the panel). */
+  pre {
+    --bg: var(--panel);
+    margin: 0; padding: 1rem 1.125rem; border: 1px solid var(--rule); border-radius: 8px;
+    color: var(--text); font-size: .875rem; line-height: 1.55; tab-size: 4;
+  }
+  pre code { font-size: inherit; }
+  pre.file::before { content: attr(data-name); display: block; margin: -1rem -1.125rem .875rem; padding: .4375rem 1.125rem; border-bottom: 1px solid var(--rule); font-size: .75rem; color: var(--quiet); }
+  pre.term { border-left: 3px solid var(--text); }
+  :not(pre) > code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .875em; overflow-wrap: anywhere; }
+  kbd { padding: .05em .4em; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; font-size: .8125em; }
+  :is(pre, code) .k { color: #8A3FB8; } :is(pre, code) .s { color: #1F7A3A; } :is(pre, code) .c { color: #5E666F; }
+  :is(pre, code) .p { color: #1F5FBF; } :is(pre, code) .o { color: var(--quiet); }
+
+  /* Tables: <div class="tbl" tabindex="0" role="region" aria-label="…"><table>…</table></div>, so a wide one scrolls on its own.
+     A cell is at least 7.5rem wide, so on a phone a table of four or more columns scrolls instead of crushing its words. */
+  .body table { width: 100%; border-collapse: collapse; font-size: .9375rem; line-height: 1.45; }
+  .body th, .body td { min-width: 7.5rem; padding: .5rem .875rem .5rem 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  .body thead th { font-weight: 650; border-bottom-color: var(--quiet); }
+  .body td code { overflow-wrap: normal; }
+
+  /* Video: <div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/…" title="…" loading="lazy" allowfullscreen></iframe></div> */
+  .ratio { position: relative; aspect-ratio: 16 / 9; }
+  .ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; background: var(--panel); }
+
+  /* ---------- Article endings: the author, then Keep reading ---------- */
+  .author { display: flex; gap: 1rem; align-items: flex-start; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .author img { flex: none; width: 4rem; height: 4rem; }
+  .author p + p { margin-top: .25rem; }
+  .author .who { font-weight: 700; }
+  .keep { margin-top: 3rem; }
+  .keep h2 { font-size: var(--fs-h3); }
+  .keep ul { list-style: none; margin: .75rem 0 0; padding: 0; }
+  .keep li + li { margin-top: .875rem; }
+  .keep li a { font-weight: 600; }
+  .keep li span { display: block; font-size: var(--fs-small); color: var(--quiet); }
+  .keep .all { display: inline-block; margin-top: 1.25rem; padding-block: .25rem; font-weight: 600; }
+
+  /* ---------- SITE-24 article extras: a provenance line under the dateline, a linked figure, and the contents list
+     (only on articles with six or more h2s: plain links to the h2s, no numbers added, no box) ---------- */
+  .dateline + .dateline { margin-top: .25rem; }
+  .body figure > a { display: block; }
+  .toc h2 { margin-top: 0; font-size: var(--fs-h3); }
+  .toc ol { list-style: none; margin: .75rem 0 0; padding: 0; }
+  .toc li + li { margin-top: .375rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <div class="brand-box">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Gabriel Voicu</span></a>
+      <p class="motto"><span>Software Engineer since before AI.</span> <span>AI-Native Now.</span></p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/videos/" aria-current="page">Videos</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap post">
+    <article>
+      <header class="page-head">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/videos/">Videos</a></li>
+            <li><span aria-current="page">Specmint: AI coding specs that survive the session</span></li>
+          </ol>
+        </nav>
+        <h1>Specmint: AI coding specs that survive the session</h1>
+        <p class="dateline">By Gabriel Voicu, <time datetime="2026-07-14">14 July 2026</time></p>
+        <p class="dateline">Video, <time datetime="PT3M3S">3:03</time></p>
+      </header>
+
+      <div class="body">
+        <div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/QSI-C57bt78" title="Specmint: AI coding specs that survive the session" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <p>Deep research, a real interview, then a spec with phases, tasks and a decision log, resumable tomorrow in a completely different tool. All four variants, one workflow.</p>
+        <p>More at <a href="https://specmint.ngvoicu.dev">specmint.ngvoicu.dev</a></p>
+        <p><a href="https://www.youtube.com/watch?v=QSI-C57bt78">Watch on YouTube</a></p>
+      </div>
+
+      <aside class="author" aria-label="About the author">
+        <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+        <div>
+          <p class="who">Gabriel Voicu</p>
+          <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
+          <p><a href="/about/">More about me</a></p>
+        </div>
+      </aside>
+    </article>
+    <nav class="keep" aria-labelledby="keep-title">
+      <h2 id="keep-title">Keep watching</h2>
+      <ul>
+        <li><a href="/videos/consensflow-second-opinion/">ConsensFlow: a second AI opinion inside Claude Code &amp; Pi</a><span>July 2026</span></li>
+        <li><a href="/videos/kluris-shared-memory/">Kluris: give your AI agents one shared memory (Claude Code, Codex, Cursor…)</a><span>July 2026</span></li>
+      </ul>
+      <a class="all" href="/videos/">All videos</a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-foot">
+  <img class="foot-sea" src="/images/sea/pencil-shore-strip-1200.webp" srcset="/images/sea/pencil-shore-strip-1200.webp 1200w, /images/sea/pencil-shore-strip-2400.webp 2400w" sizes="100vw" width="2400" height="140" alt="" loading="lazy" decoding="async">
+  <div class="wrap foot-grid">
+    <div class="foot-about" id="contact">
+      <a class="foot-sign" href="/"><span class="foot-sign-mark" aria-hidden="true"></span><span class="sr">Gabriel Voicu</span></a>
+      <p>Software Engineer since before AI. AI-Native Now.</p>
+      <p class="foot-mail"><!--email_off--><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a><!--/email_off--></p>
+      <p><a href="tel:+40734704910">+40 734 704 910</a></p>
+    </div>
+    <nav aria-labelledby="foot-pages">
+      <h2 id="foot-pages">Pages</h2>
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-oss">
+      <h2 id="foot-oss">Open source</h2>
+      <ul>
+        <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
+        <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
+        <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-else">
+      <h2 id="foot-else">Elsewhere</h2>
+      <ul>
+        <li><a href="https://github.com/ngvoicu">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ngvoicu/">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@CodeWithZee">YouTube</a></li>
+        <li><a href="https://medium.com/@ngvoicu">Medium</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

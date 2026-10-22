@@ -2,183 +2,879 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Becoming an AI Native Company — Gabriel Voicu</title>
-<meta name="description" content="What an AI-native company is and how engineering teams get there: context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Becoming an AI Native Company: A Practitioner’s Guide — Gabriel Voicu</title>
+<meta name="description" content="How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/becoming-an-ai-native-company/">
+
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ngvoicu.dev/becoming-an-ai-native-company/">
 <meta property="og:title" content="Becoming an AI Native Company">
-<meta property="og:description" content="The practitioner&#39;s path from using AI to being built on it — by Gabriel Voicu, AI-native consultant.">
-<meta property="og:site_name" content="ngvoicu.dev">
-<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta property="og:description" content="How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.">
+<meta property="og:site_name" content="Gabriel Voicu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ngvoicu.dev/images/brand/og-guide.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Becoming an AI Native Company, a practitioner’s guide by Gabriel Voicu">
+<meta property="article:published_time" content="2026-07-04">
+<meta property="article:modified_time" content="2026-10-22">
+<meta property="article:author" content="https://ngvoicu.dev/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Becoming an AI Native Company">
-<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
-<meta name="theme-color" content="#0C1E23">
+<meta name="twitter:description" content="How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.">
+<meta name="twitter:image" content="https://ngvoicu.dev/images/brand/og-guide.png">
+<meta name="twitter:image:alt" content="Becoming an AI Native Company, a practitioner’s guide by Gabriel Voicu">
+
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Becoming an AI Native Company",
-  "description": "What an AI-native company is and how engineering teams get there: context hygiene, spec-driven development, knowledge brains, cross-LLM review, harnesses, and skills.",
-  "image": "https://ngvoicu.dev/og.png",
-  "datePublished": "2026-07-04",
-  "dateModified": "2026-10-10",
-  "mainEntityOfPage": "https://ngvoicu.dev/becoming-an-ai-native-company/",
-  "author": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/", "sameAs": ["https://github.com/ngvoicu", "https://www.linkedin.com/in/ngvoicu/"] },
-  "publisher": { "@type": "Person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/" }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Becoming an AI Native Company",
+      "description": "How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.",
+      "datePublished": "2026-07-04",
+      "dateModified": "2026-10-22",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://ngvoicu.dev/becoming-an-ai-native-company/",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ngvoicu.dev/#person",
+        "name": "Gabriel Voicu",
+        "url": "https://ngvoicu.dev/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://ngvoicu.dev/#person",
+        "name": "Gabriel Voicu",
+        "url": "https://ngvoicu.dev/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ngvoicu.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The AI-native guide",
+          "item": "https://ngvoicu.dev/becoming-an-ai-native-company/"
+        }
+      ]
+    }
+  ]
 }
 </script>
+
+<script>
+  /* Before first paint: JavaScript runs, so the Play button may show. */
+  document.documentElement.classList.add("js");
+</script>
+
 <style>
-  :root {
-    --ink-deep: #0C1E23; --ink-panel: #122A30; --ink-line: #1E3C43;
-    --foam: #E9F1EF; --mist: #9EB5B1; --seafoam: #63C7B2; --buoy: #FF6B5A;
-    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    --sans: "Archivo", system-ui, -apple-system, sans-serif;
+  /* ---------- Fonts: Figtree for all text, JetBrains Mono for code. OFL; files and licences in /fonts/. A face downloads only when a page uses its characters. ---------- */
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  ::selection { background: var(--buoy); color: var(--ink-deep); }
-  body { background: var(--ink-deep); color: var(--foam); font-family: var(--sans); font-size: 17.5px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
-  .page { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
-  a { color: var(--seafoam); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  a:focus-visible { outline: 2px solid var(--seafoam); outline-offset: 3px; border-radius: 2px; }
-  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 48px; }
-  .brand svg { display: block; }
-  .brand-name { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--foam); }
-  .brand-tld { color: var(--seafoam); }
-  .kicker { font-family: var(--mono); font-size: 13px; color: var(--seafoam); margin-bottom: 14px; }
-  h1 { font-variation-settings: "wdth" 116; font-weight: 860; font-size: clamp(34px, 6vw, 52px); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 18px; }
-  .byline { font-family: var(--mono); font-size: 13.5px; color: var(--mist); margin-bottom: 48px; }
-  .byline a { color: var(--foam); }
-  article h2 { font-variation-settings: "wdth" 112; font-weight: 760; font-size: 26px; line-height: 1.25; margin: 52px 0 16px; }
-  article h3 { font-weight: 700; font-size: 20px; margin: 32px 0 12px; }
-  article p { color: var(--mist); margin-bottom: 18px; }
-  article p strong, article li strong { color: var(--foam); font-weight: 600; }
-  article em { color: var(--foam); font-style: italic; }
-  article ul { margin: 0 0 18px 22px; color: var(--mist); }
-  article li { margin-bottom: 8px; }
-  article code { font-family: var(--mono); font-size: 0.88em; background: var(--ink-panel); border: 1px solid var(--ink-line); border-radius: 4px; padding: 1px 6px; color: var(--foam); }
-  .cta-panel { margin-top: 56px; background: var(--ink-panel); border: 1px solid var(--ink-line); border-radius: 8px; padding: 28px; }
-  .cta-panel .contact-line { font-family: var(--mono); font-size: 13.5px; color: var(--mist); margin-top: 14px; }
-  .cta-panel .contact-line a { color: var(--foam); }
-  .cta { display: inline-block; font-family: var(--mono); font-size: 14px; color: var(--ink-deep); background: var(--seafoam); border-radius: 4px; padding: 11px 20px; font-weight: 500; }
-  .cta:hover { background: var(--foam); text-decoration: none; }
-  footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ink-line); font-family: var(--mono); font-size: 13px; color: var(--mist); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-symbols.woff2") format("woff2");
+    unicode-range: U+2022, U+2026, U+2190-2199, U+21D2, U+21D4, U+2500-257F, U+25B6, U+25B8, U+25CF, U+2713, U+2717;
+  }
+
+  /* ---------- Tokens: light only, with no dark-mode rule anywhere. White paper, a green-black ink, a bottle-green pen and a sunny yellow. ---------- */
+  :root {
+    color-scheme: light;
+    --page: #FFFFFF;
+    --panel: #F1F7F4;
+    --text: #1D2A28;
+    --quiet: #52615D;
+    --rule: #D5E0DC;
+    --accent: #0B6B5D;
+    --sun: #F2C230;
+
+    --font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --fs-small: .875rem;
+    --fs-body: clamp(1.0625rem, 1rem + .2vw, 1.125rem);
+    --fs-lead: clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);
+    --fs-h3: 1.25rem;
+    --fs-h2: clamp(1.5rem, 1.35rem + .5vw, 1.75rem);
+    --fs-h1: clamp(2rem, 1.45rem + 2.4vw, 3rem);
+    --fs-display: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+
+    --wrap: 72rem;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --label-col: 12rem;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--text);
+    font: 400 var(--fs-body)/1.6 var(--font);
+    font-kerning: normal; text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+  p, ul, ol, figure, table, blockquote { margin: 0; }
+  img { max-width: 100%; height: auto; }
+  a {
+    color: var(--accent);
+    text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  a:hover { text-decoration-color: currentColor; text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: color-mix(in srgb, var(--sun) 55%, transparent); }
+  code, kbd, pre, samp { font-family: var(--mono); font-size: .875em; font-variant-ligatures: none; }
+
+  /* ---------- Shell: frame, skip link, buttons ---------- */
+  .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .skip {
+    position: absolute; left: var(--gutter); top: -4rem; z-index: 10;
+    padding: .5rem .875rem; background: var(--page); color: var(--accent); border: 2px solid var(--accent); border-radius: 4px;
+  }
+  .skip:focus { top: .75rem; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 1.75rem; font-weight: 600; }
+  .actions > a:not(.btn) { padding-block: .5rem; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem 1.25rem; border-radius: 999px;
+    background: var(--accent); color: var(--page); font-weight: 600; text-decoration: none;
+  }
+  .btn:hover { background: color-mix(in srgb, var(--accent) 80%, var(--text)); color: var(--page); }
+
+  /* ---------- Header: the ink stamp (a black-on-clear alpha mask, painted in the accent green by the background), the name and the motto under it ---------- */
+  .site-head { border-bottom: 1px solid var(--rule); }
+  .head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 2rem; padding-block: .75rem; }
+  .brand-box {
+    --name-size: 1.125rem; --motto-size: .8125rem; --mark-gap: .75rem;
+    --mark-h: calc(var(--name-size) * 1.3 + .125rem + var(--motto-size) * 1.35);
+    position: relative; padding-left: calc(var(--mark-h) + var(--mark-gap));
+  }
+  .brand {
+    display: block; width: fit-content;
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: var(--name-size); line-height: 1.3; letter-spacing: -.005em;
+  }
+  .brand:hover { color: var(--text); }
+  .brand-mark {
+    --mark: url("/images/brand/gv-stamp-mask.png"); --mark-ratio: 1 / 1;
+    position: absolute; left: 0; top: 0; height: var(--mark-h); aspect-ratio: var(--mark-ratio); background: var(--accent);
+    -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat;
+  }
+  .motto { margin: .125rem 0 0; font-size: var(--motto-size); line-height: 1.35; color: var(--quiet); }
+  .motto span { display: inline-block; }
+  @media (width < 22.5em) { .brand-box { --motto-size: .75rem; --mark-gap: .625rem; } }
+  .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.75rem; list-style: none; margin: 0; padding: 0; }
+  .site-nav a { display: inline-block; padding-block: .625rem; color: var(--quiet); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .45em; }
+  .site-nav a[aria-current="page"] {
+    color: var(--text); text-decoration: underline; text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px; text-underline-offset: .45em;
+  }
+  @media (width >= 48em) { .head-row { flex-wrap: nowrap; } .brand-box { min-width: 0; } .site-nav { flex: none; } }
+  @media (width < 48em) {
+    .head-row { flex-direction: column; align-items: stretch; gap: 0; padding-block: .5rem 0; }
+    .site-nav ul { justify-content: space-between; gap: 0 .25rem; }
+    .site-nav a { font-size: .9375rem; }
+  }
+  @media (width < 22.5em) { .site-nav a { padding-block: .6875rem; font-size: .875rem; } }   /* 14px text, 44px tall: five items still fit on one line at 320 */
+
+  /* ---------- Sections: from 64em the section name hangs in a left column; the body fills the column beside it, to the wrap's right edge, with no measure of its own, and its long lines get a little more leading ---------- */
+  .section { padding-top: clamp(3.5rem, 7vw, 6rem); }
+  .sec-grid { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .sec-grid > h2 { font-size: var(--fs-h2); margin-bottom: 1.25rem; }
+  .sec-body { min-width: 0; line-height: 1.7; }
+  .prose > * + * { margin-top: 1em; }
+  @media (width >= 64em) {
+    .sec-grid { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .sec-grid > h2 { margin: 0; }
+  }
+
+  /* ---------- Footer: its first column is the contact block (#contact): his full-name signature, the motto, the email and the phone ---------- */
+  .site-foot { margin-top: clamp(4rem, 8vw, 6.5rem); font-size: var(--fs-small); color: var(--quiet); }
+  /* The footer opens with a thin slice of the home page's seashore (water, foam, sand) in place of a top rule: decorative (alt=""), lazy-loaded */
+  .foot-sea {
+    display: block; width: 100%; height: auto; opacity: .7;
+    /* faded at all four edges: the strip is cut from the middle of the drawing */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    mask-composite: intersect;
+  }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.75rem 2rem; padding-block: 2.25rem 2.75rem; }
+  .foot-about { grid-column: 1 / -1; max-width: 24rem; }
+  /* The signature links home. It is a black-on-clear image used as a mask on the inner span, so it takes the ink colour
+     and the link keeps its focus ring; 1x and 2x files. The name is the link's hidden text. */
+  .site-foot .foot-sign { display: block; width: 13rem; max-width: 100%; padding: 0; margin-bottom: .5rem; }
+  .foot-sign-mark {
+    display: block; aspect-ratio: 288 / 81; background: var(--text);
+    -webkit-mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat; mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat;
+    -webkit-mask-image: -webkit-image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+    mask-image: image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+  }
+  @media (width < 40em) { .site-foot .foot-sign { width: 11rem; } }
+  .foot-mail { margin-top: .75rem; }
+  .site-foot .foot-mail a { color: var(--text); font-size: 1rem; font-weight: 600; overflow-wrap: anywhere; }
+  .site-foot h2 { font-size: var(--fs-small); font-weight: 650; color: var(--text); letter-spacing: 0; margin-bottom: .5rem; }
+  .site-foot ul { list-style: none; margin: 0; padding: 0; }
+  .site-foot a { display: inline-block; padding-block: .1875rem; color: var(--quiet); text-decoration: none; }
+  .site-foot a:hover { color: var(--text); text-decoration: underline; }
+  @media (width >= 64em) {
+    .foot-grid { grid-template-columns: var(--label-col) minmax(0, 1fr) repeat(3, minmax(0, 11rem)); column-gap: 3rem; }
+    .foot-about { grid-column: 1 / span 2; }
+  }
+
+  /* ---------- Motion and print (shared): links and buttons answer the pointer with colour only; reduced motion stops everything ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    a, .btn { transition: color .15s, background-color .15s, border-color .15s, text-decoration-color .15s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .site-nav, .skip { display: none !important; }
+  }
+
+  /* ---------- Inner pages: the title block. Inside a .wrap it starts on the wrap's left edge on every page, articles included, like the home page's name and the section names, and it may use the wrap's full width ---------- */
+  .page-head { padding-top: clamp(1.75rem, 5vw, 3.5rem); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0 .5rem; list-style: none; margin: 0 0 1.25rem; padding: 0; font-size: var(--fs-small); color: var(--quiet); }
+  .crumbs li + li::before { content: "/" / ""; margin-right: .5rem; color: var(--rule); }
+  .crumbs a { color: var(--quiet); }
+  .crumbs a:hover { color: var(--text); }
+  .page-head h1 { font-size: var(--fs-h1); font-weight: 750; line-height: 1.1; letter-spacing: -.025em; }
+  .dateline { margin-top: .875rem; font-size: var(--fs-small); color: var(--quiet); }
+
+  /* ---------- Articles: <main id="main"><div class="wrap post"><article>…</article><nav class="keep">…</nav></div></main> ----------
+     The title block starts on the wrap's left edge, as on every page, and its rule runs the wrap's width. From 64em .body is the
+     section pages' grid: the left column (--label-col), then the text column, which runs to the wrap's right edge. Every child of
+     .body fills the text column: paragraphs, code blocks, tables, figures (figure.wide too) and quotes. The Contents list (nav.toc),
+     where an article has one, sits in the left column and stays in view while the body scrolls past; its grid area is the whole
+     body, so it stops where the body ends, above the author aside. Without Contents the left column stays empty, as it does under a
+     section name. The author aside and Keep reading start on the text column. Below 64em it is one column, in source order. */
+  .post .page-head { padding-bottom: 1.75rem; border-bottom: 1px solid var(--rule); }
+  @media (width >= 64em) {
+    .body { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .body > * { grid-column: 2; min-width: 0; }
+    /* Contents spans more rows than any body has (75 at most), so it can stick all the way down. It drops its top margin, and so
+       does the block after it when it opens the body. A list taller than the window scrolls on its own; the padding keeps the
+       links' focus rings inside it. */
+    .body > .toc {
+      grid-column: 1; grid-row: 1 / span 999; position: sticky; top: 1.5rem; margin: 0 -.375rem; padding: 0 .375rem .375rem;
+      max-height: calc(100vh - 3rem); overflow-y: auto; overscroll-behavior: contain;
+    }
+    .body > .toc:first-child + * { margin-top: 0; }
+    /* grid items don't collapse their margins: the 2.5rem under a rule (hr) is the whole gap after it, as it was in one column */
+    .body > hr + * { margin-top: 0; }
+    .author, .keep { margin-left: calc(var(--label-col) + 3rem); }
+  }
+
+  /* Running text: the lines are long, so a little more leading than the base 1.6 */
+  .body { margin-top: 2rem; overflow-wrap: break-word; line-height: 1.7; }
+  .body > * + * { margin-top: 1.25rem; }
+  .body h2 { font-size: var(--fs-h2); margin-top: 3rem; }
+  .body h3 { font-size: var(--fs-h3); margin-top: 2.25rem; }
+  .body h4 { font-size: 1em; font-weight: 700; margin-top: 1.75rem; }
+  .body :is(h2, h3, h4) + * { margin-top: .75rem; }
+  .body :is(h2, h3, h4)[id] { scroll-margin-top: 1.5rem; }
+  .body strong { font-weight: 650; }
+  .body ul, .body ol { padding-left: 1.5rem; }
+  .body li + li, .body li > :is(ul, ol, p) { margin-top: .375rem; }
+  .body li::marker { color: var(--quiet); }
+  .body hr { border: 0; border-top: 1px solid var(--rule); margin-block: 2.5rem; }
+
+  /* Quotes: a plain <blockquote>, or <figure class="quote"><blockquote>…</blockquote><figcaption>Who, by job title</figcaption></figure>.
+     The same yellow stroke as the quotes on the home page; no ornamental quote marks. */
+  .body blockquote { padding-left: 1rem; border-left: 3px solid var(--sun); }
+  .body blockquote > * + * { margin-top: .75rem; }
+  .body .quote figcaption { margin-top: .5rem; padding-left: calc(1rem + 3px); }
+
+  /* Figures and images. A caption is small, quiet and left-aligned. */
+  .body img { display: block; height: auto; border-radius: 8px; }
+  .body figcaption, .body caption { margin-top: .625rem; font-size: var(--fs-small); color: var(--quiet); text-align: left; }
+  .body caption { caption-side: bottom; }
+
+  /* Callouts: <p class="note"> or <div class="note">; a warning is .note.warn and starts with <strong>Warning:</strong>,
+     so the meaning never rests on colour alone. */
+  .note { padding: .875rem 1.125rem; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--panel); }
+  .note > * + * { margin-top: .5rem; }
+  .note.warn { border-left-color: #A87400; background: color-mix(in srgb, var(--sun) 16%, var(--page)); }
+
+  /* Local horizontal scroll, for code blocks and tables. Shadows appear at an edge only while there is more to
+     scroll that way, and the scrollbar stays visible (Chromium and Safari draw a styled one even with overlay
+     scrollbars; Firefox gets a thin one). The page itself never scrolls sideways. */
+  pre, .tbl {
+    --bg: var(--page); --shade: rgb(29 42 40 / .18);
+    overflow-x: auto; overscroll-behavior-x: contain;
+    background:
+      linear-gradient(to right, var(--bg) 35%, transparent) left / 2.5rem 100% no-repeat local,
+      linear-gradient(to left, var(--bg) 35%, transparent) right / 2.5rem 100% no-repeat local,
+      linear-gradient(to right, var(--shade), transparent) left / .75rem 100% no-repeat scroll,
+      linear-gradient(to left, var(--shade), transparent) right / .75rem 100% no-repeat scroll,
+      var(--bg);
+  }
+  pre::-webkit-scrollbar, .tbl::-webkit-scrollbar { height: 8px; }
+  pre::-webkit-scrollbar-track, .tbl::-webkit-scrollbar-track { background: transparent; }
+  pre::-webkit-scrollbar-thumb, .tbl::-webkit-scrollbar-thumb { border-radius: 4px; background: #9AA8A3; }
+  @supports not selector(::-webkit-scrollbar) { pre, .tbl { scrollbar-width: thin; scrollbar-color: #9AA8A3 transparent; } }
+
+  /* Code. Blocks are <pre tabindex="0" role="region" aria-label="…"><code>…</code></pre>, so a keyboard user can scroll them;
+     pre.file[data-name] shows its file name in a header row; pre.term is a terminal, light like the rest, with the prompt in .o.
+     Inline code sits on the panel colour. Syntax colours, inside pre or code only: .k keyword, .s string, .c comment,
+     .p type or property, .o operator or prompt (each 4.9 : 1 or more on the panel). */
+  pre {
+    --bg: var(--panel);
+    margin: 0; padding: 1rem 1.125rem; border: 1px solid var(--rule); border-radius: 8px;
+    color: var(--text); font-size: .875rem; line-height: 1.55; tab-size: 4;
+  }
+  pre code { font-size: inherit; }
+  pre.file::before { content: attr(data-name); display: block; margin: -1rem -1.125rem .875rem; padding: .4375rem 1.125rem; border-bottom: 1px solid var(--rule); font-size: .75rem; color: var(--quiet); }
+  pre.term { border-left: 3px solid var(--text); }
+  :not(pre) > code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .875em; overflow-wrap: anywhere; }
+  kbd { padding: .05em .4em; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; font-size: .8125em; }
+  :is(pre, code) .k { color: #8A3FB8; } :is(pre, code) .s { color: #1F7A3A; } :is(pre, code) .c { color: #5E666F; }
+  :is(pre, code) .p { color: #1F5FBF; } :is(pre, code) .o { color: var(--quiet); }
+
+  /* Tables: <div class="tbl" tabindex="0" role="region" aria-label="…"><table>…</table></div>, so a wide one scrolls on its own.
+     A cell is at least 7.5rem wide, so on a phone a table of four or more columns scrolls instead of crushing its words. */
+  .body table { width: 100%; border-collapse: collapse; font-size: .9375rem; line-height: 1.45; }
+  .body th, .body td { min-width: 7.5rem; padding: .5rem .875rem .5rem 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  .body thead th { font-weight: 650; border-bottom-color: var(--quiet); }
+  .body td code { overflow-wrap: normal; }
+
+  /* Video: <div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/…" title="…" loading="lazy" allowfullscreen></iframe></div> */
+  .ratio { position: relative; aspect-ratio: 16 / 9; }
+  .ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; background: var(--panel); }
+
+  /* ---------- Article endings: the author, then Keep reading ---------- */
+  .author { display: flex; gap: 1rem; align-items: flex-start; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .author img { flex: none; width: 4rem; height: 4rem; }
+  .author p + p { margin-top: .25rem; }
+  .author .who { font-weight: 700; }
+  .keep { margin-top: 3rem; }
+  .keep h2 { font-size: var(--fs-h3); }
+  .keep ul { list-style: none; margin: .75rem 0 0; padding: 0; }
+  .keep li + li { margin-top: .875rem; }
+  .keep li a { font-weight: 600; }
+  .keep li span { display: block; font-size: var(--fs-small); color: var(--quiet); }
+  .keep .all { display: inline-block; margin-top: 1.25rem; padding-block: .25rem; font-weight: 600; }
+
+  /* ---------- Standfirst: the guide's subtitle ---------- */
+  .standfirst { margin-top: .875rem; font-size: var(--fs-lead); line-height: 1.45; }
+
+  /* ---------- The guide: its contents list (the articles' plain list: links to the h2s, no numbers added, no box), its two pull lines (left-aligned, the quote stroke), and the Forge, which leaves the column ---------- */
+  .toc h2 { margin-top: 0; font-size: var(--fs-h3); }
+  .toc ol { list-style: none; margin: .75rem 0 0; padding: 0; }
+  .toc li + li { margin-top: .375rem; }
+  .body .pull { padding-left: 1rem; border-left: 3px solid var(--sun); font-size: var(--fs-lead); line-height: 1.45; font-weight: 550; }
+  .guide .forge + .wrap .body { margin-top: 2.5rem; }
+  .logo-tile {
+    flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px;
+    background: #021720; overflow: hidden;
+  }
+  .logo-tile img { width: auto; height: 1.75rem; }
+  .logo-tile.cf img { height: 2.25rem; }
+  /* ---------- The Enhanced Forge Flow ----------
+     The figure sits outside .wrap, so its panel runs from screen edge to screen edge without 100vw
+     (which would overflow next to a classic scrollbar). One <ol>; each step is an <li>. From 43.75em the
+     list is a CSS grid and each <li> a subgrid of three rows (step, drop line, tool group), so tool groups
+     sit in normal flow. A step with tools spans two columns, its own and an empty neighbour, so its tool
+     group fits inside its own <li>. Below 43.75em and in print: a numbered vertical list. From 43.75em:
+     two rows of five, joined by a drawn return line. From 90em: one row of ten. Arrows are drawn shapes;
+     a screen reader hears only the ordered list. */
+  .forge { margin-top: clamp(2.5rem, 5vw, 4rem); padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--panel); }
+  .forge-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; }
+  .forge-head h3 { font-size: var(--fs-h2); }
+  .forge-head p { margin-top: .5rem; max-width: 40rem; }
+  .play {
+    display: none; align-items: center; gap: .5rem; min-height: 2.75rem; padding: 0 1.125rem 0 .875rem;
+    border: 1.5px solid var(--accent); border-radius: 999px; background: var(--page); color: var(--accent);
+    font: 600 1rem/1 var(--font); cursor: pointer;
+  }
+  .play:hover { background: color-mix(in srgb, var(--accent) 8%, var(--page)); }
+  .play svg { width: .875rem; height: .875rem; fill: currentColor; }
+  .play .i-pause, .play[data-state="running"] .i-play { display: none; }
+  .play[data-state="running"] .i-pause { display: block; }
+  @media (prefers-reduced-motion: no-preference) { .js .play { display: inline-flex; } }
+  .flow-frame { max-width: 90rem; margin: 2rem auto 0; padding-inline: var(--gutter); }
+
+  .aflow { --gap: 1.25rem; --drop: 2.25rem; --turn: 2.75rem; --loop: .875rem; --line: var(--quiet); list-style: none; margin: 0; padding: 0; }
+  .step {
+    --c: var(--text);
+    display: block; padding: .625rem .75rem; border-radius: 10px; border: 1.5px solid var(--c); background: var(--page);
+    font-size: var(--fs-small); line-height: 1.3; overflow-wrap: normal; word-break: normal; hyphens: manual;
+  }
+  .step > span { display: block; }
+  .step .label { font-weight: 650; }
+  .step .sub { color: var(--quiet); font-size: .8125rem; }
+  .step .role { color: var(--c); font-size: .8125rem; font-weight: 550; }
+  .step .no { font-weight: 650; font-variant-numeric: tabular-nums; }
+  .step.human { --c: var(--text); }
+  .step.ai { --c: var(--accent); }
+  .step.mixed { border-color: transparent; background: linear-gradient(var(--page), var(--page)) padding-box, linear-gradient(135deg, var(--text) 25%, var(--accent) 75%) border-box; }
+  .step.mixed .role { color: var(--text); }
+  .step.gate { --c: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--page)); }
+  .step.cicd { --c: var(--quiet); border-style: dashed; }
+
+  .drop { position: relative; display: block; width: 2px; background: var(--line); }
+  .drop::after, .tool-link::after { content: ""; position: absolute; left: 50%; bottom: -5px; transform: translateX(-50%); border: 5px solid transparent; border-bottom: 0; border-top-color: var(--line); }
+  .tools { display: grid; justify-items: stretch; gap: .5rem; width: max-content; max-width: 100%; }
+  .tool {
+    display: flex; align-items: center; gap: .625rem; padding: .375rem .875rem .375rem .375rem;
+    border: 1px solid var(--rule); border-radius: 12px; background: var(--page); color: var(--text); text-decoration: none;
+  }
+  a.tool:hover, .cf-head:hover { border-color: var(--accent); color: var(--text); }
+  .tool .wm { display: block; font-weight: 650; font-size: .9375rem; line-height: 1.2; }
+  .tool .tag { display: block; font-size: .75rem; line-height: 1.3; color: var(--quiet); }
+  .tool-link { position: relative; justify-self: center; width: 2px; height: .875rem; margin-bottom: .25rem; background: var(--line); }
+  .tool.cf { flex-direction: column; align-items: stretch; gap: .5rem; padding: .5rem; max-width: 14rem; border-color: color-mix(in srgb, var(--accent) 55%, var(--rule)); }
+  .cf-head { display: flex; align-items: center; gap: .625rem; min-height: 2.25rem; color: var(--text); text-decoration: none; border: 1px solid transparent; border-radius: 6px; }
+  .pills { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .375rem; }
+  .pills li {
+    font-family: var(--mono); font-size: .6875rem; line-height: 1; color: var(--accent); white-space: nowrap;
+    padding: .3125rem .5rem; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 999px;
+  }
+
+  /* Phones and print: a numbered vertical list on a rail, each tool group under its step. */
+  @media print, (width < 43.75em) {
+    .aflow > li { position: relative; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: .875rem; padding-bottom: 1.25rem; break-inside: avoid; }
+    .aflow > li:last-child { padding-bottom: 0; }
+    .aflow > li > * { grid-column: 2; }
+    .aflow > li:not(:last-child)::before { content: ""; position: absolute; left: calc(1.125rem - 1px); top: 2.875rem; bottom: .625rem; width: 2px; background: var(--rule); }
+    .aflow > li:not(:last-child)::after {
+      content: ""; position: absolute; left: calc(1.125rem - 5px); bottom: .1875rem; width: 10px; height: 7px; background: var(--line);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    .step .label br { display: none; }
+    .step .role { margin-top: .125rem; }
+    .step .no {
+      position: absolute; left: 0; top: .375rem; display: grid; place-items: center;
+      width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1.5px solid var(--c); background: var(--panel); font-size: var(--fs-small);
+    }
+    .step.mixed .no { border-color: var(--accent); }
+    .drop { height: 1rem; margin: .25rem 0 .5rem 1.5rem; }
+    .tools { justify-self: start; }
+  }
+
+  /* Two rows of five, joined by a return line from step 5 to step 6. */
+  @media screen and (width >= 43.75em) {
+    .aflow { display: grid; column-gap: var(--gap); grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto var(--drop) auto var(--turn) auto var(--drop) auto; }
+    .aflow > li { display: grid; grid-template-rows: subgrid; grid-template-columns: subgrid; grid-row: 1 / span 3; min-width: 0; pointer-events: none; }
+    .aflow > li > * { grid-column: 1; pointer-events: auto; }
+    .aflow > li:nth-child(n+6) { grid-row: 5 / span 3; }
+    .aflow > li:nth-child(1), .aflow > li:nth-child(6) { grid-column: 1; }
+    .aflow > li:nth-child(2) { grid-column: 2; }
+    .aflow > li:nth-child(3), .aflow > li:nth-child(7) { grid-column: 2 / span 2; }
+    .aflow > li:nth-child(8) { grid-column: 3; }
+    .aflow > li:nth-child(4), .aflow > li:nth-child(9) { grid-column: 4 / span 2; }
+    .aflow > li:nth-child(5), .aflow > li:nth-child(10) { grid-column: 5; }
+    /* In a two-column step (.tl: tools to the left, .tr: to the right) the step keeps its own column. */
+    .aflow > li.tl > .step, .aflow > li.tl > .drop { grid-column: 2; }
+    .aflow > li.tl > .tools, .aflow > li.tr > .tools { grid-column: 1 / -1; }
+    .aflow > li.tl > .tools { justify-self: end; }
+    .aflow > li.tr > .tools { justify-self: start; }
+
+    .step {
+      grid-row: 1; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: .125rem; min-height: 8.25rem; padding: .75rem .5rem; text-align: center;
+    }
+    .step .no { color: var(--quiet); font-size: .8125rem; margin-bottom: .125rem; }
+    .step .role { margin-top: .375rem; padding-top: .375rem; border-top: 1px solid var(--rule); align-self: stretch; }
+    .step .sub { font-size: .75rem; }
+    .drop { grid-row: 2; justify-self: center; height: calc(100% - .875rem); margin-top: .375rem; }
+    .tools { grid-row: 3; align-self: start; margin: .375rem 0 1.25rem; }
+    .tool.cf .pills { justify-content: center; }
+
+    /* Arrows between steps, drawn in the column gap. */
+    .aflow > li:not(:nth-child(5)):not(:last-child) > .step::after {
+      content: ""; position: absolute; top: 50%; left: calc(100% + 1.5px + 3px); width: calc(var(--gap) - 6px); height: 10px;
+      transform: translateY(-50%); background: var(--line);
+      clip-path: polygon(0 40%, 55% 40%, 55% 0, 100% 50%, 55% 100%, 55% 60%, 0 60%);
+    }
+    /* Step 5 to step 6: out to the right margin, down past the first row's tools, back along the gap
+       with an arrowhead pointing left, down the left margin and into step 6. */
+    .aflow > li:nth-child(5) > .step::after {
+      content: ""; position: absolute; top: 50%; left: calc(100% + 1.5px); width: var(--loop); height: calc(50% + 1.5px);
+      border-top: 2px solid var(--line); border-right: 2px solid var(--line);
+    }
+    .aflow > li:nth-child(5)::after {
+      content: ""; grid-column: 1; grid-row: 2 / span 2; justify-self: end; width: 2px; margin-right: calc(-1 * var(--loop));
+      background: var(--line);
+    }
+    .aflow::before {
+      content: ""; grid-row: 4; grid-column: 1 / -1; margin-inline: calc(-1 * var(--loop));
+      border-top: 2px solid var(--line); border-left: 2px solid var(--line);
+    }
+    .aflow::after {
+      content: ""; grid-row: 4; grid-column: 1 / -1; justify-self: center; align-self: start; width: 10px; height: 12px; margin-top: -5px;
+      background: var(--line); clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    }
+    .aflow > li:nth-child(6) > .step::before {
+      content: ""; position: absolute; right: calc(100% + 1.5px); top: -1.5px; width: var(--loop); height: calc(50% + 1.5px);
+      border-left: 2px solid var(--line); border-bottom: 2px solid var(--line);
+    }
+    .aflow > li:nth-child(6) > .step > .label::before {
+      content: ""; position: absolute; left: calc(-1.5px - 8px); top: 50%; width: 8px; height: 10px; transform: translateY(calc(-50% + 1px));
+      background: var(--line); clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+  }
+
+  /* One row of ten, the shape of the original deck. */
+  @media screen and (width >= 90em) {
+    .aflow { --gap: 1rem; grid-template-columns: repeat(10, minmax(0, 1fr)); grid-template-rows: auto var(--drop) auto; }
+    .aflow::before, .aflow::after, .aflow > li:nth-child(5)::after,
+    .aflow > li:nth-child(6) > .step::before, .aflow > li:nth-child(6) > .step > .label::before { content: none; }
+    .aflow > li:nth-child(n) { grid-row: 1 / span 3; }
+    .aflow > li:nth-child(1) { grid-column: 1; }
+    .aflow > li:nth-child(2) { grid-column: 2; }
+    .aflow > li:nth-child(3) { grid-column: 2 / span 2; }
+    .aflow > li:nth-child(4) { grid-column: 4 / span 2; }
+    .aflow > li:nth-child(5) { grid-column: 5; }
+    .aflow > li:nth-child(6) { grid-column: 6; }
+    .aflow > li:nth-child(7) { grid-column: 7 / span 2; }
+    .aflow > li:nth-child(8) { grid-column: 8; }
+    .aflow > li:nth-child(9) { grid-column: 9 / span 2; }
+    .aflow > li:nth-child(10) { grid-column: 10; }
+    .step { padding: .75rem .375rem; font-size: .8125rem; }
+    .aflow > li:nth-child(5) > .step::after {
+      left: calc(100% + 1.5px + 3px); width: calc(var(--gap) - 6px); height: 10px; border: 0;
+      transform: translateY(-50%); background: var(--line);
+      clip-path: polygon(0 40%, 55% 40%, 55% 0, 100% 50%, 55% 100%, 55% 60%, 0 60%);
+    }
+  }
+  /* ---------- Home motion: one trace through the Forge Flow, only when Play is pressed; everything else only answers the pointer ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .play, .tool, .cf-head { transition: color .15s, background-color .15s, border-color .15s, text-decoration-color .15s; }
+    .js .aflow.tracing .step { animation: trace .8s ease-out; animation-delay: calc(var(--i) * 170ms); }
+    .js .aflow.tracing .tool { animation: tool .8s ease-out; animation-delay: calc(var(--i) * 170ms + 120ms); }
+    .js .aflow.paused .step, .js .aflow.paused .tool { animation-play-state: paused; }
+    @keyframes trace { 35% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--sun) 80%, transparent); transform: translateY(-2px); } }
+    @keyframes tool { 40% { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 60%, transparent); } }
+  }
+
+  @media print {
+    .play { display: none !important; }
+    .forge { background: none; }
+  }
 </style>
 </head>
 <body>
-<div class="page">
-  <a href="/" class="brand" aria-label="ngvoicu.dev home">
-    <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#122A30"/><g stroke-linecap="round"><line x1="17" y1="21" x2="47" y2="21" stroke="#63C7B2" stroke-width="5.5"/><line x1="17" y1="32" x2="33" y2="32" stroke="#E9F1EF" stroke-width="5.5"/><circle cx="42.5" cy="32" r="3.6" fill="#FF6B5A"/><line x1="17" y1="43" x2="47" y2="43" stroke="#63C7B2" stroke-width="5.5"/></g></svg>
-    <span class="brand-name">ngvoicu<span class="brand-tld">.dev</span></span>
-  </a>
+<a class="skip" href="#main">Skip to content</a>
 
-  <div class="kicker">guide · from the "Becoming an AI Native Company" workshop</div>
-  <h1>Becoming an AI Native Company</h1>
-  <div class="byline">by <a href="/">Gabriel Voicu</a> — AI-native consultant &amp; software engineer · 2026</div>
+<header class="site-head">
+  <div class="wrap head-row">
+    <div class="brand-box">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Gabriel Voicu</span></a>
+      <p class="motto"><span>Software Engineer since before AI.</span> <span>AI-Native Now.</span></p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <article>
-<p>Most companies today use AI as a tool on the side. Someone opens a chatbot, pastes a question, copies the answer back into their real work. That is useful. It is not native.</p>
-<p>An AI-native company is different. AI is not an add-on or a feature. It is a core part of how the company builds, thinks, and operates. The test is simple: if you remove the AI, the workflow stops working.</p>
-<p>I am Gabriel Voicu. I build software with AI agents every day, and I help engineering teams do the same. This is the guide I wish existed when I started — the practitioner's path from <em>using</em> AI to <em>being built on</em> it.</p>
-<h2>What is an AI-native company?</h2>
-<p>An AI-native company redesigns its workflows, its knowledge, and its development process so that humans and agents work together as a system — not as a person using a chatbot.</p>
-<p>Here is the distinction that matters.</p>
-<p><strong>AI-enhanced:</strong> people use AI tools manually. It is helpful and faster, but still mostly person-by-person. Remove the AI and everyone goes back to how they worked before.</p>
-<p><strong>AI-native:</strong> workflows include AI-powered steps by design. The steps are repeatable, observable, and safe to scale. Humans stay in the loop — approving truth, risk, and direction — but the AI is load-bearing.</p>
-<p>That last line is the one to hold onto. Going native does not mean handing the wheel to a machine. It means humans own truth, risk, and direction, and the AI does the generation and the grunt work underneath.</p>
-<p>Everything below is how you get there.</p>
-<h2>The LLM is the engine. The harness is the vehicle.</h2>
-<p>Start with the parts, because the confusion at most companies is a parts confusion.</p>
-<p>A Large Language Model predicts the next token. At scale that becomes useful behavior: explaining, summarizing, planning, coding, reasoning. But an LLM alone cannot read your files, run your tests, or remember what you said ten minutes ago. It is a powerful engine sitting on a table.</p>
-<p>A <strong>harness</strong> wraps the LLM with everything it needs to become a working agent: tools it can call, a file system, permissions, a context window, session memory, and an interface. The model reasons. The harness makes it act.</p>
-<p>A Formula 1 engine on a table is impressive and useless. Put it in a chassis with steering, brakes, and a fuel system, and now it can race. LLM plus harness equals agent.</p>
-<p>This matters for a practical reason. When people say "Claude Code" or "Cursor" or "Codex," they are naming harnesses, not models. Same engine underneath, different vehicles — and the vehicle you pick shapes what the work feels like. CLI harnesses are usually the most capable for serious repo work; desktop apps are the easiest place to start. You will switch between models and harnesses depending on the task, and that is normal. Pick the model for the domain, then dial the effort for the difficulty.</p>
-<h2>Session context is the agent's working memory</h2>
-<p>Every session starts empty. The agent has zero prior knowledge of you or your project until something is loaded into its context.</p>
-<p>Context is measured in tokens — a bit more than one per word, since English runs about 1.3 tokens per word — and it only grows. The harness loads a starting set the moment it launches, and every turn you add more: your prompts, the agent's replies, file contents read in full, tool output, stack traces, dead ends you backtracked out of ten turns ago.</p>
-<p>This is where teams quietly lose quality, and most never notice.</p>
-<p>A bloated context costs you twice. Every turn re-sends the whole session to the model, so a heavy session gets slower and more expensive — and burns through your usage limits faster — <strong>while accuracy quietly drops.</strong> The agent starts remembering old plans that no longer apply. Answers get vague because the important facts are buried under logs and abandoned attempts.</p>
-<p>The fix is context hygiene, and it is a skill worth teaching your whole team:</p>
+<main id="main">
+
+  <article class="guide" aria-labelledby="guide-title">
+    <div class="wrap post">
+      <header class="page-head">
+        <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">The AI-native guide</span></li>
+        </ol>
+      </nav>
+        <h1 id="guide-title">Becoming an AI Native Company</h1>
+        <p class="standfirst">A practitioner’s guide, from my workshop</p>
+        <p class="dateline">By Gabriel Voicu, published <time datetime="2026-07-04">4 July 2026</time>, updated <time datetime="2026-10-22">22 October 2026</time></p>
+      </header>
+      <div class="body">
+<nav class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">In this guide</h2>
+          <ol>
+            <li><a href="#what-is-ai-native">What is an AI-native company?</a></li>
+            <li><a href="#engine-and-harness">The engine and the harness</a></li>
+            <li><a href="#session-context">Session context</a></li>
+            <li><a href="#knowledge-base">Project files and a knowledge base</a></li>
+            <li><a href="#specs">Vibe coding and specs</a></li>
+            <li><a href="#cross-llm-review">Cross-LLM adversarial review</a></li>
+            <li><a href="#harnesses-everywhere">Harnesses everywhere</a></li>
+            <li><a href="#adoption">Teaching your people</a></li>
+            <li><a href="#work-with-me">Work with me</a></li>
+          </ol>
+        </nav>
+<p>Most companies use AI on the side. Someone opens a chatbot, pastes in a question and copies the answer back into their real work. That helps, but the work itself stays the same.</p>
+<p>In an AI-native company, AI steps are built into how the work gets done. A simple test: take the AI out, and the workflow stops working.</p>
+<p>I build software with AI agents every day, and I help engineering teams do the same. This guide is the workshop I give, written down.</p>
+<h2 id="what-is-ai-native">What is an AI-native company?</h2>
+<p>An AI-native company redesigns how it builds software, and how it keeps what it knows, so that people and agents work together as one system.</p>
+<p>I find it useful to separate two terms.</p>
+<p><strong>AI-enhanced:</strong> people use AI tools by hand, each in their own way. It helps, and the work goes faster. Remove the AI and everyone goes back to how they worked before.</p>
+<p><strong>AI-native:</strong> the workflow has AI steps built in on purpose. Those steps run the same way every time and leave a record you can check, so you can scale them safely. The agents write the drafts and do the routine work. People stay in the loop: they decide whether the work is correct and whether a risk is worth taking, and they set the direction.</p>
+<p>The rest of this guide covers how a team gets there.</p>
+<h2 id="engine-and-harness">The engine and the harness</h2>
+<p>Start with the parts. Most of the confusion I see in companies comes from mixing them up.</p>
+<p>A large language model (LLM) predicts the next token. At scale that turns into useful work: it can explain, summarize, plan, write code and reason through a problem. On its own, though, an LLM can&#8217;t read your files or run your tests, and it doesn&#8217;t remember what you said ten minutes ago.</p>
+<p>A <strong>harness</strong> wraps the LLM in what it needs to work as an agent: tools it can call, a file system, permissions, a context window, session memory and an interface. The model does the reasoning, and the harness lets it act.</p>
+<p>I think of the LLM as the engine and the harness as the car around it. Together they make an agent.</p>
+<p>The difference matters in practice. Claude Code, Cursor and Codex are harnesses, and the same model can run inside several of them. The harness you pick changes how the work feels. For serious work in a repository, the command-line harnesses are usually the most capable, and desktop apps are the easiest place to start. You&#8217;ll switch between models and harnesses depending on the task, and that&#8217;s normal. Pick the model for the domain, then set the effort for how hard the task is.</p>
+<h2 id="session-context">Session context</h2>
+<p>Every session starts empty. The agent knows nothing about you or your project until something is loaded into its context, which is its working memory.</p>
+<p>Context is measured in tokens, and English runs about 1.3 tokens per word. During a session it only grows. The harness loads a starting set when it launches, and every turn adds more: your prompts, the agent&#8217;s replies, whole files it has read, tool output, stack traces, and the dead ends you backed out of ten turns ago.</p>
+<p>Most teams lose quality here without noticing. Every turn sends the whole session to the model again, so a heavy session gets slower and more expensive, and it uses up your limits faster. <strong>Accuracy drops too.</strong> The agent picks up old plans that no longer apply, and its answers get vague because the important facts are buried under logs and abandoned attempts.</p>
+<p>The fix is context hygiene, and it&#8217;s worth teaching to the whole team:</p>
 <ul>
-<li><strong>Compact</strong> when the goal is the same but the chat has gotten heavy. Compress the history into decisions and open tasks.</li>
-<li><strong>Start new</strong> when the goal changes or the session gets confused. A fresh task deserves fresh working memory and a short handoff.</li>
-<li><strong>Prefer file references</strong> over pasting giant chunks into chat.</li>
-<li><strong>Re-read the source of truth</strong> when accuracy matters. Have the agent inspect the current files again.</li>
+<li><strong>Compact</strong> when the goal hasn&#8217;t changed but the chat has gotten heavy. Compress the history into decisions and open tasks.</li>
+<li><strong>Start new</strong> when the goal changes or the session gets confused. A new task should get fresh working memory and a short handoff.</li>
+<li><strong>Prefer file references</strong> over pasting large chunks into the chat.</li>
+<li><strong>Re-read the source of truth</strong> when accuracy matters. Have the agent read the current files again.</li>
 </ul>
-<p>Clean context beats a big context window. A million-token window still needs structure. Signal beats volume.</p>
-<h2>Teach the agent your project, then give it a knowledge base</h2>
-<p>Working memory is fresh every session. So the first real setup step is teaching the agent about your project once, in a way it reads every time.</p>
-<p>That is what <strong>CLAUDE.md</strong> and <strong>AGENTS.md</strong> do. They are plain files in your repo — a README written for the AI. Tech stack, folder structure, conventions, and the rules that must never be broken: "always write tests first," "never modify the schema directly," "SQL uses snake_case." The agent reads them automatically on every session. Commit them to git and the whole team gets the same agent behavior; new contributors onboard faster because the agent already knows the project.</p>
-<p>Above those static files, agents now keep their own auto-memory — notes they write and re-read on their own. It is convenient, but recall is <em>probabilistic</em>: it may resurface the right note, or it may not. So keep anything that <strong>must</strong> be followed in CLAUDE.md and AGENTS.md, and let auto-memory handle the nice-to-remember details.</p>
-<p>None of that is your institutional knowledge. Your architecture decisions, the reasoning behind them, the production gotcha you debugged last quarter — that belongs in a real, shared, git-backed knowledge base. Not a personal scratchpad on one machine.</p>
-<p>This is why I built <strong><a href="https://kluris.ngvoicu.dev">Kluris, a git-backed knowledge base for coding agents</a></strong>. It is an open-source Python CLI that creates knowledge repositories called brains. Knowledge lives as markdown files — neurons — organized into lobes and linked by synapses. Any coding agent can search the brain (BM25 keyword search, no embeddings to maintain), learn from it, and propose additions. And there is a human approval gate on every write: nothing is auto-saved. The brain grows through human judgment, not automated dumps.</p>
-<p>Learn once, remember forever, and every teammate's agent inherits the same institutional context.</p>
-<h2>Vibe coding is for discovery. Specs are for decisions that stick.</h2>
-<p>There are two ways to work with a coding agent, and confusing them is the most expensive mistake I see.</p>
-<p><strong>Vibe coding</strong> is when you describe what you want in natural language and steer by feel while the agent builds. You react to what appears instead of starting from a formal spec. It is fast, and it is genuinely the right tool for prototypes, throwaway demos, and exploring UI ideas when the requirements are still fuzzy.</p>
-<p>Stop vibing the moment decisions need to stick: production code with real users, work several people must understand, anything touching security, payments, or data integrity, anything you cannot afford to start over on.</p>
-<p>Either way, one thing holds: you will not get it in one prompt. Working with an agent is a loop, not a single shot. You prompt, the agent drafts, you review, you refine, and a few turns later it does what you actually meant. Humans are in the loop the whole time — the agent types, a human steers every turn.</p>
-<p>When the work has to stick, the loop should start from a reviewed plan. <strong>Plan mode</strong> is the first step: the agent stops, inspects the repo, explains what it wants to do, surfaces risks, and waits for your approval before it touches a single file.</p>
-<p><strong>Spec-driven development</strong> is plan mode, evolved. A plan-mode plan lives in the chat and vanishes when the session ends. A spec becomes a real, durable file in the repo — one you treat as a work loop: draft, review, update, implement, and remember across sessions.</p>
-<p>This is what <strong><a href="https://specmint.ngvoicu.dev">Specmint, spec-driven development for AI coding agents</a></strong> does. It plugs into your coding agent and runs the whole spec lifecycle: a research-and-interview forge that reads your codebase before writing anything, durable resumable specs in <code>.specs/</code>, and TDD variants so implementation follows the spec red-green. It works with Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI, and it is free and MIT-licensed. The spec becomes the single source of truth that both implementation and review point back to.</p>
-<h2>Cross-LLM adversarial review catches what one model cannot</h2>
-<p>Assemble the pieces so far and you get a repeatable workflow. I call it the Forge Flow, and it is the first real shape of an AI-native team.</p>
-<p>Humans own truth and decisions. AI owns generation. Machines own verification. Durable artifacts like specs and memory are co-owned — forged together, remembered forever. The flow runs: receive requirements, branch, write the spec (AI-assisted human), implement with tests (AI), review and polish (AI-assisted human), run CI, update the knowledge base, archive the spec.</p>
-<p>Then there is the upgrade that changes the quality of everything: no single model is best at everything, and no author can see its own blind spots.</p>
-<p>So write the spec with one strong author model, then hand the same work to one or more <em>different</em> models in fresh sessions and ask them to tear it apart. Feed the best critiques back to the author. Implement only what you and the author agree is right. An independent mind from another family finds the holes the author is structurally blind to — the missing dedupe window, the index that will crawl under load, the edge case nobody spelled out.</p>
-<p>The catch is always friction: switching tools, re-pasting your code, losing context. That friction is why I built <strong><a href="https://consensflow.ngvoicu.dev">ConsensFlow, a desktop app that runs a team of AI coding agents on your project</a></strong>. You talk to one agent, the Chief of Staff. It plans the work on a board, and its staff — workers, advisors and reviewers — take the tasks, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin, with your own logins. Put the author on one harness and the reviewers on others, and the adversarial review above runs in fresh sessions of different models, with the handoff done for you and every finding back on the board. Advisors and reviewers never change a file, and if you turn it on, every message between agents waits for your approval — the same human-in-the-loop principle, applied to review.</p>
-<p>Author with one model. Review with another. Keep only what survives.</p>
-<h2>Harnesses everywhere: how your company becomes smarter</h2>
-<p>Almost everything above was a coding harness. The bigger idea is that <em>every repeatable workflow can get its own harness</em>.</p>
-<p>A harness gives an LLM context, tools, data, guardrails, memory, and a loop. That is the shift that makes a company AI-native: not better prompting, but small operating systems around the work.</p>
-<p>Picture a payments team. One harness runs continuously, reads production logs and traces, asks an LLM to explain failures, and stores the analysis. A second harness reads that analysis plus the team's Kluris brain — the domain decisions and business rules — patches the code, runs the tests, and opens a merge request. A human reviews the diff, approves the business risk, and decides what ships. Harnesses chained into a flow, with the human gate exactly where the risk is.</p>
-<p><strong>Skills</strong> are how you make those harnesses predictable. AI is probabilistic; ask the same thing twice and you can get different paths. A skill is a markdown instruction pack — steps, constraints, examples, reference files, success criteria — that narrows the path before the agent acts. Wrap a business API in a small CLI and write a skill that says which command to run, in what order, and what to check first, and the agent operates your systems by procedure instead of guesswork.</p>
-<p>Why this scales: skills are plain files. Put them in a shared repo and every team's agent follows the same review rules, the same release checklist, the same incident runbook. When someone finds a better way, you edit the skill once and the whole company works the new way from the next session. New hires inherit the playbook on day one.</p>
-<p>Every spec, decision, review, lesson, skill, and brain neuron compounds into shared intelligence. That is what "your company becomes smarter" actually means — an artifact that outlives the session that created it.</p>
-<h2>AI adoption for engineering teams: how to teach your people to use AI</h2>
-<p>Tools are the easy part. The hard part is adoption: getting a whole engineering team to change how it works without chaos, and without anyone feeling replaced.</p>
-<p>A few things I have learned helping teams make this shift.</p>
-<p><strong>Teach the mental model first, not the tools.</strong> Engineers who understand engine-versus-vehicle, context hygiene, and vibe-versus-spec make good decisions with any tool. People who memorized one tool's buttons are lost the moment it changes.</p>
-<p><strong>Keep humans owning truth, risk, and direction — out loud.</strong> The fastest way to kill adoption is to make people feel the AI is grading them or replacing them. Frame it correctly: the agent generates, the human decides. That framing is not a nicety; it is the load-bearing beam of the whole approach.</p>
-<p><strong>Start with one project, not the whole org.</strong> Pick one project this week. Write its CLAUDE.md. Plan before you build. Forge one spec. Save one neuron of real knowledge. Let the loop run there, then let the people who felt it teach the next team.</p>
-<p><strong>Make the wins durable.</strong> A demo impresses once. A committed CLAUDE.md, a spec in <code>.specs/</code>, a brain neuron, a shared skill — those keep paying out. Optimize for artifacts that survive the session.</p>
-<p>You do not become AI-native by buying licenses. You become AI-native by redesigning one workflow at a time so that humans and agents work as a system — and by capturing what you learn so the whole company gets smarter with every loop.</p>
-<h2>Work with me</h2>
-<p>I run this playbook for a living. If your engineering team is ready to move from AI-enhanced to AI-native, here is how I can help:</p>
+<p>A bigger context window helps less than you&#8217;d think. Even a million-token window works better when what&#8217;s in it is clean and on topic.</p>
+<h2 id="knowledge-base">Project files and a knowledge base</h2>
+<p>Because each session starts empty, the first real setup step is to teach the agent about your project once, in files it reads every time.</p>
+<p><strong>CLAUDE.md</strong> and <strong>AGENTS.md</strong> are those files. They&#8217;re plain files in your repo, like a README written for the AI. They hold the tech stack, the folder structure, your conventions and the rules that must never be broken, such as &#8220;always write tests first,&#8221; &#8220;never modify the schema directly&#8221; or &#8220;SQL uses snake_case.&#8221; The agent reads them at the start of every session. Commit them to git and every agent on the team works from the same rules. New people also get going faster, because the agent already knows the project.</p>
+<p>On top of those files, agents now keep their own auto-memory: notes they write and read back by themselves. It&#8217;s handy, but recall is <em>probabilistic</em>. The agent may bring back the right note, or it may not. So put anything that <strong>must</strong> be followed in CLAUDE.md and AGENTS.md, and leave the nice-to-remember details to auto-memory.</p>
+<p>Neither of those is the place for your team&#8217;s knowledge. Architecture decisions and the reasons behind them, or the production issue you debugged last quarter, belong in a knowledge base the whole team shares, kept in git.</p>
+<p>For this I built <strong><a href="https://kluris.ngvoicu.dev">Kluris, a git-backed knowledge base for coding agents</a></strong>. It&#8217;s an open-source Python CLI that creates knowledge repositories called brains. Each piece of knowledge is a Markdown file called a neuron, and neurons are grouped into lobes and linked by synapses. Any coding agent can search the brain with BM25 keyword search, so there are no embeddings to maintain. Agents learn from it and propose additions, and a person approves every write. Nothing is saved automatically.</p>
+<p>Once something is in the brain, every teammate&#8217;s agent can find it in its next session.</p>
+<h2 id="specs">Vibe coding and specs</h2>
+<p>There are two ways to work with a coding agent, and mixing them up is the most expensive mistake I see.</p>
+<p><strong>Vibe coding</strong> means you describe what you want in plain language and steer by feel while the agent builds. There&#8217;s no formal spec; you react to what shows up. It&#8217;s fast, and it&#8217;s the right tool for prototypes, throwaway demos and trying UI ideas while the requirements are still fuzzy.</p>
+<p>Stop vibe coding once decisions need to stick: in production code with real users, in work several people have to understand, in anything that touches security, payments or data integrity, and in anything you can&#8217;t afford to start over.</p>
+<p>In both cases you won&#8217;t get it right in one prompt. You prompt, the agent drafts, you review and refine, and a few turns later it does what you meant. A person steers every turn of that loop while the agent types.</p>
+<p>When the work has to stick, start the loop from a plan you&#8217;ve reviewed. <strong>Plan mode</strong> is the first step. The agent stops, looks through the repo, explains what it wants to do and points out the risks, then waits for your approval before it changes any file.</p>
+<p><strong>Spec-driven development</strong> takes plan mode further. A plan from plan mode lives in the chat and is gone when the session ends. A spec is a file in the repo, and it stays there. You draft it, review it, update it and implement it, and later sessions pick it up again.</p>
+<p>To do this, I wrote <strong><a href="https://specmint.ngvoicu.dev">Specmint, spec-driven development for AI coding agents</a></strong>. It installs as a skill in your coding agent and handles a spec from start to finish. Before it writes anything, it researches your codebase and interviews you. It saves the spec in <code>.specs/</code>, where a later session can resume it, and its test-first variants work through the spec red, green, refactor. It works with Claude Code, Cursor, Windsurf, Cline, Codex and Gemini CLI, and it&#8217;s free and MIT-licensed. The implementation and the reviews both go back to the spec as the one source of truth.</p>
+<h2 id="cross-llm-review">Cross-LLM adversarial review</h2>
+<p>Put the pieces so far together and you get a workflow you can repeat. I call it the Forge Flow, and it&#8217;s the first working shape of an AI-native team.</p>
+<p>People make the decisions, and the AI does the writing. The tests and CI check what it wrote. You write the spec and the knowledge base together with the agent, and both stay in the repo. The steps: receive the requirements, create a branch, write the spec (a person with AI help), implement with tests (the AI), review and polish (a person with AI help), run CI, update the knowledge base, archive the spec.</p>
+<p>The next addition, review by other models, improves the quality of everything else. No single model is best at everything, and an author model can&#8217;t see its own blind spots.</p>
+<p>So write the spec with one strong author model. Then give the same work to one or more <em>different</em> models, each in a fresh session, and ask them to find what&#8217;s wrong with it. Feed the best critiques back to the author, and implement only what you and the author agree is right. A model from another family finds the holes the author can&#8217;t see, like a missing dedupe window, an index that will crawl under load, or an edge case nobody wrote down.</p>
+      </div>
+    </div>
+
+  <figure class="forge" id="forge-flow" aria-labelledby="flow-title">
+    <figcaption class="wrap forge-head">
+      <div>
+        <h3 id="flow-title">The Enhanced Forge Flow</h3>
+        <p>The full loop, with both review gates in place. One model writes the spec with you. Then one to four other models review it, each in a fresh session, from the same model family or a different one. The author model gets the best critiques back, and you implement only what you and the author model agree on. The code goes through the same review.</p>
+      </div>
+      <button class="play" type="button" data-state="idle" aria-label="Play the flow"><svg class="i-play" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M3 1.5 L12.5 7 L3 12.5 Z"/></svg><svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><rect x="2.5" y="1.5" width="3.25" height="11" rx=".75"/><rect x="8.25" y="1.5" width="3.25" height="11" rx=".75"/></svg><span class="play-text">Play</span></button>
+    </figcaption>
+    <div class="flow-frame">
+      <ol class="aflow">
+        <li style="--i:0"><div class="step human"><span class="no" aria-hidden="true">1</span> <span class="label">Receive <br>Requirements</span> <span class="role">Human</span></div></li>
+        <li style="--i:1"><div class="step human"><span class="no" aria-hidden="true">2</span> <span class="label">Create <br>Branch</span> <span class="role">Human</span></div></li>
+        <li class="tl" style="--i:2">
+          <div class="step mixed"><span class="no" aria-hidden="true">3</span> <span class="label">Write Spec</span> <span class="sub">research, interview</span> <span class="sub">one LLM, e.g. Claude Opus</span> <span class="role">Author LLM + Human</span></div>
+          <span class="drop" aria-hidden="true"></span>
+          <div class="tools">
+            <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
+            <span class="tool-link" aria-hidden="true"></span>
+            <a class="tool" href="https://specmint.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" decoding="async"></span><span><span class="wm">Specmint</span> <span class="tag">spec engine</span></span></a>
+          </div>
+        </li>
+        <li class="tr" style="--i:3">
+          <div class="step gate"><span class="no" aria-hidden="true">4</span> <span class="label">Review Spec</span> <span class="sub">1–4 fresh LLM sessions</span> <span class="role">Adversarial review</span></div>
+          <span class="drop" aria-hidden="true"></span>
+          <div class="tools">
+            <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
+          </div>
+        </li>
+        <li style="--i:4"><div class="step ai"><span class="no" aria-hidden="true">5</span> <span class="label">Implement <br>+ Tests</span> <span class="sub">accepted feedback</span> <span class="role">Author LLM</span></div></li>
+        <li style="--i:5"><div class="step mixed"><span class="no" aria-hidden="true">6</span> <span class="label">Review <br>&amp; Polish</span> <span class="role">AI-assisted Human</span></div></li>
+        <li class="tr" style="--i:6">
+          <div class="step gate"><span class="no" aria-hidden="true">7</span> <span class="label">Review <br>Implementation</span> <span class="sub">1–4 fresh LLM sessions</span> <span class="role">Adversarial review</span></div>
+          <span class="drop" aria-hidden="true"></span>
+          <div class="tools">
+            <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
+          </div>
+        </li>
+        <li style="--i:7"><div class="step cicd"><span class="no" aria-hidden="true">8</span> <span class="label">Run Tests <br>CI / CD</span> <span class="role">CI/CD</span></div></li>
+        <li class="tr" style="--i:8">
+          <div class="step mixed"><span class="no" aria-hidden="true">9</span> <span class="label">Update <br>Memory</span> <span class="sub">knowledge base</span> <span class="role">AI-assisted Human</span></div>
+          <span class="drop" aria-hidden="true"></span>
+          <div class="tools">
+            <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
+          </div>
+        </li>
+        <li style="--i:9"><div class="step human"><span class="no" aria-hidden="true">10</span> <span class="label">Archive <br>Spec</span> <span class="role">Human</span></div></li>
+      </ol>
+    </div>
+  </figure>
+
+    <div class="wrap post">
+      <div class="body">
+<p>Doing this by hand means switching tools and losing context, so I built <strong><a href="https://consensflow.ngvoicu.dev">ConsensFlow, a desktop app that runs a team of AI coding agents on your project</a></strong>. You talk to one agent, the Chief of Staff. It plans the work and puts tasks on a board. Its staff of workers, advisors, reviewers and testers take the tasks, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin, with your own logins. Put the author on one harness and the reviewers on others, and the review above runs in fresh sessions of different models, with the handoff done for you and every finding back on the board. Advisors and reviewers never change a file, and if you turn on approval, every message between agents waits for you to pass it on.</p>
+<h2 id="harnesses-everywhere">Harnesses everywhere</h2>
+<p>Almost everything so far has been about coding harnesses. The bigger idea is that <em>every repeatable workflow can get its own harness</em>.</p>
+<p>A harness gives an LLM context, tools, data, guardrails, memory and a loop to run in. A company becomes AI-native by building small systems like that around its work. Better prompting is only a small part of it.</p>
+<p>Take a payments team. One harness runs all the time. It reads production logs and traces, asks an LLM to explain each failure and stores the analysis. A second harness reads that analysis and the team&#8217;s Kluris brain, which holds the domain decisions and business rules. It patches the code, runs the tests and opens a merge request. Then a person reviews the diff and decides what ships, including whether the business risk is acceptable. The harnesses run as one flow, and the human check sits where the risk is.</p>
+<p><strong>Skills</strong> make those harnesses predictable. AI is probabilistic: ask the same thing twice and it may take two different paths. A skill is a set of Markdown instructions with steps, constraints, examples, reference files and success criteria, and it narrows the path before the agent acts. Wrap a business API in a small CLI, then write a skill that says which command to run, in what order and what to check first. Then the agent operates your systems by following the procedure.</p>
+<p>This scales because skills are plain files. Put them in a shared repo and every team&#8217;s agent follows the same review rules, release checklist and incident runbook. When someone finds a better way, you edit the skill once, and from the next session the whole company works the new way. New hires get the same playbook on their first day.</p>
+<p>Each spec, decision, review, lesson, skill and brain neuron is written down in a file that outlives the session that created it. Together they add up to what the company knows.</p>
+<h2 id="adoption">Teaching your people</h2>
+<p>Getting a whole engineering team to change how it works is harder than choosing the tools. It has to happen without chaos, and without anyone feeling replaced.</p>
+<p>I&#8217;ve learned a few things helping teams make this change.</p>
+<p><strong>Teach the mental model before the tools.</strong> Engineers who understand the engine and the harness, context hygiene, and when to vibe code and when to write a spec make good decisions in any tool. People who memorized one tool&#8217;s buttons are lost as soon as it changes.</p>
+<p><strong>Say out loud that people keep the decisions.</strong> The quickest way to lose people is to make them feel the AI is grading them or replacing them. Tell them plainly that the agent writes and they decide. The rest of the approach depends on it.</p>
+<p><strong>Start with one project.</strong> Pick it this week. Write its CLAUDE.md, plan before you build, write one spec and save one neuron of real knowledge. Let the loop run on that project, then let the people who worked in it teach the next team.</p>
+<p><strong>Make the wins last.</strong> Put your effort into files that stay after the session, like a committed CLAUDE.md, a spec in <code>.specs/</code>, a brain neuron or a shared skill, because every later session can use them.</p>
+<p>A team becomes AI-native one workflow at a time. You redesign each one so people and agents work as one system, and you write down what you learn so the next loop starts from it.</p>
+<h2 id="work-with-me">Work with me</h2>
+<p>If your engineering team wants to move from AI-enhanced to AI-native, I can help in three ways:</p>
 <ul>
-<li><strong>The workshop</strong> — the hands-on session this guide is drawn from, taking your team from first principles to a working Forge Flow.</li>
-<li><strong>Team training</strong> — teaching your engineers the mental models and habits that hold up across tools: context hygiene, spec-driven development, cross-LLM review, and knowledge capture.</li>
-<li><strong>Adoption engagements</strong> — embedding with your team to design the workflows, wire up the tooling, and build the durable knowledge and skills that make the change stick.</li>
+<li><strong>The workshop:</strong> the hands-on session this guide comes from. It takes your team from first principles to a working Forge Flow.</li>
+<li><strong>Team training:</strong> the mental models and daily habits that work in any tool, such as context hygiene, spec-driven development, cross-LLM review and writing knowledge down.</li>
+<li><strong>Adoption engagements:</strong> I join your team, design the workflows with you and set up the tools. We also write the knowledge base and the skills your team keeps using.</li>
 </ul>
-<p>Every engagement leaves durable artifacts behind, not just a good demo: a committed CLAUDE.md your whole team inherits, a first spec in <code>.specs/</code>, and a first brain neuron of real institutional knowledge — the seeds of a Forge Flow that keeps working after I leave.</p>
-<p>The tools I built and reference here — <a href="https://specmint.ngvoicu.dev">Specmint</a>, <a href="https://kluris.ngvoicu.dev">Kluris</a>, and <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a> — are free and open, and a good place to start on your own.</p>
-<p>When you want to move faster, reach me at <strong>office@ngvoicu.dev</strong> or <strong>+40 734 704 910</strong>.</p>
-<p>Pick one project this week. The loop runs from there.</p>
+<p>When an engagement ends, the work stays in your repositories: a committed CLAUDE.md the whole team shares, a first spec in <code>.specs/</code> and a first brain neuron of real team knowledge. Your team can keep running the Forge Flow from there after I leave.</p>
+<p>The tools I mention in this guide, <a href="https://specmint.ngvoicu.dev">Specmint</a>, <a href="https://kluris.ngvoicu.dev">Kluris</a> and <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a>, are free and open source, and you can start with them on your own.</p>
+<p>To work with me, email <!--email_off--><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a><!--/email_off--> or call <a href="tel:+40734704910">+40 734 704 910</a>.</p>
+      </div>
+      <aside class="author" aria-label="About the author">
+  <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+  <div>
+    <p class="who">Gabriel Voicu</p>
+    <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
+    <p><a href="/about/">More about me</a></p>
+  </div>
+</aside>
+    </div>
   </article>
-
-  <div class="cta-panel">
-    <strong>Want this installed in your team?</strong>
-    <p style="color:var(--mist);margin:10px 0 16px">The workshop, hands-on team training, and adoption engagements — <a href="/#consulting">AI-native consulting for engineering teams</a>.</p>
-    <a class="cta" href="mailto:office@ngvoicu.dev?subject=AI-native%20consulting">Book a talk or an engagement →</a>
-    <div class="contact-line"><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a> · <a href="tel:+40734704910">+40 734 704 910</a></div>
+  <div class="wrap post">
+    <nav class="keep" aria-labelledby="keep-title">
+      <h2 id="keep-title">Keep reading</h2>
+      <ul>
+        <li><a href="/articles/the-sme-your-team-never-had/">The SME your team never had</a><span>June 2026</span></li>
+        <li><a href="/articles/specmint-html-specs/">AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree</a><span>June 2026</span></li>
+      </ul>
+      <a class="all" href="/articles/">All writing</a>
+    </nav>
   </div>
 
-  <footer>
-    <span><a href="/">ngvoicu.dev</a></span>
-    <span><a href="https://specmint.ngvoicu.dev">Specmint</a> · <a href="https://kluris.ngvoicu.dev">Kluris</a> · <a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></span>
-  </footer>
-</div>
+</main>
+
+<footer class="site-foot">
+  <img class="foot-sea" src="/images/sea/pencil-shore-strip-1200.webp" srcset="/images/sea/pencil-shore-strip-1200.webp 1200w, /images/sea/pencil-shore-strip-2400.webp 2400w" sizes="100vw" width="2400" height="140" alt="" loading="lazy" decoding="async">
+  <div class="wrap foot-grid">
+    <div class="foot-about" id="contact">
+      <a class="foot-sign" href="/"><span class="foot-sign-mark" aria-hidden="true"></span><span class="sr">Gabriel Voicu</span></a>
+      <p>Software Engineer since before AI. AI-Native Now.</p>
+      <p class="foot-mail"><!--email_off--><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a><!--/email_off--></p>
+      <p><a href="tel:+40734704910">+40 734 704 910</a></p>
+    </div>
+    <nav aria-labelledby="foot-pages">
+      <h2 id="foot-pages">Pages</h2>
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-oss">
+      <h2 id="foot-oss">Open source</h2>
+      <ul>
+        <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
+        <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
+        <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-else">
+      <h2 id="foot-else">Elsewhere</h2>
+      <ul>
+        <li><a href="https://github.com/ngvoicu">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ngvoicu/">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@CodeWithZee">YouTube</a></li>
+        <li><a href="https://medium.com/@ngvoicu">Medium</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  /* The Forge Play button. The diagram is still until Play is pressed; the trace then adds a class for the
+     length of the animation and nothing else, so nothing is ever hidden. Pause holds the trace where it is,
+     Play resumes it, and at the end the button returns to Play, which plays again. Under reduced motion the
+     button is hidden by CSS and the trace never runs. */
+  (function () {
+    var flow = document.querySelector("#forge-flow .aflow");
+    var btn = document.querySelector("#forge-flow .play");
+    if (!flow || !btn) return;
+    var text = btn.querySelector(".play-text");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function set(state) {
+      btn.setAttribute("data-state", state);
+      text.textContent = state === "running" ? "Pause" : "Play";
+      btn.setAttribute("aria-label", state === "running" ? "Pause the flow" : "Play the flow");
+      flow.classList.toggle("paused", state === "paused");
+    }
+    function stop() { flow.classList.remove("tracing"); set("idle"); }
+    btn.addEventListener("click", function () {
+      var state = btn.getAttribute("data-state");
+      if (reduce.matches) return stop();
+      if (state === "running") return set("paused");
+      if (state === "idle") { flow.classList.remove("tracing"); void flow.offsetWidth; flow.classList.add("tracing"); }
+      set("running");
+    });
+    var last = flow.querySelector("li:last-child .step");
+    if (last) last.addEventListener("animationend", stop);
+    if (reduce.addEventListener) reduce.addEventListener("change", function () { if (reduce.matches) stop(); });
+  })();
+</script>
+
 </body>
 </html>

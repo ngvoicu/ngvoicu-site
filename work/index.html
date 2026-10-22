@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Gabriel Voicu</title>
+<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta name="author" content="Gabriel Voicu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ngvoicu.dev/work/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ngvoicu.dev/work/">
+<meta property="og:title" content="Work">
+<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta property="og:site_name" content="Gabriel Voicu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ngvoicu.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gabriel Voicu, software engineer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work">
+<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta name="twitter:image" content="https://ngvoicu.dev/og.png">
+<meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
+
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://ngvoicu.dev/work/#page",
+      "url": "https://ngvoicu.dev/work/",
+      "name": "Work",
+      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://ngvoicu.dev/#website",
+        "url": "https://ngvoicu.dev/",
+        "name": "Gabriel Voicu"
+      },
+      "author": {
+        "@id": "https://ngvoicu.dev/#person"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ngvoicu.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://ngvoicu.dev/work/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ---------- Fonts: Figtree for all text, JetBrains Mono for code. OFL; files and licences in /fonts/. A face downloads only when a page uses its characters. ---------- */
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: normal; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Figtree"; font-style: italic; font-weight: 300 900; font-display: swap;
+    src: url("/fonts/figtree-italic-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap;
+    src: url("/fonts/jetbrains-mono-symbols.woff2") format("woff2");
+    unicode-range: U+2022, U+2026, U+2190-2199, U+21D2, U+21D4, U+2500-257F, U+25B6, U+25B8, U+25CF, U+2713, U+2717;
+  }
+
+  /* ---------- Tokens: light only, with no dark-mode rule anywhere. White paper, a green-black ink, a bottle-green pen and a sunny yellow. ---------- */
+  :root {
+    color-scheme: light;
+    --page: #FFFFFF;
+    --panel: #F1F7F4;
+    --text: #1D2A28;
+    --quiet: #52615D;
+    --rule: #D5E0DC;
+    --accent: #0B6B5D;
+    --sun: #F2C230;
+
+    --font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --fs-small: .875rem;
+    --fs-body: clamp(1.0625rem, 1rem + .2vw, 1.125rem);
+    --fs-lead: clamp(1.1875rem, 1.05rem + .55vw, 1.4375rem);
+    --fs-h3: 1.25rem;
+    --fs-h2: clamp(1.5rem, 1.35rem + .5vw, 1.75rem);
+    --fs-h1: clamp(2rem, 1.45rem + 2.4vw, 3rem);
+    --fs-display: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+
+    --wrap: 72rem;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --label-col: 12rem;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--text);
+    font: 400 var(--fs-body)/1.6 var(--font);
+    font-kerning: normal; text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+  p, ul, ol, figure, table, blockquote { margin: 0; }
+  img { max-width: 100%; height: auto; }
+  a {
+    color: var(--accent);
+    text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  a:hover { text-decoration-color: currentColor; text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: color-mix(in srgb, var(--sun) 55%, transparent); }
+  code, kbd, pre, samp { font-family: var(--mono); font-size: .875em; font-variant-ligatures: none; }
+
+  /* ---------- Shell: frame, skip link, buttons ---------- */
+  .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .skip {
+    position: absolute; left: var(--gutter); top: -4rem; z-index: 10;
+    padding: .5rem .875rem; background: var(--page); color: var(--accent); border: 2px solid var(--accent); border-radius: 4px;
+  }
+  .skip:focus { top: .75rem; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.75rem; margin-top: 1.75rem; font-weight: 600; }
+  .actions > a:not(.btn) { padding-block: .5rem; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem 1.25rem; border-radius: 999px;
+    background: var(--accent); color: var(--page); font-weight: 600; text-decoration: none;
+  }
+  .btn:hover { background: color-mix(in srgb, var(--accent) 80%, var(--text)); color: var(--page); }
+
+  /* ---------- Header: the ink stamp (a black-on-clear alpha mask, painted in the accent green by the background), the name and the motto under it ---------- */
+  .site-head { border-bottom: 1px solid var(--rule); }
+  .head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 2rem; padding-block: .75rem; }
+  .brand-box {
+    --name-size: 1.125rem; --motto-size: .8125rem; --mark-gap: .75rem;
+    --mark-h: calc(var(--name-size) * 1.3 + .125rem + var(--motto-size) * 1.35);
+    position: relative; padding-left: calc(var(--mark-h) + var(--mark-gap));
+  }
+  .brand {
+    display: block; width: fit-content;
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: var(--name-size); line-height: 1.3; letter-spacing: -.005em;
+  }
+  .brand:hover { color: var(--text); }
+  .brand-mark {
+    --mark: url("/images/brand/gv-stamp-mask.png"); --mark-ratio: 1 / 1;
+    position: absolute; left: 0; top: 0; height: var(--mark-h); aspect-ratio: var(--mark-ratio); background: var(--accent);
+    -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat;
+  }
+  .motto { margin: .125rem 0 0; font-size: var(--motto-size); line-height: 1.35; color: var(--quiet); }
+  .motto span { display: inline-block; }
+  @media (width < 22.5em) { .brand-box { --motto-size: .75rem; --mark-gap: .625rem; } }
+  .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.75rem; list-style: none; margin: 0; padding: 0; }
+  .site-nav a { display: inline-block; padding-block: .625rem; color: var(--quiet); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .site-nav a:hover { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .45em; }
+  .site-nav a[aria-current="page"] {
+    color: var(--text); text-decoration: underline; text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px; text-underline-offset: .45em;
+  }
+  @media (width >= 48em) { .head-row { flex-wrap: nowrap; } .brand-box { min-width: 0; } .site-nav { flex: none; } }
+  @media (width < 48em) {
+    .head-row { flex-direction: column; align-items: stretch; gap: 0; padding-block: .5rem 0; }
+    .site-nav ul { justify-content: space-between; gap: 0 .25rem; }
+    .site-nav a { font-size: .9375rem; }
+  }
+  @media (width < 22.5em) { .site-nav a { padding-block: .6875rem; font-size: .875rem; } }   /* 14px text, 44px tall: five items still fit on one line at 320 */
+
+  /* ---------- Sections: from 64em the section name hangs in a left column; the body fills the column beside it, to the wrap's right edge, with no measure of its own, and its long lines get a little more leading ---------- */
+  .section { padding-top: clamp(3.5rem, 7vw, 6rem); }
+  .sec-grid { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .sec-grid > h2 { font-size: var(--fs-h2); margin-bottom: 1.25rem; }
+  .sec-body { min-width: 0; line-height: 1.7; }
+  .prose > * + * { margin-top: 1em; }
+  @media (width >= 64em) {
+    .sec-grid { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .sec-grid > h2 { margin: 0; }
+  }
+
+  /* ---------- Footer: its first column is the contact block (#contact): his full-name signature, the motto, the email and the phone ---------- */
+  .site-foot { margin-top: clamp(4rem, 8vw, 6.5rem); font-size: var(--fs-small); color: var(--quiet); }
+  /* The footer opens with a thin slice of the home page's seashore (water, foam, sand) in place of a top rule: decorative (alt=""), lazy-loaded */
+  .foot-sea {
+    display: block; width: 100%; height: auto; opacity: .7;
+    /* faded at all four edges: the strip is cut from the middle of the drawing */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 65%, transparent);
+    mask-composite: intersect;
+  }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.75rem 2rem; padding-block: 2.25rem 2.75rem; }
+  .foot-about { grid-column: 1 / -1; max-width: 24rem; }
+  /* The signature links home. It is a black-on-clear image used as a mask on the inner span, so it takes the ink colour
+     and the link keeps its focus ring; 1x and 2x files. The name is the link's hidden text. */
+  .site-foot .foot-sign { display: block; width: 13rem; max-width: 100%; padding: 0; margin-bottom: .5rem; }
+  .foot-sign-mark {
+    display: block; aspect-ratio: 288 / 81; background: var(--text);
+    -webkit-mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat; mask: url("/images/brand/signature-full-mask@2x.png") left center / contain no-repeat;
+    -webkit-mask-image: -webkit-image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+    mask-image: image-set(url("/images/brand/signature-full-mask.png") 1x, url("/images/brand/signature-full-mask@2x.png") 2x);
+  }
+  @media (width < 40em) { .site-foot .foot-sign { width: 11rem; } }
+  .foot-mail { margin-top: .75rem; }
+  .site-foot .foot-mail a { color: var(--text); font-size: 1rem; font-weight: 600; overflow-wrap: anywhere; }
+  .site-foot h2 { font-size: var(--fs-small); font-weight: 650; color: var(--text); letter-spacing: 0; margin-bottom: .5rem; }
+  .site-foot ul { list-style: none; margin: 0; padding: 0; }
+  .site-foot a { display: inline-block; padding-block: .1875rem; color: var(--quiet); text-decoration: none; }
+  .site-foot a:hover { color: var(--text); text-decoration: underline; }
+  @media (width >= 64em) {
+    .foot-grid { grid-template-columns: var(--label-col) minmax(0, 1fr) repeat(3, minmax(0, 11rem)); column-gap: 3rem; }
+    .foot-about { grid-column: 1 / span 2; }
+  }
+
+  /* ---------- Motion and print (shared): links and buttons answer the pointer with colour only; reduced motion stops everything ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    a, .btn { transition: color .15s, background-color .15s, border-color .15s, text-decoration-color .15s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .site-nav, .skip { display: none !important; }
+  }
+
+  /* ---------- Inner pages: the title block. Inside a .wrap it starts on the wrap's left edge on every page, articles included, like the home page's name and the section names, and it may use the wrap's full width ---------- */
+  .page-head { padding-top: clamp(1.75rem, 5vw, 3.5rem); }
+  .crumbs ol { display: flex; flex-wrap: wrap; gap: 0 .5rem; list-style: none; margin: 0 0 1.25rem; padding: 0; font-size: var(--fs-small); color: var(--quiet); }
+  .crumbs li + li::before { content: "/" / ""; margin-right: .5rem; color: var(--rule); }
+  .crumbs a { color: var(--quiet); }
+  .crumbs a:hover { color: var(--text); }
+  .page-head h1 { font-size: var(--fs-h1); font-weight: 750; line-height: 1.1; letter-spacing: -.025em; }
+  .dateline { margin-top: .875rem; font-size: var(--fs-small); color: var(--quiet); }
+
+  /* ---------- Work: one item per case, with run-in labels (What it is, My part, Stack) and its links; hairlines between items ---------- */
+  .sec-grid > h2:has(.zs) { display: flex; align-items: center; gap: .625rem; }
+  .zs { flex: none; width: 1.75rem; height: 1.75rem; }
+  .sec-intro { color: var(--quiet); }
+  .sec-intro + .sec-intro { margin-top: .5rem; }
+  .item { margin-top: 2.25rem; }
+  .item + .item { padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+  .item h3 { font-size: var(--fs-h3); }
+  .item h3:has(.logo-tile) { display: flex; align-items: center; gap: .75rem; }
+  .item > * + * { margin-top: .875rem; }
+  /* ---------- Work items with an illustration: each item is its heading, an illustration (.item-art) and its text (.item-text). From 48em they sit on the home page's three equal columns and
+     2.5rem gap, the same as "What colleagues say" and the home Consulting section: the heading and the text take columns 1 and 2 and the
+     watercolour column 3, top-aligned with the heading and running down beside the text (about 2:1 up to 64em). Below 48em the illustration
+     sits under the heading, at most 20rem wide, left-aligned with the text. An ink-and-watercolour painting on white paper, no frame: its
+     ragged edges are the edge, so no border, radius or shadow. #earlier has no illustration; its text keeps columns 1 and 2. ---------- */
+  .item-text { min-width: 0; }
+  .item-text > * + * { margin-top: .875rem; }
+  .item-art { width: min(100%, 20rem); }
+  .item-art img { display: block; width: 100%; height: auto; }
+  @media (width >= 48em) {
+    .item { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: 2.5rem; align-items: start; }
+    .item > h3 { grid-column: 1 / span 2; grid-row: 1; }
+    .item-text { grid-column: 1 / span 2; grid-row: 2; }
+    .item > .item-art { grid-column: 3; grid-row: 1 / span 2; width: auto; margin-top: 0; }
+  }
+  .item ul:not(.item-links) { padding-left: 1.25rem; }
+  .item ul:not(.item-links) li + li { margin-top: .375rem; }
+  .item li::marker { color: var(--quiet); }
+  .item-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; padding: 0; font-weight: 550; }
+  .item-links a { display: inline-block; padding-block: .25rem; }
+  .item .quote { padding-left: 1rem; border-left: 3px solid var(--sun); }
+  .item .quote figcaption { margin-top: .5rem; color: var(--quiet); font-size: var(--fs-small); }
+  .item details summary { display: inline-block; padding-block: .25rem; color: var(--accent); font-weight: 550; cursor: pointer; }
+  .item details[open] summary { margin-bottom: .5rem; }
+  .variants { list-style: none; padding: 0; }
+  .item .variants li + li { margin-top: .75rem; }
+  .variants p { margin-top: .25rem; color: var(--quiet); font-size: var(--fs-small); }
+  .logo-tile {
+    flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px;
+    background: #021720; overflow: hidden;
+  }
+  .logo-tile img { width: auto; height: 1.75rem; }
+  .logo-tile.cf img { height: 2.25rem; }
+  /* ZeeSpire's tiles: each logo on its own light ground (white, or InYourMind's cream), baked into the image at the tile's
+     size, with a hairline on top so a white tile still reads on the white page */
+  .logo-tile.light { position: relative; background: #FFFFFF; }
+  /* an empty first item as tall as the dark tiles' logo, so a light tile has the same baseline and its row the same height */
+  .logo-tile.light::before { content: ""; grid-area: 1 / 1; width: 0; height: 1.75rem; }
+  .logo-tile.light img { grid-area: 1 / 1; width: 100%; height: 100%; }
+  .logo-tile.light::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--rule); }
+  /* Local horizontal scroll, for code blocks and tables. Shadows appear at an edge only while there is more to
+     scroll that way, and the scrollbar stays visible (Chromium and Safari draw a styled one even with overlay
+     scrollbars; Firefox gets a thin one). The page itself never scrolls sideways. */
+  pre, .tbl {
+    --bg: var(--page); --shade: rgb(29 42 40 / .18);
+    overflow-x: auto; overscroll-behavior-x: contain;
+    background:
+      linear-gradient(to right, var(--bg) 35%, transparent) left / 2.5rem 100% no-repeat local,
+      linear-gradient(to left, var(--bg) 35%, transparent) right / 2.5rem 100% no-repeat local,
+      linear-gradient(to right, var(--shade), transparent) left / .75rem 100% no-repeat scroll,
+      linear-gradient(to left, var(--shade), transparent) right / .75rem 100% no-repeat scroll,
+      var(--bg);
+  }
+  pre::-webkit-scrollbar, .tbl::-webkit-scrollbar { height: 8px; }
+  pre::-webkit-scrollbar-track, .tbl::-webkit-scrollbar-track { background: transparent; }
+  pre::-webkit-scrollbar-thumb, .tbl::-webkit-scrollbar-thumb { border-radius: 4px; background: #9AA8A3; }
+  @supports not selector(::-webkit-scrollbar) { pre, .tbl { scrollbar-width: thin; scrollbar-color: #9AA8A3 transparent; } }
+
+  /* Code. Blocks are <pre tabindex="0" role="region" aria-label="…"><code>…</code></pre>, so a keyboard user can scroll them;
+     pre.file[data-name] shows its file name in a header row; pre.term is a terminal, light like the rest, with the prompt in .o.
+     Inline code sits on the panel colour. Syntax colours, inside pre or code only: .k keyword, .s string, .c comment,
+     .p type or property, .o operator or prompt (each 4.9 : 1 or more on the panel). */
+  pre {
+    --bg: var(--panel);
+    margin: 0; padding: 1rem 1.125rem; border: 1px solid var(--rule); border-radius: 8px;
+    color: var(--text); font-size: .875rem; line-height: 1.55; tab-size: 4;
+  }
+  pre code { font-size: inherit; }
+  pre.file::before { content: attr(data-name); display: block; margin: -1rem -1.125rem .875rem; padding: .4375rem 1.125rem; border-bottom: 1px solid var(--rule); font-size: .75rem; color: var(--quiet); }
+  pre.term { border-left: 3px solid var(--text); }
+  :not(pre) > code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .875em; overflow-wrap: anywhere; }
+  kbd { padding: .05em .4em; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; font-size: .8125em; }
+  :is(pre, code) .k { color: #8A3FB8; } :is(pre, code) .s { color: #1F7A3A; } :is(pre, code) .c { color: #5E666F; }
+  :is(pre, code) .p { color: #1F5FBF; } :is(pre, code) .o { color: var(--quiet); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <div class="brand-box">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Gabriel Voicu</span></a>
+      <p class="motto"><span>Software Engineer since before AI.</span> <span>AI-Native Now.</span></p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/work/" aria-current="page">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap">
+    <header class="page-head">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Work</span></li>
+        </ol>
+      </nav>
+      <h1>Work</h1>
+    </header>
+  </div>
+
+  <section class="section" id="enterprise" aria-labelledby="enterprise-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="enterprise-title">Enterprise work</h2>
+      <div class="sec-body">
+        <p class="sec-intro">From my current role at a global technology company, and from earlier roles.</p>
+        <article class="item" id="remediation-agents" aria-labelledby="remediation-agents-title">
+          <h3 id="remediation-agents-title">Agents that fix security findings</h3>
+          <div class="item-art"><img src="/images/work/remediation-agents-800.webp" srcset="/images/work/remediation-agents-400.webp 400w, /images/work/remediation-agents-800.webp 800w, /images/work/remediation-agents-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A list of warnings goes to two small robots that patch a page of code, which then passes through a pipeline to a green check mark" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Security scanners find problems faster than teams can fix them, and most of the fixes are repetitive. On a cross-team initiative, we built agents that take a static-analysis finding all the way to a merge request and through the project’s pipeline. They now open merge requests for teams across the organization, and another team built them into its own agent platform.</p>
+            <p><strong>My part.</strong> I was one of the lead engineers. I built the remediation agents and shaped how they stay safe and how their work gets checked. Every finding is sorted first: the agent may fix it, a developer gets guidance for the fix, or it’s outside what the agent may touch. The security owners carry the risk, so we agreed with them what the agent may do on its own. The model has no credentials and can’t push code; plain, deterministic code does those steps. Tool checks and a separate verification agent look at every fix, and a failed check guides the next attempt. Then a second loop works on whatever breaks in the project’s own CI.</p>
+            <figure class="quote"><blockquote><p>“The challenge was not simply to have AI generate a fix, but to build a workflow that engineering and security could trust.”</p></blockquote><figcaption>Director of software engineering and distinguished engineer, about automating vulnerability fixes</figcaption></figure>
+            <p><strong>Stack:</strong> AI agents, static analysis, merge requests, CI pipelines.</p>
+          </div>
+        </article>
+        <article class="item" id="security" aria-labelledby="security-title">
+          <h3 id="security-title">The shared security library and SDK</h3>
+          <div class="item-art"><img src="/images/work/security-sdk-800.webp" srcset="/images/work/security-sdk-400.webp 400w, /images/work/security-sdk-800.webp 800w, /images/work/security-sdk-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A tangle of separate gatekeeper boxes fades away behind a tidy grid of six services, each with the same small shield and lock inside" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> My department’s services used to check security in different places: in proxies in front of them, and in small services that did nothing but validate requests. Every fix had to be made more than once. Now one library inside each service does it, with an annotation for each kind of authentication, from OpenID Connect with enterprise identity providers to HMAC between services, device validation and role checks. The same endpoint can serve clients that send different kinds of tokens.</p>
+            <p><strong>My part.</strong> With a colleague, I rewrote the library and integrated the identity providers into it. I led the work on the SDK around it, which puts security, auditing, error handling and secrets in one place, with a shared bill of materials so dependency upgrades happen once for every service. I proposed moving the checks out of the proxies and into the services, then delivered the change and removed the proxy layer. The rewrite helped close findings from penetration tests and let us retire the validation services. Separately, I built a proof of concept for securing Java applications with OAuth, and another part of the company adopted it for all of its Java applications.</p>
+            <figure class="quote"><blockquote><p>“Excellent work rewriting the Security Library covering multiple authentication and authorization needs in a single library which can be integrated to any application to secure the endpoints.”</p></blockquote><figcaption>A senior colleague, about the library a colleague and I rewrote</figcaption></figure>
+            <p><strong>Stack:</strong> OAuth 2.0, OpenID Connect, JWT, HMAC, Vault for secrets, a shared bill of materials.</p>
+          </div>
+        </article>
+        <article class="item" id="platform-agents" aria-labelledby="platform-agents-title">
+          <h3 id="platform-agents-title">MCP agents for an internal platform</h3>
+          <div class="item-art"><img src="/images/work/platform-agents-800.webp" srcset="/images/work/platform-agents-400.webp 400w, /images/work/platform-agents-800.webp 800w, /images/work/platform-agents-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A person at a laptop asks a question in a speech bubble; a coordinator robot passes it to three worker robots, each plugged into a different service" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Agents in front of an internal platform, so teams can ask for what they need in plain language. The platform has many capabilities, each behind its own API, and every team that used it had to learn them one at a time. This was the first multi-agent setup in that stack.</p>
+            <p><strong>My part.</strong> I built it: MCP servers in front of two of the platform’s services, a worker agent for each, and an orchestrator agent that keeps the session and coordinates them. Calls are authenticated, with tokens checked against the identity provider’s published keys, and audit-logged. On my own initiative I also built a desktop tool for the Kubernetes clusters our services run on: sign-in across clusters, the logs of every pod in a deployment in one filtered view, AI agents to help read them, and a read-only mode. It does the work of two tools developers used to switch between.</p>
+            <p><strong>Stack:</strong> MCP, multi-agent orchestration, JWT and JWKS, audit logging, Kubernetes.</p>
+          </div>
+        </article>
+        <article class="item" id="ai-native" aria-labelledby="ai-native-title">
+          <h3 id="ai-native-title">Moving a department to AI-native work</h3>
+          <div class="item-art"><img src="/images/work/ai-native-800.webp" srcset="/images/work/ai-native-400.webp 400w, /images/work/ai-native-800.webp 800w, /images/work/ai-native-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Four colleagues around a table with laptops and a shared checklist, helped by two small robots" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> When generative AI arrived, a few people in my department tried it on the side. Some worried it would replace them. Others didn’t trust AI-written code in production. Both worries were fair. Today spec-driven development is the department’s standard way of building software with AI.</p>
+            <p><strong>My part.</strong> I was given the role of driving the move. Before I asked anyone to adopt spec-driven development, I proved it on a real modernization project, with Specmint and later Kluris. I made it a one-command install, answered questions in a channel set up for them, and gave talks and hands-on demos, tailored to other teams’ applications when they asked. I also wrote a skill, tested by its own evaluation suite, that teaches coding agents the company’s design-system components, and curated knowledge bases for the systems we own. When the whole department had to pick up Go, I set up a coding dojo and we learned it together.</p>
+            <p><strong>Stack:</strong> Specmint, Kluris, spec-driven development, agent skills with evaluation suites.</p>
+            <ul class="item-links"><li><a href="/consulting/">Consulting</a></li><li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="modernization" aria-labelledby="modernization-title">
+          <h3 id="modernization-title">Rebuilding the services that deliver software to devices</h3>
+          <div class="item-art"><img src="/images/work/modernization-800.webp" srcset="/images/work/modernization-400.webp 400w, /images/work/modernization-800.webp 800w, /images/work/modernization-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A tangle of old wiring fades out behind three clean service blocks that send small packages to a sensor, a box-like device and a screen" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> The services I work on send software and files out to devices in the field. When something goes wrong there, customers feel it, and issues used to be fixed one at a time as they came in. We rebuilt the services on a simpler architecture with clearer, reusable API contracts. They’re now simpler to run and to change.</p>
+            <p><strong>My part.</strong> I analyzed the components and recommended the rebuild, then built many of the new services myself: access, upload, retrieval, audit, email and antivirus scanning, several with reusable clients. I moved the gateway from Zuul to Spring Cloud Gateway, with caching and a Spring Security upgrade, added pagination where consumers needed it, and retired old endpoints in stages so no consumer broke. Along the way we moved the services to the company’s Kubernetes platform, and I helped build a shared OpenTelemetry logging framework. I also worked on modernizing a log-processing suite and helped design a multi-year migration of stored data between storage platforms.</p>
+            <p><strong>Stack:</strong> Spring Cloud Gateway, Spring Security, Kubernetes, OpenTelemetry, Angular, Python, Kafka.</p>
+          </div>
+        </article>
+        <article class="item" id="earlier" aria-labelledby="earlier-title">
+          <h3 id="earlier-title">Earlier work</h3>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Two earlier roles, in 2020 and 2021.</p>
+            <p><strong>My part.</strong></p>
+            <ul><li>In 2020, at the same technology company, we built tools for configuring enterprise storage systems and delivered one in time for its product’s launch. I brought its data import down from 40 minutes to under 40 seconds with careful Hibernate and JPA work.</li><li>In 2021, at a financial-services company, I rebuilt the microservice template that new services started from, with modern patterns, standard configuration and tests built in, and wrote a generator that set up a new service in minutes. I also re-engineered two troublesome services, including a move to a different database.</li></ul>
+            <p><strong>Stack:</strong> Java, Hibernate and JPA, microservices.</p>
+          </div>
+        </article>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="zeespire" aria-labelledby="zeespire-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="zeespire-title"><svg class="zs" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 54 L46 26 L51 30 L69 4 L92 50 L54 78 L74 46 L66 29 L62 35 Z"/><path d="M56 49 L33 87 L85 81 L96 95 L4 95 Z"/></svg>ZeeSpire</h2>
+      <div class="sec-body">
+        <p class="sec-intro" id="freelance-java"><a href="https://zeespire.com/">ZeeSpire</a> is my software company, which I co-founded. It started in 2016, when I began taking on Java work as a freelancer. Today we build AI integrations and custom software for clients, and products of our own.</p>
+        <article class="item" id="atlas" aria-labelledby="atlas-title">
+          <h3 id="atlas-title"><span class="logo-tile light"><img src="/images/brand/atlas-tile-36.webp" srcset="/images/brand/atlas-tile-36.webp 1x, /images/brand/atlas-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>Atlas</h3>
+          <div class="item-art"><img src="/images/work/atlas-800.webp" srcset="/images/work/atlas-400.webp 400w, /images/work/atlas-800.webp 800w, /images/work/atlas-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Three documents pulled from a stack of papers feed the answer in a chat window" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> An enterprise chat assistant built on retrieval-augmented generation, with multi-stage retrieval.</p>
+            <p><strong>My part.</strong> It’s one of my own products. I built it end to end.</p>
+            <p><strong>Stack:</strong> Google Agent Development Kit for the agents, Qdrant for vector search, Keycloak for sign-in.</p>
+          </div>
+        </article>
+        <article class="item" id="burn-the-burnout" aria-labelledby="burn-the-burnout-title">
+          <h3 id="burn-the-burnout-title"><span class="logo-tile light"><img src="/images/brand/burn-the-burnout-tile-36.webp" srcset="/images/brand/burn-the-burnout-tile-36.webp 1x, /images/brand/burn-the-burnout-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>Burn The Burnout</h3>
+          <div class="item-art"><img src="/images/work/burn-the-burnout-800.webp" srcset="/images/work/burn-the-burnout-400.webp 400w, /images/work/burn-the-burnout-800.webp 800w, /images/work/burn-the-burnout-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A short check-in form beside a gauge running from yellow to green, with a rising trend line and a potted plant" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> A platform for regular wellbeing check-ins, burnout risk tracking and follow-up support at work. Employees answer short questionnaires and get scores, a color-coded risk level and personal recommendations. When the risk is high, it can suggest or start a structured support plan with activities over a set period. Managers see risk levels and trends for their direct reports, and HR sees teams and the organization as heatmaps. Those views show scores and risk levels, without individual questionnaire responses. An in-app assistant answers questions about the platform and burnout from a curated knowledge base, with access scoped to the person’s role.</p>
+            <p><strong>My part.</strong> It’s my product. I designed it, built it end to end and run it in production, and I make its product and engineering decisions. I designed it around separate company tenants, with tenant-scoped queries, database constraints, and privileged-role checks against both the token and the database. The evaluation flow includes backend checks for explicit employee consent. I designed the assistant to stay within its source material, say when it doesn’t know, and avoid diagnosis. It’s live at burntheburnout.ro, in Romanian and English.</p>
+            <p><strong>Stack:</strong> Kotlin, Spring Boot 4, PostgreSQL, Next.js 16, React 19, Keycloak, a small TypeScript service for the assistant, Testcontainers.</p>
+            <ul class="item-links"><li><a href="https://burntheburnout.ro/en">Visit burntheburnout.ro</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="inyourmind" aria-labelledby="inyourmind-title">
+          <h3 id="inyourmind-title"><span class="logo-tile light"><img src="/images/brand/inyourmind-tile-36.webp" srcset="/images/brand/inyourmind-tile-36.webp 1x, /images/brand/inyourmind-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>InYourMind</h3>
+          <div class="item-art"><img src="/images/work/inyourmind-800.webp" srcset="/images/work/inyourmind-400.webp 400w, /images/work/inyourmind-800.webp 800w, /images/work/inyourmind-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A comfortable armchair beside a simple web page with a contact form, and an envelope flying out of it" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> A presentation and intake site for a psychotherapy and psychiatry practice, in Romanian and English. Visitors find the practice and send an intake or contact request, which reaches the practice by email. There is no application database.</p>
+            <p><strong>My part.</strong> We built it at ZeeSpire.</p>
+            <p><strong>Stack:</strong> Astro, as a static site on Cloudflare Pages, with forms sent through Resend.</p>
+            <ul class="item-links"><li><a href="https://inyourmind.ro">Visit inyourmind.ro</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="talks" aria-labelledby="talks-title">
+          <h3 id="talks-title"><span class="logo-tile light"><img src="/images/brand/talks-tile-36.webp" srcset="/images/brand/talks-tile-36.webp 1x, /images/brand/talks-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>AI-native talks and consulting</h3>
+          <div class="item-art"><img src="/images/consulting/workshop-800.webp" srcset="/images/consulting/workshop-400.webp 400w, /images/consulting/workshop-800.webp 800w, /images/consulting/workshop-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Gabriel at a whiteboard, running a workshop for a small team of developers" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Talks and workshops, from “what is an LLM?” all the way to AI-native companies, software factories and AgentOS, and hands-on training for developers.</p>
+            <p><strong>My part.</strong> I give them myself, on-site or remotely, and I can join a team and set it up in its own repositories.</p>
+            <ul class="item-links"><li><a href="/consulting/">Consulting</a></li><li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li></ul>
+          </div>
+        </article>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="open-source" aria-labelledby="open-source-title">
+    <div class="wrap"><div class="sec-grid">
+      <h2 id="open-source-title">Open source</h2>
+      <div class="sec-body">
+        <p class="sec-intro">Three MIT-licensed tools for AI coding agents, all from 2026. I wrote them and use them in my own work.</p>
+        <article class="item" id="specmint" aria-labelledby="specmint-title">
+          <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" decoding="async"></span>Specmint</h3>
+          <div class="item-art"><img src="/images/work/specmint-800.webp" srcset="/images/work/specmint-400.webp 400w, /images/work/specmint-800.webp 800w, /images/work/specmint-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Two hands pass a checklist document from one terminal window to another, like a baton" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Coding agents lose their plan when the session ends. Specmint keeps it. It researches your codebase, interviews you, then writes a spec with phases, tasks, a decision log and resume context into <code>.specs/</code>. The next session picks it up, in whichever tool you open.</p>
+            <p><strong>My part.</strong> I wrote it. It comes as four skills: core and test-first, each writing specs as Markdown or HTML. The test-first variants work red, green, refactor.</p>
+            <p><strong>Stack:</strong> Agent Skills. Works with Claude Code, Codex, Cursor, Windsurf, Cline and Gemini CLI.</p>
+            <p><strong>Install:</strong></p>
+            <pre tabindex="0" role="region" aria-label="Install command for specmint-core"><code>npx skills add ngvoicu/specmint-core -g</code></pre>
+            <details><summary>Three more variants</summary><ul class="variants"><li><pre tabindex="0" role="region" aria-label="Install command for specmint-tdd"><code>npx skills add ngvoicu/specmint-tdd -g</code></pre><p>Test-first.</p></li><li><pre tabindex="0" role="region" aria-label="Install command for specmint-core-html"><code>npx skills add ngvoicu/specmint-core-html -g</code></pre><p>Specs as HTML, with diagrams, diffs and mockups.</p></li><li><pre tabindex="0" role="region" aria-label="Install command for specmint-tdd-html"><code>npx skills add ngvoicu/specmint-tdd-html -g</code></pre><p>Test-first, as HTML.</p></li></ul></details>
+            <ul class="item-links"><li><a href="https://specmint.ngvoicu.dev">specmint.ngvoicu.dev</a></li><li><a href="/articles/specmint-persistent-ai-coding-specs/">The article</a></li><li><a href="https://www.youtube.com/watch?v=QSI-C57bt78">The video</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="kluris" aria-labelledby="kluris-title">
+          <h3 id="kluris-title"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span>Kluris</h3>
+          <div class="item-art"><img src="/images/work/kluris-800.webp" srcset="/images/work/kluris-400.webp 400w, /images/work/kluris-800.webp 800w, /images/work/kluris-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A brain drawn as linked note cards, with three robot terminals reading from it and a person ticking a new note with a check mark" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> Agents start every session knowing nothing about your team. Kluris gives them one shared brain: a git repository of Markdown notes, organized as lobes, neurons and synapses, that agents search with ranked keyword search. Agents propose new knowledge, and a person approves every write.</p>
+            <p><strong>My part.</strong> I wrote it. It’s a Python CLI that installs a skill for each brain in nine coding agents, among them Claude Code, Codex, Cursor and Copilot.</p>
+            <p><strong>Stack:</strong> Python, Markdown in git, BM25 keyword search.</p>
+            <p><strong>Install:</strong></p>
+            <pre tabindex="0" role="region" aria-label="Install command for Kluris"><code>pipx install kluris</code></pre>
+            <ul class="item-links"><li><a href="https://kluris.ngvoicu.dev">kluris.ngvoicu.dev</a></li><li><a href="/articles/the-sme-your-team-never-had/">The article</a></li><li><a href="https://www.youtube.com/watch?v=ei1F0ZbNX3o">The video</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="consensflow" aria-labelledby="consensflow-title">
+          <h3 id="consensflow-title"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span>ConsensFlow</h3>
+          <div class="item-art"><img src="/images/work/consensflow-800.webp" srcset="/images/work/consensflow-400.webp 400w, /images/work/consensflow-800.webp 800w, /images/work/consensflow-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A person at a board of task cards, handing cards to three terminal windows: a coding robot, a reviewer with a magnifier and a tester with a check mark" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> A desktop app that runs a team of AI coding agents on your project. You talk to a Chief of Staff, which plans the work and puts tasks on a board. Workers do the tasks, advisors answer questions, reviewers check the work and testers run it, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin. It works with your own logins, stores no passwords and needs no API keys. You can make every message between agents wait for your approval.</p>
+            <p><strong>My part.</strong> I wrote it. It started in July 2026 as a Claude Code plugin and a Pi extension that let your agent ask a different model for a second opinion. It’s now this desktop app.</p>
+            <p><strong>Stack:</strong> Rust, Tauri, xterm.js. Runs on a Mac with Apple silicon (macOS 13.5 or later) and on Windows 10 or 11, 64-bit.</p>
+            <ul class="item-links"><li><a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a></li><li><a href="https://github.com/ngvoicu/consensflow/releases">Download for Mac or Windows</a></li><li><a href="https://github.com/ngvoicu/consensflow">Source on GitHub</a></li></ul>
+          </div>
+        </article>
+      </div>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <img class="foot-sea" src="/images/sea/pencil-shore-strip-1200.webp" srcset="/images/sea/pencil-shore-strip-1200.webp 1200w, /images/sea/pencil-shore-strip-2400.webp 2400w" sizes="100vw" width="2400" height="140" alt="" loading="lazy" decoding="async">
+  <div class="wrap foot-grid">
+    <div class="foot-about" id="contact">
+      <a class="foot-sign" href="/"><span class="foot-sign-mark" aria-hidden="true"></span><span class="sr">Gabriel Voicu</span></a>
+      <p>Software Engineer since before AI. AI-Native Now.</p>
+      <p class="foot-mail"><!--email_off--><a href="mailto:office@ngvoicu.dev">office@ngvoicu.dev</a><!--/email_off--></p>
+      <p><a href="tel:+40734704910">+40 734 704 910</a></p>
+    </div>
+    <nav aria-labelledby="foot-pages">
+      <h2 id="foot-pages">Pages</h2>
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/articles/">Writing</a></li>
+        <li><a href="/consulting/">Consulting</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/becoming-an-ai-native-company/">The AI-native guide</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-oss">
+      <h2 id="foot-oss">Open source</h2>
+      <ul>
+        <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
+        <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
+        <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="foot-else">
+      <h2 id="foot-else">Elsewhere</h2>
+      <ul>
+        <li><a href="https://github.com/ngvoicu">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ngvoicu/">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@CodeWithZee">YouTube</a></li>
+        <li><a href="https://medium.com/@ngvoicu">Medium</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

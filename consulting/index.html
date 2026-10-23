@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Consulting — Gabriel Voicu</title>
+<title>AI-native consulting and workshops — Gabriel Voicu</title>
 <meta name="description" content="I help engineering teams build software with coding agents: talks, workshops, hands-on training and setting up AI-native workflows in your repositories.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -11,7 +11,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/consulting/">
-<meta property="og:title" content="Consulting">
+<meta property="og:title" content="AI-native consulting and workshops">
 <meta property="og:description" content="I help engineering teams build software with coding agents: talks, workshops, hands-on training and setting up AI-native workflows in your repositories.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Consulting">
+<meta name="twitter:title" content="AI-native consulting and workshops">
 <meta name="twitter:description" content="I help engineering teams build software with coding agents: talks, workshops, hands-on training and setting up AI-native workflows in your repositories.">
 <meta name="twitter:image" content="https://ngvoicu.dev/og.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
@@ -53,23 +53,28 @@
         "@id": "https://ngvoicu.dev/consulting/#service"
       },
       "author": {
-        "@id": "https://ngvoicu.dev/#person"
+        "@type": "Person",
+        "@id": "https://ngvoicu.dev/#person",
+        "name": "Gabriel Voicu",
+        "url": "https://ngvoicu.dev/"
       }
     },
     {
-      "@type": "ProfessionalService",
+      "@type": "Service",
       "@id": "https://ngvoicu.dev/consulting/#service",
       "name": "Gabriel Voicu, consulting for engineering teams",
       "url": "https://ngvoicu.dev/consulting/",
-      "email": "mailto:office@ngvoicu.dev",
-      "telephone": "+40 734 704 910",
+      "description": "Talks and workshops, hands-on training for developers, and setting up coding agents in a team's repositories.",
       "serviceType": [
         "Talks and workshops",
         "Hands-on training for developers",
         "Setting up coding agents in a team's repositories"
       ],
       "provider": {
-        "@id": "https://ngvoicu.dev/#person"
+        "@type": "Person",
+        "@id": "https://ngvoicu.dev/#person",
+        "name": "Gabriel Voicu",
+        "url": "https://ngvoicu.dev/"
       }
     },
     {
@@ -571,16 +576,16 @@
             <div class="step mixed"><span class="no" aria-hidden="true">3</span> <span class="label">Write Spec</span> <span class="sub">research, interview</span> <span class="sub">one LLM, e.g. Claude Opus</span> <span class="role">Author LLM + Human</span></div>
             <span class="drop" aria-hidden="true"></span>
             <div class="tools">
-              <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
+              <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
               <span class="tool-link" aria-hidden="true"></span>
-              <a class="tool" href="https://specmint.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" decoding="async"></span><span><span class="wm">Specmint</span> <span class="tag">spec engine</span></span></a>
+              <a class="tool" href="https://specmint.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" loading="lazy" decoding="async"></span><span><span class="wm">Specmint</span> <span class="tag">spec engine</span></span></a>
             </div>
           </li>
           <li class="tr" style="--i:3">
             <div class="step gate"><span class="no" aria-hidden="true">4</span> <span class="label">Review Spec</span> <span class="sub">1–4 fresh LLM sessions</span> <span class="role">Adversarial review</span></div>
             <span class="drop" aria-hidden="true"></span>
             <div class="tools">
-              <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
+              <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
             </div>
           </li>
           <li style="--i:4"><div class="step ai"><span class="no" aria-hidden="true">5</span> <span class="label">Implement <br>+ Tests</span> <span class="sub">accepted feedback</span> <span class="role">Author LLM</span></div></li>
@@ -589,7 +594,7 @@
             <div class="step gate"><span class="no" aria-hidden="true">7</span> <span class="label">Review <br>Implementation</span> <span class="sub">1–4 fresh LLM sessions</span> <span class="role">Adversarial review</span></div>
             <span class="drop" aria-hidden="true"></span>
             <div class="tools">
-              <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
+              <div class="tool cf"><a class="cf-head" href="https://consensflow.ngvoicu.dev"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span><span class="wm">ConsensFlow</span></a><ul class="pills" aria-label="Example reviewer models"><li>GPT 5.5</li><li>DeepSeek 4.3 Pro</li><li>Claude Fable</li><li>Claude Opus</li></ul></div>
             </div>
           </li>
           <li style="--i:7"><div class="step cicd"><span class="no" aria-hidden="true">8</span> <span class="label">Run Tests <br>CI / CD</span> <span class="role">CI/CD</span></div></li>
@@ -597,7 +602,7 @@
             <div class="step mixed"><span class="no" aria-hidden="true">9</span> <span class="label">Update <br>Memory</span> <span class="sub">knowledge base</span> <span class="role">AI-assisted Human</span></div>
             <span class="drop" aria-hidden="true"></span>
             <div class="tools">
-              <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
+              <a class="tool" href="https://kluris.ngvoicu.dev"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span><span><span class="wm">Kluris</span> <span class="tag">memory brain</span></span></a>
             </div>
           </li>
           <li style="--i:9"><div class="step human"><span class="no" aria-hidden="true">10</span> <span class="label">Archive <br>Spec</span> <span class="role">Human</span></div></li>

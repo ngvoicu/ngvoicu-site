@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work — Gabriel Voicu</title>
+<title>Work: AI agents, ZeeSpire and open source — Gabriel Voicu</title>
 <meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -11,7 +11,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/work/">
-<meta property="og:title" content="Work">
+<meta property="og:title" content="Work: AI agents, ZeeSpire and open source">
 <meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Work">
+<meta name="twitter:title" content="Work: AI agents, ZeeSpire and open source">
 <meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
 <meta name="twitter:image" content="https://ngvoicu.dev/og.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
@@ -50,7 +50,10 @@
         "name": "Gabriel Voicu"
       },
       "author": {
-        "@id": "https://ngvoicu.dev/#person"
+        "@type": "Person",
+        "@id": "https://ngvoicu.dev/#person",
+        "name": "Gabriel Voicu",
+        "url": "https://ngvoicu.dev/"
       }
     },
     {
@@ -405,7 +408,7 @@
         <p class="sec-intro">From my current role at a global technology company, and from earlier roles.</p>
         <article class="item" id="remediation-agents" aria-labelledby="remediation-agents-title">
           <h3 id="remediation-agents-title">Agents that fix security findings</h3>
-          <div class="item-art"><img src="/images/work/remediation-agents-800.webp" srcset="/images/work/remediation-agents-400.webp 400w, /images/work/remediation-agents-800.webp 800w, /images/work/remediation-agents-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A list of warnings goes to two small robots that patch a page of code, which then passes through a pipeline to a green check mark" loading="lazy" decoding="async"></div>
+          <div class="item-art"><img src="/images/work/remediation-agents-800.webp" srcset="/images/work/remediation-agents-400.webp 400w, /images/work/remediation-agents-800.webp 800w, /images/work/remediation-agents-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A list of warnings goes to two small robots that patch a page of code, which then passes through a pipeline to a green check mark" fetchpriority="high" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> Security scanners find problems faster than teams can fix them, and most of the fixes are repetitive. On a cross-team initiative, we built agents that take a static-analysis finding all the way to a merge request and through the project’s pipeline. They now open merge requests for teams across the organization, and another team built them into its own agent platform.</p>
             <p><strong>My part.</strong> I was one of the lead engineers. I built the remediation agents and shaped how they stay safe and how their work gets checked. Every finding is sorted first: the agent may fix it, a developer gets guidance for the fix, or it’s outside what the agent may touch. The security owners carry the risk, so we agreed with them what the agent may do on its own. The model has no credentials and can’t push code; plain, deterministic code does those steps. Tool checks and a separate verification agent look at every fix, and a failed check guides the next attempt. Then a second loop works on whatever breaks in the project’s own CI.</p>
@@ -470,7 +473,7 @@
       <div class="sec-body">
         <p class="sec-intro" id="freelance-java"><a href="https://zeespire.com/">ZeeSpire</a> is my software company, which I co-founded. It started in 2016, when I began taking on Java work as a freelancer. Today we build AI integrations and custom software for clients, and products of our own.</p>
         <article class="item" id="atlas" aria-labelledby="atlas-title">
-          <h3 id="atlas-title"><span class="logo-tile light"><img src="/images/brand/atlas-tile-36.webp" srcset="/images/brand/atlas-tile-36.webp 1x, /images/brand/atlas-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>Atlas</h3>
+          <h3 id="atlas-title"><span class="logo-tile light"><img src="/images/brand/atlas-tile-36.webp" srcset="/images/brand/atlas-tile-36.webp 1x, /images/brand/atlas-tile-72.webp 2x" width="36" height="36" alt="" loading="lazy" decoding="async"></span>Atlas</h3>
           <div class="item-art"><img src="/images/work/atlas-800.webp" srcset="/images/work/atlas-400.webp 400w, /images/work/atlas-800.webp 800w, /images/work/atlas-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Three documents pulled from a stack of papers feed the answer in a chat window" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> An enterprise chat assistant built on retrieval-augmented generation, with multi-stage retrieval.</p>
@@ -479,7 +482,7 @@
           </div>
         </article>
         <article class="item" id="burn-the-burnout" aria-labelledby="burn-the-burnout-title">
-          <h3 id="burn-the-burnout-title"><span class="logo-tile light"><img src="/images/brand/burn-the-burnout-tile-36.webp" srcset="/images/brand/burn-the-burnout-tile-36.webp 1x, /images/brand/burn-the-burnout-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>Burn The Burnout</h3>
+          <h3 id="burn-the-burnout-title"><span class="logo-tile light"><img src="/images/brand/burn-the-burnout-tile-36.webp" srcset="/images/brand/burn-the-burnout-tile-36.webp 1x, /images/brand/burn-the-burnout-tile-72.webp 2x" width="36" height="36" alt="" loading="lazy" decoding="async"></span>Burn The Burnout</h3>
           <div class="item-art"><img src="/images/work/burn-the-burnout-800.webp" srcset="/images/work/burn-the-burnout-400.webp 400w, /images/work/burn-the-burnout-800.webp 800w, /images/work/burn-the-burnout-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A short check-in form beside a gauge running from yellow to green, with a rising trend line and a potted plant" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> A platform for regular wellbeing check-ins, burnout risk tracking and follow-up support at work. Employees answer short questionnaires and get scores, a color-coded risk level and personal recommendations. When the risk is high, it can suggest or start a structured support plan with activities over a set period. Managers see risk levels and trends for their direct reports, and HR sees teams and the organization as heatmaps. Those views show scores and risk levels, without individual questionnaire responses. An in-app assistant answers questions about the platform and burnout from a curated knowledge base, with access scoped to the person’s role.</p>
@@ -489,7 +492,7 @@
           </div>
         </article>
         <article class="item" id="inyourmind" aria-labelledby="inyourmind-title">
-          <h3 id="inyourmind-title"><span class="logo-tile light"><img src="/images/brand/inyourmind-tile-36.webp" srcset="/images/brand/inyourmind-tile-36.webp 1x, /images/brand/inyourmind-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>InYourMind</h3>
+          <h3 id="inyourmind-title"><span class="logo-tile light"><img src="/images/brand/inyourmind-tile-36.webp" srcset="/images/brand/inyourmind-tile-36.webp 1x, /images/brand/inyourmind-tile-72.webp 2x" width="36" height="36" alt="" loading="lazy" decoding="async"></span>InYourMind</h3>
           <div class="item-art"><img src="/images/work/inyourmind-800.webp" srcset="/images/work/inyourmind-400.webp 400w, /images/work/inyourmind-800.webp 800w, /images/work/inyourmind-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A comfortable armchair beside a simple web page with a contact form, and an envelope flying out of it" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> A presentation and intake site for a psychotherapy and psychiatry practice, in Romanian and English. Visitors find the practice and send an intake or contact request, which reaches the practice by email. There is no application database.</p>
@@ -499,7 +502,7 @@
           </div>
         </article>
         <article class="item" id="talks" aria-labelledby="talks-title">
-          <h3 id="talks-title"><span class="logo-tile light"><img src="/images/brand/talks-tile-36.webp" srcset="/images/brand/talks-tile-36.webp 1x, /images/brand/talks-tile-72.webp 2x" width="36" height="36" alt="" decoding="async"></span>AI-native talks and consulting</h3>
+          <h3 id="talks-title"><span class="logo-tile light"><img src="/images/brand/talks-tile-36.webp" srcset="/images/brand/talks-tile-36.webp 1x, /images/brand/talks-tile-72.webp 2x" width="36" height="36" alt="" loading="lazy" decoding="async"></span>AI-native talks and consulting</h3>
           <div class="item-art"><img src="/images/consulting/workshop-800.webp" srcset="/images/consulting/workshop-400.webp 400w, /images/consulting/workshop-800.webp 800w, /images/consulting/workshop-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Gabriel at a whiteboard, running a workshop for a small team of developers" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> Talks and workshops, from “what is an LLM?” all the way to AI-native companies, software factories and AgentOS, and hands-on training for developers.</p>
@@ -517,7 +520,7 @@
       <div class="sec-body">
         <p class="sec-intro">Three MIT-licensed tools for AI coding agents, all from 2026. I wrote them and use them in my own work.</p>
         <article class="item" id="specmint" aria-labelledby="specmint-title">
-          <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" decoding="async"></span>Specmint</h3>
+          <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" loading="lazy" decoding="async"></span>Specmint</h3>
           <div class="item-art"><img src="/images/work/specmint-800.webp" srcset="/images/work/specmint-400.webp 400w, /images/work/specmint-800.webp 800w, /images/work/specmint-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Two hands pass a checklist document from one terminal window to another, like a baton" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> Coding agents lose their plan when the session ends. Specmint keeps it. It researches your codebase, interviews you, then writes a spec with phases, tasks, a decision log and resume context into <code>.specs/</code>. The next session picks it up, in whichever tool you open.</p>
@@ -530,7 +533,7 @@
           </div>
         </article>
         <article class="item" id="kluris" aria-labelledby="kluris-title">
-          <h3 id="kluris-title"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span>Kluris</h3>
+          <h3 id="kluris-title"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span>Kluris</h3>
           <div class="item-art"><img src="/images/work/kluris-800.webp" srcset="/images/work/kluris-400.webp 400w, /images/work/kluris-800.webp 800w, /images/work/kluris-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A brain drawn as linked note cards, with three robot terminals reading from it and a person ticking a new note with a check mark" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> Agents start every session knowing nothing about your team. Kluris gives them one shared brain: a git repository of Markdown notes, organized as lobes, neurons and synapses, that agents search with ranked keyword search. Agents propose new knowledge, and a person approves every write.</p>
@@ -542,7 +545,7 @@
           </div>
         </article>
         <article class="item" id="consensflow" aria-labelledby="consensflow-title">
-          <h3 id="consensflow-title"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span>ConsensFlow</h3>
+          <h3 id="consensflow-title"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></span>ConsensFlow</h3>
           <div class="item-art"><img src="/images/work/consensflow-800.webp" srcset="/images/work/consensflow-400.webp 400w, /images/work/consensflow-800.webp 800w, /images/work/consensflow-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A person at a board of task cards, handing cards to three terminal windows: a coding robot, a reviewer with a magnifier and a tester with a check mark" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> A desktop app that runs a team of AI coding agents on your project. You talk to a Chief of Staff, which plans the work and puts tasks on a board. Workers do the tasks, advisors answer questions, reviewers check the work and testers run it, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin. It works with your own logins, stores no passwords and needs no API keys. You can make every message between agents wait for your approval.</p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Log4J, the monster from your yard — Gabriel Voicu</title>
-<meta name="description" content="The CISA Director calls the Log4J flaw (Log4Shell) one of the biggest security issues ever, affecting millions of devices.">
+<title>Log4J, the monster from your yard: Log4Shell for Java devs</title>
+<meta name="description" content="Log4Shell, the Log4J flaw CISA called one of the biggest security issues ever seen: why a quick upgrade saved us this time, and why secure code matters.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/">
 <meta property="og:title" content="Log4J, the monster from your yard">
-<meta property="og:description" content="The CISA Director calls the Log4J flaw (Log4Shell) one of the biggest security issues ever, affecting millions of devices.">
+<meta property="og:description" content="Log4Shell, the Log4J flaw CISA called one of the biggest security issues ever seen: why a quick upgrade saved us this time, and why secure code matters.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ngvoicu.dev/og.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Log4J, the monster from your yard">
-<meta name="twitter:description" content="The CISA Director calls the Log4J flaw (Log4Shell) one of the biggest security issues ever, affecting millions of devices.">
+<meta name="twitter:description" content="Log4Shell, the Log4J flaw CISA called one of the biggest security issues ever seen: why a quick upgrade saved us this time, and why secure code matters.">
 <meta name="twitter:image" content="https://ngvoicu.dev/og.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
 
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Article", "headline": "Log4J, the monster from your yard", "description": "The CISA Director calls the Log4J flaw (Log4Shell) one of the biggest security issues ever, affecting millions of devices.", "inLanguage": "en", "datePublished": "2021-12-21", "mainEntityOfPage": "https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+{"@context": "https://schema.org", "@type": "Article", "headline": "Log4J, the monster from your yard", "description": "Log4Shell, the Log4J flaw CISA called one of the biggest security issues ever seen: why a quick upgrade saved us this time, and why secure code matters.", "inLanguage": "en", "datePublished": "2021-12-21", "mainEntityOfPage": "https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ngvoicu.dev/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://ngvoicu.dev/articles/"}, {"@type": "ListItem", "position": 3, "name": "Log4J, the monster from your yard", "item": "https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/"}]}
@@ -413,7 +413,7 @@
       </div>
 
       <aside class="author" aria-label="About the author">
-        <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+        <img src="/images/me/gabriel-portrait-128.webp" width="128" height="128" alt="" loading="lazy" decoding="async">
         <div>
           <p class="who">Gabriel Voicu</p>
           <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
@@ -424,7 +424,8 @@
     <nav class="keep" aria-labelledby="keep-title">
       <h2 id="keep-title">Keep reading</h2>
       <ul>
-        <li><a href="/articles/one-ai-opinion-isnt-enough/">One AI opinion isn't enough</a><span>July 2026</span></li>
+        <li><a href="/articles/rust-for-java-developers/">Rust for Java Developers</a><span>October 2026</span></li>
+        <li><a href="/articles/testing-spring-boot-applications/">Testing Spring Boot applications</a><span>October 2019</span></li>
       </ul>
       <a class="all" href="/articles/">All writing</a>
     </nav>

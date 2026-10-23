@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>One AI opinion isn't enough — Gabriel Voicu</title>
+<title>One AI opinion isn't enough: how ConsensFlow began</title>
 <meta name="description" content="How ConsensFlow began in July 2026 as a Claude Code plugin and Pi extension for second AI opinions. It is now a desktop app; this article is kept as history.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Article", "headline": "One AI opinion isn't enough", "description": "How ConsensFlow began in July 2026 as a Claude Code plugin and Pi extension for second AI opinions. It is now a desktop app; this article is kept as history.", "inLanguage": "en", "datePublished": "2026-07-06", "dateModified": "2026-10-21", "mainEntityOfPage": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+{"@context": "https://schema.org", "@type": "Article", "headline": "One AI opinion isn't enough", "description": "How ConsensFlow began in July 2026 as a Claude Code plugin and Pi extension for second AI opinions. It is now a desktop app; this article is kept as history.", "inLanguage": "en", "image": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/images/hero.jpg", "datePublished": "2026-07-06", "dateModified": "2026-10-21", "mainEntityOfPage": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ngvoicu.dev/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://ngvoicu.dev/articles/"}, {"@type": "ListItem", "position": 3, "name": "One AI opinion isn't enough", "item": "https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/"}]}
@@ -405,7 +405,7 @@
       <div class="body">
 <p class="note"><strong>Historical article, July 2026.</strong> ConsensFlow has since become a desktop app that runs a team of AI coding agents on your project, and the plugin and extension described here are retired. See <a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a> for the current product.</p>
 <div class="ratio"><iframe src="https://www.youtube-nocookie.com/embed/iKuBFEDE8Go" title="ConsensFlow: a second AI opinion inside Claude Code &amp; Pi" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <p><em>Prefer watching? The 3-minute video above shows the whole run — or read on.</em></p>
+    <p><em>Prefer watching? The 3-minute video above shows the whole run (watch it on its own page: <a href="/videos/consensflow-second-opinion/">ConsensFlow: a second AI opinion inside Claude Code &amp; Pi</a>) — or read on.</em></p>
 <nav class="toc" aria-labelledby="toc-title">
 <h2 id="toc-title">Contents</h2>
 <ol>
@@ -422,14 +422,14 @@
 </nav>
 <p><em>I asked two different AI models to review the same spec. They found the same correctness bug — independently — and each caught one thing the other missed. That run convinced me more than any benchmark ever has.</em></p>
 <p><strong>ConsensFlow</strong> is a free, open-source tool that lets the AI you're already coding with ask a <em>different</em> AI for a second opinion — or hand it a task outright — without you ever leaving your session. It runs inside Claude Code (as a plugin) and inside Pi (as an extension), and it can reach <strong>Claude Code, Codex, Pi and OpenCode — and every model those engines can run</strong> — through the subscriptions and API keys you already have.</p>
-<figure><img src="images/hero.jpg" alt="Abstract illustration: five luminous colored streams converging into a single bright node, then flowing on as one." width="1536" height="1024" decoding="async"></figure>
+<figure><img src="images/hero.webp" alt="Abstract illustration: five luminous colored streams converging into a single bright node, then flowing on as one." width="1536" height="1024" decoding="async"></figure>
 <h2 id="the-problem-confidence-is-not-correctness">The problem: confidence is not correctness</h2>
 <p>Modern coding agents are excellent — and excellently confident. Ask one whether your job queue should live in Redis or Postgres, and you'll get a firm, well-argued answer in seconds. Ask it to review its own plan, and it will mostly agree with itself. That's not a character flaw; it's what a single model does. Every model has blind spots, and a model can't see its own.</p>
 <p>The obvious fix — ask another AI — comes with a tax. You open a second window, copy your context over, lose the thread, paste the answer back, and try to reconcile two conversations that never met. It's annoying enough that you skip it. And skipping it is how a confident wrong answer ships.</p>
 <p>Code review solved this problem for humans decades ago: nobody merges serious work on the author's word alone. We just never gave our AI tools the same courtesy.</p>
 <h2 id="one-question-one-participant-one-handoff-back">One question, one participant, one handoff back</h2>
 <p>ConsensFlow does exactly one thing. You ask a named participant a question, and it routes that question — together with a snapshot of your current session — to that participant's engine, runs it as a one-shot process, and brings the answer back into your session.</p>
-<figure><img src="images/ig-router.png" alt="Diagram: a host node ('You — in your session') routes one question along a single highlighted wire to one of five engines — Claude Code, Codex, Pi, OpenCode, image — never a broadcast." loading="lazy" width="1440" height="680" decoding="async"></figure>
+<figure><img src="images/ig-router.webp" alt="Diagram: a host node ('You — in your session') routes one question along a single highlighted wire to one of five engines — Claude Code, Codex, Pi, OpenCode, image — never a broadcast." loading="lazy" width="1440" height="680" decoding="async"></figure>
 <p>Three design choices matter here:</p>
 <ul>
 <li><strong>One participant at a time — never a broadcast.</strong> You're having a conversation, not running a poll. Consensus, when you want it, is something you build by consulting minds sequentially and watching where they agree — which turns out to be far more informative than a vote.</li>
@@ -443,7 +443,7 @@
 <figure><img src="images/ig-repl.png" alt="A Claude Code session: '@calliope review this spec' routes to Fable 5, which answers with a lease bug — handlers running past five minutes get executed concurrently — and calls it a correctness blocker." loading="lazy" width="1440" height="760" decoding="async"></figure>
 <p><strong>Fable 5</strong> (running through Claude Code) came back with a finding I had not seen: the spec's reaper re-queues any job whose lock is older than five minutes — but nothing refreshes the lock. So any handler that legitimately runs longer than five minutes gets <em>executed twice, concurrently</em>. It called this a correctness blocker, and it was right. It also flagged missing indexes and autovacuum tuning for a table with this churn profile.</p>
 <p><strong>GLM 5.2</strong> (running through Pi) reviewed the same spec with no knowledge of Fable's answer. It found <em>the same lease bug on its own</em> — and then added one Fable missed: reaped jobs go back in the queue instantly, with the crash counting toward the retry budget, so a crash-looping handler burns all five attempts in seconds instead of backing off.</p>
-<figure><img src="images/ig-converge.png" alt="Infographic: one spec written with Opus flows into three reviewers — Fable 5, GPT 5.5, GLM 5.2 — two of them independently converge on the same blocker, and each catches something the other didn't." loading="lazy" width="1440" height="800" decoding="async"></figure>
+<figure><img src="images/ig-converge.webp" alt="Infographic: one spec written with Opus flows into three reviewers — Fable 5, GPT 5.5, GLM 5.2 — two of them independently converge on the same blocker, and each catches something the other didn't." loading="lazy" width="1440" height="800" decoding="async"></figure>
 <p>Two independent minds converging on the same blocker is a signal no single review can give you. Each one also catching something unique is the bonus that makes the habit stick. This is what I mean by consensus: not a majority vote, but <strong>independent agreement you can watch happen</strong> — plus the disagreements, which are often worth even more.</p>
 <h2 id="not-just-specs-not-just-advice">Not just specs. Not just advice.</h2>
 <p>The spec review is the flagship example because convergence is so visible there — but the flow is question-shaped, not spec-shaped. I run the same move on <strong>code</strong> all the time: a diff I'm not sure about, a function that feels too clever, a migration before it touches production. <code>@calliope review this diff</code> works exactly like the spec review did — the participant gets your session as context and reads the actual code.</p>
@@ -489,7 +489,7 @@ claude plugin install consensflow@consensflow-cc</code></pre>
       </div>
 
       <aside class="author" aria-label="About the author">
-        <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+        <img src="/images/me/gabriel-portrait-128.webp" width="128" height="128" alt="" loading="lazy" decoding="async">
         <div>
           <p class="who">Gabriel Voicu</p>
           <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
@@ -500,7 +500,8 @@ claude plugin install consensflow@consensflow-cc</code></pre>
     <nav class="keep" aria-labelledby="keep-title">
       <h2 id="keep-title">Keep reading</h2>
       <ul>
-        <li><a href="/articles/the-sme-your-team-never-had/">The SME your team never had</a><span>June 2026</span></li>
+        <li><a href="/articles/the-sme-your-team-never-had/">The SME your team never had</a><span>April 2026</span></li>
+        <li><a href="/articles/specmint-persistent-ai-coding-specs/">Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools</a><span>March 2026</span></li>
       </ul>
       <a class="all" href="/articles/">All writing</a>
     </nav>

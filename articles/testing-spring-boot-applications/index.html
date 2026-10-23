@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Testing Spring Boot applications — Gabriel Voicu</title>
-<meta name="description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.">
+<title>Testing Spring Boot applications with JUnit 5 and Mockito</title>
+<meta name="description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit 5, JSONAssert and H2.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/articles/testing-spring-boot-applications/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ngvoicu.dev/articles/testing-spring-boot-applications/">
 <meta property="og:title" content="Testing Spring Boot applications">
-<meta property="og:description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.">
+<meta property="og:description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit 5, JSONAssert and H2.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ngvoicu.dev/og.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Testing Spring Boot applications">
-<meta name="twitter:description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.">
+<meta name="twitter:description" content="Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit 5, JSONAssert and H2.">
 <meta name="twitter:image" content="https://ngvoicu.dev/og.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
 
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Article", "headline": "Testing Spring Boot applications", "description": "Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit5, JSONAssert and H2.", "inLanguage": "en", "datePublished": "2019-10-26", "mainEntityOfPage": "https://ngvoicu.dev/articles/testing-spring-boot-applications/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+{"@context": "https://schema.org", "@type": "Article", "headline": "Testing Spring Boot applications", "description": "Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit 5, JSONAssert and H2.", "inLanguage": "en", "datePublished": "2019-10-26", "mainEntityOfPage": "https://ngvoicu.dev/articles/testing-spring-boot-applications/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ngvoicu.dev/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://ngvoicu.dev/articles/"}, {"@type": "ListItem", "position": 3, "name": "Testing Spring Boot applications", "item": "https://ngvoicu.dev/articles/testing-spring-boot-applications/"}]}
@@ -670,7 +670,7 @@ private ProductRepository productRepositoryMock;</code></pre>
       </div>
 
       <aside class="author" aria-label="About the author">
-        <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+        <img src="/images/me/gabriel-portrait-128.webp" width="128" height="128" alt="" loading="lazy" decoding="async">
         <div>
           <p class="who">Gabriel Voicu</p>
           <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
@@ -681,7 +681,8 @@ private ProductRepository productRepositoryMock;</code></pre>
     <nav class="keep" aria-labelledby="keep-title">
       <h2 id="keep-title">Keep reading</h2>
       <ul>
-        <li><a href="/articles/one-ai-opinion-isnt-enough/">One AI opinion isn't enough</a><span>July 2026</span></li>
+        <li><a href="/articles/jumpstart-testing-with-mockito-and-junit5/">Jumpstart Testing with Mockito and JUnit5</a><span>October 2019</span></li>
+        <li><a href="/articles/what-is-and-how-do-we-measure-code-coverage/">What is and how do we measure code coverage</a><span>October 2019</span></li>
       </ul>
       <a class="all" href="/articles/">All writing</a>
     </nav>

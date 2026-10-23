@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree — Gabriel Voicu</title>
+<title>AI Coding Specs Should Be HTML: Karpathy and Anthropic Agree</title>
 <meta name="description" content="Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Article", "headline": "AI Coding Specs Should Be HTML \u2014 Karpathy and Anthropic Agree", "description": "Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.", "inLanguage": "en", "datePublished": "2026-06-01", "mainEntityOfPage": "https://ngvoicu.dev/articles/specmint-html-specs/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI Coding Specs Should Be HTML \u2014 Karpathy and Anthropic Agree", "description": "Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.", "inLanguage": "en", "image": "https://ngvoicu.dev/articles/specmint-html-specs/images/preview-tdd-html-top.png", "datePublished": "2026-05-14", "mainEntityOfPage": "https://ngvoicu.dev/articles/specmint-html-specs/", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ngvoicu.dev/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://ngvoicu.dev/articles/"}, {"@type": "ListItem", "position": 3, "name": "AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree", "item": "https://ngvoicu.dev/articles/specmint-html-specs/"}]}
@@ -398,7 +398,7 @@
           </ol>
         </nav>
         <h1>AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree</h1>
-        <p class="dateline">By Gabriel Voicu, <time datetime="2026-06-01">1 June 2026</time></p>
+        <p class="dateline">By Gabriel Voicu, <time datetime="2026-05-14">14 May 2026</time></p>
         <p class="dateline">Also published on Medium.</p>
       </header>
 
@@ -432,7 +432,7 @@
 <p>This is the gap Specmint fills. It's HTML-first for the reasons Karpathy and Anthropic identify — but designed so AI agents can edit it surgically, without humans ever needing to touch the markup.</p>
 <h2 id="what-a-specmint-html-spec-looks-like">What a Specmint HTML Spec Looks Like</h2>
 <p>The output of the <strong>forge</strong> workflow — triggered by natural language like "create a spec for X" in any supported tool — is a single <code>SPEC.html</code> file in <code>.specs/&lt;spec-id&gt;/</code>. Open it in a browser:</p>
-<figure><img src="images/preview-core-html.png" alt="A rendered Specmint Core HTML spec" loading="lazy" width="1533" height="1925" decoding="async"></figure>
+<figure><img src="images/preview-core-html.webp" alt="A rendered Specmint Core HTML spec" loading="lazy" width="1533" height="1925" decoding="async"></figure>
 <p>That's a real "Team Invites" spec. The header card carries a live scorecard (Tasks 4/12, Phases 1/4, Acceptance 2/6); numbers are derived at render time from <code>data-status</code> attributes, so one swap propagates everywhere. Architecture diagrams render as Mermaid — flowcharts, sequence, ER, state — with no CDN; the runtime ships with the spec. Code previews are PrismJS <code>diff-highlight</code> blocks: red/green line backgrounds <em>with</em> language-aware highlighting underneath, not screenshots. UI mockups land as bespoke wireframe primitives or hi-fi components on a constrained palette so the AI can't bikeshed colors. Phases and tasks collapse cleanly; the decision log and deviations table track the "why" of every choice.</p>
 <p>This is the artifact Thariq describes when he says HTML lets you build "implementation plans with embedded mockups and code snippets." The difference between this and a markdown spec isn't decorative. It's the difference between a document you skim and a document you actually use.</p>
 <h2 id="how-specmint-stays-editable">How Specmint Stays Editable</h2>
@@ -443,7 +443,7 @@
 <p>The result: humans get the rendered artifact; agents get a clean surface to manipulate. The HN objection evaporates because <strong>humans don't co-edit. They read.</strong></p>
 <h2 id="the-tdd-variant">The TDD Variant</h2>
 <p>Specmint TDD HTML is the same idea with a stricter contract: every feature task is split into a <strong>TEST task</strong> and an <strong>IMPL task</strong>, and the IMPL can't start until its TEST is written <em>and observed to fail</em>.</p>
-<figure class="wide"><a href="images/preview-tdd-html.png"><img src="images/preview-tdd-html-top.png" alt="The top of a rendered Specmint TDD HTML spec for a rate-limit middleware: the title card with tasks 4/10, RGR cycles 2/5, acceptance 2/6 and the current TDD phase RED, then the overview and the six acceptance criteria, two of them checked." loading="lazy" width="1920" height="1370" decoding="async"></a><figcaption>The top of the spec, cropped. The image links to the full capture (2785 × 8972 px).</figcaption></figure>
+<figure class="wide"><a href="images/preview-tdd-html.png"><img src="images/preview-tdd-html-top.webp" alt="The top of a rendered Specmint TDD HTML spec for a rate-limit middleware: the title card with tasks 4/10, RGR cycles 2/5, acceptance 2/6 and the current TDD phase RED, then the overview and the six acceptance criteria, two of them checked." loading="lazy" width="1920" height="1370" decoding="async"></a><figcaption>The top of the spec, cropped. The image links to the full capture (2785 × 8972 px).</figcaption></figure>
 <p>Same rendering primitives as Core HTML, plus three TDD-specific things. A <strong>Testing Architecture section</strong> — framework, isolation strategy, coverage targets, test commands, anti-patterns — populated by a dedicated test-infrastructure research pass that reads your existing config rather than inventing a strategy. <strong>Paired TEST-IMPL task cards</strong> with codes like <code>[TEST-AUTH-01]</code> and <code>[IMPL-AUTH-02]</code>, each IMPL ending in <code>→ satisfies [TEST-AUTH-01]</code> so the linkage is visible. And a <strong>TDD Log rendered as RGR swimlanes</strong> — three lanes (RED / GREEN / REFACTOR) with the actual monospace test output captured in each. Skim it next week and you can see exactly when each cycle started red, when it went green, what the refactor changed.</p>
 <p>The blocking rule is per-task and unforgiving: the implement workflow runs your test command via Bash at every transition. No "tests would pass" hand-waving.</p>
 <h2 id="spec-tokens-are-the-cheapest-tokens-youll-ever-spend">Spec Tokens Are the Cheapest Tokens You'll Ever Spend</h2>
@@ -484,7 +484,7 @@
       </div>
 
       <aside class="author" aria-label="About the author">
-        <img src="/images/me/gabriel-portrait-288.webp" width="288" height="288" alt="" loading="lazy" decoding="async">
+        <img src="/images/me/gabriel-portrait-128.webp" width="128" height="128" alt="" loading="lazy" decoding="async">
         <div>
           <p class="who">Gabriel Voicu</p>
           <p>I’m a software engineer. I build AI agents that work inside large systems, and I write open-source tools for coding agents.</p>
@@ -495,7 +495,8 @@
     <nav class="keep" aria-labelledby="keep-title">
       <h2 id="keep-title">Keep reading</h2>
       <ul>
-        <li><a href="/articles/one-ai-opinion-isnt-enough/">One AI opinion isn't enough</a><span>July 2026</span></li>
+        <li><a href="/articles/specmint-persistent-ai-coding-specs/">Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools</a><span>March 2026</span></li>
+        <li><a href="/articles/the-sme-your-team-never-had/">The SME your team never had</a><span>April 2026</span></li>
       </ul>
       <a class="all" href="/articles/">All writing</a>
     </nav>

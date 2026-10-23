@@ -30,7 +30,8 @@ Assets: `fonts/` (the font files and their licences), `images/brand/` (the heade
 full-name sign-off, the product logos and tiles, and two social cards), `images/me/` (his portrait), `images/sea/`
 (the shore), `images/consulting/`, `images/work/` and `images/about/` (the watercolour paintings), `videos/thumbs/`,
 and at the root `favicon.svg`, `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `og.png`, `sitemap.xml`,
-`robots.txt` and `CNAME`.
+`robots.txt`, `CNAME`, an empty `.nojekyll` and the IndexNow key file `c8042e3ed731c8d3cbcfb6f0514455d5.txt`
+(see SEO, Deploy and Deploying).
 
 ## Design
 
@@ -67,9 +68,9 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   `images/brand/signature-full-mask.png` and `@2x` (288 × 81 and 576 × 162), a mask trimmed from his drawing, painted in
   ink and linking home.
 - **Portrait.** An ink-and-watercolour portrait of him (the P2 drawing, head and shoulders, dark grey shirt, a loose yellow
-  wash behind his head), painted on white paper that is cut out to transparent: `images/me/gabriel-portrait-{288,400,584,800}.webp`
-  (RGBA, square, trimmed to the painting with a small margin; the 800 is for the home hero on a 2x screen, the 288 is
-  the author aside and About). It has no circle, disc, border or hairline: its own ragged paint edges, soft where the wash
+  wash behind his head), painted on white paper that is cut out to transparent: `images/me/gabriel-portrait-{128,288,400,584,800}.webp`
+  (RGBA, square, trimmed to the painting with a small margin; the 128 serves the article byline, the 288, 400, 584 and
+  800 serve the home hero and About, the 800 for the home hero on a 2x screen). It has no circle, disc, border or hairline: its own ragged paint edges, soft where the wash
   fades into the paper, are the frame, so it sits straight on the page and over the home shore. Keep it that way, with no
   `border-radius`, clip or `box-shadow` on it. On home, from 48em, it is drawn 120% of its box and centred on it (the box, the
   grid and the text column are unchanged; it spills into the column gap and the gutter), so his head is as big as it was in the
@@ -124,10 +125,10 @@ and marks the chapter you are reading. Its diagrams, its ownership stepper and i
 colours (Java blue, Rust orange); everything around them uses the site's tokens.
 
 A video page (`/videos/<slug>/`) is the same template: the title block with the duration under the byline, then the
-player (`div.ratio`, a lazy `youtube-nocookie` iframe), the video's own text, a "Watch on YouTube" link, the author note
+player (`div.ratio`, a `youtube-nocookie` iframe that loads at once), the video's own text, a "Watch on YouTube" link, the author note
 and "Keep watching", the other two videos. The menu marks Videos as current. The page carries the video's `VideoObject`
-(name, description, thumbnail, `uploadDate` as YouTube gives it, duration, `contentUrl`, `embedUrl`, and the page's
-`url`) and its breadcrumb in JSON-LD, and its `og:image` is the thumbnail. That `VideoObject` is the only one on the
+(name, description, `thumbnailUrl`, `uploadDate` as YouTube gives it, duration, `embedUrl`, and the page's
+`url`, with no `contentUrl`: see SEO) and its breadcrumb in JSON-LD, and its `og:image` is the thumbnail. That `VideoObject` is the only one on the
 site for the video: an article that embeds the same video carries none of its own.
 
 ### Enhanced Forge Flow
@@ -150,8 +151,9 @@ page shows everything.
 
 The email (`office@ngvoicu.dev`) and the phone are in every page's footer, in the contact column (`#contact`).
 Every `mailto:` link is wrapped in `<!--email_off-->…<!--/email_off-->` so Cloudflare's email
-obfuscation leaves it alone. After a deploy, check that
-`curl -s https://ngvoicu.dev/ | grep -c 'cdn-cgi/l/email-protection'` prints `0`.
+obfuscation leaves it alone. Cloudflare also rewrites text that only looks like an address, such as the `git@github.com`
+in a `git clone` line, into "[email protected]" and adds a script of its own: wrap that in the same markers. After a
+deploy, run the check over every page in the sitemap, not only the home page (see Deploying): it must print `0` for each.
 
 ## Anchors that other sites link to
 
@@ -159,6 +161,29 @@ Keep `id="consulting"` on the home page: the product READMEs and sites link to
 `https://ngvoicu.dev/#consulting`, which lands on its short consulting section (the menu goes to `/consulting/`). `#open-source`, `#specmint`, `#kluris`, `#consensflow`
 and `#work` also still resolve. `videos/thumbs/specmint.jpg` and `videos/thumbs/kluris.jpg`
 are hotlinked by the sibling sites (and are the video pages' social images): keep their names and bytes.
+
+## SEO
+
+Every rule here applies to every indexable page, so a new page starts from a page that already follows them.
+
+- **Sitemap.** `sitemap.xml` lists each indexable page once, with a `<lastmod>` on every URL (`YYYY-MM-DD`). Bump a page's
+  `lastmod` when its text, structured data or links change; leave it for a style or copyright tweak, because Google only
+  uses a `lastmod` that is consistently accurate. No `<changefreq>` and no `<priority>`: Google ignores both. `/404.html`,
+  `design/` and the IndexNow key file are not in it. `robots.txt` allows everything except `/design/` and names the sitemap.
+- **Titles and descriptions.** A `<title>` is at most 60 characters. A `meta name="description"` is 140–160 characters,
+  and `og:description` and `twitter:description` carry the same text.
+- **Dates.** `datePublished` is the date a piece was first published anywhere, Medium included, not the day it reached
+  this site. `dateModified` changes only when the words change.
+- **Structured data.** One `Person` (`"@id": "https://ngvoicu.dev/#person"`), defined in full and identically on the home
+  page and About. Every other block (articles, videos, breadcrumbs) refers to it by `@id` and does not repeat it. Never
+  `LocalBusiness` or `ProfessionalService`, and no `address`, `geo` or `areaServed`.
+- **`VideoObject`.** `name`, `description`, `thumbnailUrl`, `uploadDate` exactly as YouTube gives it (a timezone-aware
+  date-time), `duration`, `embedUrl` and the page's `url`. No `contentUrl`: Google says it must be the video file, and a
+  watch page is not one.
+- **IndexNow.** The key file at the root, `c8042e3ed731c8d3cbcfb6f0514455d5.txt`, holds exactly the key and nothing else (no
+  newline). The key is public by design. It lets Bing, Yandex, Naver, Seznam and Yep take the URLs you send them, and the
+  list is shared between them. **Google does not use IndexNow:** for Google the sitemap and Search Console are the way.
+  How to send URLs is under Deploying.
 
 ## Preview locally
 
@@ -174,7 +199,14 @@ Run it from this folder (or add `--directory` with its path). Pages use root-rel
 
 GitHub Pages with a custom domain (`CNAME` → ngvoicu.dev). Push `main` to deploy.
 DNS: apex A records to GitHub Pages IPs (185.199.108–111.153) or ALIAS/ANAME to
-`ngvoicu.github.io`, plus HTTPS enforced (required: .dev is HSTS-preloaded).
+`ngvoicu.github.io`.
+GitHub can't enforce HTTPS here: it holds no certificate for the domain. Cloudflare redirects http to https
+with "Always Use HTTPS", and .dev is HSTS-preloaded in browsers.
+
+The empty `.nojekyll` at the root stays. Without it Pages runs Jekyll over the repo, which renders `design/README.md` as a
+themed page at `/design/` and publishes a theme stylesheet at `/assets/css/style.css`. With it Pages serves the files as
+they are. Nothing here uses Jekyll: no front matter, no Liquid tags, no `_config.yml`, no folder or file that starts with
+`_`. The raw `README.md` files and the `design/` files are still public by direct URL.
 
 ## Deploying (read this — Pages builds get stuck)
 
@@ -186,3 +218,28 @@ gh api -X POST repos/ngvoicu/ngvoicu-site/pages/builds               # re-queue 
 ```
 
 Then confirm the change is actually live: `curl -s https://ngvoicu.dev/ | grep '<something-from-your-change>'`.
+
+Then check Cloudflare's email obfuscation on every page in the sitemap. Every line must start with `0`:
+
+```bash
+curl -s https://ngvoicu.dev/sitemap.xml | sed -n 's|.*<loc>\(.*\)</loc>.*|\1|p' | while read -r u; do
+  printf '%s  %s\n' "$(curl -s "$u" | grep -c 'cdn-cgi/l/email-protection')" "$u"
+done
+```
+
+Then tell IndexNow what changed, once the key file answers with the key
+(`curl -s https://ngvoicu.dev/c8042e3ed731c8d3cbcfb6f0514455d5.txt`). The first time, send every URL in the sitemap in one
+request, so the engines learn the whole site. After that send **only the URLs whose page changed in this deploy**, with the
+trailing slash exactly as in the sitemap:
+
+```bash
+curl -sS -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -w '\nHTTP %{http_code}\n' -d '{
+  "host": "ngvoicu.dev",
+  "key": "c8042e3ed731c8d3cbcfb6f0514455d5",
+  "keyLocation": "https://ngvoicu.dev/c8042e3ed731c8d3cbcfb6f0514455d5.txt",
+  "urlList": ["https://ngvoicu.dev/work/", "https://ngvoicu.dev/articles/"]
+}'
+```
+
+Expect `200` or `202`, which only means "received". `host` is `ngvoicu.dev`, never `www`. Do not resubmit unchanged URLs.
+Google does not read IndexNow: request a recrawl there from Search Console.

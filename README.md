@@ -27,9 +27,9 @@ Every page is its own folder with an `index.html`.
 | `design/` | Source artwork and options, not linked, not indexed |
 
 Assets: `fonts/` (the font files and their licences), `images/brand/` (the header's ink stamp, the footer's
-full-name sign-off, the product logos and tiles, and two social cards), `images/me/` (his portrait), `images/sea/`
+full-name sign-off, the product logos and tiles, and the four social cards), `images/me/` (his portrait), `images/sea/`
 (the shore), `images/consulting/`, `images/work/` and `images/about/` (the watercolour paintings), `videos/thumbs/`,
-and at the root `favicon.svg`, `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `og.png`, `sitemap.xml`,
+and at the root `favicon.ico`, `favicon-32.png`, `favicon-192.png`, `apple-touch-icon.png`, `sitemap.xml`,
 `robots.txt`, `CNAME`, an empty `.nojekyll` and the IndexNow key file `c8042e3ed731c8d3cbcfb6f0514455d5.txt`
 (see SEO, Deploy and Deploying).
 
@@ -60,9 +60,11 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   has subgrid, each group's heading, one-line description and list start on shared lines.
 - **Logo.** The S4 ink stamp: a round rubber stamp in bottle green, with a bold outer ring, a thin inner ring and a
   bold handwritten "GV" in the middle. `images/brand/gv-stamp-mask.png` (256 × 256) is its alpha as a mask, black on
-  clear, and the header paints it in the accent green with CSS (`mask` over `background: var(--accent)`). The favicons
-  (the stamp on a white disc), `og.png` and the two other social cards carry it too, and so does the small "AI-native talks
-  and consulting" tile, `images/brand/talks-tile-{36,72}.webp` (the stamp in `#0B6B5D` on white, 78% of the tile; the 36 px one
+  clear, and the header paints it in the accent green with CSS (`mask` over `background: var(--accent)`). The favicons are
+  not the stamp: they are his portrait (see Favicons). Two of the social cards carry the stamp, the AI-native guide's and
+  the video index's, small and inside the card's centre square; the site card and the Rust guide's carry his portrait
+  instead and no stamp. The small "AI-native talks
+  and consulting" tile carries it too, `images/brand/talks-tile-{36,72}.webp` (the stamp in `#0B6B5D` on white, 78% of the tile; the 36 px one
   drops the thin inner ring, which would smear at that size). Its source is
   `design/logo-v5/S4-ink-stamp.png`. The footer's contact column opens with his full-name signature,
   `images/brand/signature-full-mask.png` and `@2x` (288 × 81 and 576 × 162), a mask trimmed from his drawing, painted in
@@ -70,12 +72,22 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
 - **Portrait.** An ink-and-watercolour portrait of him (the P2 drawing, head and shoulders, dark grey shirt, a loose yellow
   wash behind his head), painted on white paper that is cut out to transparent: `images/me/gabriel-portrait-{128,288,400,584,800}.webp`
   (RGBA, square, trimmed to the painting with a small margin; the 128 serves the article byline, the 288, 400, 584 and
-  800 serve the home hero and About, the 800 for the home hero on a 2x screen). It has no circle, disc, border or hairline: its own ragged paint edges, soft where the wash
+  800 serve the home hero and About, the 800 for the home hero on a 2x screen). It has no circle, disc, border or hairline
+  (the favicons are the one round crop of it, see Favicons): its own ragged paint edges, soft where the wash
   fades into the paper, are the frame, so it sits straight on the page and over the home shore. Keep it that way, with no
   `border-radius`, clip or `box-shadow` on it. On home, from 48em, it is drawn 120% of its box and centred on it (the box, the
   grid and the text column are unchanged; it spills into the column gap and the gutter), so his head is as big as it was in the
   old round crop. The face, shirt and highlights are opaque; only the outer paint edge is
-  partly transparent. `og.png` carries the same cut-out on the card's white. Its source is `design/portrait-v2/P2-ink-watercolor.png` (1254 × 1254).
+  partly transparent. The social cards `images/brand/og-site.png` and `og-rust-guide.png` carry the same cut-out on the card's white. Its source is `design/portrait-v2/P2-ink-watercolor.png` (1254 × 1254).
+- **Favicons.** His portrait, cropped tight on the head (the top of the hair to just under the beard) and set on a round disc
+  filled with the site's yellow `#F2C230`, transparent outside the disc, so the icon stays a circle on a light or a dark browser
+  tab (a white disc dissolves into a light tab and leaves a bright rim on a dark one): `favicon.ico` (16, 32 and 48 px),
+  `favicon-32.png` and `favicon-192.png`. Google Search asks for a square of at least 8 × 8 px and recommends one larger
+  than 48 × 48, in a format it reads (BMP, GIF, ICO, PNG, JPEG, PPM or TIFF, not SVG), so the 192 is the one to offer it.
+  `apple-touch-icon.png` (180 × 180) is the same head full bleed on the same
+  yellow, opaque and square, because iOS rounds the corners itself and fills any transparency with black. There is no
+  SVG icon: the portrait is a watercolour, not vector. Cropped from `images/me/gabriel-portrait-800.webp`. Every page
+  links the four (`favicon.ico`, `favicon-192.png`, `favicon-32.png`, the apple-touch icon).
 - **Shore.** A pencil-and-watercolour seashore, purely decorative (`alt=""`, still): a low, mirrored band along the bottom of the home hero, under the portrait and the buttons (its sand on the portrait's side, the water and foam towards the right, faded at its top, bottom and ends, hanging a little into the white above the next section), and a thin faded strip that opens every page's footer; `images/sea/pencil-shore-{800,1600}.webp` and `pencil-shore-strip-{1200,2400}.webp`.
 - **Watercolour illustrations.** The home Consulting section (the workshop), every `/work/` item but "Earlier work" and About's "Teaching and mentoring"
   section carry an ink-and-watercolour illustration on white paper, with no frame, border or shadow (alt text describes the scene, with no company or
@@ -89,9 +101,19 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   `images/brand/{specmint,kluris,consensflow}-logo.webp`, on a small navy `#021720` tile so each keeps its colours.
   The Atlas, Burn The Burnout and InYourMind products (his own company's) have a square tile each, on its own light ground baked into the image
   (`images/brand/{atlas,burn-the-burnout,inyourmind}-tile-{36,72}.webp`), with a hairline round it so a white one reads on the page.
-- **Social cards.** 1200 × 630, drawn with Pillow in the site's palette and Figtree: `og.png` (every page but the guide,
-  the video index and the video pages), `images/brand/og-guide.png` (the guide) and `images/brand/og-videos.png` (the video
-  index). Each video page uses its own thumbnail (`videos/thumbs/*.jpg`, 1280 × 720) as its social image.
+- **Social cards.** 1200 × 630 RGB PNGs under 300 KB, drawn with Pillow in the site's palette and Figtree, all in
+  `images/brand/`: `og-site.png` (every page but the two guides, the video index and the video pages: the home page, Work,
+  Consulting, About, the Writing index, the 18 articles and `/404.html`), `og-rust-guide.png` (the Rust guide),
+  `og-ai-native-guide.png` (the AI-native guide) and `og-videos-index.png` (the video index). Each video page uses its own
+  thumbnail (`videos/thumbs/*.jpg`, 1280 × 720) as its social image. Their `og:image:alt` says what the card shows.
+  - **The layout rule.** Teams, WhatsApp, Slack's compact view and others crop a card to a square or near-square round its
+    centre, so everything that must be seen sits inside the centre square, 630 × 630, x 285 to 915: the portrait, the words,
+    the rule under the title and the stamp where a card has one. Nothing is cut at x 285 or at x 915: no text and no stamp
+    crosses either line, and the text keeps a margin inside them. The outer bands hold only things that still look whole
+    when cut off: white paper and the yellow wash, which is the wash behind his portrait spread out to the two sides. The
+    card also has to look composed in the full 1.91:1 view that LinkedIn, X, Slack's large preview and iMessage show.
+  - **New file name when a card changes.** Chat apps and LinkedIn cache a preview by its image URL, so a redrawn card
+    under its old name would keep showing the old one for anyone who pastes the link again.
 
 ### One shell
 

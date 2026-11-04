@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Article", "headline": "Pools for CLIProxyAPI: one model, every subscription", "description": "A free CLIProxyAPI plugin that pools every Claude, Codex, Devin and API-key account serving the same model under one name, with clean model lists in every tool.", "inLanguage": "en", "image": "https://ngvoicu.dev/articles/cliproxyapi-model-pools/images/pools-page.jpg", "datePublished": "2026-11-04", "mainEntityOfPage": "https://ngvoicu.dev/articles/cliproxyapi-model-pools/", "keywords": "CLIProxyAPI, CLIProxyAPI plugin, model pools, model aliases, Claude Code subscription, Codex, Devin, OpenRouter, AI proxy", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "about": {"@type": "SoftwareApplication", "name": "Pools and Aliases for CLIProxyAPI", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux, Windows", "license": "https://opensource.org/licenses/MIT", "url": "https://github.com/ngvoicu/cpa-pools-and-aliases", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}}
+{"@context": "https://schema.org", "@type": "Article", "headline": "Pools for CLIProxyAPI: one model, every subscription", "description": "A free CLIProxyAPI plugin that pools every Claude, Codex, Devin and API-key account serving the same model under one name, with clean model lists in every tool.", "inLanguage": "en", "image": ["https://ngvoicu.dev/articles/cliproxyapi-model-pools/images/streams.jpg", "https://ngvoicu.dev/articles/cliproxyapi-model-pools/images/pools-page.jpg"], "datePublished": "2026-11-04", "mainEntityOfPage": "https://ngvoicu.dev/articles/cliproxyapi-model-pools/", "keywords": "CLIProxyAPI, CLIProxyAPI plugin, model pools, model aliases, Claude Code subscription, Codex, Devin, OpenRouter, AI proxy", "author": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "publisher": {"@type": "Person", "@id": "https://ngvoicu.dev/#person", "name": "Gabriel Voicu", "url": "https://ngvoicu.dev/"}, "about": {"@type": "SoftwareApplication", "name": "Pools and Aliases for CLIProxyAPI", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux, Windows", "license": "https://opensource.org/licenses/MIT", "url": "https://github.com/ngvoicu/cpa-pools-and-aliases", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ngvoicu.dev/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://ngvoicu.dev/articles/"}, {"@type": "ListItem", "position": 3, "name": "Pools for CLIProxyAPI", "item": "https://ngvoicu.dev/articles/cliproxyapi-model-pools/"}]}
@@ -363,8 +363,24 @@
   .toc h2 { margin-top: 0; font-size: var(--fs-h3); }
   .toc ol { list-style: none; margin: .75rem 0 0; padding: 0; }
   .toc li + li { margin-top: .375rem; }
+  /* ---------- This article only: two diagrams drawn as HTML boxes and arrows (real text, no image) ---------- */
+  .flow { margin: 2rem 0; }
+  .flow-row { display: grid; gap: .75rem; align-items: center; }
+  .flow-box { border: 1px solid var(--rule); border-radius: .5rem; padding: .875rem 1rem; background: var(--page); }
+  .flow-box.hub { background: var(--panel); border-color: var(--accent); }
+  .flow-box p { margin: 0; }
+  .flow-box .flow-title { font-weight: 700; }
+  .flow-box ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+  .flow-box li + li { margin-top: .3rem; }
+  .flow-box li span { color: var(--quiet); }
+  .flow-arrow { justify-self: center; color: var(--accent); font-size: 1.5rem; line-height: 1; transform: rotate(90deg); }
+  .flow figcaption { margin-top: .75rem; }
+  @media (min-width: 40em) {
+    .flow-row.three { grid-template-columns: 1fr auto 1.15fr auto 1fr; }
+    .flow-row.two { grid-template-columns: 1.5fr auto 1fr; }
+    .flow-arrow { transform: none; }
+  }
 </style>
-
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -416,12 +432,31 @@
 </ol>
 </nav>
 <p>I pay for more AI than I like to admit: two Claude subscriptions, a ChatGPT plan for Codex, Devin, a couple of Anthropic API keys and some OpenRouter credit. All of it runs behind CLIProxyAPI on my laptop. This is about the small plugin I wrote so that one model, coming from all those places, behaves like one model.</p>
+<figure><img src="images/streams-1200.webp" srcset="images/streams-400.webp 400w, images/streams-800.webp 800w, images/streams-1200.webp 1200w" sizes="(min-width: 64em) 52rem, 100vw" alt="Ink-and-watercolour painting: five small streams in different colours run down from separate springs among rocks and flow into one calm green pool." width="1600" height="1200" decoding="async"></figure>
 <h2 id="what-cliproxyapi-is">What CLIProxyAPI is</h2>
 <p><a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a> (CPA for short) is an open-source proxy from router-for-me. You run it on your own machine, sign in with the subscriptions you already have (Claude Code, ChatGPT Codex, Antigravity, Grok Build, Muse Code, Devin and others) or add API keys, and it serves all of them as one local API that speaks the OpenAI, Claude and Gemini formats.</p>
 <p>That means any tool that can talk to an OpenAI- or Anthropic-style endpoint can use your subscriptions: Claude Code, Codex, the pi coding agent, your own scripts. You stop juggling a login per tool and a bill per vendor.</p>
+<figure class="flow">
+<div class="flow-row three">
+<div class="flow-box"><p class="flow-title">Your tools</p><ul><li>Claude Code</li><li>Codex</li><li>pi</li><li>Your own scripts</li></ul></div>
+<span class="flow-arrow" aria-hidden="true">→</span>
+<div class="flow-box hub"><p class="flow-title">CLIProxyAPI, on your machine</p><ul><li>One local API in the OpenAI, Claude and Gemini formats</li><li>Spreads requests across your accounts</li><li>Cools an account down at its limit</li></ul></div>
+<span class="flow-arrow" aria-hidden="true">→</span>
+<div class="flow-box"><p class="flow-title">Your accounts</p><ul><li>Claude subscriptions</li><li>Anthropic API keys</li><li>ChatGPT Codex</li><li>Devin</li><li>OpenRouter</li></ul></div>
+</div>
+<figcaption>Your tools talk to one local endpoint. CPA sends each request to one of your accounts.</figcaption>
+</figure>
 <p>CPA also does the tedious parts of running several accounts. It spreads requests across them, can keep a conversation on the same account so its prompt cache stays warm, and puts an account on cooldown when it hits a limit and moves on to the next. It comes with a web console and supports plugins.</p>
 <h2 id="one-model-many-names">One model, many names</h2>
 <p>CPA spreads requests across every account that serves a model under the same name. The catch is that each provider names the same model differently. Claude Opus 5.5 is <code>claude-opus-5-5</code> on a Claude login and on an Anthropic key, <code>devin/claude-opus-5-5</code> on Devin and <code>anthropic/claude-opus-5.5</code> on OpenRouter. To CPA those are three different models, so a request for <code>claude-opus-5-5</code> never reaches Devin or OpenRouter.</p>
+<figure class="flow">
+<div class="flow-row two">
+<div class="flow-box"><p class="flow-title">What each account calls Claude Opus 5.5</p><ul><li><span>Claude login:</span> <code>claude-opus-5-5</code></li><li><span>Anthropic API key:</span> <code>claude-opus-5-5</code></li><li><span>Devin:</span> <code>devin/claude-opus-5-5</code></li><li><span>OpenRouter:</span> <code>anthropic/claude-opus-5.5</code></li></ul></div>
+<span class="flow-arrow" aria-hidden="true">→</span>
+<div class="flow-box hub"><p class="flow-title">The pool</p><ul><li><code>claude-opus-5-5</code></li><li><span>The one name your tools ask for. CPA spreads it across all four accounts.</span></li></ul></div>
+</div>
+<figcaption>Four accounts, three names for the same model. A pool gives them one.</figcaption>
+</figure>
 <p>CPA has aliases for this: you can tell Devin's account that <code>devin/claude-opus-5-5</code> should also answer to <code>claude-opus-5-5</code>. But aliases live in three places. Logins keep them in their own credential files, API keys in their model lists in the config, and a global section applies them to a whole provider. Doing it by hand, I ended up with sixteen stale aliases on one account, and with model lists that called my pool "Claude Opus 5.5 (Devin)" because of whichever member CPA happened to see last.</p>
 <p>I wanted to pick a model on one page and have every account that offers it join.</p>
 <h2 id="what-the-plugin-does">What the plugin does</h2>

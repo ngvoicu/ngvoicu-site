@@ -16,7 +16,7 @@ Every page is its own folder with an `index.html`.
 | `/consulting/` | Consulting: how I help, the Enhanced Forge Flow, and the talks and training I offer |
 | `/about/` | About: his portrait, the timeline, teaching and mentoring (with a watercolour painting), what colleagues say (nine quotes) and skills |
 | `/articles/` | Writing: the archive, grouped as guides, building with AI agents, and the Java and Spring archive. Articles only: no videos section |
-| `/articles/<slug>/` | The 18 articles, one folder each, images in the article's own `images/` |
+| `/articles/<slug>/` | The 19 articles, one folder each, images in the article's own `images/` |
 | `/articles/rust-for-java-developers/` | The Rust guide: 17 chapters with diagrams, 4 labs and a printable cheat sheet, in the article template |
 | `/becoming-an-ai-native-company/` | The AI-native guide |
 | `/videos/` | Videos: an index in the Writing page's rows (a date column, the title linking to the video's page, one line about it), in two groups, "My tools" (Kluris, Specmint) and "ConsensFlow, back when it was a plugin" (one video, with a note that it shows the plugin, not today's app), then "Java screencasts": six series from 2016 and 2017, each linking its article and its YouTube playlist, and a link to all the playlists. No embeds and no `VideoObject` on it |
@@ -103,7 +103,7 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   (`images/brand/{atlas,burn-the-burnout,inyourmind}-tile-{36,72}.webp`), with a hairline round it so a white one reads on the page.
 - **Social cards.** 1200 × 630 RGB PNGs under 300 KB, drawn with Pillow in the site's palette and Figtree, all in
   `images/brand/`: `og-site.png` (every page but the two guides, the video index and the video pages: the home page, Work,
-  Consulting, About, the Writing index, the 18 articles and `/404.html`), `og-rust-guide.png` (the Rust guide),
+  Consulting, About, the Writing index, the 19 articles and `/404.html`), `og-rust-guide.png` (the Rust guide),
   `og-ai-native-guide.png` (the AI-native guide) and `og-videos-index.png` (the video index). Each video page uses its own
   thumbnail (`videos/thumbs/*.jpg`, 1280 × 720) as its social image. Their `og:image:alt` says what the card shows.
   - **The layout rule.** Teams, WhatsApp, Slack's compact view and others crop a card to a square or near-square round its

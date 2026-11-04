@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ngvoicu.dev/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/work/</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/rust-for-java-developers/</loc>
@@ -43,6 +43,10 @@
   <url>
     <loc>https://ngvoicu.dev/videos/specmint-ai-coding-specs/</loc>
     <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://ngvoicu.dev/articles/cliproxyapi-model-pools/</loc>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/</loc>

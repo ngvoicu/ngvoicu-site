@@ -375,6 +375,9 @@
   .flow-box li span { color: var(--quiet); }
   .flow-arrow { justify-self: center; color: var(--accent); font-size: 1.5rem; line-height: 1; transform: rotate(90deg); }
   .flow figcaption { margin-top: .75rem; }
+  .product { display: flex; gap: 1rem; align-items: center; margin: 1rem 0; }
+  .product img { flex: none; }
+  .product p { margin: 0; }
   @media (min-width: 40em) {
     .flow-row.three { grid-template-columns: 1fr auto 1.15fr auto 1fr; }
     .flow-row.two { grid-template-columns: 1.5fr auto 1fr; }
@@ -497,7 +500,7 @@
 <li><strong>Prompt caches belong to accounts.</strong> A request that moves to another member starts with a cold cache. Turn on CPA's session affinity so a conversation stays on one account.</li>
 </ul>
 <h2 id="get-it">Get it</h2>
-<p>The plugin is free and open source under the MIT licence:</p>
+<div class="product"><img src="images/pools-logo.svg" width="64" height="64" alt="Pools and Aliases logo: three lines that merge into one point" loading="lazy" decoding="async"><p><strong>Pools and Aliases for CLIProxyAPI</strong>, version 1.0.0. Free and open source under the MIT licence.</p></div>
 <ul>
 <li>Source and documentation: <a href="https://github.com/ngvoicu/cpa-pools-and-aliases">github.com/ngvoicu/cpa-pools-and-aliases</a></li>
 <li>Downloads for macOS, Linux and Windows: <a href="https://github.com/ngvoicu/cpa-pools-and-aliases/releases">releases</a></li>

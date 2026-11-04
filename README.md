@@ -12,7 +12,7 @@ Every page is its own folder with an `index.html`.
 | Path | Page |
 |---|---|
 | `/` | Home, in this order: the intro (the lead and his watercolour portrait, with the shore band along the bottom); Work (Enterprise work, his own company and Open source, in three columns); what colleagues say (three quotes); Consulting (the text beside the workshop painting, with a button to `/consulting/`); Writing (the six newest pieces, newest first, in one dated list: a date column, one title link per row, then an "All articles" link); Videos (built the same way: the three videos, newest first, each linking to its own page under `/videos/`, then an "All videos" link) |
-| `/work/` | Work: Enterprise work (AI agents and application security, five items and "Earlier work"), ZeeSpire (Atlas, Burn The Burnout, InYourMind, and the talks and consulting), and the three open-source tools. Every item but "Earlier work" has a watercolour painting |
+| `/work/` | Work: Enterprise work (AI agents and application security, five items and "Earlier work"), ZeeSpire (Atlas, Burn The Burnout, InYourMind, and the talks and consulting), and the four open-source tools. Every item but "Earlier work" has a watercolour painting |
 | `/consulting/` | Consulting: how I help, the Enhanced Forge Flow, and the talks and training I offer |
 | `/about/` | About: his portrait, the timeline, teaching and mentoring (with a watercolour painting), what colleagues say (nine quotes) and skills |
 | `/articles/` | Writing: the archive, grouped as guides, building with AI agents, and the Java and Spring archive. Articles only: no videos section |

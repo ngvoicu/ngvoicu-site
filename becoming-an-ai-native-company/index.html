@@ -45,7 +45,7 @@
       "description": "How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.",
       "image": "https://ngvoicu.dev/images/brand/og-ai-native-guide.png",
       "datePublished": "2026-07-04",
-      "dateModified": "2026-10-22",
+      "dateModified": "2026-11-04",
       "inLanguage": "en",
       "mainEntityOfPage": "https://ngvoicu.dev/becoming-an-ai-native-company/",
       "author": {
@@ -637,7 +637,7 @@
       </nav>
         <h1 id="guide-title">Becoming an AI Native Company</h1>
         <p class="standfirst">A practitioner’s guide, from my workshop</p>
-        <p class="dateline">By Gabriel Voicu, published <time datetime="2026-07-04">4 July 2026</time>, updated <time datetime="2026-10-22">22 October 2026</time></p>
+        <p class="dateline">By Gabriel Voicu, published <time datetime="2026-07-04">4 July 2026</time>, updated <time datetime="2026-11-04">4 November 2026</time></p>
       </header>
       <div class="body">
 <nav class="toc" aria-labelledby="toc-title">
@@ -686,7 +686,7 @@
 <p><strong>CLAUDE.md</strong> and <strong>AGENTS.md</strong> are those files. They&#8217;re plain files in your repo, like a README written for the AI. They hold the tech stack, the folder structure, your conventions and the rules that must never be broken, such as &#8220;always write tests first,&#8221; &#8220;never modify the schema directly&#8221; or &#8220;SQL uses snake_case.&#8221; The agent reads them at the start of every session. Commit them to git and every agent on the team works from the same rules. New people also get going faster, because the agent already knows the project.</p>
 <p>On top of those files, agents now keep their own auto-memory: notes they write and read back by themselves. It&#8217;s handy, but recall is <em>probabilistic</em>. The agent may bring back the right note, or it may not. So put anything that <strong>must</strong> be followed in CLAUDE.md and AGENTS.md, and leave the nice-to-remember details to auto-memory.</p>
 <p>Neither of those is the place for your team&#8217;s knowledge. Architecture decisions and the reasons behind them, or the production issue you debugged last quarter, belong in a knowledge base the whole team shares, kept in git.</p>
-<p>For this I built <strong><a href="https://kluris.ngvoicu.dev">Kluris, a git-backed knowledge base for coding agents</a></strong>. It&#8217;s an open-source Python CLI that creates knowledge repositories called brains. Each piece of knowledge is a Markdown file called a neuron, and neurons are grouped into lobes and linked by synapses. Any coding agent can search the brain with BM25 keyword search, so there are no embeddings to maintain. Agents learn from it and propose additions, and a person approves every write. Nothing is saved automatically.</p>
+<p>For this I built <strong><a href="https://kluris.ngvoicu.dev">Kluris, a git-backed knowledge base for coding agents</a></strong>. It&#8217;s an open-source CLI, a single binary written in Rust, that creates knowledge repositories called brains. Each piece of knowledge is a Markdown file called a neuron, and neurons are grouped into lobes and linked by synapses. Any coding agent can search the brain with BM25 keyword search, so there are no embeddings to maintain. Agents learn from it and propose additions, and a person approves every write. Nothing is saved automatically.</p>
 <p>Once something is in the brain, every teammate&#8217;s agent can find it in its next session.</p>
 <h2 id="specs">Vibe coding and specs</h2>
 <p>There are two ways to work with a coding agent, and mixing them up is the most expensive mistake I see.</p>
@@ -832,6 +832,7 @@
         <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
         <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
         <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+        <li><a href="/work/#cpa-pools">Pools for CLIProxyAPI</a></li>
       </ul>
     </nav>
     <nav aria-labelledby="foot-else">

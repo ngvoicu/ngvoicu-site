@@ -356,6 +356,9 @@
   }
   .logo-tile img { width: auto; height: 1.75rem; }
   .logo-tile.cf img { height: 2.25rem; }
+  /* A logo that brings its own rounded ground (Pools for CLIProxyAPI) fills the tile */
+  .logo-tile.own { background: none; }
+  .logo-tile.own img { width: 100%; height: 100%; }
   /* ZeeSpire's tiles: each logo on its own light ground (white, or InYourMind's cream), baked into the image at the tile's
      size, with a hairline on top so a white tile still reads on the white page */
   .logo-tile.light { position: relative; background: #FFFFFF; }
@@ -463,11 +466,12 @@
         </section>
         <section class="entry" id="open-source" aria-labelledby="open-source-title">
           <h3 id="open-source-title">Open source</h3>
-          <p>Three MIT-licensed tools for AI coding agents.</p>
+          <p>Four MIT-licensed tools for AI coding agents.</p>
           <ul class="links">
             <li id="specmint"><a href="/work/#specmint"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" decoding="async"></span>Specmint</a></li>
             <li id="kluris"><a href="/work/#kluris"><span class="logo-tile"><img src="/images/brand/kluris-logo.webp" width="160" height="160" alt="" decoding="async"></span>Kluris</a></li>
             <li id="consensflow"><a href="/work/#consensflow"><span class="logo-tile cf"><img src="/images/brand/consensflow-logo.webp" width="160" height="160" alt="" decoding="async"></span>ConsensFlow</a></li>
+            <li id="cpa-pools"><a href="/work/#cpa-pools"><span class="logo-tile own"><img src="/images/brand/cpa-pools-logo.svg" width="128" height="128" alt="" decoding="async"></span>Pools for CLIProxyAPI</a></li>
           </ul>
         </section>
         <p class="go entry-foot"><a href="/work/">All my work</a></p>
@@ -560,6 +564,7 @@
         <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
         <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
         <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+        <li><a href="/work/#cpa-pools">Pools for CLIProxyAPI</a></li>
       </ul>
     </nav>
     <nav aria-labelledby="foot-else">

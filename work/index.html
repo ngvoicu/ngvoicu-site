@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work: AI agents, ZeeSpire and open source — Gabriel Voicu</title>
-<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/work/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/work/">
 <meta property="og:title" content="Work: AI agents, ZeeSpire and open source">
-<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ngvoicu.dev/images/brand/og-site.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work: AI agents, ZeeSpire and open source">
-<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.">
+<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
 <meta name="twitter:image" content="https://ngvoicu.dev/images/brand/og-site.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
 
@@ -41,7 +41,7 @@
       "@id": "https://ngvoicu.dev/work/#page",
       "url": "https://ngvoicu.dev/work/",
       "name": "Work",
-      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and three open-source tools for coding agents.",
+      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.",
       "inLanguage": "en",
       "isPartOf": {
         "@type": "WebSite",
@@ -323,6 +323,9 @@
   }
   .logo-tile img { width: auto; height: 1.75rem; }
   .logo-tile.cf img { height: 2.25rem; }
+  /* A logo that brings its own rounded ground (Pools for CLIProxyAPI) fills the tile */
+  .logo-tile.own { background: none; }
+  .logo-tile.own img { width: 100%; height: 100%; }
   /* ZeeSpire's tiles: each logo on its own light ground (white, or InYourMind's cream), baked into the image at the tile's
      size, with a hairline on top so a white tile still reads on the white page */
   .logo-tile.light { position: relative; background: #FFFFFF; }
@@ -518,7 +521,7 @@
     <div class="wrap"><div class="sec-grid">
       <h2 id="open-source-title">Open source</h2>
       <div class="sec-body">
-        <p class="sec-intro">Three MIT-licensed tools for AI coding agents, all from 2026. I wrote them and use them in my own work.</p>
+        <p class="sec-intro">Four MIT-licensed tools for AI coding agents, all from 2026. I wrote them and use them in my own work.</p>
         <article class="item" id="specmint" aria-labelledby="specmint-title">
           <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" loading="lazy" decoding="async"></span>Specmint</h3>
           <div class="item-art"><img src="/images/work/specmint-800.webp" srcset="/images/work/specmint-400.webp 400w, /images/work/specmint-800.webp 800w, /images/work/specmint-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Two hands pass a checklist document from one terminal window to another, like a baton" loading="lazy" decoding="async"></div>
@@ -537,10 +540,11 @@
           <div class="item-art"><img src="/images/work/kluris-800.webp" srcset="/images/work/kluris-400.webp 400w, /images/work/kluris-800.webp 800w, /images/work/kluris-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A brain drawn as linked note cards, with three robot terminals reading from it and a person ticking a new note with a check mark" loading="lazy" decoding="async"></div>
           <div class="item-text">
             <p><strong>What it is.</strong> Agents start every session knowing nothing about your team. Kluris gives them one shared brain: a git repository of Markdown notes, organized as lobes, neurons and synapses, that agents search with ranked keyword search. Agents propose new knowledge, and a person approves every write.</p>
-            <p><strong>My part.</strong> I wrote it. It’s a Python CLI that installs a skill for each brain in nine coding agents, among them Claude Code, Codex, Cursor and Copilot.</p>
-            <p><strong>Stack:</strong> Python, Markdown in git, BM25 keyword search.</p>
+            <p><strong>My part.</strong> I wrote it. It’s a single binary, written in Rust, that installs each brain as a skill in your coding agents, among them Claude Code, Codex, Cursor, Copilot and Hermes. Every command keeps the brain in step with your team through git.</p>
+            <p><strong>Stack:</strong> Rust, Markdown in git, BM25 keyword search. Runs on macOS, Linux and Windows.</p>
             <p><strong>Install:</strong></p>
-            <pre tabindex="0" role="region" aria-label="Install command for Kluris"><code>pipx install kluris</code></pre>
+            <pre tabindex="0" role="region" aria-label="Install command for Kluris on macOS and Linux"><code>curl -fsSL https://kluris.ngvoicu.dev/install.sh | sh</code></pre>
+            <details><summary>On Windows</summary><ul class="variants"><li><pre tabindex="0" role="region" aria-label="Install command for Kluris on Windows"><code>irm https://kluris.ngvoicu.dev/install.ps1 | iex</code></pre><p>In PowerShell.</p></li></ul></details>
             <ul class="item-links"><li><a href="https://kluris.ngvoicu.dev">kluris.ngvoicu.dev</a></li><li><a href="/articles/the-sme-your-team-never-had/">The article</a></li><li><a href="https://www.youtube.com/watch?v=ei1F0ZbNX3o">The video</a></li></ul>
           </div>
         </article>
@@ -552,6 +556,16 @@
             <p><strong>My part.</strong> I wrote it. It started in July 2026 as a Claude Code plugin and a Pi extension that let your agent ask a different model for a second opinion. It’s now this desktop app.</p>
             <p><strong>Stack:</strong> Rust, Tauri, xterm.js. Runs on a Mac with Apple silicon (macOS 13.5 or later) and on Windows 10 or 11, 64-bit.</p>
             <ul class="item-links"><li><a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a></li><li><a href="https://github.com/ngvoicu/consensflow/releases">Download for Mac or Windows</a></li><li><a href="https://github.com/ngvoicu/consensflow">Source on GitHub</a></li></ul>
+          </div>
+        </article>
+        <article class="item" id="cpa-pools" aria-labelledby="cpa-pools-title">
+          <h3 id="cpa-pools-title"><span class="logo-tile own"><img src="/images/brand/cpa-pools-logo.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></span>Pools for CLIProxyAPI</h3>
+          <div class="item-art"><img src="/images/work/cpa-pools-800.webp" srcset="/images/work/cpa-pools-400.webp 400w, /images/work/cpa-pools-800.webp 800w, /images/work/cpa-pools-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Five windows, each holding a key, send lines into one round green pool, and one line runs on to a laptop where a robot works; a person guides the last line into the pool" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p><strong>What it is.</strong> A plugin for <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a>, the open-source proxy that serves your AI subscriptions and API keys as one local API. Every provider names the same model differently, so the same model from different accounts never shares the load. The plugin adds a Pools page to the proxy’s console: pick a model, and every account and key that serves it joins one pool under the model’s plain name. New accounts join on their own, and model lists drop provider labels such as “(Devin)”.</p>
+            <p><strong>My part.</strong> I wrote it. It saves pools as the proxy’s own model aliases, so routing stays with the proxy and the pools keep working without the plugin. It is submitted to the CLIProxyAPI plugin store.</p>
+            <p><strong>Stack:</strong> Rust, a CLIProxyAPI plugin with a plain JavaScript page. Runs on macOS, Linux and Windows.</p>
+            <ul class="item-links"><li><a href="/articles/cliproxyapi-model-pools/">The article</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases/releases">Download</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases">Source on GitHub</a></li></ul>
           </div>
         </article>
       </div>
@@ -586,6 +600,7 @@
         <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
         <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
         <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
+        <li><a href="/work/#cpa-pools">Pools for CLIProxyAPI</a></li>
       </ul>
     </nav>
     <nav aria-labelledby="foot-else">

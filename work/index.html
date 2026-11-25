@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work: AI agents, ZeeSpire and open source — Gabriel Voicu</title>
-<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
+<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and six open-source tools for coding agents and their models.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/work/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/work/">
 <meta property="og:title" content="Work: AI agents, ZeeSpire and open source">
-<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
+<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and six open-source tools for coding agents and their models.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ngvoicu.dev/images/brand/og-site.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work: AI agents, ZeeSpire and open source">
-<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
+<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and six open-source tools for coding agents and their models.">
 <meta name="twitter:image" content="https://ngvoicu.dev/images/brand/og-site.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
 
@@ -41,7 +41,7 @@
       "@id": "https://ngvoicu.dev/work/#page",
       "url": "https://ngvoicu.dev/work/",
       "name": "Work",
-      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.",
+      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and six open-source tools for coding agents and their models.",
       "inLanguage": "en",
       "isPartOf": {
         "@type": "WebSite",
@@ -294,6 +294,10 @@
   .family { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
   .family > h3 { font-size: var(--fs-h3); }
   .family > .sec-intro { margin-top: .5rem; }
+  /* A deprecated tool (Pools for CLIProxyAPI) comes after the family, behind the same hairline as an item, and opens its text
+     with a quiet note in the article template's manner: a green rule on its left, on the panel colour. */
+  .family + .item { padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+  .note { padding: .875rem 1.125rem; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--panel); }
   .item > * + * { margin-top: .875rem; }
   /* ---------- Work items with an illustration: each item is its heading, an illustration (.item-art) and its text (.item-text). From 48em they sit on the home page's three equal columns and
      2.5rem gap, the same as "What colleagues say" and the home Consulting section: the heading and the text take columns 1 and 2 and the
@@ -526,7 +530,7 @@
     <div class="wrap"><div class="sec-grid">
       <h2 id="open-source-title">Open source</h2>
       <div class="sec-body">
-        <p class="sec-intro">Seven MIT-licensed tools for AI coding agents and the models behind them, all from 2026. I build them and use them in my own work.</p>
+        <p class="sec-intro">Six MIT-licensed tools for AI coding agents and the models behind them, all from 2026. I build them and use them in my own work.</p>
         <article class="item" id="specmint" aria-labelledby="specmint-title">
           <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" loading="lazy" decoding="async"></span>Specmint</h3>
           <div class="item-art"><img src="/images/work/specmint-800.webp" srcset="/images/work/specmint-400.webp 400w, /images/work/specmint-800.webp 800w, /images/work/specmint-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Two hands pass a checklist document from one terminal window to another, like a baton" loading="lazy" decoding="async"></div>
@@ -561,16 +565,6 @@
             <p><strong>My part.</strong> I wrote it. It started in July 2026 as a Claude Code plugin and a Pi extension that let your agent ask a different model for a second opinion. It’s now this desktop app.</p>
             <p><strong>Stack:</strong> Rust, Tauri, xterm.js. Runs on a Mac with Apple silicon (macOS 13.5 or later) and on Windows 10 or 11, 64-bit.</p>
             <ul class="item-links"><li><a href="https://consensflow.ngvoicu.dev">consensflow.ngvoicu.dev</a></li><li><a href="https://github.com/ngvoicu/consensflow/releases">Download for Mac or Windows</a></li><li><a href="https://github.com/ngvoicu/consensflow">Source on GitHub</a></li></ul>
-          </div>
-        </article>
-        <article class="item" id="cpa-pools" aria-labelledby="cpa-pools-title">
-          <h3 id="cpa-pools-title"><span class="logo-tile own"><img src="/images/brand/cpa-pools-logo.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></span>Pools for CLIProxyAPI</h3>
-          <div class="item-art"><img src="/images/work/cpa-pools-800.webp" srcset="/images/work/cpa-pools-400.webp 400w, /images/work/cpa-pools-800.webp 800w, /images/work/cpa-pools-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Five windows, each holding a key, send lines into one round green pool, and one line runs on to a laptop where a robot works; a person guides the last line into the pool" loading="lazy" decoding="async"></div>
-          <div class="item-text">
-            <p><strong>What it is.</strong> A plugin for <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a>, the open-source proxy that serves your AI subscriptions and API keys as one local API. Every provider names the same model differently, so the same model from different accounts never shares the load. The plugin adds a Pools page to the proxy’s console: pick a model, and every account and key that serves it joins one pool under the model’s plain name. New accounts join on their own, and model lists drop provider labels such as “(Devin)”.</p>
-            <p><strong>My part.</strong> I wrote it. It saves pools as the proxy’s own model aliases, so routing stays with the proxy and the pools keep working without the plugin. It is submitted to the CLIProxyAPI plugin store.</p>
-            <p><strong>Stack:</strong> Rust, a CLIProxyAPI plugin with a plain JavaScript page. Runs on macOS, Linux and Windows.</p>
-            <ul class="item-links"><li><a href="/articles/cliproxyapi-model-pools/">The article</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases/releases">Download</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases">Source on GitHub</a></li></ul>
           </div>
         </article>
         <section class="family" id="providers-dev-family" aria-labelledby="providers-dev-family-title">
@@ -618,6 +612,17 @@ brew services start provimux</code></pre>
             </div>
           </article>
         </section>
+        <article class="item" id="cpa-pools" aria-labelledby="cpa-pools-title">
+          <h3 id="cpa-pools-title"><span class="logo-tile own"><img src="/images/brand/cpa-pools-logo.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></span>Pools for CLIProxyAPI</h3>
+          <div class="item-art"><img src="/images/work/cpa-pools-800.webp" srcset="/images/work/cpa-pools-400.webp 400w, /images/work/cpa-pools-800.webp 800w, /images/work/cpa-pools-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Five windows, each holding a key, send lines into one round green pool, and one line runs on to a laptop where a robot works; a person guides the last line into the pool" loading="lazy" decoding="async"></div>
+          <div class="item-text">
+            <p class="note"><strong>Deprecated and archived:</strong> no further releases. Pools are now part of <a href="#provimux">Provimux</a>, above: a pool there is one name of your own on every account that can serve a model, made on the console’s Models page, and the switch “Serve only my names” takes the place of the plugin’s pools-only view. See <a href="https://provimux.providers.dev/#pools">Pools on provimux.providers.dev</a>. The plugin stays here as the place where pools began.</p>
+            <p><strong>What it is.</strong> A plugin for <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a>, the open-source proxy that serves your AI subscriptions and API keys as one local API. Every provider names the same model differently, so the same model from different accounts never shares the load. The plugin adds a Pools page to the proxy’s console: pick a model, and every account and key that serves it joins one pool under the model’s plain name. New accounts join on their own, and model lists drop provider labels such as “(Devin)”.</p>
+            <p><strong>My part.</strong> I wrote it. It saves pools as the proxy’s own model aliases, so routing stays with the proxy and the pools keep working without the plugin. It was submitted to the CLIProxyAPI plugin store.</p>
+            <p><strong>Stack:</strong> Rust, a CLIProxyAPI plugin with a plain JavaScript page. Runs on macOS, Linux and Windows.</p>
+            <ul class="item-links"><li><a href="/articles/cliproxyapi-model-pools/">The article</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases">Source on GitHub</a></li></ul>
+          </div>
+        </article>
       </div>
     </div></div>
   </section>
@@ -650,7 +655,6 @@ brew services start provimux</code></pre>
         <li><a href="https://specmint.ngvoicu.dev">Specmint</a></li>
         <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
         <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
-        <li><a href="/work/#cpa-pools">Pools for CLIProxyAPI</a></li>
         <li><a href="https://providers.dev">providers.dev</a></li>
         <li><a href="https://provimux.providers.dev">Provimux</a></li>
         <li><a href="https://pi-cache-keeper.providers.dev">pi-cache-keeper</a></li>

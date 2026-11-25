@@ -218,8 +218,8 @@ Every rule here applies to every indexable page, so a new page starts from a pag
 - **`/work/`'s open-source list.** Beside its `CollectionPage`, `/work/` carries an `ItemList` (`#open-source`) of the
   six open-source tools, each a `SoftwareSourceCode` with the `@id` of its anchor on the page (`/work/#specmint` …),
   its site, its repository where the page links one, and the `#person` as `author` where the page says he wrote it, or
-  as `maintainer` with `isBasedOn` its upstream where the page credits one (Provimux on CLIProxyAPI, pi-cache-keeper on
-  pi-cached-compaction). Names and links only: no description, rating, offer or `founder`. When an item is added,
+  as `maintainer` where it is another's project he carries on (Provimux, `isBasedOn` CLIProxyAPI); a tool of his own
+  built on another's keeps him as `author` with `isBasedOn` its origin (pi-cache-keeper on pi-cached-compaction). Names and links only: no description, rating, offer or `founder`. When an item is added,
   renamed or removed on the page, the list changes with it.
 - **`VideoObject`.** `name`, `description`, `thumbnailUrl`, `uploadDate` exactly as YouTube gives it (a timezone-aware
   date-time), `duration`, `embedUrl` and the page's `url`. No `contentUrl`: Google says it must be the video file, and a

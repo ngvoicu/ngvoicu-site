@@ -1,0 +1,62 @@
+# Gabriel Voicu
+
+> Gabriel Voicu (ngvoicu) is a software engineer. He has built enterprise software for more than ten years and now builds AI agents that work inside large systems. He helps teams go from using AI on the side to software factories and AgentOS, and writes open-source tools for coding agents.
+
+This is his personal site, ngvoicu.dev. Each ngvoicu.dev page listed below has a markdown version at its address plus `index.html.md`, and the links point to those; the HTML page carries the same text. The open-source tools link to their own sites.
+
+Contact: office@ngvoicu.dev
+
+## Main pages
+
+- [Home](https://ngvoicu.dev/index.html.md): Gabriel Voicu, software engineer: AI agents for large systems, AI-native consulting and open-source tools for coding agents: ConsensFlow, Kluris and Specmint.
+- [Work](https://ngvoicu.dev/work/index.html.md): Enterprise AI agents and application security, my company ZeeSpire, and open source: Specmint, Kluris, ConsensFlow, providers.dev, Provimux, pi-cache-keeper.
+- [Consulting](https://ngvoicu.dev/consulting/index.html.md): I help engineering teams build software with coding agents: talks, workshops, hands-on training and setting up AI-native workflows in your repositories.
+- [About](https://ngvoicu.dev/about/index.html.md): Gabriel Voicu, software engineer: from web design to Java, application security and AI agents. My timeline, teaching, what colleagues say and my skills.
+- [Writing](https://ngvoicu.dev/articles/index.html.md): Articles by Gabriel Voicu since 2019: a field guide to Rust for Java developers, building software with AI agents, and a Java and Spring archive.
+- [Videos](https://ngvoicu.dev/videos/index.html.md): Short videos of Specmint and Kluris recorded from real runs, the earlier plugin version of ConsensFlow kept as history, and Java screencasts from 2016 to 2022.
+
+## Open source
+
+- [ConsensFlow](https://consensflow.ngvoicu.dev/): A desktop app that runs a software factory on your project: a Chief of Staff plans the work on a board, and a staff in nine roles takes the tasks in Claude Code, Codex, Pi, Devin or Muse Code. Mac and Windows, MIT.
+- [Kluris](https://kluris.ngvoicu.dev/): Shared, human-curated, git-backed knowledge brains for AI agents, kept in sync across a team.
+- [Specmint](https://specmint.ngvoicu.dev/): Spec-driven development for AI coding agents: durable, resumable specs for Claude Code, Cursor, Codex and Gemini CLI.
+- [providers.dev](https://providers.dev/): Context, output, pricing and prompt caching by model, provider and access method.
+- [Provimux](https://provimux.providers.dev/): A self-hosted AI gateway: one OpenAI-, Claude- and Gemini-compatible endpoint for your API keys and accounts.
+- [pi-cache-keeper](https://pi-cache-keeper.providers.dev/): A Pi extension that makes the prompt cache pay off.
+- [GitHub: ngvoicu](https://github.com/ngvoicu): The repositories.
+
+## Guides
+
+- [Rust for Java Developers](https://ngvoicu.dev/articles/rust-for-java-developers/index.html.md): A field guide to Rust for Java developers: cargo vs Maven, ownership without a GC, axum vs Spring Boot, sqlx vs JDBC and JPA, and a worked service.
+- [Becoming an AI Native Company](https://ngvoicu.dev/becoming-an-ai-native-company/index.html.md): How an engineering team goes from using AI on the side to building with agents: session context, specs, a shared knowledge base and cross-model review.
+
+## Building with AI agents
+
+- [Pools for CLIProxyAPI](https://ngvoicu.dev/articles/cliproxyapi-model-pools/index.html.md): A CLIProxyAPI plugin, now deprecated, that pooled every account serving the same model under one name. Pools are now part of Provimux; kept as history.
+- [One AI opinion isn't enough](https://ngvoicu.dev/articles/one-ai-opinion-isnt-enough/index.html.md): How ConsensFlow began in July 2026 as a Claude Code plugin and Pi extension for second AI opinions. It is now a desktop app; this article is kept as history.
+- [AI Coding Specs Should Be HTML — Karpathy and Anthropic Agree](https://ngvoicu.dev/articles/specmint-html-specs/index.html.md): Karpathy and Anthropic converged on HTML for AI output. Specmint applies it to coding specs: rendered plans with Mermaid diagrams, diffs, and mockups.
+- [The SME your team never had](https://ngvoicu.dev/articles/the-sme-your-team-never-had/index.html.md): Kluris is an open-source CLI that turns a folder of markdown into a git-backed knowledge base your AI agents read: one shared brain across eight tools.
+- [Specmint: Persistent AI Coding Specs That Survive Across Sessions and Tools](https://ngvoicu.dev/articles/specmint-persistent-ai-coding-specs/index.html.md): Specmint replaces ephemeral AI coding plans with persistent specs in .specs/, working across Claude Code, Cursor, Windsurf, Cline, Codex, and Gemini CLI.
+
+## Videos
+
+- [Kluris: give your AI agents one shared memory (Claude Code, Codex, Cursor…)](https://ngvoicu.dev/videos/kluris-shared-memory/index.html.md): Kluris gives every AI agent on your team one shared brain: a git-backed knowledge base of markdown that Claude Code, Cursor and Copilot read first.
+- [Specmint: AI coding specs that survive the session](https://ngvoicu.dev/videos/specmint-ai-coding-specs/index.html.md): Specmint turns your AI's plans into persistent, resumable specs that live in your codebase and work across coding tools. A 3-minute walkthrough.
+- [ConsensFlow: a second AI opinion inside Claude Code & Pi](https://ngvoicu.dev/videos/consensflow-second-opinion/index.html.md): ConsensFlow as it was in July 2026: a Claude Code plugin and Pi extension that let your coding AI ask a different AI to review a spec or a diff.
+
+## Optional
+
+- [Log4J, the monster from your yard](https://ngvoicu.dev/articles/log4j-the-monster-from-your-yard/index.html.md): Log4Shell, the Log4J flaw CISA called one of the biggest security issues ever seen: why a quick upgrade saved us this time, and why secure code matters.
+- [Hexagonal Architecture](https://ngvoicu.dev/articles/hexagonal-architecture/index.html.md): Hexagonal Architecture (Ports and Adapters) keeps business logic isolated and fully testable. A Spring Boot Java example with ports, adapters, and DI.
+- [Testing Spring Boot applications](https://ngvoicu.dev/articles/testing-spring-boot-applications/index.html.md): Create and test a small Spring Boot REST application with unit and integration tests using Spring Test, Mockito, JUnit 5, JSONAssert and H2.
+- [What is and how do we measure code coverage](https://ngvoicu.dev/articles/what-is-and-how-do-we-measure-code-coverage/index.html.md): Code coverage is a metric showing the percentage of production code covered by tests, helping you spot untested lines with IDEs or SonarQube.
+- [Jumpstart Testing with Mockito and JUnit5](https://ngvoicu.dev/articles/jumpstart-testing-with-mockito-and-junit5/index.html.md): See JUnit and Mockito in action with a service and repository class — assert, verify, exceptions, ArgumentMatcher, ArgumentCaptor, and annotations.
+- [Advanced MapStruct for automated DTO to Entity mapping and vice versa](https://ngvoicu.dev/articles/advanced-mapstruct-for-automated-dto-to-entity-mapping-and-vice-versa/index.html.md): Advanced MapStruct: map fields between different DTO and Entity objects explicitly with @Mapping, from pom.xml setup to a working Spring controller.
+- [MapStruct for automated DTO to Entity mapping and vice-versa](https://ngvoicu.dev/articles/mapstruct-for-automated-dto-to-entity-mapping-and-vice-versa/index.html.md): A Spring code example showing how to use MapStruct to convert entities into DTOs and back, from Maven setup to a Mapper interface and controller.
+- [Jumpstart OpenLayers](https://ngvoicu.dev/articles/jumpstart-openlayers/index.html.md): A hands-on starter for OpenLayers, the JavaScript map library: build a map with tile, vector and KML layers, custom features, projections and clicks.
+- [Create OSGi bundle, Camel Routes (XML/Java DSL), deploy in ServiceMix](https://ngvoicu.dev/articles/create-osgi-bundle-camel-routes-xml-java-dsl-deploy-in-servicemix/index.html.md): A video series: create an OSGi bundle with Apache Camel routes written in both the XML and the Java DSL, then deploy it in Apache ServiceMix on Karaf.
+- [Start web project with Springboot, Angular, Eclipse or Intellij](https://ngvoicu.dev/articles/start-web-project-with-springboot-angular-eclipse-or-intellij/index.html.md): A 2017 video walkthrough: start a new web project with a Spring Boot back end and an Angular 2 front end, set up in Eclipse or in IntelliJ IDEA.
+- [Create a Spring Boot Multi-Module Project](https://ngvoicu.dev/articles/create-a-spring-boot-multi-module-project/index.html.md): Modularize your Java app with a Spring Boot multi-module project: main and second modules, static resources, deployable WARs, and Tomcat deploy.
+- [Create a Maven Project with JSP and Servlets in Intellij Idea](https://ngvoicu.dev/articles/create-a-maven-project-with-jsp-and-servlets-in-intellij-idea/index.html.md): Start your Maven web project in IntelliJ IDEA — a beginner-friendly walkthrough of a basic JSP and Servlets app. Everyone should know the basics.
+- [Create a Spring Boot project with JSP in Eclipse](https://ngvoicu.dev/articles/create-a-spring-boot-project-with-jsp-in-eclipse/index.html.md): Create a Spring Boot project with a JSP front end in Eclipse, then add plain Hibernate to it: a short post with the video walkthrough from 2017 to follow along.
+- [Create a web app with Intellij Ultimate Edition 15, Spring MVC and Tomcat](https://ngvoicu.dev/articles/create-a-web-app-with-intellij-ultimate-edition-15-spring-mvc-and-tomcat/index.html.md): A 2016 screencast: create a web application with IntelliJ IDEA Ultimate Edition 15, Spring MVC and Tomcat. Watch the short video and start your own app.

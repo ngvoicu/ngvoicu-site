@@ -5,7 +5,8 @@ the writing (articles, the Rust guide and the guide *Becoming an AI Native Compa
 
 Static, hand-written HTML with inline CSS and a little vanilla JavaScript, no build step,
 the same stack as the sibling `kluris-site`, `specmint-site` and `consensflow-site` repos.
-Every page is its own folder with an `index.html`.
+Every page is its own folder with an `index.html`, and beside it its markdown version, `index.html.md`, written from
+the page by `scripts/markdown.py` (run by hand, its output committed: see SEO).
 
 ## Structure
 
@@ -24,13 +25,16 @@ Every page is its own folder with an `index.html`.
 | `/videos/specmint-ai-coding-specs/` | Video page: Specmint, AI coding specs that survive the session (3:03, 14 July 2026) |
 | `/videos/consensflow-second-opinion/` | Video page: ConsensFlow as the earlier Claude Code plugin and Pi extension (3:26, 21 July 2026), with its history note |
 | `/404.html` | Not found (`noindex`, not in the sitemap) |
+| `<page>/index.html.md` | The markdown version of each page in the sitemap, written by `scripts/markdown.py` (see SEO) |
+| `/llms.txt` | The site for AI agents, in the llms.txt format: who he is, every page in the sitemap with a link to its markdown version, the open-source tools' sites (see SEO) |
+| `scripts/markdown.py` | Writes and checks the markdown versions (Python 3, standard library only) |
 | `design/` | Source artwork and options, not linked, not indexed |
 
 Assets: `fonts/` (the font files and their licences), `images/brand/` (the header's ink stamp, the footer's
 full-name sign-off, the product logos and tiles, and the four social cards), `images/me/` (his portrait), `images/sea/`
 (the shore), `images/consulting/`, `images/work/` and `images/about/` (the watercolour paintings), `videos/thumbs/`,
 and at the root `favicon.ico`, `favicon-32.png`, `favicon-192.png`, `apple-touch-icon.png`, `sitemap.xml`,
-`robots.txt`, `CNAME`, an empty `.nojekyll` and the IndexNow key file `c8042e3ed731c8d3cbcfb6f0514455d5.txt`
+`robots.txt`, `llms.txt`, `CNAME`, an empty `.nojekyll` and the IndexNow key file `c8042e3ed731c8d3cbcfb6f0514455d5.txt`
 (see SEO, Deploy and Deploying).
 
 ## Design
@@ -220,6 +224,31 @@ Every rule here applies to every indexable page, so a new page starts from a pag
 - **`VideoObject`.** `name`, `description`, `thumbnailUrl`, `uploadDate` exactly as YouTube gives it (a timezone-aware
   date-time), `duration`, `embedUrl` and the page's `url`. No `contentUrl`: Google says it must be the video file, and a
   watch page is not one.
+- **Markdown versions, for AI agents.** Every page in the sitemap has its markdown version beside it,
+  `<page>/index.html.md` (`/index.html.md` for the home page), as the llms.txt format proposes. It says what the page
+  shows on a phone without JavaScript, from its `<main>` (so the Rust guide's diagrams come as their text versions):
+  headings, paragraphs, lists, quotes, tables (a cell spanning some columns repeated in each, a group row spanning
+  the whole table written once), code blocks line for line without the line numbers, images with their alt text, a
+  YouTube player as a link to the video, every link and image as an absolute URL; the breadcrumb, Contents, Keep
+  reading, buttons and drawn SVG are left out. Its front matter holds the page's `title`, `description`, `canonical`
+  URL, `author` and dates. Each page announces its version in the head, right after the canonical, with
+  `<link rel="alternate" type="text/markdown" href="<page>index.html.md">` and `<link rel="describedby" href="/llms.txt">`
+  (not `/404.html`). The versions are not in the sitemap: the HTML pages are what ranks. GitHub Pages serves them as
+  `text/markdown`; it cannot send a canonical `Link` header for them (only Cloudflare could).
+  **Keeping them in step:** after editing any page, run `python3 scripts/markdown.py` (it rewrites the versions
+  and deletes one whose page left the sitemap) and commit what it writes. Before pushing,
+  `python3 scripts/markdown.py --check` must exit 0: it fails on a version that is missing, out of step with its page or
+  left over, on a page without its two `<link>`s, and on an llms.txt that misses a sitemap page or lists one that is not there.
+  `--check` only compares the script with its own output: **after changing the script itself**, check the result against
+  the pages from outside it, in a browser (headings, every code block line by line, every table cell, every link and
+  image, the words in order, the front matter against the head, no file without a page), and compile the Rust guide's
+  whole programs (`fn main`) from the markdown; the stepper's program must print "Gabriel" twice.
+- **llms.txt.** `/llms.txt` introduces the site to AI agents in the llms.txt format: the H1 and summary (from the home
+  page's lead), the contact, then the main pages, the open-source tools (linking their own sites, each line from that
+  site's own description), the two guides, the AI articles, the videos, and the Java and Spring archive under
+  `## Optional`. Each ngvoicu.dev line links the page's markdown version, with the page's `h1` and its meta
+  description, word for word. When a page is added, removed, retitled or gets a new description, llms.txt changes
+  with it (`--check` fails until it lists exactly the sitemap's pages). No `llms-full.txt`.
 - **IndexNow.** The key file at the root, `c8042e3ed731c8d3cbcfb6f0514455d5.txt`, holds exactly the key and nothing else (no
   newline). The key is public by design. It lets Bing, Yandex, Naver, Seznam and Yep take the URLs you send them, and the
   list is shared between them. **Google does not use IndexNow:** for Google the sitemap and Search Console are the way.
@@ -245,10 +274,13 @@ with "Always Use HTTPS", and .dev is HSTS-preloaded in browsers.
 
 The empty `.nojekyll` at the root stays. Without it Pages runs Jekyll over the repo, which renders `design/README.md` as a
 themed page at `/design/` and publishes a theme stylesheet at `/assets/css/style.css`. With it Pages serves the files as
-they are. Nothing here uses Jekyll: no front matter, no Liquid tags, no `_config.yml`, no folder or file that starts with
-`_`. The raw `README.md` files and the `design/` files are still public by direct URL.
+they are. Nothing here uses Jekyll: no Liquid tags, no `_config.yml`, no folder or file that starts with `_`, and no
+front matter in any page (the markdown versions open with front matter for agents, which Pages, with Jekyll off,
+serves as written). The raw `README.md` files and the `design/` files are still public by direct URL.
 
 ## Deploying (read this — Pages builds get stuck)
+
+Before pushing, `python3 scripts/markdown.py --check` must exit 0 (see SEO, Markdown versions).
 
 Push `main` to `upstream` (GitHub) and Pages builds automatically, but builds **regularly hang in `"building"`**. After every push:
 
@@ -258,12 +290,21 @@ gh api -X POST repos/ngvoicu/ngvoicu-site/pages/builds               # re-queue 
 ```
 
 Then confirm the change is actually live: `curl -s https://ngvoicu.dev/ | grep '<something-from-your-change>'`.
+Where a page changed, its markdown version should be live too, as markdown, and the page itself still HTML:
 
-Then check Cloudflare's email obfuscation on every page in the sitemap. Every line must start with `0`:
+```bash
+curl -sI https://ngvoicu.dev/work/index.html.md | grep -i content-type   # text/markdown
+curl -s https://ngvoicu.dev/work/ | head -c 15                          # <!DOCTYPE html>
+```
+
+Then check Cloudflare's email obfuscation on every page in the sitemap and on its markdown version. Every line must
+start with `0`:
 
 ```bash
 curl -s https://ngvoicu.dev/sitemap.xml | sed -n 's|.*<loc>\(.*\)</loc>.*|\1|p' | while read -r u; do
-  printf '%s  %s\n' "$(curl -s "$u" | grep -c 'cdn-cgi/l/email-protection')" "$u"
+  for v in "$u" "${u}index.html.md"; do
+    printf '%s  %s\n' "$(curl -s "$v" | grep -c 'cdn-cgi/l/email-protection\|\[email.protected\]')" "$v"
+  done
 done
 ```
 

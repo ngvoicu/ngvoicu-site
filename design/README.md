@@ -41,6 +41,9 @@ pure-white border and an exact 1600 × 1200 (the raw files are 1448 × 1086).
 | `work/cpa-pools.png` | **In use** | Five windows, each holding a key, send lines into one round green pool, and one line runs on to a laptop where a robot works; a person guides the last line in. Generated with `work/kluris.png` as a style reference. Source of `images/work/cpa-pools-{400,800,1200}.webp`, on `/work/#cpa-pools`. |
 | `work/cpa-pools-raw.png` | Raw | The untouched generator output (1448 × 1086) of the file above. |
 | `work/consensflow.png` | **In use** | A person at a board of task cards, handing cards to three terminal windows: a coding robot, a reviewer with a magnifier and a tester with a check mark. Source of `images/work/consensflow-{400,800,1200}.webp`, on `/work/#consensflow`. |
+| `work/providers-dev.png` | **In use** | A ledger of model cards in rows, fed by four windows; a robot times an hourglass with a stopwatch, and a person with a magnifying glass looks at two pinned notes with a small warning triangle between them. Generated with `work/kluris.png`, `work/cpa-pools.png` and `work/consensflow.png` as style references. Source of `images/work/providers-dev-{400,800,1200}.webp`, on `/work/#providers-dev`. |
+| `work/provimux.png` | **In use** | Three robot terminals and a person at a laptop, each holding the same golden key, send lines into one stone archway with a key in its lock; lines run on to six windows holding keys and ID badges, and a small tag flies back from the second. Generated with the same three style references. Source of `images/work/provimux-{400,800,1200}.webp`, on `/work/#provimux`. |
+| `work/pi-cache-keeper.png` | **In use** | A long scroll from a robot's terminal runs through a glowing amber jar of rolled pages, and robot hands fold its end into one short card; an hourglass runs low, a small robot tends the flame under the jar, and a person walks off with a coffee mug. Generated with the same three style references. Source of `images/work/pi-cache-keeper-{400,800,1200}.webp`, on `/work/#pi-cache-keeper`. |
 | `about/mentoring-watercolor.png` | **In use** | Gabriel pairing with a younger colleague at one laptop, pointing at the screen while the colleague types, with a mug and a stack of notes beside them. Source of `images/about/mentoring-{400,800,1200}.webp`, in About's "Teaching and mentoring". |
 | `logo-v5/S4-ink-stamp-raw.png` | Raw | Of `S4-ink-stamp.png`. |
 | `logo-v4/L1-full-signature-raw.png` | Raw | Of `L1-full-signature.png`. |
@@ -56,6 +59,9 @@ pure-white border and an exact 1600 × 1200 (the raw files are 1448 × 1086).
 | `work/specmint-raw.png` | Raw | Of `specmint.png`. |
 | `work/kluris-raw.png` | Raw | Of `kluris.png`. |
 | `work/consensflow-raw.png` | Raw | Of `consensflow.png`. |
+| `work/providers-dev-raw.png` | Raw | The untouched generator output (1448 × 1086) of `providers-dev.png`. |
+| `work/provimux-raw.png` | Raw | The untouched generator output (1448 × 1086) of `provimux.png`. |
+| `work/pi-cache-keeper-raw.png` | Raw | The untouched generator output (1448 × 1086) of `pi-cache-keeper.png`. |
 | `about/mentoring-watercolor-raw.png` | Raw | Of `mentoring-watercolor.png`. |
 | `logo-v3/gv-signature.png` | Earlier choice | A handwritten "GV" on its own, black on white: the earlier header mark and favicons, before the ink stamp. |
 | `logo-v3/gv-signature.svg` | Earlier choice | The traced vector master of that header mark. |

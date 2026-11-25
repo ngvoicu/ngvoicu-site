@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work: AI agents, ZeeSpire and open source — Gabriel Voicu</title>
-<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
+<meta name="description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ngvoicu.dev/work/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngvoicu.dev/work/">
 <meta property="og:title" content="Work: AI agents, ZeeSpire and open source">
-<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
+<meta property="og:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
 <meta property="og:site_name" content="Gabriel Voicu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ngvoicu.dev/images/brand/og-site.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Gabriel Voicu, software engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work: AI agents, ZeeSpire and open source">
-<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.">
+<meta name="twitter:description" content="My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.">
 <meta name="twitter:image" content="https://ngvoicu.dev/images/brand/og-site.png">
 <meta name="twitter:image:alt" content="Gabriel Voicu, software engineer">
 
@@ -41,7 +41,7 @@
       "@id": "https://ngvoicu.dev/work/#page",
       "url": "https://ngvoicu.dev/work/",
       "name": "Work",
-      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and four open-source tools for coding agents.",
+      "description": "My work: AI agents and application security on enterprise systems, my software company ZeeSpire, and seven open-source tools for coding agents and their models.",
       "inLanguage": "en",
       "isPartOf": {
         "@type": "WebSite",
@@ -287,21 +287,26 @@
   .sec-intro + .sec-intro { margin-top: .5rem; }
   .item { margin-top: 2.25rem; }
   .item + .item { padding-top: 2.25rem; border-top: 1px solid var(--rule); }
-  .item h3 { font-size: var(--fs-h3); }
-  .item h3:has(.logo-tile) { display: flex; align-items: center; gap: .75rem; }
+  .item :is(h3, h4) { font-size: var(--fs-h3); }
+  .item :is(h3, h4):has(.logo-tile) { display: flex; align-items: center; gap: .75rem; }
+  /* A family of tools inside a section (the providers.dev family under Open source): a hairline like the one between items, its name
+     as an h3 with a quiet intro under it, as a section opens; its items are h4 and keep every item rule above. */
+  .family { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+  .family > h3 { font-size: var(--fs-h3); }
+  .family > .sec-intro { margin-top: .5rem; }
   .item > * + * { margin-top: .875rem; }
   /* ---------- Work items with an illustration: each item is its heading, an illustration (.item-art) and its text (.item-text). From 48em they sit on the home page's three equal columns and
      2.5rem gap, the same as "What colleagues say" and the home Consulting section: the heading and the text take columns 1 and 2 and the
      watercolour column 3, top-aligned with the heading and running down beside the text (about 2:1 up to 64em). Below 48em the illustration
      sits under the heading, at most 20rem wide, left-aligned with the text. An ink-and-watercolour painting on white paper, no frame: its
-     ragged edges are the edge, so no border, radius or shadow. #earlier has no illustration; its text keeps columns 1 and 2. ---------- */
+     ragged edges are the edge, so no border, radius or shadow. #earlier has no illustration, nor, until theirs are painted, the providers.dev family's three items; their text keeps columns 1 and 2. ---------- */
   .item-text { min-width: 0; }
   .item-text > * + * { margin-top: .875rem; }
   .item-art { width: min(100%, 20rem); }
   .item-art img { display: block; width: 100%; height: auto; }
   @media (width >= 48em) {
     .item { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: 2.5rem; align-items: start; }
-    .item > h3 { grid-column: 1 / span 2; grid-row: 1; }
+    .item > :is(h3, h4) { grid-column: 1 / span 2; grid-row: 1; }
     .item-text { grid-column: 1 / span 2; grid-row: 2; }
     .item > .item-art { grid-column: 3; grid-row: 1 / span 2; width: auto; margin-top: 0; }
   }
@@ -323,7 +328,7 @@
   }
   .logo-tile img { width: auto; height: 1.75rem; }
   .logo-tile.cf img { height: 2.25rem; }
-  /* A logo that brings its own rounded ground (Pools for CLIProxyAPI) fills the tile */
+  /* A logo that brings its own rounded ground (Pools for CLIProxyAPI, and the providers.dev family's indigo and green tiles) fills the tile */
   .logo-tile.own { background: none; }
   .logo-tile.own img { width: 100%; height: 100%; }
   /* ZeeSpire's tiles: each logo on its own light ground (white, or InYourMind's cream), baked into the image at the tile's
@@ -521,7 +526,7 @@
     <div class="wrap"><div class="sec-grid">
       <h2 id="open-source-title">Open source</h2>
       <div class="sec-body">
-        <p class="sec-intro">Four MIT-licensed tools for AI coding agents, all from 2026. I wrote them and use them in my own work.</p>
+        <p class="sec-intro">Seven MIT-licensed tools for AI coding agents and the models behind them, all from 2026. I build them and use them in my own work.</p>
         <article class="item" id="specmint" aria-labelledby="specmint-title">
           <h3 id="specmint-title"><span class="logo-tile"><img src="/images/brand/specmint-logo.webp" width="146" height="160" alt="" loading="lazy" decoding="async"></span>Specmint</h3>
           <div class="item-art"><img src="/images/work/specmint-800.webp" srcset="/images/work/specmint-400.webp 400w, /images/work/specmint-800.webp 800w, /images/work/specmint-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="Two hands pass a checklist document from one terminal window to another, like a baton" loading="lazy" decoding="async"></div>
@@ -568,6 +573,48 @@
             <ul class="item-links"><li><a href="/articles/cliproxyapi-model-pools/">The article</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases/releases">Download</a></li><li><a href="https://github.com/ngvoicu/cpa-pools-and-aliases">Source on GitHub</a></li></ul>
           </div>
         </article>
+        <section class="family" id="providers-dev-family" aria-labelledby="providers-dev-family-title">
+          <h3 id="providers-dev-family-title">The providers.dev family</h3>
+          <p class="sec-intro">A second family, since November 2026, under its own name: the models behind the agents, as each provider and access method really exposes them, and tools to use them well.</p>
+          <article class="item" id="providers-dev" aria-labelledby="providers-dev-title">
+            <h4 id="providers-dev-title"><span class="logo-tile own"><img src="/images/brand/providers-dev-logo.svg" width="32" height="32" alt="" loading="lazy" decoding="async"></span>providers.dev</h4>
+            <div class="item-text">
+              <p><strong>What it is.</strong> Providers rarely publish how long a prompt cache lasts, and what they do publish often holds only on their own API, not through a reseller or a subscription login. providers.dev lists AI models as each provider and access method exposes them: context window, maximum output, price and prompt caching per model, for API keys and subscription logins alike. Its own measurements stand beside the documented values, each with its source and date, and a warning marks where sources disagree. It’s built on <a href="https://models.dev">models.dev</a>, with a free JSON API that needs no key.</p>
+              <p><strong>My part.</strong> I built it. Every day it imports models.dev, with Pi’s model catalog beside it, and adds what models.dev doesn’t list, mainly subscription access such as Claude Code, Devin and Google Antigravity, and corrections to single fields, each with a reason and a source. The measurements come from groundtruth, the tool I wrote to find out how long prompt caches really live and how large the limits really are, per endpoint, model and route.</p>
+              <p><strong>Stack:</strong> TypeScript and Astro on Cloudflare Workers. groundtruth runs on Node, with no runtime dependencies.</p>
+              <p><strong>Try the API:</strong></p>
+              <pre tabindex="0" role="region" aria-label="An example request to the providers.dev API: one model with every entry that serves it"><code>curl https://providers.dev/api/v1/models/anthropic/claude-opus-5-5</code></pre>
+              <ul class="item-links"><li><a href="https://providers.dev">providers.dev</a></li><li><a href="https://providers.dev/docs/api/">The API</a></li><li><a href="https://github.com/ngvoicu/providers.dev">Source on GitHub</a></li><li><a href="https://github.com/ngvoicu/groundtruth">groundtruth on GitHub</a></li></ul>
+            </div>
+          </article>
+          <article class="item" id="provimux" aria-labelledby="provimux-title">
+            <h4 id="provimux-title"><span class="logo-tile own"><img src="/images/brand/provimux-logo.svg" width="32" height="32" alt="" loading="lazy" decoding="async"></span>Provimux</h4>
+            <div class="item-text">
+              <p><strong>What it is.</strong> Every AI account has its own key, and the same model has a different name at each account that serves it, so a request for one name never reaches the accounts behind the others. Provimux is a self-hosted AI gateway: one key and one endpoint, OpenAI-, Claude- and Gemini-compatible, for your API keys and subscriptions, for you or your whole team. A pool puts one name of your own on every account that can serve a model: Provimux tries them in your order and says which one answered. One switch serves only the names you chose, and the console shows what prompt caching was worth. On a team, each person gets a client key of their own, and the accounts behind it are API keys and cloud accounts: a subscription login is for your own use, where its provider allows it.</p>
+              <p><strong>My part.</strong> I build it on <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a> by router-for-me, which does nearly all of the work: the logins, the providers, the translation between formats and the routing. Provimux adds the console page that makes a pool in one save, the headers that name the account, serving only your names and the savings, and keeps the prompt cache in use, with cache markers on OpenRouter and one upstream per conversation. A workflow moves it onto each CLIProxyAPI release and tests it. Its Pi extension, pi-provimux, a fork of router-for-me’s pi-cliproxyapi-provider, puts every model your Provimux serves in Pi’s <code>/model</code>, each name saying which accounts serve it.</p>
+              <p><strong>Stack:</strong> Go, with a React and TypeScript console. Runs on macOS, Linux, Windows and FreeBSD, and in Docker.</p>
+              <p><strong>Install:</strong></p>
+              <pre tabindex="0" role="region" aria-label="Install commands for Provimux with Homebrew on macOS and Linux"><code>brew install ngvoicu/tap/provimux
+brew services start provimux</code></pre>
+              <details><summary>With Docker, or from a release archive</summary><ul class="variants"><li><pre tabindex="0" role="region" aria-label="Docker command for Provimux"><code>docker run -d --name provimux -p 8317:8317 \
+  -v "$PWD/config.yaml:/CLIProxyAPI/config.yaml" \
+  -v "$PWD/auths:/root/.cli-proxy-api" \
+  ghcr.io/ngvoicu/provimux:latest</code></pre><p>For linux/amd64 and linux/arm64. Archives for macOS, Windows, Linux and FreeBSD are on <a href="https://github.com/ngvoicu/provimux/releases">the releases page</a>.</p></li></ul></details>
+              <ul class="item-links"><li><a href="https://provimux.providers.dev">provimux.providers.dev</a></li><li><a href="https://github.com/ngvoicu/provimux">Source on GitHub</a></li><li><a href="https://github.com/ngvoicu/provimux-ui">The console, provimux-ui</a></li><li><a href="https://github.com/ngvoicu/pi-provimux">pi-provimux</a></li></ul>
+            </div>
+          </article>
+          <article class="item" id="pi-cache-keeper" aria-labelledby="pi-cache-keeper-title">
+            <h4 id="pi-cache-keeper-title"><span class="logo-tile own"><img src="/images/brand/pi-cache-keeper-logo.svg" width="32" height="32" alt="" loading="lazy" decoding="async"></span>pi-cache-keeper</h4>
+            <div class="item-text">
+              <p><strong>What it is.</strong> When a Pi session fills up, Pi compacts it: it sends the older part of the conversation as text, with each tool result cut to 2,000 characters, at full price. pi-cache-keeper compacts from the prompt cache the session already built instead, so on big sessions the summary costs a fraction of Pi’s and is written from the full tool output. It compacts when the context gets full and just before the cache expires, it can keep the cache warm through a break, and the footer counts down how long the cache stays warm. What Pi doesn’t know about a model, such as its input window, cache lifetimes and prices, it fills in from providers.dev.</p>
+              <p><strong>My part.</strong> It’s based on Nico Bailon’s <a href="https://github.com/nicobailon/pi-cached-compaction">pi-cached-compaction</a>: compacting from the warm cache, the compaction card, the cache countdown, compacting before the cache expires and the longer cache are his work. I added compacting when the context is full, keeping the cache warm, settings per session, the model data from providers.dev and, through Provimux, a footer that says whether a subscription or an API key answered.</p>
+              <p><strong>Stack:</strong> TypeScript, as a Pi extension. Needs Pi 1.6.0 or newer.</p>
+              <p><strong>Install</strong>, then run <code>/reload</code> in Pi:</p>
+              <pre tabindex="0" role="region" aria-label="Install command for pi-cache-keeper"><code>pi install npm:pi-cache-keeper</code></pre>
+              <ul class="item-links"><li><a href="https://pi-cache-keeper.providers.dev">pi-cache-keeper.providers.dev</a></li><li><a href="https://github.com/ngvoicu/pi-cache-keeper">Source on GitHub</a></li></ul>
+            </div>
+          </article>
+        </section>
       </div>
     </div></div>
   </section>
@@ -601,6 +648,9 @@
         <li><a href="https://kluris.ngvoicu.dev">Kluris</a></li>
         <li><a href="https://consensflow.ngvoicu.dev">ConsensFlow</a></li>
         <li><a href="/work/#cpa-pools">Pools for CLIProxyAPI</a></li>
+        <li><a href="https://providers.dev">providers.dev</a></li>
+        <li><a href="https://provimux.providers.dev">Provimux</a></li>
+        <li><a href="https://pi-cache-keeper.providers.dev">pi-cache-keeper</a></li>
       </ul>
     </nav>
     <nav aria-labelledby="foot-else">

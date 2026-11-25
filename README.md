@@ -11,8 +11,8 @@ Every page is its own folder with an `index.html`.
 
 | Path | Page |
 |---|---|
-| `/` | Home, in this order: the intro (the lead and his watercolour portrait, with the shore band along the bottom); Work (Enterprise work, his own company and Open source, in three columns); what colleagues say (three quotes); Consulting (the text beside the workshop painting, with a button to `/consulting/`); Writing (the six newest pieces, newest first, in one dated list: a date column, one title link per row, then an "All articles" link); Videos (built the same way: the three videos, newest first, each linking to its own page under `/videos/`, then an "All videos" link) |
-| `/work/` | Work: Enterprise work (AI agents and application security, five items and "Earlier work"), ZeeSpire (Atlas, Burn The Burnout, InYourMind, and the talks and consulting), and the four open-source tools. Every item but "Earlier work" has a watercolour painting |
+| `/` | Home, in this order: the intro (the lead and his watercolour portrait, with the shore band along the bottom); Work (Enterprise work, his own company and Open source, in three columns; Open source lists his four tools, then the providers.dev family as a list of its own under its name); what colleagues say (three quotes); Consulting (the text beside the workshop painting, with a button to `/consulting/`); Writing (the six newest pieces, newest first, in one dated list: a date column, one title link per row, then an "All articles" link); Videos (built the same way: the three videos, newest first, each linking to its own page under `/videos/`, then an "All videos" link) |
+| `/work/` | Work: Enterprise work (AI agents and application security, five items and "Earlier work"), ZeeSpire (Atlas, Burn The Burnout, InYourMind, and the talks and consulting), and the seven open-source tools: Specmint, Kluris, ConsensFlow and Pools for CLIProxyAPI, then "The providers.dev family" (providers.dev, Provimux, pi-cache-keeper) with a heading and an intro of its own. Every item but "Earlier work" has a watercolour painting, except the three providers.dev items until theirs are painted |
 | `/consulting/` | Consulting: how I help, the Enhanced Forge Flow, and the talks and training I offer |
 | `/about/` | About: his portrait, the timeline, teaching and mentoring (with a watercolour painting), what colleagues say (nine quotes) and skills |
 | `/articles/` | Writing: the archive, grouped as guides, building with AI agents, and the Java and Spring archive. Articles only: no videos section |
@@ -54,10 +54,11 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   and mentoring" put their text in columns 1 and 2 and a watercolour painting in column 3 from 48 em (about 70 characters
   a line at 1440 px, a text column about 595 px wide); below 48 em the painting stacks, at most 20 rem wide and
   left-aligned, after the button on the home page and under the heading on `/work/` and About. On `/work/`, "Earlier
-  work" has no painting but keeps the same two columns for its text, and the section intros (`.sec-intro`) still run the
+  work" has no painting but keeps the same two columns for its text, as do the providers.dev family's three items until their paintings exist, and the section intros (`.sec-intro`) still run the
   full width. *The home Work section:* its three groups (Enterprise work, his own company, Open source) are
   three equal columns from 64 em, two from 48 em, and stacked, with a rule between them, below that; where the browser
-  has subgrid, each group's heading, one-line description and list start on shared lines.
+  has subgrid, each group's heading, one-line description and list start on shared lines. Open source's list ends with the
+  providers.dev family: one more item holding its small name and a list of its own, on the same left edge.
 - **Logo.** The S4 ink stamp: a round rubber stamp in bottle green, with a bold outer ring, a thin inner ring and a
   bold handwritten "GV" in the middle. `images/brand/gv-stamp-mask.png` (256 × 256) is its alpha as a mask, black on
   clear, and the header paints it in the accent green with CSS (`mask` over `background: var(--accent)`). The favicons are
@@ -89,7 +90,7 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   SVG icon: the portrait is a watercolour, not vector. Cropped from `images/me/gabriel-portrait-800.webp`. Every page
   links the four (`favicon.ico`, `favicon-192.png`, `favicon-32.png`, the apple-touch icon).
 - **Shore.** A pencil-and-watercolour seashore, purely decorative (`alt=""`, still): a low, mirrored band along the bottom of the home hero, under the portrait and the buttons (its sand on the portrait's side, the water and foam towards the right, faded at its top, bottom and ends, hanging a little into the white above the next section), and a thin faded strip that opens every page's footer; `images/sea/pencil-shore-{800,1600}.webp` and `pencil-shore-strip-{1200,2400}.webp`.
-- **Watercolour illustrations.** The home Consulting section (the workshop), every `/work/` item but "Earlier work" and About's "Teaching and mentoring"
+- **Watercolour illustrations.** The home Consulting section (the workshop), every `/work/` item but "Earlier work" (and, until theirs are painted, the providers.dev family's three) and About's "Teaching and mentoring"
   section carry an ink-and-watercolour illustration on white paper, with no frame, border or shadow (alt text describes the scene, with no company or
   place names). They are `images/consulting/workshop-{400,800,1200}.webp` (the workshop painting: the home Consulting section, and the `/work/` Talks item
   reuses the same files), `images/work/<name>-{400,800,1200}.webp` (the other 11 `/work/` items) and `images/about/mentoring-{400,800,1200}.webp`
@@ -97,7 +98,10 @@ White paper, a green-black ink and a bottle-green pen, with his handwritten "GV"
   `design/work/` and `design/about/`. Their white margins melt into the page, so, like the portrait, they take no `border-radius`, clip or `box-shadow`.
   The painting sits in column 3 of the three-column grid, top-aligned with the text's first line (the heading on `/work/`): see Widths.
 - **Motto.** "Software Engineer since before AI. AI-Native Now." under the name in the header and under the signature in the footer, verbatim.
-- **Product logos.** Specmint, Kluris and ConsensFlow use their official artwork,
+- **Product logos.** Pools for CLIProxyAPI, providers.dev, Provimux and pi-cache-keeper bring their own rounded tile and fill the
+  tile's place (`.logo-tile.own`): `images/brand/{cpa-pools,providers-dev,provimux,pi-cache-keeper}-logo.svg`, the last three
+  copied byte for byte from the products' own marks (the providers.dev and pi-cache-keeper favicons on providers.dev, and
+  Provimux's `final/mark.svg` from its brand folder). Specmint, Kluris and ConsensFlow use their official artwork,
   `images/brand/{specmint,kluris,consensflow}-logo.webp`, on a small navy `#021720` tile so each keeps its colours.
   The Atlas, Burn The Burnout and InYourMind products (his own company's) have a square tile each, on its own light ground baked into the image
   (`images/brand/{atlas,burn-the-burnout,inyourmind}-tile-{36,72}.webp`), with a hairline round it so a white one reads on the page.
@@ -181,7 +185,7 @@ deploy, run the check over every page in the sitemap, not only the home page (se
 
 Keep `id="consulting"` on the home page: the product READMEs and sites link to
 `https://ngvoicu.dev/#consulting`, which lands on its short consulting section (the menu goes to `/consulting/`). `#open-source`, `#specmint`, `#kluris`, `#consensflow`
-and `#work` also still resolve. `videos/thumbs/specmint.jpg` and `videos/thumbs/kluris.jpg`
+and `#work` also still resolve; the home page and `/work/` also carry `#providers-dev`, `#provimux` and `#pi-cache-keeper`. `videos/thumbs/specmint.jpg` and `videos/thumbs/kluris.jpg`
 are hotlinked by the sibling sites (and are the video pages' social images): keep their names and bytes.
 
 ## SEO

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hexagonal Architecture in Spring Boot — Gabriel Voicu</title>
+<title>Hexagonal Architecture (Ports and Adapters) in Spring Boot</title>
 <meta name="description" content="Hexagonal Architecture (Ports and Adapters) keeps business logic isolated and fully testable. A Spring Boot Java example with ports, adapters, and DI.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -422,7 +422,7 @@
 <p>The core comprises business logic, and domain layers.</p>
 <p>Also known as Ports and Adapters Pattern, it has a lot of benefits visible in the long term.</p>
 <p><strong>Above all, testing and changing the application are easy and cost-effective.</strong></p>
-<figure><img src="images/hexagonal-architecture-1.webp" alt="Hexagonal architecture 1" loading="lazy" width="768" height="546" decoding="async"></figure>
+<figure><img src="images/hexagonal-architecture-1.webp" alt="Diagram: driver actors (test cases, a human user, a remote application, a single-page app, a mobile app, a message queue) interact with the application hexagon, which interacts with driven actors (a database, a remote application, an SMTP server, a message queue, a printer)" loading="lazy" width="768" height="546" decoding="async"></figure>
 <p><a href="https://jmgarridopaz.github.io/">https://jmgarridopaz.github.io/</a></p>
 <h2 id="principles">2. Principles</h2>
 <p>The principles of Hexagonal Architecture are:</p>
@@ -432,7 +432,7 @@
 <li>Isolate the core through ports and adapters</li>
 </ul>
 <h2 id="hexagon-implementation">3. Hexagon Implementation</h2>
-<figure><img src="images/hexagonal-architecture.png" alt="Hexagonal architecture 2" loading="lazy" width="451" height="598" decoding="async"></figure>
+<figure><img src="images/hexagonal-architecture.png" alt="Diagram: BookController (UI adapter) uses the BookService driver port, implemented by BookServiceImpl, which uses the BookRepository driven port, implemented by JpaBookRepository (DB adapter)" loading="lazy" width="451" height="598" decoding="async"></figure>
 <p><strong>Domain</strong></p>
 <pre tabindex="0" role="region" aria-label="Code sample 1"><code>public class Book {
     private Long id;

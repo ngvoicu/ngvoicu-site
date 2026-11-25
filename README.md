@@ -193,9 +193,17 @@ are hotlinked by the sibling sites (and are the video pages' social images): kee
 Every rule here applies to every indexable page, so a new page starts from a page that already follows them.
 
 - **Sitemap.** `sitemap.xml` lists each indexable page once, with a `<lastmod>` on every URL (`YYYY-MM-DD`). Bump a page's
-  `lastmod` when its text, structured data or links change; leave it for a style or copyright tweak, because Google only
-  uses a `lastmod` that is consistently accurate. No `<changefreq>` and no `<priority>`: Google ignores both. `/404.html`,
-  `design/` and the IndexNow key file are not in it. `robots.txt` allows everything except `/design/` and names the sitemap.
+  `lastmod` when its own text, title, description, alt texts, structured data or in-body links change; leave it for a
+  style or copyright tweak and for an edit to the shell alone (header, menu, footer), because Google only uses a
+  `lastmod` that is consistently accurate. No `<changefreq>` and no `<priority>`: Google ignores both. `/404.html`,
+  `design/` and the IndexNow key file are not in it.
+- **robots.txt and content signals.** `robots.txt` has one group, `User-agent: *`, for every crawler alike: it allows
+  everything except `/design/` (unlinked source artwork) and names the sitemap. It carries the owner's content signals,
+  `Content-Signal: search=yes, ai-input=yes, ai-train=yes`, under the Cloudflare Content Signals Policy's own preamble:
+  search engines, AI assistants reading a page to answer, and training on the content are all allowed. Nothing may say
+  otherwise: no group that blocks a named crawler (GPTBot, ClaudeBot, CCBot, Google-Extended or any other), no `noai`
+  or `nosnippet` meta, no `X-Robots-Tag`, and any Cloudflare setting (managed robots.txt, AI crawler blocking) has to
+  agree with this file. Pages carry `robots` = `index, follow, max-image-preview:large, max-snippet:-1`.
 - **Titles and descriptions.** A `<title>` is at most 60 characters. A `meta name="description"` is 140–160 characters,
   and `og:description` and `twitter:description` carry the same text.
 - **Dates.** `datePublished` is the date a piece was first published anywhere, Medium included, not the day it reached
@@ -203,6 +211,12 @@ Every rule here applies to every indexable page, so a new page starts from a pag
 - **Structured data.** One `Person` (`"@id": "https://ngvoicu.dev/#person"`), defined in full and identically on the home
   page and About. Every other block (articles, videos, breadcrumbs) refers to it by `@id` and does not repeat it. Never
   `LocalBusiness` or `ProfessionalService`, and no `address`, `geo` or `areaServed`.
+- **`/work/`'s open-source list.** Beside its `CollectionPage`, `/work/` carries an `ItemList` (`#open-source`) of the
+  six open-source tools, each a `SoftwareSourceCode` with the `@id` of its anchor on the page (`/work/#specmint` …),
+  its site, its repository where the page links one, and the `#person` as `author` where the page says he wrote it, or
+  as `maintainer` with `isBasedOn` its upstream where the page credits one (Provimux on CLIProxyAPI, pi-cache-keeper on
+  pi-cached-compaction). Names and links only: no description, rating, offer or `founder`. When an item is added,
+  renamed or removed on the page, the list changes with it.
 - **`VideoObject`.** `name`, `description`, `thumbnailUrl`, `uploadDate` exactly as YouTube gives it (a timezone-aware
   date-time), `duration`, `embedUrl` and the page's `url`. No `contentUrl`: Google says it must be the video file, and a
   watch page is not one.

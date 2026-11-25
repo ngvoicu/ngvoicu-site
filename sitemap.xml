@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ngvoicu.dev/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/work/</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/the-sme-your-team-never-had/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/specmint-persistent-ai-coding-specs/</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/hexagonal-architecture/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/testing-spring-boot-applications/</loc>
@@ -78,11 +78,11 @@
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/what-is-and-how-do-we-measure-code-coverage/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/jumpstart-testing-with-mockito-and-junit5/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://ngvoicu.dev/articles/advanced-mapstruct-for-automated-dto-to-entity-mapping-and-vice-versa/</loc>

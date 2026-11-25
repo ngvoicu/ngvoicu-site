@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What is and how do we measure code coverage — Gabriel Voicu</title>
+<title>Code coverage: what it is and how to measure it</title>
 <meta name="description" content="Code coverage is a metric showing the percentage of production code covered by tests, helping you spot untested lines with IDEs or SonarQube.">
 <meta name="author" content="Gabriel Voicu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -405,10 +405,10 @@
       <div class="body">
 <p>Test quality is very important and one of the most important things in building quality tests is to cover all production code lines with tests.</p>
 <p>Code coverage is a metric that shows us the percentage of code that is covered by tests. Using test coverage we can also identify the lines of code that we missed.</p>
-<figure><img src="images/coverage1.png" alt="Coverage 1" width="1230" height="237" decoding="async"></figure>
+<figure><img src="images/coverage1.png" alt="IntelliJ coverage table by package: class, method and line coverage, with the model package at 61% of methods and 56% of lines" width="1230" height="237" decoding="async"></figure>
 <p>Using IntelliJ Idea to check for code coverage.</p>
 <p>All modern IDEs have a tool that allows us to run tests with code coverage. This way we will be able to see what methods and lines of production code we didn’t cover and write more tests before pushing the code into a repository. Another great way to check code coverage is to use a tool like SonarQube.</p>
-<figure><img src="images/coverage2.png" alt="Coverage 2" loading="lazy" width="1353" height="775" decoding="async"></figure>
+<figure><img src="images/coverage2.png" alt="IntelliJ editor with coverage marks in the gutter: the lines of getProductById that ran are green, the throw of ProductNotFoundException is red" loading="lazy" width="1353" height="775" decoding="async"></figure>
 <p>Covered lines are green and uncovered are red.</p>
       </div>
 

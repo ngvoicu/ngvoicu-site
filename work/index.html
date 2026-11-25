@@ -286,6 +286,7 @@
   .sec-intro { color: var(--quiet); }
   .sec-intro + .sec-intro { margin-top: .5rem; }
   .item { margin-top: 2.25rem; }
+  .sec-body > .item:first-child { margin-top: 0; }
   .item + .item { padding-top: 2.25rem; border-top: 1px solid var(--rule); }
   .item :is(h3, h4) { font-size: var(--fs-h3); }
   .item :is(h3, h4):has(.logo-tile) { display: flex; align-items: center; gap: .75rem; }
@@ -417,7 +418,6 @@
     <div class="wrap"><div class="sec-grid">
       <h2 id="enterprise-title">Enterprise work</h2>
       <div class="sec-body">
-        <p class="sec-intro">From my current role at a global technology company, and from earlier roles.</p>
         <article class="item" id="remediation-agents" aria-labelledby="remediation-agents-title">
           <h3 id="remediation-agents-title">Agents that fix security findings</h3>
           <div class="item-art"><img src="/images/work/remediation-agents-800.webp" srcset="/images/work/remediation-agents-400.webp 400w, /images/work/remediation-agents-800.webp 800w, /images/work/remediation-agents-1200.webp 1200w" sizes="(min-width: 77em) 278px, (min-width: 64em) calc((100vw - 400px) / 3), (min-width: 48em) calc((92vw - 80px) / 3), min(20rem, calc(100vw - 2rem))" width="1200" height="900" alt="A list of warnings goes to two small robots that patch a page of code, which then passes through a pipeline to a green check mark" fetchpriority="high" decoding="async"></div>

@@ -206,7 +206,7 @@ curl -fsSL https://kluris.ngvoicu.dev/install.sh | sh
 
 ![A person at a board of task cards, handing cards to three terminal windows: a coding robot, a reviewer with a magnifier and a tester with a check mark](https://ngvoicu.dev/images/work/consensflow-800.webp)
 
-**What it is.** A desktop app that runs a team of AI coding agents on your project. You talk to a Chief of Staff, which plans the work and puts tasks on a board. Workers do the tasks, advisors answer questions, reviewers check the work and testers run it, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin. It works with your own logins, stores no passwords and needs no API keys. You can make every message between agents wait for your approval.
+**What it is.** A desktop app that runs a team of AI coding agents on your project. You talk to one agent, the Chief of Staff. It plans the work and puts tasks on a board; the other agents on your staff pick them up, each in a terminal of its own, and every result comes back to the board. ConsensFlow works through the coding agents you already use (Claude Code, Codex, Pi, Devin and Muse Code), with your own logins. It stores no passwords and needs no API keys. You can make every message between agents wait for your approval.
 
 **My part.** I wrote it. It started in July 2026 as a Claude Code plugin and a Pi extension that let your agent ask a different model for a second opinion. It’s now this desktop app.
 

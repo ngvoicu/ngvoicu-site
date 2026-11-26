@@ -4,14 +4,14 @@ description: "How an engineering team goes from using AI on the side to building
 canonical: https://ngvoicu.dev/becoming-an-ai-native-company/
 author: Gabriel Voicu
 published: 2026-07-04
-updated: 2026-11-04
+updated: 2026-11-26
 ---
 
 # Becoming an AI Native Company
 
 A practitioner’s guide, from my workshop
 
-By Gabriel Voicu, published 4 July 2026, updated 4 November 2026
+By Gabriel Voicu, published 4 July 2026, updated 26 November 2026
 
 Most companies use AI on the side. Someone opens a chatbot, pastes in a question and copies the answer back into their real work. That helps, but the work itself stays the same.
 
@@ -148,7 +148,7 @@ The full loop, with both review gates in place. One model writes the spec with y
 10. Archive\
     Spec Human
 
-Doing this by hand means switching tools and losing context, so I built **[ConsensFlow, a desktop app that runs a team of AI coding agents on your project](https://consensflow.ngvoicu.dev)**. You talk to one agent, the Chief of Staff. It plans the work and puts tasks on a board. Its staff of workers, advisors, reviewers and testers take the tasks, each in its own terminal of Claude Code, Codex, OpenCode, Pi or Devin, with your own logins. Put the author on one harness and the reviewers on others, and the review above runs in fresh sessions of different models, with the handoff done for you and every finding back on the board. Advisors and reviewers never change a file, and if you turn on approval, every message between agents waits for you to pass it on.
+Doing this by hand means switching tools and losing context, so I built **[ConsensFlow, a desktop app that runs a team of AI coding agents on your project](https://consensflow.ngvoicu.dev)**. You talk to one agent, the Chief of Staff. It plans the work and puts tasks on a board. Its staff of workers, advisors, reviewers and testers take the tasks, each in its own terminal of Claude Code, Codex, Pi, Devin or Muse Code, with your own logins. Put the author on one harness and the reviewers on others, and the review above runs in fresh sessions of different models, with the handoff done for you and every finding back on the board. Advisors and reviewers never change a file, and if you turn on approval, every message between agents waits for you to pass it on.
 
 ## Harnesses everywhere
 
